@@ -1,0 +1,25 @@
+<?php echo $this->doctype(); ?>
+
+<html lang="zh_TW">
+    <head>
+        <meta charset="utf-8">
+        <base href="<?php echo $this->ServerUrl() . $this->basePath('/')  ?>" />
+        <?php echo $this->headTitle('官方網站')->setSeparator(' - ')->setAutoEscape(false) ?>
+
+        <?php echo $this->headMeta()->appendName('viewport', 'width=device-width, initial-scale=1.0') ?>
+        
+        <?php echo $this->headLink(); ?>
+        <?php echo $this->headScript(); ?>
+
+    </head>
+    <body>
+        <div class="header">header</div>
+        <div class="container">
+            <?php echo $this->content; ?>
+
+        </div>
+        
+        
+        <?php /*�ЫO�d*/ echo $this->inlineScript() ?>
+    </body>
+</html>
