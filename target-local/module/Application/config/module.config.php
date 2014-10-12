@@ -68,21 +68,21 @@ return array(
             				),
             		),
             ),
-            'item_flavor' => array(
+            'item_list' => array(
             		'type' => 'Segment',
             		'options' => array(
-            				'route'    => '/f/item_flavor[/:id]',
+            				'route'    => '/f/item_list[/:id]',
             				'defaults' => array(
-            						'controller' => 'Application\Controller\ItemFlavor'
+            						'controller' => 'Application\Controller\ItemList'
             				),
             		),
             ),
-            'item_main' => array(
+            'item_info' => array(
             		'type' => 'Segment',
             		'options' => array(
-            				'route'    => '/f/item_main[/:id]',
+            				'route'    => '/f/item_info[/:id]',
             				'defaults' => array(
-            						'controller' => 'Application\Controller\ItemMain'
+            						'controller' => 'Application\Controller\ItemInfo'
             				),
             		),
             ),
@@ -108,8 +108,8 @@ return array(
             'Application\Controller\Index' => 'Application\Controller\IndexController',
             'Application\Controller\Adminer' => 'Application\Controller\AdminerController',
             'Application\Controller\ItemCategory' => 'Application\Controller\ItemCategoryController',
-            'Application\Controller\ItemFlavor' => 'Application\Controller\ItemFlavorController',
-            'Application\Controller\ItemMain' => 'Application\Controller\ItemMainController'
+            'Application\Controller\ItemList' => 'Application\Controller\ItemListController',
+            'Application\Controller\ItemInfo' => 'Application\Controller\ItemInfoController'
          ),
     ),
     'view_manager' => array(

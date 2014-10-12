@@ -14,11 +14,10 @@ class ItemCategoryController extends AbstractRestfulController
 		$db = new ItemCategory();
 		return new JsonModel($db->selectAll($this->params()->fromQuery()));
 	}
-	public function get($id){
+	public function options(){
 		$response = $this->getResponse();
-		$response->setStatusCode(200);
-		$db = new ItemCategory();	
-		return new JsonModel($db->get($id));
+		$response->getHeaders()->addHeaderLine('Allow','GET');
+		return $response;
 	}
 }
 ?>
