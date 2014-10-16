@@ -11,7 +11,8 @@ class ItemInfoController extends AbstractRestfulController
 		$response = $this->getResponse();
 		$response->setStatusCode(200);
 		$db = new ItemInfo();
-		return new JsonModel($db->get($id));
+		$server_url = $this->getRequest()->getUri()->getScheme() . '://' . $this->getRequest()->getUri()->getHost();
+		return new JsonModel($db->get($id,$server_url));
 	}
 }
 

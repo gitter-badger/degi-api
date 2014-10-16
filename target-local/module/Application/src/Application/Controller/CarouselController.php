@@ -3,18 +3,16 @@ namespace Application\Controller;
 
 use Zend\Mvc\Controller\AbstractRestfulController;
 use Zend\View\Model\JsonModel ;
-use Application\Model\ItemList;
+use Application\Model\Carousel;
 
-
-class ItemListController extends AbstractRestfulController
+class CarouselController extends AbstractRestfulController
 {
 	public function get($id){
 		$response = $this->getResponse();
 		$response->setStatusCode(200);
-		$db = new ItemList();
-		$query = $this->params()->fromQuery();
+		$db = new Carousel();
 		$server_url = $this->getRequest()->getUri()->getScheme() . '://' . $this->getRequest()->getUri()->getHost();
-		return new JsonModel($db->get($id,$server_url,$query));
+		return new JsonModel($db->get($id,$server_url));
 	}
 }
 ?>

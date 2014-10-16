@@ -50,7 +50,7 @@ return array(
                     ),
                 ),
             ),
-            'adminer' => array(
+            'adminer_f' => array(
             		'type' => 'Segment',
             		'options' => array(
             				'route'    => '/f/admin[/:id]',
@@ -68,7 +68,7 @@ return array(
             				),
             		),
             ),
-            'item_list' => array(
+            'item_list_f' => array(
             		'type' => 'Segment',
             		'options' => array(
             				'route'    => '/f/item_list[/:id]',
@@ -77,12 +77,30 @@ return array(
             				),
             		),
             ),
-            'item_info' => array(
+            'carousel' => array(
+            		'type' => 'Segment',
+            		'options' => array(
+            				'route'    => '/f/carousel[/:id]',
+            				'defaults' => array(
+            						'controller' => 'Application\Controller\Carousel'
+            				),
+            		),
+            ),
+            'item_info_f' => array(
             		'type' => 'Segment',
             		'options' => array(
             				'route'    => '/f/item_info[/:id]',
             				'defaults' => array(
             						'controller' => 'Application\Controller\ItemInfo'
+            				),
+            		),
+            ),
+            'popular_item' => array(
+            		'type' => 'Segment',
+            		'options' => array(
+            				'route'    => '/f/popular_item[/:id]',
+            				'defaults' => array(
+            						'controller' => 'Application\Controller\PopularItem'
             				),
             		),
             ),
@@ -109,7 +127,9 @@ return array(
             'Application\Controller\Adminer' => 'Application\Controller\AdminerController',
             'Application\Controller\ItemCategory' => 'Application\Controller\ItemCategoryController',
             'Application\Controller\ItemList' => 'Application\Controller\ItemListController',
-            'Application\Controller\ItemInfo' => 'Application\Controller\ItemInfoController'
+            'Application\Controller\Carousel' => 'Application\Controller\CarouselController',
+            'Application\Controller\ItemInfo' => 'Application\Controller\ItemInfoController',
+            'Application\Controller\PopularItem' => 'Application\Controller\PopularItemController'
          ),
     ),
     'view_manager' => array(

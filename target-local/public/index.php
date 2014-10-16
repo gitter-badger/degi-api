@@ -9,6 +9,7 @@ ini_set('date.timezone','Asia/Taipei');
 chdir(dirname(__DIR__));
 define('PUBLIC_PATH', __DIR__ );
 
+
 // Setup autoloading
 require 'init_autoloader.php';
 
