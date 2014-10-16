@@ -10,26 +10,13 @@
 return array(
     'router' => array(
         'routes' => array(
-            'home' => array(
-                'type' => 'Zend\Mvc\Router\Http\Literal',
-                'options' => array(
-                    'route'    => '/',
-                    'defaults' => array(
-                        'controller' => 'Application\Controller\Index',
-                        'action'     => 'index',
-                    ),
-                ),
-            ),
-            // The following is a route to simplify getting started creating
-            // new controllers and actions without needing to create a new
-            // module. Simply drop new controllers in, and you can access them
-            // using the path /application/:controller/:action
-            'application' => array(
+           
+            'administrator' => array(
                 'type'    => 'Literal',
                 'options' => array(
-                    'route'    => '/application',
+                    'route'    => '/administrator',
                     'defaults' => array(
-                        '__NAMESPACE__' => 'Application\Controller',
+                        '__NAMESPACE__' => 'Administrator\Controller',
                         'controller'    => 'Index',
                         'action'        => 'index',
                     ),
@@ -50,39 +37,30 @@ return array(
                     ),
                 ),
             ),
+            'auth' => array(
+            		'type' => 'Segment',
+            		'options' => array(
+            				'route'    => '/b/auth[/:id]',
+            				'defaults' => array(
+            						'controller' => 'Administrator\Controller\Auth'
+            				),
+            		),
+            ),
             'adminer' => array(
             		'type' => 'Segment',
             		'options' => array(
-            				'route'    => '/f/admin[/:id]',
+            				'route'    => '/b/admin[/:id]',
             				'defaults' => array(
-            						'controller' => 'Application\Controller\Adminer'
+            						'controller' => 'Administrator\Controller\Adminer'
             				),
             		),
             ),
-            'item_category_f' => array(
+            'item_category' => array(
             		'type' => 'Segment',
             		'options' => array(
-            				'route'    => '/f/item_category[/:id]',
+            				'route'    => '/b/item_category[/:id]',
             				'defaults' => array(
-            						'controller' => 'Application\Controller\ItemCategory'
-            				),
-            		),
-            ),
-            'item_list' => array(
-            		'type' => 'Segment',
-            		'options' => array(
-            				'route'    => '/f/item_list[/:id]',
-            				'defaults' => array(
-            						'controller' => 'Application\Controller\ItemList'
-            				),
-            		),
-            ),
-            'item_info' => array(
-            		'type' => 'Segment',
-            		'options' => array(
-            				'route'    => '/f/item_info[/:id]',
-            				'defaults' => array(
-            						'controller' => 'Application\Controller\ItemInfo'
+            						'controller' => 'Administrator\Controller\ItemCategory'
             				),
             		),
             ),
@@ -105,11 +83,10 @@ return array(
     ),
     'controllers' => array(
         'invokables' => array(
-            'Application\Controller\Index' => 'Application\Controller\IndexController',
-            'Application\Controller\Adminer' => 'Application\Controller\AdminerController',
-            'Application\Controller\ItemCategory' => 'Application\Controller\ItemCategoryController',
-            'Application\Controller\ItemList' => 'Application\Controller\ItemListController',
-            'Application\Controller\ItemInfo' => 'Application\Controller\ItemInfoController'
+            'Administrator\Controller\Index' => 'Administrator\Controller\IndexController',
+            'Administrator\Controller\Adminer' => 'Administrator\Controller\AdminerController',
+            'Administrator\Controller\ItemCategory' => 'Administrator\Controller\ItemCategoryController',
+            'Administrator\Controller\Auth' => 'Administrator\Controller\AuthController'
          ),
     ),
     'view_manager' => array(
@@ -121,7 +98,7 @@ return array(
         'exception_template'       => 'error/index',
         'template_map' => array(
             'layout/layout'           => __DIR__ . '/../view/layout/layout.phtml',
-            'application/index/index' => __DIR__ . '/../view/application/index/index.phtml',
+            'administrator/index/index' => __DIR__ . '/../view/administrator/index/index.phtml',
             'error/404'               => __DIR__ . '/../view/error/404.phtml',
             'error/index'             => __DIR__ . '/../view/error/index.phtml',
         ),

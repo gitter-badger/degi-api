@@ -44,7 +44,6 @@ class ItemList{
            				array_push($result_row, $if_id);
            			}
            		} 
-            
             }
 
             $result['success'] = true ;

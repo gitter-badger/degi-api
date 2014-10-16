@@ -2,7 +2,8 @@
 namespace Application\Model;
 use Application\Model\Table\ItemCategoryTable;
 
-class ItemCategory{
+class ItemCategory_f{
+	
 	public function __construct(){
 		$this->db = new ItemCategoryTable();
 	}
