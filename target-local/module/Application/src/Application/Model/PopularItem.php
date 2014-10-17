@@ -13,6 +13,8 @@ class PopularItem{
 			$select->where('pi_type='.$id);
 			$select->join('item_flavor','item_flavor.im_id = popular_item.im_id',array('if_id'));
 			$select->where('item_flavor.if_seq=1');	
+			$select->where('item_flavor.if_status=1');
+			$select->order('popular_item.pi_seq ASC');
 			$select->columns(array('pi_id','pi_type','pi_image','pi_title','pi_description','pi_seq'));
 			if(!empty($query['limit'])){ 
 				$select->limit((int)$query['limit']);

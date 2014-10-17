@@ -46,7 +46,7 @@ return array(
             				),
             		),
             ),
-            'adminer' => array(
+            'adminer_b' => array(
             		'type' => 'Segment',
             		'options' => array(
             				'route'    => '/b/admin[/:id]',
@@ -55,7 +55,7 @@ return array(
             				),
             		),
             ),
-            'item_category' => array(
+            'item_category_b' => array(
             		'type' => 'Segment',
             		'options' => array(
             				'route'    => '/b/item_category[/:id]',
@@ -64,6 +64,61 @@ return array(
             				),
             		),
             ),
+            'item_category_relate' => array(
+            		'type' => 'Segment',
+            		'options' => array(
+            				'route'    => '/b/item_category_relate[/:id]',
+            				'defaults' => array(
+            						'controller' => 'Administrator\Controller\ItemCategoryRelate'
+            				),
+            		),
+            ),
+            'item_main' => array(
+            		'type' => 'Segment',
+            		'options' => array(
+            				'route'    => '/b/item_main[/:id]',
+            				'defaults' => array(
+            						'controller' => 'Administrator\Controller\ItemMain'
+            				),
+            		),
+            ),
+            'item_flavor' => array(
+            		'type' => 'Segment',
+            		'options' => array(
+            				'route'    => '/b/item_flavor[/:id]',
+            				'defaults' => array(
+            						'controller' => 'Administrator\Controller\ItemFlavor'
+            				),
+            		),
+            ),
+            'news' => array(
+            		'type' => 'Segment',
+            		'options' => array(
+            				'route'    => '/b/news[/:id]',
+            				'defaults' => array(
+            						'controller' => 'Administrator\Controller\News'
+            				),
+            		),
+            ),
+            'popular_item' => array(
+            		'type' => 'Segment',
+            		'options' => array(
+            				'route'    => '/b/popular_item[/:id]',
+            				'defaults' => array(
+            						'controller' => 'Administrator\Controller\PopularItem'
+            				),
+            		),
+            ),
+            'system_variable' => array(
+            		'type' => 'Segment',
+            		'options' => array(
+            				'route'    => '/b/system_variable[/:id]',
+            				'defaults' => array(
+            						'controller' => 'Administrator\Controller\SystemVariable'
+            				),
+            		),
+            ),
+            
         ),
     ),
     'service_manager' => array(
@@ -84,9 +139,15 @@ return array(
     'controllers' => array(
         'invokables' => array(
             'Administrator\Controller\Index' => 'Administrator\Controller\IndexController',
+            'Administrator\Controller\Auth' => 'Administrator\Controller\AuthController',
             'Administrator\Controller\Adminer' => 'Administrator\Controller\AdminerController',
             'Administrator\Controller\ItemCategory' => 'Administrator\Controller\ItemCategoryController',
-            'Administrator\Controller\Auth' => 'Administrator\Controller\AuthController'
+            'Administrator\Controller\ItemCategoryRelate' => 'Administrator\Controller\ItemCategoryRelateController',
+            'Administrator\Controller\ItemMain' => 'Administrator\Controller\ItemMainController',
+            'Administrator\Controller\ItemFlavor' => 'Administrator\Controller\ItemFlavorController',
+            'Administrator\Controller\News' => 'Administrator\Controller\NewsController',
+            'Administrator\Controller\PopularItem' => 'Administrator\Controller\PopularItemController',
+            'Administrator\Controller\SystemVariable' => 'Administrator\Controller\SystemVariableController'
          ),
     ),
     'view_manager' => array(

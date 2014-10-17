@@ -21,27 +21,6 @@ class ItemCategory {
     
     public function update($data , $id){
         try {
-        	
-        	#檢查商品分類存在與否
-        	if( !empty($data['ic_type']) && !empty($data['ic_name']) ){
-	            $select = $this->db->getSql()->select();
-	            $select->where->notEqualTo('ic_id',$id)
-	                          ->equalTo('ic_type',$data['ic_type'])
-	                          ->equalTo('ic_name',$data['ic_name']);
-	            if( !empty($this->db->selectWith($select)->toArray() )){
-	            	return array('success'=>false, 'msg'=>'此商品分類已存在!');
-	            }
-        	}
-        	#檢查同類型同排序
-        	if( !empty($data['ic_type']) && !empty($data['ic_seq']) ){
-	            $select = $this->db->getSql()->select();
-	            $select->where->notEqualTo('ic_id',$id)
-	                          ->equalTo('ic_type',$data['ic_type'])
-					          ->equalTo('ic_seq',$data['ic_seq']);
-	            if( !empty($this->db->selectWith($select)->toArray() )){
-	            	return array('success'=>false, 'msg'=>'此類型同排序已存在商品分類,請選擇其他排序!');
-	            }
-        	}
             $this->db->update($data , array('ic_id'=>$id));
             return array('success'=>true , 'data'=> $data );
         }catch (\Exception $e){

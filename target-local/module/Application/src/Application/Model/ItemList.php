@@ -22,6 +22,9 @@ class ItemList{
 	   			$select->where('item_category.ic_id ='.$id);
    			}	
    			$select->where('item_flavor.if_status=1');
+   			$select->order('item_category.ic_seq ASC');
+   			$select->order('item_cate_rel.icr_seq ASC');
+   			$select->order('item_flavor.if_seq ASC');   			
 	   		$select->columns(array('if_id','if_name','if_cover','if_unit_price'));
 
    			$paginator = new Paginator(new DbSelect($select, $this->if_db->adapter));

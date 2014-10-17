@@ -4,9 +4,9 @@ namespace Administrator\Controller;
 use Zend\Mvc\Controller\AbstractRestfulController;
 use Zend\View\Model\JsonModel ;
 use Administrator\Model\Tool\InputCheck ;
-use Administrator\Model\ItemCategory;
+use Administrator\Model\ItemFlavor;
 
-class ItemCategoryController extends AbstractRestfulController
+class ItemFlavorController extends AbstractRestfulController
 {
     //resource
     //post
@@ -14,21 +14,12 @@ class ItemCategoryController extends AbstractRestfulController
     	$response = $this->getResponse();
     	$response->setStatusCode(200);
     	
-    	if( ! InputCheck::checkRequire(array('ic_type', 'ic_name', 'ic_seq', 'ic_status'),$data) ){
+    	if( ! InputCheck::checkRequire(array('im_id', 'if_name','if_cover','if_unit_price','if_seq','if_status'),$data) ){
     		return new JsonModel(array('success'=>false ,'msg'=>'遺漏參數'));
     	}
     	
-    	$ic = new ItemCategory();    	
-    	return new JsonModel($ic->insert($data));
-    }
-    
-    //get
-    public function getList(){
-        $response = $this->getResponse();
-        $response->setStatusCode(200);
-        
-        $ic = new ItemCategory();
-        return new JsonModel($ic->selectAll($this->params()->fromQuery()));
+    	$db = new ItemFlavor();    	
+    	return new JsonModel($db->insert($data));
     }
      
     //entity    
@@ -37,9 +28,8 @@ class ItemCategoryController extends AbstractRestfulController
         $response = $this->getResponse();
         $response->setStatusCode(200);
         
-        $ic = new ItemCategory();
-
-        return new JsonModel($ic->get($id));
+        $db = new ItemFlavor(); 
+        return new JsonModel($db->get($id));
     }
     
     //put
@@ -47,9 +37,8 @@ class ItemCategoryController extends AbstractRestfulController
         $response = $this->getResponse();
         $response->setStatusCode(200);
         
-        $ic = new ItemCategory();
-        
-        return new JsonModel(array('success'=>true , 'data'=> $ic->update($data,$id) ));
+        $db = new ItemFlavor();    
+        return new JsonModel(array('success'=>true , 'data'=> $db->update($data,$id) ));
     }
     
     //delete
@@ -57,9 +46,8 @@ class ItemCategoryController extends AbstractRestfulController
         $response = $this->getResponse();
         $response->setStatusCode(200);
         
-        $ic = new ItemCategory();
-
-        return new JsonModel($ic->delete($id));
+        $db = new ItemFlavor(); 
+        return new JsonModel($db->delete($id));
     }
     
     public function options(){

@@ -77,7 +77,7 @@ return array(
             				),
             		),
             ),
-            'carousel' => array(
+            'carousel_f' => array(
             		'type' => 'Segment',
             		'options' => array(
             				'route'    => '/f/carousel[/:id]',
@@ -95,7 +95,7 @@ return array(
             				),
             		),
             ),
-            'popular_item' => array(
+            'popular_item_f' => array(
             		'type' => 'Segment',
             		'options' => array(
             				'route'    => '/f/popular_item[/:id]',

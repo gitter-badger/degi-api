@@ -12,6 +12,7 @@ class ItemCategory{
         	$select = $this->db->getSql()->select();
         	$select->columns(array('ic_id','ic_name'));
         	$select->where('ic_type=1');
+        	$select->order('ic_seq ASC');
         	$outside_cate = $this->db->selectWith($select)->toArray();
         	$outside_cate_array = array();
         	       	
@@ -23,6 +24,7 @@ class ItemCategory{
         	$select = $this->db->getSql()->select();
         	$select->columns(array('ic_id','ic_name'));
         	$select->where('ic_type=2');
+        	$select->order('ic_seq ASC');        	 
         	$storeside_cate = $this->db->selectWith($select)->toArray();
         	$storeside_cate_array = array();
         	
