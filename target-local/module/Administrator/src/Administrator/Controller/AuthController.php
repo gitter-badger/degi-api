@@ -38,13 +38,6 @@ class AuthController extends AbstractRestfulController
         }
         return new JsonModel(array('success'=>true , 'data'=> $auth->data ));
     }
-
-    //put
-    public function replaceList($data){
-        $response = $this->getResponse();
-        $response->setStatusCode(404);
-        return new JsonModel(array('success'=>false , 'method'=>'put'));
-    }
     
     //delete
     public function deleteList(){    
@@ -52,34 +45,6 @@ class AuthController extends AbstractRestfulController
         $response->setStatusCode(200);
         $admin = new Admin();
         return new JsonModel($admin->logout());
-    }
-    //entity
-    
-    //get 
-    public function get($id){
-        $response = $this->getResponse();
-        $response->setStatusCode(404);
-        return new JsonModel(array('success'=>false , 'method'=>'get' , 'id'=>$id));
-    }
-    
-    //put
-    public function update($id , $data){
-        $response = $this->getResponse();
-        $response->setStatusCode(404);
-        return new JsonModel(array('success'=>false , 'method'=>'put' , 'id'=>$id , 'data'=>$data));
-    }
-    
-    //delete
-    public function delete($id){
-        $response = $this->getResponse();
-        $response->setStatusCode(404);
-        return new JsonModel(array('success'=>false , 'method'=>'delete' , 'id'=>$id));
-    }
-
-    public function options(){
-        $response = $this->getResponse();
-        $response->getHeaders()->addHeaderLine('Allow','GET,POST,PUT,DELETE');
-        return $response;
     }   
 }
 ?>

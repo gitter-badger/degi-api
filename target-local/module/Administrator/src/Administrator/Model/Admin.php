@@ -39,7 +39,7 @@ class Admin{
     }
     
     public function selectAll(){
-        return array('success'=>true , 'rows'=>$this->db->select()->toArray() );
+        return array('success'=>true , 'data'=>$this->db->select()->toArray() );
     }
     
     public function insert($data){

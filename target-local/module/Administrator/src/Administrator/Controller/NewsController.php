@@ -4,9 +4,9 @@ namespace Administrator\Controller;
 use Zend\Mvc\Controller\AbstractRestfulController;
 use Zend\View\Model\JsonModel ;
 use Administrator\Model\Tool\InputCheck ;
-use Administrator\Model\ItemCategoryRelate;
+use Administrator\Model\News;
 
-class ItemCategoryRelateController extends AbstractRestfulController
+class NewsController extends AbstractRestfulController
 {
     //resource
     //post
@@ -14,11 +14,11 @@ class ItemCategoryRelateController extends AbstractRestfulController
     	$response = $this->getResponse();
     	$response->setStatusCode(200);
     	
-    	if( ! InputCheck::checkRequire(array('im_id', 'ic_id', 'icr_seq'),$data) ){
+    	if( ! InputCheck::checkRequire(array('nm_title', 'nm_body', 'nm_publish_date'),$data) ){
     		return new JsonModel(array('success'=>false ,'msg'=>'遺漏參數'));
     	}
     	
-    	$db = new ItemCategoryRelate();    	
+    	$db = new News();  	
     	return new JsonModel($db->insert($data));
     }
     
@@ -27,7 +27,7 @@ class ItemCategoryRelateController extends AbstractRestfulController
         $response = $this->getResponse();
         $response->setStatusCode(200);
         
-        $db = new ItemCategoryRelate();
+        $db = new News;
         return new JsonModel($db->selectAll($this->params()->fromQuery()));
     }
      
@@ -37,7 +37,7 @@ class ItemCategoryRelateController extends AbstractRestfulController
         $response = $this->getResponse();
         $response->setStatusCode(200);
         
-        $db = new ItemCategoryRelate();
+        $db = new News;
         return new JsonModel($db->get($id));
     }
     
@@ -46,7 +46,7 @@ class ItemCategoryRelateController extends AbstractRestfulController
         $response = $this->getResponse();
         $response->setStatusCode(200);
         
-        $db = new ItemCategoryRelate();   
+        $db = new News;   
         return new JsonModel(array('success'=>true , 'data'=> $db->update($data,$id) ));
     }
     
@@ -55,7 +55,7 @@ class ItemCategoryRelateController extends AbstractRestfulController
         $response = $this->getResponse();
         $response->setStatusCode(200);
         
-        $db = new ItemCategoryRelate();
+        $db = new News;
         return new JsonModel($db->delete($id));
     }
     
