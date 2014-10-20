@@ -1,6 +1,7 @@
 eclipse.preferences.version=1
 encoding//module/Administrator=UTF-8
 encoding//module/Administrator/src/Administrator/Controller/AdminerController.php=UTF-8
+encoding//module/Application/src/Application/Controller/AuthController.php=UTF-8
 encoding//module/Application/src/Application/Model/ItemCategory.php=UTF-8
 encoding//module/Application/src/Application/Model/PopularItem.php=UTF-8
 encoding//module/Application/view/layout/layout.phtml=UTF-8

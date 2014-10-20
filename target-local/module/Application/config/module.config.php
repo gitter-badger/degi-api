@@ -50,12 +50,21 @@ return array(
                     ),
                 ),
             ),
-            'adminer_f' => array(
+            'auth_f' => array(
             		'type' => 'Segment',
             		'options' => array(
-            				'route'    => '/f/admin[/:id]',
+            				'route'    => '/f/auth[/:id]',
             				'defaults' => array(
-            						'controller' => 'Application\Controller\Adminer'
+            						'controller' => 'Application\Controller\Auth'
+            				),
+            		),
+            ),
+            'member_f' => array(
+            		'type' => 'Segment',
+            		'options' => array(
+            				'route'    => '/f/member[/:id]',
+            				'defaults' => array(
+            						'controller' => 'Application\Controller\Member'
             				),
             		),
             ),
@@ -124,7 +133,8 @@ return array(
     'controllers' => array(
         'invokables' => array(
             'Application\Controller\Index' => 'Application\Controller\IndexController',
-            'Application\Controller\Adminer' => 'Application\Controller\AdminerController',
+            'Application\Controller\Auth' => 'Application\Controller\AuthController',
+            'Application\Controller\Member' => 'Application\Controller\MemberController',
             'Application\Controller\ItemCategory' => 'Application\Controller\ItemCategoryController',
             'Application\Controller\ItemList' => 'Application\Controller\ItemListController',
             'Application\Controller\Carousel' => 'Application\Controller\CarouselController',
