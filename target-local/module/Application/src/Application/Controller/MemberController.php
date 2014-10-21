@@ -3,6 +3,7 @@ namespace Application\Controller;
 
 use Zend\Mvc\Controller\AbstractRestfulController;
 use Zend\View\Model\JsonModel ;
+use Administrator\Model\Tool\InputCheck ;
 use Application\Model\Member;
 
 class MemberController extends AbstractRestfulController
@@ -12,13 +13,10 @@ class MemberController extends AbstractRestfulController
     public function create($data){
     	$response = $this->getResponse();
     	$response->setStatusCode(200);
-    	
-    	if( empty($data['mm_email']) || empty($data['mm_password']) || empty($data['mm_repassword'])){
-    	    return new JsonModel(array('success'=> false , 'msg'=>'¿òº|Äæ¦ì'));
+    	if( ! InputCheck::checkRequire(array('mm_email', 'mm_password', 'mm_repassword'),$data) ){
+    		return new JsonModel(array('success'=>false ,'msg'=>'éºæ¼åƒæ•¸'));
     	}
-    	if( $data['mm_password'] != $data['mm_repassword']){
-    		return new JsonModel(array('success'=> false , 'msg'=>'¨â¦¸±K½X¿é¤J¤£¦P'));
-    	}
+   
     	$admin = new Member();
     	return new JsonModel($admin->insert($data));
     }   
@@ -34,12 +32,12 @@ class MemberController extends AbstractRestfulController
     }  
     //put
     public function update($id , $data){
-        $response = $this->getResponse();
-        $response->setStatusCode(200);
-        //Debug::dump($data);
-        $admin = new Member();
-        
-        return new JsonModel($admin->update($data,$id));
+    	$response = $this->getResponse();
+    	$response->setStatusCode(200);
+    
+    	$admin = new Member();
+    
+    	return new JsonModel(array('success'=>true , 'data'=> $admin->update($data,$id) ));
     }
     public function options(){
         $response = $this->getResponse();

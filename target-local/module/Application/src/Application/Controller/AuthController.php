@@ -11,12 +11,12 @@ class AuthController extends AbstractRestfulController
     	$response = $this->getResponse();
     	$response->setStatusCode(200);
     	//Debug::dump($data);
-    	$account = $data['mm_email'];
-    	$password = $data['mm_password'];
     	
-    	if( empty($account) || empty($password) ){
+    	if( empty($data['mm_email']) || empty($data['mm_password']) ){
     	    return new JsonModel(array('success'=>false , 'msg'=>'請輸入完整資訊' ));
     	}
+    	$account = $data['mm_email'];
+    	$password = $data['mm_password'];
     	
     	$member = new Member();
     	return new JsonModel($member->login($account, $password));

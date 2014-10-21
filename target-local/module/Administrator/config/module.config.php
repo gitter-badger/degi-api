@@ -37,7 +37,7 @@ return array(
                     ),
                 ),
             ),
-            'auth' => array(
+            'auth_b' => array(
             		'type' => 'Segment',
             		'options' => array(
             				'route'    => '/b/auth[/:id]',

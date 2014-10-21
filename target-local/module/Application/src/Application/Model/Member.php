@@ -2,7 +2,6 @@
 namespace Application\Model;
 use Application\Model\Table\MemberTable;
 use Application\Model\Tool\TokenHash;
-use Zend\Debug\Debug;
 
 class Member{
 	public $db = null ;
@@ -10,15 +9,14 @@ class Member{
 		$this->db = new MemberTable();
 	}
 	public function update($data , $id){
-		Debug::dump($data);
+		//Debug::dump($data);
 		try {
 			if( !empty($data['mm_password']) ){
 				if(empty($data['mm_repassword'])){
-					return array('success'=> false , 'msg'=>'¬°¿é¤J½T»{±K½X');
+					return array('success'=> false , 'msg'=>'æœªè¼¸å…¥ç¢ºèªå¯†ç¢¼');
 				}
 				if( $data['mm_password'] != $data['mm_repassword']){
-			
-					return array('success'=> false , 'msg'=>'¨â¦¸±K½X¿é¤J¤£¦P');
+					return array('success'=> false , 'msg'=>'å¯†ç¢¼å’Œç¢ºèªå¯†ç¢¼ä¸ç¬¦');
 				}
 				unset($data['mm_repassword']);
 				$data['mm_password'] = md5($data['mm_password']);
@@ -28,7 +26,7 @@ class Member{
 				$select->where->EqualTo('mm_email', $data['mm_email'])
 				              ->notEqualTo('mm_id',$id);
 				if( !empty($this->db->selectWith($select)->toArray() )){
-					return array('success'=>false, 'msg'=>'¦¹±b¸¹¤w³Q¨Ï¥Î!');
+					return array('success'=>false, 'msg'=>'æ­¤ä¿¡ç®±å·²è¢«ä½¿ç”¨');
 				}
 			}
 			$this->db->update($data , array('mm_id'=>$id));
@@ -39,26 +37,30 @@ class Member{
 	}
 
 	public function get($id){
-		return array('success'=>true , 'data'=> $this->db->select(array('mm_id'=>$id))->current());
+		try {
+			return array('success'=>true , 'data'=> $this->db->select(array('mm_id'=>$id))->current() );
+		}catch (\Exception $e){
+			return array('success'=>false , 'msg'=> $e->getMessage() );
+		}
 	}
 	
 	public function insert($data){
-		$data['mm_created'] = date('Y-m-d H:i:s');
-		$data['mm_password'] = md5($data['mm_password']);
-		$data['mm_status'] = 1;	
 		try {
+			if( $data['mm_password'] != $data['mm_repassword']){
+				return array('success'=> false , 'msg'=>'å¯†ç¢¼å’Œç¢ºèªå¯†ç¢¼ä¸ç¬¦');
+			}
 			$select = $this->db->getSql()->select();
 			$select->where->EqualTo('mm_email', $data['mm_email']);
 			if( !empty($this->db->selectWith($select)->toArray() )){
-				return array('success'=>false, 'msg'=>'¦¹«H½c¤w³Q¨Ï¥Î!');
+				return array('success'=>false, 'msg'=>'æ­¤ä¿¡ç®±å·²è¢«ä½¿ç”¨');
 			}
-			if( $this->db->insert($data) ) {
-				$data['mm_id'] = $this->db->getLastInsertValue() ;
-				return array('success'=>true , 'data'=> $data);
-			}else{
-				return array('success'=>false , 'msg'=> '·s¼W¹Lµ{µo¥Í¿ù»~');
-			}
-	
+			$data['mm_password'] = md5($data['mm_password']);
+			$data['mm_created'] = date('Y-m-d H:i:s');
+			$data['mm_status'] = 1;
+			unset($data['mm_repassword']);				
+			$this->db->insert($data);			
+			$data['mm_id'] = $this->db->getLastInsertValue() ;
+			return array('success'=>true , 'data'=> $data);
 		}catch (\Exception $e){
 			return array('success'=>false , 'msg'=> $e->getMessage() );
 		}
@@ -75,7 +77,7 @@ class Member{
 			}
 			return array('success'=>true , 'data'=> $rs ) ;
 		}else {
-			return array('success'=>false , 'msg'=> '§ä¤£¨ì±b¸¹¸ê®Æ');
+			return array('success'=>false , 'msg'=> 'å¸³è™Ÿå¯†ç¢¼éŒ¯èª¤');
 		}
 	}
 	
@@ -93,7 +95,7 @@ class Member{
 			unset($rs->mm_password);
 			return array('success'=>true, 'data'=> $rs ) ;
 		}else{
-			return array('success'=>false, 'msg'=>'¦¹access_token¤wµLªk¨Ï¥Î' ) ;
+			return array('success'=>false, 'msg'=>'æ­¤access_tokenç„¡æ³•ä½¿ç”¨' ) ;
 		}
 	}
 }
