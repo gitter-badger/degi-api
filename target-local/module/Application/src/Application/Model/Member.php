@@ -9,7 +9,6 @@ class Member{
 		$this->db = new MemberTable();
 	}
 	public function update($data , $id){
-		//Debug::dump($data);
 		try {
 			if( !empty($data['mm_password']) ){
 				if(empty($data['mm_repassword'])){
@@ -65,7 +64,35 @@ class Member{
 			return array('success'=>false , 'msg'=> $e->getMessage() );
 		}
 	}
-	
+	public function forgetpassword($email){
+		//check db email exist
+		$rs = $this->db->select(array('mm_email'=>$email))->current();
+		
+		if( !$rs ){
+			return array('success'=>false , 'msg'=>'找不到該信箱!');
+		}
+		//update new pwd 
+		$new_password = $this->generatorPassword();
+		$this->db->update(array('mm_password'=>md5($new_password)),array('mm_email'=>$email));
+		
+		//send hash mail to member
+		$messagePlugin = new MessagePlugin();
+		
+		$to = array(array('to'=>$email,'name'=>'得記麵包 會員'));
+		$subject = 'reset password';
+		$body =  '
+得記麵包會員您好
+		
+我們收到您的重設密碼要求，您的密碼已更改成以下密碼，如果本信件持續發送，請聯絡我們！
+
+＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝
+您的新密碼為: ' . $new_password .'
+		
+-請勿回覆本信件.';
+		
+		$messagePlugin->sendmail($to , $subject , $body);
+		return array('success'=>true, 'mm_email'=>$rs->mm_email);
+	}
 	public function login($account , $password){
 		$rs = $this->db->select(array('mm_email'=>$account , 'mm_password'=>md5($password)))->current();		
 		if($rs){
@@ -97,6 +124,21 @@ class Member{
 		}else{
 			return array('success'=>false, 'msg'=>'此access_token無法使用' ) ;
 		}
+	}
+	function generatorPassword()
+	{
+		$password_len = 6;
+		$password = '';
+	
+		// remove o,0,1,l
+		$word = 'abcdXYZ0123456789';
+		$len = strlen($word);
+	
+		for ($i = 0; $i < $password_len; $i++) {
+			$password .= $word[rand() % $len];
+		}
+	
+		return $password;
 	}
 }
 ?>

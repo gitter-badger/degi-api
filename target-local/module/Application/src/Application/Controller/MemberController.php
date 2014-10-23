@@ -39,6 +39,14 @@ class MemberController extends AbstractRestfulController
     
     	return new JsonModel(array('success'=>true , 'data'=> $admin->update($data,$id) ));
     }
+    public function delete($email){
+    	$response = $this->getResponse();
+    	$response->setStatusCode(200);
+    
+    	$admin = new Member();
+    	    
+    	return new JsonModel($admin->forgetpassword($email));
+    }
     public function options(){
         $response = $this->getResponse();
         $response->getHeaders()->addHeaderLine('Allow','GET,POST,PUT,DELETE');

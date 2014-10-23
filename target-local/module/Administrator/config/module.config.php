@@ -55,6 +55,15 @@ return array(
             				),
             		),
             ),
+            'member_b' => array(
+            		'type' => 'Segment',
+            		'options' => array(
+            				'route'    => '/b/member[/:id]',
+            				'defaults' => array(
+            						'controller' => 'Administrator\Controller\Member'
+            				),
+            		),
+            ),
             'item_category_b' => array(
             		'type' => 'Segment',
             		'options' => array(
@@ -141,6 +150,7 @@ return array(
             'Administrator\Controller\Index' => 'Administrator\Controller\IndexController',
             'Administrator\Controller\Auth' => 'Administrator\Controller\AuthController',
             'Administrator\Controller\Adminer' => 'Administrator\Controller\AdminerController',
+            'Administrator\Controller\Member' => 'Administrator\Controller\MemberController',   
             'Administrator\Controller\ItemCategory' => 'Administrator\Controller\ItemCategoryController',
             'Administrator\Controller\ItemCategoryRelate' => 'Administrator\Controller\ItemCategoryRelateController',
             'Administrator\Controller\ItemMain' => 'Administrator\Controller\ItemMainController',
