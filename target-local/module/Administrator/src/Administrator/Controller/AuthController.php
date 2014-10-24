@@ -46,5 +46,10 @@ class AuthController extends AbstractRestfulController
         $admin = new Admin();
         return new JsonModel($admin->logout());
     }   
+    public function options(){
+    	$response = $this->getResponse();
+    	$response->getHeaders()->addHeaderLine('Allow','GET,POST,PUT,DELETE');
+    	return $response;
+    }
 }
 ?>
