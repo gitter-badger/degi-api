@@ -1,0 +1,63 @@
+{
+    "type": "Ext.app.ViewModel",
+    "reference": {
+        "name": "items",
+        "type": "array"
+    },
+    "codeClass": null,
+    "userConfig": {
+        "designer|userAlias": "productgridpanel",
+        "designer|userClassName": "ProductGridPanelViewModel"
+    },
+    "designerId": "d46a62e1-57de-4acb-a79f-2968979443aa",
+    "cn": [
+        {
+            "type": "jsonstore",
+            "reference": {
+                "name": "stores",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "autoLoad": true,
+                "autoSync": true,
+                "groupDir": null,
+                "groupField": null,
+                "model": "ProductModel",
+                "name": "ProductStore"
+            },
+            "name": "MyJsonStore",
+            "designerId": "cbfc0413-b95a-4ec6-95ed-f6a110ec0582",
+            "cn": [
+                {
+                    "type": "Ext.data.proxy.Ajax",
+                    "reference": {
+                        "name": "proxy",
+                        "type": "object"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "url": "http://dev.finpo.com.tw/posh/public/b/product"
+                    },
+                    "name": "MyAjaxProxy",
+                    "designerId": "5e9f76ae-2b3f-444d-8c86-7a9aa6b97361",
+                    "cn": [
+                        {
+                            "type": "Ext.data.reader.Json",
+                            "reference": {
+                                "name": "reader",
+                                "type": "object"
+                            },
+                            "codeClass": null,
+                            "userConfig": {
+                                "rootProperty": "rows"
+                            },
+                            "name": "MyJsonReader",
+                            "designerId": "1dc8812c-7840-48e0-8aa4-eb68fb75bfd5"
+                        }
+                    ]
+                }
+            ]
+        }
+    ]
+}

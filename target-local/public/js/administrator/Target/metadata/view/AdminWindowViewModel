@@ -1,0 +1,13 @@
+{
+    "type": "Ext.app.ViewModel",
+    "reference": {
+        "name": "items",
+        "type": "array"
+    },
+    "codeClass": null,
+    "userConfig": {
+        "designer|userAlias": "adminwindow",
+        "designer|userClassName": "AdminWindowViewModel"
+    },
+    "designerId": "3c3591f4-67fc-4883-a17c-7c74781aafcd"
+}

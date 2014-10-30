@@ -1,0 +1,13 @@
+{
+    "type": "Ext.app.ViewController",
+    "reference": {
+        "name": "items",
+        "type": "array"
+    },
+    "codeClass": null,
+    "userConfig": {
+        "designer|userAlias": "orderwindow",
+        "designer|userClassName": "OrderWindowViewController"
+    },
+    "designerId": "8ced4ba2-8460-4fb7-abf9-265f762c48ad"
+}

@@ -1,0 +1,288 @@
+{
+    "type": "Ext.grid.Panel",
+    "reference": {
+        "name": "items",
+        "type": "array"
+    },
+    "codeClass": null,
+    "userConfig": {
+        "designer|userAlias": "itemcategorygridpanel",
+        "designer|userClassName": "ItemCategoryGridPanel",
+        "height": null,
+        "id": "itemcategorygridpanel",
+        "store": [
+            "{ItemCategoryStore}"
+        ],
+        "title": "My Grid Panel",
+        "width": null
+    },
+    "name": "MyGridPanel",
+    "configAlternates": {
+        "store": "binding"
+    },
+    "designerId": "a0d6e8ac-f435-4e63-a059-ad78c1aafce9",
+    "viewControllerInstanceId": "abac741b-51d7-4e46-bd89-6374b460b522",
+    "viewModelInstanceId": "50d2e5df-efe2-48ff-877e-d977f934ac97",
+    "cn": [
+        {
+            "type": "Ext.toolbar.Toolbar",
+            "reference": {
+                "name": "dockedItems",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "dock": "top"
+            },
+            "name": "MyToolbar",
+            "designerId": "7d40427f-9454-4715-acf8-d96cbad8cad0",
+            "cn": [
+                {
+                    "type": "Ext.button.Button",
+                    "reference": {
+                        "name": "items",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "layout|flex": null,
+                        "text": "功能"
+                    },
+                    "name": "MyButton6",
+                    "designerId": "1398779d-5d12-44bd-926d-81254dbfb2fc",
+                    "cn": [
+                        {
+                            "type": "Ext.menu.Menu",
+                            "reference": {
+                                "name": "menu",
+                                "type": "object"
+                            },
+                            "codeClass": null,
+                            "name": "MyMenu",
+                            "designerId": "7c3f3e4c-ef18-453b-ad24-5c5e61d28b1c",
+                            "cn": [
+                                {
+                                    "type": "Ext.menu.Item",
+                                    "reference": {
+                                        "name": "items",
+                                        "type": "array"
+                                    },
+                                    "codeClass": null,
+                                    "userConfig": {
+                                        "text": "新增"
+                                    },
+                                    "name": "MyMenuItem",
+                                    "designerId": "2bd8670e-505f-4dcd-b477-7a161c643808"
+                                },
+                                {
+                                    "type": "Ext.menu.Item",
+                                    "reference": {
+                                        "name": "items",
+                                        "type": "array"
+                                    },
+                                    "codeClass": null,
+                                    "userConfig": {
+                                        "text": "修改"
+                                    },
+                                    "name": "MyMenuItem1",
+                                    "designerId": "bb0aac38-e15f-4e6b-a064-56ca9ca4143b"
+                                },
+                                {
+                                    "type": "Ext.menu.Item",
+                                    "reference": {
+                                        "name": "items",
+                                        "type": "array"
+                                    },
+                                    "codeClass": null,
+                                    "userConfig": {
+                                        "text": "停用"
+                                    },
+                                    "name": "MyMenuItem2",
+                                    "designerId": "637ff2f7-2aa3-4660-9aff-db1f08d87902"
+                                }
+                            ]
+                        }
+                    ]
+                },
+                {
+                    "type": "Ext.button.Button",
+                    "reference": {
+                        "name": "items",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "layout|flex": null,
+                        "text": "商品選取"
+                    },
+                    "name": "MyButton13",
+                    "designerId": "00216e63-8a4f-4b1c-aefd-e01baba128fa"
+                }
+            ]
+        },
+        {
+            "type": "Ext.selection.CheckboxModel",
+            "reference": {
+                "name": "selModel",
+                "type": "object"
+            },
+            "codeClass": null,
+            "name": "MyCheckboxSelectionModel",
+            "designerId": "4c056242-24c5-4d25-b0e6-c9f894eabc41"
+        },
+        {
+            "type": "Ext.grid.View",
+            "reference": {
+                "name": "viewConfig",
+                "type": "object"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "id": "itemCategoryGrid"
+            },
+            "name": "MyGridView1",
+            "designerId": "16f23642-e31b-48e7-b682-032dfb0402ff"
+        },
+        {
+            "type": "Ext.grid.column.Column",
+            "reference": {
+                "name": "columns",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "dataIndex": "ic_name",
+                "flex": 1,
+                "text": "名稱"
+            },
+            "name": "MyColumn10",
+            "designerId": "d280d618-07ef-42c4-b31c-30c3cf17d097"
+        },
+        {
+            "type": "Ext.grid.column.Column",
+            "reference": {
+                "name": "columns",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "dataIndex": "ic_type",
+                "flex": 1,
+                "text": "類型"
+            },
+            "name": "MyColumn3",
+            "designerId": "6c76042c-f847-4eda-ba34-f39cba7024e4",
+            "cn": [
+                {
+                    "type": "fixedfunction",
+                    "reference": {
+                        "name": "items",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "designer|params": [
+                            "value",
+                            "metaData",
+                            "record",
+                            "rowIndex",
+                            "colIndex",
+                            "store",
+                            "view"
+                        ],
+                        "fn": "renderer",
+                        "implHandler": [
+                            "if( value == 1 ){",
+                            "    return '宅配商品';",
+                            "}else if( value == 2 ){",
+                            "    return '店面商品';",
+                            "}else{",
+                            "    return '未定義';",
+                            "}"
+                        ]
+                    },
+                    "name": "renderer",
+                    "designerId": "3aaeb4b7-8b1b-4f9e-8cd8-4412ba30b3c5"
+                }
+            ]
+        },
+        {
+            "type": "Ext.grid.column.Column",
+            "reference": {
+                "name": "columns",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "dataIndex": "ic_seq",
+                "flex": 0.5,
+                "text": "排序"
+            },
+            "name": "MyColumn11",
+            "designerId": "9abd0da9-583f-426f-a848-2de511ae0f65"
+        },
+        {
+            "type": "Ext.grid.column.Column",
+            "reference": {
+                "name": "columns",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "dataIndex": "ic_status",
+                "flex": 0.5,
+                "text": "狀態"
+            },
+            "name": "MyColumn12",
+            "designerId": "4cf057ea-1fce-4ed1-bb26-7db6e48309cd",
+            "cn": [
+                {
+                    "type": "fixedfunction",
+                    "reference": {
+                        "name": "items",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "designer|params": [
+                            "value",
+                            "metaData",
+                            "record",
+                            "rowIndex",
+                            "colIndex",
+                            "store",
+                            "view"
+                        ],
+                        "fn": "renderer",
+                        "implHandler": [
+                            "if( value == 1 ){",
+                            "    return '上架';",
+                            "}else if( value == 2 ){",
+                            "    return '下架';",
+                            "}else{",
+                            "    return '未定義';",
+                            "}"
+                        ]
+                    },
+                    "name": "renderer",
+                    "designerId": "51b96aad-1a09-4be2-bd51-9ce9562baff6"
+                }
+            ]
+        },
+        {
+            "type": "Ext.grid.column.Column",
+            "reference": {
+                "name": "columns",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "dataIndex": "ic_modified",
+                "flex": 1,
+                "text": "最後修改"
+            },
+            "name": "MyColumn14",
+            "designerId": "3b30ff5d-6842-499d-a13e-5a4b8fec45d2"
+        }
+    ]
+}

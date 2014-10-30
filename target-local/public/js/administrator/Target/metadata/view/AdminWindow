@@ -1,0 +1,376 @@
+{
+    "type": "Ext.window.Window",
+    "reference": {
+        "name": "items",
+        "type": "array"
+    },
+    "codeClass": null,
+    "userConfig": {
+        "designer|userAlias": "adminwindow",
+        "designer|userClassName": "AdminWindow",
+        "height": 240,
+        "id": "adminWindow",
+        "modal": true,
+        "title": "My Window",
+        "width": 431
+    },
+    "name": "MyWindow",
+    "designerId": "9fd306cb-3fe6-4e87-a4f3-084e6c6dfb33",
+    "viewControllerInstanceId": "ed0fa41d-928c-402b-afad-9c0ed5ef6033",
+    "viewModelInstanceId": "3c3591f4-67fc-4883-a17c-7c74781aafcd",
+    "cn": [
+        {
+            "type": "Ext.form.field.Hidden",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "fieldLabel": null,
+                "id": "a_id",
+                "name": "a_id"
+            },
+            "name": "MyHiddenField",
+            "designerId": "04e73268-2f07-4703-8b71-91b7aefdde35"
+        },
+        {
+            "type": "Ext.form.field.Hidden",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "fieldLabel": null,
+                "id": "a_passwordTemp"
+            },
+            "name": "MyHiddenField1",
+            "designerId": "f2af908c-9d6b-412a-9f1a-192920759553"
+        },
+        {
+            "type": "Ext.form.Panel",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "bodyPadding": "20 0 0 0 ",
+                "height": null,
+                "id": "adminForm",
+                "title": null
+            },
+            "name": "MyForm",
+            "designerId": "82fd9c07-91ee-4731-b284-71f2c24a05b9",
+            "cn": [
+                {
+                    "type": "Ext.form.field.Text",
+                    "reference": {
+                        "name": "items",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "fieldLabel": "帳號",
+                        "labelAlign": "right",
+                        "layout|anchor": "80%",
+                        "name": "a_account",
+                        "width": 356
+                    },
+                    "name": "MyTextField",
+                    "designerId": "f2733d48-6b7d-4901-a606-7f99f06254b7"
+                },
+                {
+                    "type": "Ext.form.field.Text",
+                    "reference": {
+                        "name": "items",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "fieldLabel": "密碼",
+                        "id": "a_password",
+                        "inputType": "password",
+                        "labelAlign": "right",
+                        "layout|anchor": "80%",
+                        "name": "a_password"
+                    },
+                    "name": "MyTextField1",
+                    "designerId": "9b45bc52-b13d-491a-9f5b-8a089dbc17d7"
+                },
+                {
+                    "type": "Ext.form.field.Text",
+                    "reference": {
+                        "name": "items",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "fieldLabel": "顯示名稱",
+                        "labelAlign": "right",
+                        "layout|anchor": "80%",
+                        "name": "a_displayname"
+                    },
+                    "name": "MyTextField2",
+                    "designerId": "894061cd-8099-4485-a31f-0bbc5a11ad6c"
+                },
+                {
+                    "type": "Ext.form.field.Text",
+                    "reference": {
+                        "name": "items",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "fieldLabel": "E-mail",
+                        "labelAlign": "right",
+                        "layout|anchor": "80%",
+                        "name": "a_email",
+                        "width": null
+                    },
+                    "name": "MyTextField3",
+                    "designerId": "db6ad9a2-4fe3-4fc6-bfd8-0f97b25111a4"
+                },
+                {
+                    "type": "Ext.form.RadioGroup",
+                    "reference": {
+                        "name": "items",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "allowBlank": false,
+                        "container|autoFlex": false,
+                        "fieldLabel": "狀態",
+                        "labelAlign": "right",
+                        "margin": null
+                    },
+                    "name": "MyRadioGroup",
+                    "designerId": "75e0fe38-ce20-4785-a94c-13d359cf978c",
+                    "cn": [
+                        {
+                            "type": "Ext.form.field.Radio",
+                            "reference": {
+                                "name": "items",
+                                "type": "array"
+                            },
+                            "codeClass": null,
+                            "userConfig": {
+                                "boxLabel": "啟用",
+                                "fieldLabel": null,
+                                "id": "a_status_on",
+                                "inputValue": "1",
+                                "name": "a_status"
+                            },
+                            "name": "MyRadio",
+                            "designerId": "2a1c68ce-0e7f-4e54-89a6-26eb46b75b0b"
+                        },
+                        {
+                            "type": "Ext.form.field.Radio",
+                            "reference": {
+                                "name": "items",
+                                "type": "array"
+                            },
+                            "codeClass": null,
+                            "userConfig": {
+                                "boxLabel": "停用",
+                                "fieldLabel": null,
+                                "id": "a_status_off",
+                                "inputValue": "2",
+                                "name": "a_status"
+                            },
+                            "name": "MyRadio1",
+                            "designerId": "54629852-bbe0-45b1-a7b9-d524156b0218"
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "type": "Ext.toolbar.Toolbar",
+            "reference": {
+                "name": "dockedItems",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "container|pack": "end",
+                "dock": "bottom",
+                "height": 41
+            },
+            "name": "MyToolbar1",
+            "designerId": "671db4b3-35bf-4416-81f6-33cfa2d94ae9",
+            "cn": [
+                {
+                    "type": "Ext.button.Button",
+                    "reference": {
+                        "name": "items",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "id": "adminAddBtn",
+                        "layout|flex": null,
+                        "text": "新增",
+                        "width": 412
+                    },
+                    "name": "MyButton2",
+                    "designerId": "d25eaf49-a7c6-45c8-805e-e5fe89d48bdf",
+                    "cn": [
+                        {
+                            "type": "basiceventbinding",
+                            "reference": {
+                                "name": "listeners",
+                                "type": "array"
+                            },
+                            "codeClass": null,
+                            "userConfig": {
+                                "fn": "onAdminAddBtnClick",
+                                "implHandler": [
+                                    "var form = Ext.getCmp('adminForm').getForm();",
+                                    "",
+                                    "if(form.isValid()){",
+                                    "    form.submit({",
+                                    "",
+                                    "        waitTitle:'訊息',",
+                                    "        waitMsg:'新增資料中',",
+                                    "        url:'http://dev.finpo.com.tw/degi-api/target-local/public/b/admin',",
+                                    "",
+                                    "        success:function(form,action){",
+                                    "",
+                                    "            var store  = Ext.getCmp('admingridpanel').getViewModel().getStore('AdminStore');",
+                                    "            store.proxy.url='http://dev.finpo.com.tw/degi-api/target-local/public/b/admin';",
+                                    "            store.load();",
+                                    "            var window = Ext.getCmp('adminWindow');",
+                                    "            window.close();",
+                                    "            form.reset();",
+                                    "            Ext.Msg.alert('訊息','管理者新增成功');",
+                                    "",
+                                    "        },",
+                                    "        failure:function(form,action){",
+                                    "",
+                                    "           Ext.Msg.alert('訊息','管理者新增失敗');",
+                                    "",
+                                    "        }",
+                                    "",
+                                    "    });",
+                                    "}"
+                                ],
+                                "name": "click",
+                                "scope": "me"
+                            },
+                            "name": "onAdminAddBtnClick",
+                            "designerId": "86803eee-8284-4f76-a5fa-5fec8d5f0b75"
+                        }
+                    ]
+                },
+                {
+                    "type": "Ext.button.Button",
+                    "reference": {
+                        "name": "items",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "id": "adminUpdateBtn",
+                        "layout|flex": null,
+                        "text": "修改",
+                        "width": 413
+                    },
+                    "name": "MyButton3",
+                    "designerId": "b71be6f0-5832-4eb8-9511-af136b94cc65",
+                    "cn": [
+                        {
+                            "type": "basiceventbinding",
+                            "reference": {
+                                "name": "listeners",
+                                "type": "array"
+                            },
+                            "codeClass": null,
+                            "userConfig": {
+                                "fn": "onAdminUpdateBtnClick",
+                                "implHandler": [
+                                    "var form = Ext.getCmp('adminForm').getForm();",
+                                    "",
+                                    "if(form.isValid()){",
+                                    "    var aId = Ext.getCmp('a_id').getValue();",
+                                    "    var aPassword = Ext.getCmp('a_password').getValue();",
+                                    "    var aPasswordTemp = Ext.getCmp('a_passwordTemp').getValue();",
+                                    "",
+                                    "    var aStatusOn = Ext.getCmp('a_status_on').getValue();",
+                                    "    var aStatusOff = Ext.getCmp('a_status_off').getValue();",
+                                    "    var aStatus = 0;",
+                                    "    if(aStatusOn === true && aStatusOff === false){",
+                                    "        aStatus = 1;",
+                                    "    }else if(aStatusOn === false && aStatusOff === true){",
+                                    "        aStatus = 2;",
+                                    "    }else{",
+                                    "        aStatus = 2;",
+                                    "    }",
+                                    "",
+                                    "    if(aPassword === aPasswordTemp){",
+                                    "        Ext.Ajax.request({",
+                                    "            method: 'PUT',",
+                                    "            url:'http://dev.finpo.com.tw/degi-api/target-local/public/b/admin/'+aId,",
+                                    "",
+                                    "            params: {",
+                                    "                a_account: form.findField('a_account').getValue(),",
+                                    "                a_email: form.findField('a_email').getValue(),",
+                                    "                a_displayname: form.findField('a_displayname').getValue(),",
+                                    "                a_status: aStatus",
+                                    "            },",
+                                    "            success: function(response, options){",
+                                    "                var obj = Ext.JSON.decode(response.responseText);",
+                                    "                var store  = Ext.getCmp('admingridpanel').getViewModel().getStore('AdminStore');",
+                                    "                store.proxy.url='http://dev.finpo.com.tw/degi-api/target-local/public/b/admin';",
+                                    "                store.load();",
+                                    "",
+                                    "                form.reset();",
+                                    "                Ext.Msg.alert('訊息','管理者修改成功', function(){",
+                                    "                    var window = Ext.getCmp('adminWindow');",
+                                    "                    window.close();",
+                                    "                });",
+                                    "            }",
+                                    "        });",
+                                    "    }else{",
+                                    "        form.submit({",
+                                    "            method: 'PUT',",
+                                    "            waitTitle:'訊息',",
+                                    "            waitMsg:'修改資料中',",
+                                    "            url:'http://dev.finpo.com.tw/degi-api/target-local/public/b/admin/'+aId,",
+                                    "",
+                                    "            success:function(form,action){",
+                                    "",
+                                    "                var store  = Ext.getCmp('admingridpanel').getViewModel().getStore('AdminStore');",
+                                    "                store.proxy.url='http://dev.finpo.com.tw/degi-api/target-local/public/b/admin';",
+                                    "                store.load();",
+                                    "",
+                                    "                form.reset();",
+                                    "                Ext.Msg.alert('訊息','管理者修改成功', function(){",
+                                    "                    var window = Ext.getCmp('adminWindow');",
+                                    "                    window.close();",
+                                    "                });",
+                                    "",
+                                    "            },",
+                                    "            failure:function(form,action){",
+                                    "                Ext.Msg.alert('訊息','管理者修改失敗');",
+                                    "            }",
+                                    "        });",
+                                    "",
+                                    "    }",
+                                    "",
+                                    "}"
+                                ],
+                                "name": "click",
+                                "scope": "me"
+                            },
+                            "name": "onAdminUpdateBtnClick",
+                            "designerId": "e2a05bf5-1dff-4fdf-8bba-579f0622f63c"
+                        }
+                    ]
+                }
+            ]
+        }
+    ]
+}

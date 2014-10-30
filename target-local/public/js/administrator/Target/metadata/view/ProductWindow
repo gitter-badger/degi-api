@@ -1,0 +1,293 @@
+{
+    "type": "Ext.window.Window",
+    "reference": {
+        "name": "items",
+        "type": "array"
+    },
+    "codeClass": null,
+    "userConfig": {
+        "designer|userAlias": "productwindow",
+        "designer|userClassName": "ProductWindow",
+        "height": 250,
+        "id": "productwindow",
+        "title": "My Window",
+        "width": 400
+    },
+    "name": "MyWindow",
+    "designerId": "25c3b06d-670e-46ef-9a81-285d0a6da395",
+    "viewControllerInstanceId": "d02381d7-6f2f-47f8-a450-33a993cfe827",
+    "viewModelInstanceId": "82f024fa-4423-4a1f-9f49-2b4caede6f9a",
+    "cn": [
+        {
+            "type": "Ext.form.Panel",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "bodyPadding": 10,
+                "id": "productForm",
+                "title": ""
+            },
+            "name": "MyForm1",
+            "designerId": "a8264528-9228-4c41-876e-3f7ae8958d54",
+            "cn": [
+                {
+                    "type": "Ext.form.field.Hidden",
+                    "reference": {
+                        "name": "items",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "fieldLabel": "Label",
+                        "id": "p_id",
+                        "layout|anchor": "100%",
+                        "name": "p_id"
+                    },
+                    "name": "MyHiddenField1",
+                    "designerId": "c1f3eac9-e970-4d76-b8e5-e4bc28ffa12f"
+                },
+                {
+                    "type": "Ext.form.field.Text",
+                    "reference": {
+                        "name": "items",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "fieldLabel": "名稱",
+                        "layout|anchor": ".8",
+                        "name": "p_name"
+                    },
+                    "name": "MyTextField19",
+                    "designerId": "d528b277-30ca-4491-8098-277a0f03b3fd"
+                },
+                {
+                    "type": "Ext.form.field.Number",
+                    "reference": {
+                        "name": "items",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "fieldLabel": "價格",
+                        "layout|anchor": ".8",
+                        "name": "p_price"
+                    },
+                    "name": "MyNumberField",
+                    "designerId": "f9911146-e25e-4f13-8f35-b1e9a1c35ed3"
+                },
+                {
+                    "type": "Ext.form.field.Number",
+                    "reference": {
+                        "name": "items",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "fieldLabel": "循環繳費次數",
+                        "layout|anchor": ".8",
+                        "name": "p_year"
+                    },
+                    "name": "MyNumberField1",
+                    "designerId": "d8a14ddd-7942-4b98-87d1-f1e40bf95e06"
+                },
+                {
+                    "type": "Ext.form.RadioGroup",
+                    "reference": {
+                        "name": "items",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "fieldLabel": "啟／停用",
+                        "layout|anchor": ".8",
+                        "width": null
+                    },
+                    "name": "MyRadioGroup2",
+                    "designerId": "18a27121-ddd7-4ffe-a0d1-ebcfe56c6ee4",
+                    "cn": [
+                        {
+                            "type": "Ext.form.field.Radio",
+                            "reference": {
+                                "name": "items",
+                                "type": "array"
+                            },
+                            "codeClass": null,
+                            "userConfig": {
+                                "boxLabel": "啟用",
+                                "fieldLabel": null,
+                                "inputValue": "open",
+                                "name": "p_status"
+                            },
+                            "name": "MyRadio",
+                            "designerId": "60652161-0a44-4eae-a9ce-cb61f23c6665"
+                        },
+                        {
+                            "type": "Ext.form.field.Radio",
+                            "reference": {
+                                "name": "items",
+                                "type": "array"
+                            },
+                            "codeClass": null,
+                            "userConfig": {
+                                "boxLabel": "停用",
+                                "fieldLabel": null,
+                                "inputValue": "close",
+                                "name": "p_status"
+                            },
+                            "name": "MyRadio1",
+                            "designerId": "5f519f4e-2ef4-4d44-842f-2c67949a7b4a"
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "type": "Ext.toolbar.Toolbar",
+            "reference": {
+                "name": "dockedItems",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "container|pack": "end",
+                "dock": "bottom"
+            },
+            "name": "MyToolbar1",
+            "designerId": "a426be7c-0f37-445f-b242-1400a0b59e32",
+            "cn": [
+                {
+                    "type": "Ext.button.Button",
+                    "reference": {
+                        "name": "items",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "id": "productAddBtn",
+                        "layout|flex": null,
+                        "text": "新增"
+                    },
+                    "name": "MyButton7",
+                    "designerId": "e065b709-dfad-4e7d-bc74-00dbfee11ab4",
+                    "cn": [
+                        {
+                            "type": "basiceventbinding",
+                            "reference": {
+                                "name": "listeners",
+                                "type": "array"
+                            },
+                            "codeClass": null,
+                            "userConfig": {
+                                "fn": "onProductAddBtnClick",
+                                "implHandler": [
+                                    "var form = Ext.getCmp('productForm').getForm();",
+                                    "",
+                                    "if(form.isValid()){",
+                                    "",
+                                    "    form.submit({",
+                                    "",
+                                    "        waitTitle:'訊息',",
+                                    "        waitMsg:'新增資料中',",
+                                    "        url:'http://dev.finpo.com.tw/posh/public/b/product',",
+                                    "",
+                                    "        success:function(form,action){",
+                                    "",
+                                    "            var store  = Ext.getCmp('productgridpanel').getViewModel().getStore('ProductStore');",
+                                    "            store.proxy.url='http://dev.finpo.com.tw/posh/public/b/product';",
+                                    "            store.load();",
+                                    "",
+                                    "            form.reset();",
+                                    "            Ext.Msg.alert('訊息','產品新增成功');",
+                                    "",
+                                    "        },",
+                                    "        failure:function(form,action){",
+                                    "",
+                                    "           Ext.Msg.alert('訊息','產品新增失敗');",
+                                    "",
+                                    "        }",
+                                    "",
+                                    "    });",
+                                    "}"
+                                ],
+                                "name": "click",
+                                "scope": "me"
+                            },
+                            "name": "onProductAddBtnClick",
+                            "designerId": "b8d3f7df-610e-4f14-8fe4-87fe0d9a704e"
+                        }
+                    ]
+                },
+                {
+                    "type": "Ext.button.Button",
+                    "reference": {
+                        "name": "items",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "id": "productUpdateBtn",
+                        "layout|flex": null,
+                        "text": "修改"
+                    },
+                    "name": "MyButton8",
+                    "designerId": "cd47839a-b266-4ba5-a2e9-8aefb9ba0618",
+                    "cn": [
+                        {
+                            "type": "basiceventbinding",
+                            "reference": {
+                                "name": "listeners",
+                                "type": "array"
+                            },
+                            "codeClass": null,
+                            "userConfig": {
+                                "fn": "onProductUpdateBtnClick",
+                                "implHandler": [
+                                    "var form = Ext.getCmp('productForm').getForm();",
+                                    "",
+                                    "if(form.isValid()){",
+                                    "    var pId = Ext.getCmp('p_id').getValue();",
+                                    "    form.submit({",
+                                    "        // params: Ext.util.JSON.encode(form.getValues()),",
+                                    "        method: 'PUT',",
+                                    "        waitTitle:'訊息',",
+                                    "        waitMsg:'修改資料中',",
+                                    "        url:'http://dev.finpo.com.tw/posh/public/b/product/'+pId,",
+                                    "",
+                                    "        success:function(form,action){",
+                                    "",
+                                    "            var store  = Ext.getCmp('productgridpanel').getViewModel().getStore('ProductStore');",
+                                    "            store.proxy.url='http://dev.finpo.com.tw/posh/public/b/product';",
+                                    "            store.load();",
+                                    "",
+                                    "            form.reset();",
+                                    "            Ext.Msg.alert('訊息','產品修改成功', function(){",
+                                    "                var window = Ext.getCmp('productwindow');",
+                                    "                window.close();",
+                                    "            });",
+                                    "",
+                                    "        },",
+                                    "        failure:function(form,action){",
+                                    "",
+                                    "           Ext.Msg.alert('訊息','產品修改失敗');",
+                                    "",
+                                    "        }",
+                                    "",
+                                    "    });",
+                                    "}"
+                                ],
+                                "name": "click",
+                                "scope": "me"
+                            },
+                            "name": "onProductUpdateBtnClick",
+                            "designerId": "da8dae21-de32-4fb8-8a97-ab6e61ebcf4a"
+                        }
+                    ]
+                }
+            ]
+        }
+    ]
+}

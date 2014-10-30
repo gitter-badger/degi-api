@@ -1,0 +1,232 @@
+{
+    "type": "Ext.window.Window",
+    "reference": {
+        "name": "items",
+        "type": "array"
+    },
+    "codeClass": null,
+    "userConfig": {
+        "closable": false,
+        "designer|userAlias": "loginwindow",
+        "designer|userClassName": "LoginWindow",
+        "height": 203,
+        "id": "loginWindow",
+        "modal": true,
+        "title": "管理者登入",
+        "width": 310
+    },
+    "name": "MyWindow",
+    "designerId": "4438c3a4-91f1-48d7-8e60-4666c1627c33",
+    "viewControllerInstanceId": "ee2b26d3-e835-4a8a-8a4e-0a04a0ebc5c6",
+    "viewModelInstanceId": "f0e1a618-95cf-4395-abb2-dce836da1e9c",
+    "cn": [
+        {
+            "type": "Ext.form.Panel",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "bodyPadding": 10,
+                "id": "loginForm",
+                "title": "",
+                "width": null
+            },
+            "name": "MyForm2",
+            "designerId": "08e82331-7208-46de-a9e1-3eb7710ec5f4",
+            "cn": [
+                {
+                    "type": "Ext.form.field.Text",
+                    "reference": {
+                        "name": "items",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "fieldLabel": "帳號",
+                        "labelWidth": 35,
+                        "layout|anchor": "100%",
+                        "margin": "20 0 25 0 ",
+                        "name": "a_account",
+                        "width": null
+                    },
+                    "name": "MyTextField2",
+                    "designerId": "b69cb3b7-d0c7-4af5-8389-fd90756e8020"
+                },
+                {
+                    "type": "Ext.form.field.Text",
+                    "reference": {
+                        "name": "items",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "fieldLabel": "密碼",
+                        "inputType": "password",
+                        "labelWidth": 35,
+                        "layout|anchor": "100%",
+                        "name": "a_password",
+                        "width": null
+                    },
+                    "name": "MyTextField3",
+                    "designerId": "ef332763-efbb-4c3d-8677-1146019d446c",
+                    "cn": [
+                        {
+                            "type": "basiceventbinding",
+                            "reference": {
+                                "name": "listeners",
+                                "type": "array"
+                            },
+                            "codeClass": null,
+                            "userConfig": {
+                                "fn": "onTextfieldSpecialkey",
+                                "implHandler": [
+                                    "var form = Ext.getCmp('loginForm').getForm();",
+                                    "",
+                                    "if(form.isValid()){",
+                                    "    var a_account = form.findField('a_account').getValue();",
+                                    "    var a_password = form.findField('a_password').getValue();",
+                                    "",
+                                    "    Ext.Ajax.request({",
+                                    "        method: 'POST',",
+                                    "        url: 'http://dev.finpo.com.tw/degi-api/target-local/public/b/auth',",
+                                    "        params: {",
+                                    "            a_account: a_account,",
+                                    "            a_password: a_password",
+                                    "        },",
+                                    "        success: function(response, opts){",
+                                    "            var obj = Ext.decode(response.responseText);",
+                                    "",
+                                    "            if(obj.success === true && obj.data.a_status == 1){",
+                                    "",
+                                    "                Ext.Ajax.request({",
+                                    "                    method: 'GET',",
+                                    "                    url: 'http://dev.finpo.com.tw/degi-api/target-local/public/b/auth',",
+                                    "                    success: function(response, opts){",
+                                    "                        var obj = Ext.decode(response.responseText);",
+                                    "                        //console.log(obj);",
+                                    "                    }",
+                                    "                });",
+                                    "",
+                                    "                var window = Ext.getCmp('loginWindow');",
+                                    "                window.close();",
+                                    "            }else if(obj.success === true && obj.data.a_status == 2){",
+                                    "                Ext.Msg.alert('提示', '帳號已停用');",
+                                    "            }else{",
+                                    "                Ext.Msg.alert('提示', '登入失敗，請檢查您的帳號或密碼');",
+                                    "            }",
+                                    "        },",
+                                    "        failure: function(response, opts){",
+                                    "            console.log('server-side failure with status code ' + response.status);",
+                                    "        }",
+                                    "    });",
+                                    "}"
+                                ],
+                                "name": "specialkey",
+                                "scope": "me"
+                            },
+                            "name": "onTextfieldSpecialkey",
+                            "designerId": "eb0c5990-dfe2-4b00-a21b-7fd05e60e6d4"
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "type": "Ext.toolbar.Toolbar",
+            "reference": {
+                "name": "dockedItems",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "container|pack": "end",
+                "dock": "bottom",
+                "height": 47,
+                "width": null
+            },
+            "name": "MyToolbar2",
+            "designerId": "08adbc04-c666-4b64-931c-b3c880ae119c",
+            "cn": [
+                {
+                    "type": "Ext.button.Button",
+                    "reference": {
+                        "name": "items",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "layout|flex": null,
+                        "text": "登入",
+                        "width": 291
+                    },
+                    "name": "MyButton10",
+                    "designerId": "08a8b29c-112a-4417-8d75-4ad6339c95e0",
+                    "cn": [
+                        {
+                            "type": "basiceventbinding",
+                            "reference": {
+                                "name": "listeners",
+                                "type": "array"
+                            },
+                            "codeClass": null,
+                            "userConfig": {
+                                "fn": "onButtonClick",
+                                "implHandler": [
+                                    "",
+                                    "var form = Ext.getCmp('loginForm').getForm();",
+                                    "",
+                                    "if(form.isValid()){",
+                                    "    var a_account = form.findField('a_account').getValue();",
+                                    "    var a_password = form.findField('a_password').getValue();",
+                                    "",
+                                    "    Ext.Ajax.request({",
+                                    "        method: 'POST',",
+                                    "        url: 'http://dev.finpo.com.tw/degi-api/target-local/public/b/auth',",
+                                    "        params: {",
+                                    "            a_account: a_account,",
+                                    "            a_password: a_password",
+                                    "        },",
+                                    "        success: function(response, opts){",
+                                    "            var obj = Ext.decode(response.responseText);",
+                                    "",
+                                    "            if(obj.success === true && obj.data.a_status == 1){",
+                                    "",
+                                    "                Ext.Ajax.request({",
+                                    "                    method: 'GET',",
+                                    "                    url: 'http://dev.finpo.com.tw/degi-api/target-local/public/b/auth',",
+                                    "                    success: function(response, opts){",
+                                    "                        var obj = Ext.decode(response.responseText);",
+                                    "                        //console.log(obj);",
+                                    "                    }",
+                                    "                });",
+                                    "",
+                                    "                var window = Ext.getCmp('loginWindow');",
+                                    "",
+                                    "                window.close();",
+                                    "",
+                                    "            }else if(obj.success === true && obj.data.a_status == 2){",
+                                    "                Ext.Msg.alert('提示', '帳號已停用');",
+                                    "            }else{",
+                                    "                Ext.Msg.alert('提示', '登入失敗，請檢查您的帳號或密碼');",
+                                    "            }",
+                                    "        },",
+                                    "        failure: function(response, opts){",
+                                    "            console.log('server-side failure with status code ' + response.status);",
+                                    "        }",
+                                    "    });",
+                                    "}"
+                                ],
+                                "name": "click",
+                                "scope": "me"
+                            },
+                            "name": "onButtonClick",
+                            "designerId": "9474838f-b1f0-4f5d-9bdd-870e6c002447"
+                        }
+                    ]
+                }
+            ]
+        }
+    ]
+}

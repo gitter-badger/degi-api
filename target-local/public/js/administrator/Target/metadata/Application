@@ -1,0 +1,59 @@
+{
+    "type": "Ext.app.Application",
+    "reference": {
+        "name": "items",
+        "type": "array"
+    },
+    "codeClass": null,
+    "userConfig": {
+        "models": [
+            "AdminModel",
+            "MemberModel",
+            "ProductModel",
+            "ReportModel",
+            "GiftArrayModel",
+            "ContentModel",
+            "OrderModel",
+            "ContactCenterModel",
+            "ItemCategoryModel",
+            "ItemModel",
+            "NewsModel",
+            "PopularItemModel",
+            "SystemVariableModel",
+            "ItemMainModel"
+        ],
+        "name": "Target",
+        "stores": [
+            "GiftArrayStore"
+        ],
+        "views": [
+            "MyViewport",
+            "AdminGridPanel",
+            "AdminWindow",
+            "MemberGridPanel",
+            "MemberWindow",
+            "ProductGridPanel",
+            "ProductWindow",
+            "ReportGridPanel",
+            "ReportWindow",
+            "ContentGridPanel",
+            "ContentWindow",
+            "OrderGridPanel",
+            "OrderWindow",
+            "LoginWindow",
+            "ContactCenterGridPanel",
+            "ContactCenterWindow",
+            "ItemCategoryGridPanel",
+            "ItemGridPanel",
+            "NewsGridPanel",
+            "PopularItemGridPanel",
+            "SystemVariableGridPanel",
+            "ItemWindow",
+            "ItemCategoryWindow",
+            "SystemVariableWindow",
+            "popularwindow"
+        ]
+    },
+    "name": "Application",
+    "designerId": "application"
+}

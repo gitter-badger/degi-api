@@ -1,0 +1,286 @@
+{
+    "type": "Ext.grid.Panel",
+    "reference": {
+        "name": "items",
+        "type": "array"
+    },
+    "codeClass": null,
+    "userConfig": {
+        "designer|userAlias": "popularitemgridpanel",
+        "designer|userClassName": "PopularItemGridPanel",
+        "height": null,
+        "id": "popularitemgridpanel",
+        "store": [
+            "{PopularItemStore}"
+        ],
+        "title": null,
+        "width": null
+    },
+    "name": "MyGridPanel",
+    "configAlternates": {
+        "store": "binding"
+    },
+    "designerId": "793cd198-fb3e-4272-be79-f435c1817c58",
+    "viewControllerInstanceId": "fbd107ad-b8e2-4189-aa13-98c67a0e582f",
+    "viewModelInstanceId": "bb03d369-247d-4c1c-8000-e4f31e7936dd",
+    "cn": [
+        {
+            "type": "Ext.toolbar.Toolbar",
+            "reference": {
+                "name": "dockedItems",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "dock": "top"
+            },
+            "name": "MyToolbar",
+            "designerId": "183d69d3-7fd2-4464-ba42-a9493ddb6dbb",
+            "cn": [
+                {
+                    "type": "Ext.button.Button",
+                    "reference": {
+                        "name": "items",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "layout|flex": null,
+                        "text": "新增"
+                    },
+                    "name": "MyButton",
+                    "designerId": "0fa64d26-5137-4f2c-a7cd-0fb243036cd5",
+                    "cn": [
+                        {
+                            "type": "basiceventbinding",
+                            "reference": {
+                                "name": "listeners",
+                                "type": "array"
+                            },
+                            "codeClass": null,
+                            "userConfig": {
+                                "fn": "onButtonClick",
+                                "implHandler": [
+                                    "var window = Ext.create('Target.view.popularwindow');",
+                                    "",
+                                    "window.setConfig('title', '新增熱銷商品');",
+                                    "",
+                                    "Ext.getCmp('popularUpdateBtn').setVisible(false);",
+                                    "Ext.getCmp('popularAddBtn').setVisible(true);",
+                                    "",
+                                    "window.show();"
+                                ],
+                                "name": "click",
+                                "scope": "me"
+                            },
+                            "name": "onButtonClick",
+                            "designerId": "abbab909-5dae-40bb-b1e8-0f81339a982f"
+                        }
+                    ]
+                },
+                {
+                    "type": "Ext.button.Button",
+                    "reference": {
+                        "name": "items",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "layout|flex": null,
+                        "text": "修改"
+                    },
+                    "name": "MyButton2",
+                    "designerId": "a7778773-6925-4465-a76b-4eed24da4c47",
+                    "cn": [
+                        {
+                            "type": "basiceventbinding",
+                            "reference": {
+                                "name": "listeners",
+                                "type": "array"
+                            },
+                            "codeClass": null,
+                            "userConfig": {
+                                "fn": "onButtonClick1",
+                                "name": "click",
+                                "scope": "me"
+                            },
+                            "name": "onButtonClick1",
+                            "designerId": "de42d0cc-c0b1-4813-a637-a4026e3101e1"
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "type": "Ext.grid.View",
+            "reference": {
+                "name": "viewConfig",
+                "type": "object"
+            },
+            "codeClass": null,
+            "name": "MyGridView",
+            "designerId": "c379f167-d514-4887-99aa-3e1d518dcf10"
+        },
+        {
+            "type": "Ext.grid.column.Column",
+            "reference": {
+                "name": "columns",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "dataIndex": "pi_type",
+                "flex": 0.5,
+                "text": "類型"
+            },
+            "name": "MyColumn2",
+            "designerId": "4c785c4f-5913-42b2-80a6-58e7623fb6c4",
+            "cn": [
+                {
+                    "type": "fixedfunction",
+                    "reference": {
+                        "name": "items",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "designer|params": [
+                            "value",
+                            "metaData",
+                            "record",
+                            "rowIndex",
+                            "colIndex",
+                            "store",
+                            "view"
+                        ],
+                        "fn": "renderer",
+                        "implHandler": [
+                            "if( value == 1 ){",
+                            "    return '宅配熱銷';",
+                            "}else if( value == 2 ){",
+                            "    return '店面熱銷';",
+                            "}else{",
+                            "    return '未定義';",
+                            "}"
+                        ]
+                    },
+                    "name": "renderer",
+                    "designerId": "42e7100c-bb69-4cdb-a5d1-ff302c2ba04f"
+                }
+            ]
+        },
+        {
+            "type": "Ext.grid.column.Column",
+            "reference": {
+                "name": "columns",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "dataIndex": "pi_title",
+                "flex": 1,
+                "text": "商品標題"
+            },
+            "name": "MyColumn5",
+            "designerId": "8fd446c0-9ea3-4d66-94a8-24bd85ca3945"
+        },
+        {
+            "type": "Ext.grid.column.Column",
+            "reference": {
+                "name": "columns",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "dataIndex": "pi_image",
+                "flex": 0.5,
+                "text": "商品大圖"
+            },
+            "name": "MyColumn25",
+            "designerId": "5724fc62-8883-4443-b48f-b203132e4f97",
+            "cn": [
+                {
+                    "type": "fixedfunction",
+                    "reference": {
+                        "name": "items",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "designer|params": [
+                            "value",
+                            "metaData",
+                            "record",
+                            "rowIndex",
+                            "colIndex",
+                            "store",
+                            "view"
+                        ],
+                        "fn": "renderer",
+                        "implHandler": [
+                            "return (value !=='')?\"<img src='images/item_flavor_cover/\"+value+\"' width='60px' />\":'沒有任何圖片';",
+                            ""
+                        ]
+                    },
+                    "name": "renderer",
+                    "designerId": "e2f700d6-bc4b-4cec-8162-758b3c163648"
+                }
+            ]
+        },
+        {
+            "type": "Ext.grid.column.Column",
+            "reference": {
+                "name": "columns",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "dataIndex": "pi_description",
+                "flex": 1,
+                "text": "商品描述"
+            },
+            "name": "MyColumn6",
+            "designerId": "15cf4cd4-75a4-4ba2-965e-b3d2a7f09819"
+        },
+        {
+            "type": "Ext.grid.column.Column",
+            "reference": {
+                "name": "columns",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "dataIndex": "pi_seq",
+                "flex": 0.5,
+                "text": "在同類型下排序"
+            },
+            "name": "MyColumn7",
+            "designerId": "25f084a4-84aa-40a5-8980-c84e0b31769a"
+        },
+        {
+            "type": "Ext.grid.column.Column",
+            "reference": {
+                "name": "columns",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "dataIndex": "pi_created",
+                "flex": 0.8,
+                "text": "建立時間"
+            },
+            "name": "MyColumn8",
+            "designerId": "37112827-5c4f-4aa9-868c-adeeb062ffcb"
+        },
+        {
+            "type": "Ext.selection.CheckboxModel",
+            "reference": {
+                "name": "selModel",
+                "type": "object"
+            },
+            "codeClass": null,
+            "name": "MyCheckboxSelectionModel",
+            "designerId": "621709cf-5354-4111-9453-c8f1ad0b0170"
+        }
+    ]
+}

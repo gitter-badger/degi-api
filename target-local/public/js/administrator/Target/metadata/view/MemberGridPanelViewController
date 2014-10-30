@@ -1,0 +1,13 @@
+{
+    "type": "Ext.app.ViewController",
+    "reference": {
+        "name": "items",
+        "type": "array"
+    },
+    "codeClass": null,
+    "userConfig": {
+        "designer|userAlias": "membergridpanel",
+        "designer|userClassName": "MemberGridPanelViewController"
+    },
+    "designerId": "ad769e34-d864-4ff3-941b-f5277b4dd0d4"
+}

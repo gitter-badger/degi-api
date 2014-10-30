@@ -1,0 +1,61 @@
+{
+    "type": "Ext.app.ViewModel",
+    "reference": {
+        "name": "items",
+        "type": "array"
+    },
+    "codeClass": null,
+    "userConfig": {
+        "designer|userAlias": "itemcategorygridpanel",
+        "designer|userClassName": "ItemCategoryGridPanelViewModel"
+    },
+    "designerId": "50d2e5df-efe2-48ff-877e-d977f934ac97",
+    "cn": [
+        {
+            "type": "jsonstore",
+            "reference": {
+                "name": "stores",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "autoLoad": true,
+                "autoSync": true,
+                "model": "ItemCategoryModel",
+                "name": "ItemCategoryStore"
+            },
+            "name": "MyJsonStore1",
+            "designerId": "f86bdd8a-9e14-4217-8cba-d434a2732616",
+            "cn": [
+                {
+                    "type": "Ext.data.proxy.Ajax",
+                    "reference": {
+                        "name": "proxy",
+                        "type": "object"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "url": "http://dev.finpo.com.tw/degi-api/target-local/public/b/item_category"
+                    },
+                    "name": "MyAjaxProxy1",
+                    "designerId": "91680061-a675-4695-8320-1f8cf41d5381",
+                    "cn": [
+                        {
+                            "type": "Ext.data.reader.Json",
+                            "reference": {
+                                "name": "reader",
+                                "type": "object"
+                            },
+                            "codeClass": null,
+                            "userConfig": {
+                                "rootProperty": "data"
+                            },
+                            "name": "MyJsonReader1",
+                            "designerId": "3b2aa768-b834-4a1c-855a-f2e3ab8e84b3"
+                        }
+                    ]
+                }
+            ]
+        }
+    ]
+}

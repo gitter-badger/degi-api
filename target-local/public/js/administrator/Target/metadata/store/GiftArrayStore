@@ -1,0 +1,44 @@
+{
+    "type": "arraystore",
+    "reference": {
+        "name": "items",
+        "type": "array"
+    },
+    "codeClass": null,
+    "userConfig": {
+        "autoLoad": true,
+        "autoSync": true,
+        "designer|userClassName": "GiftArrayStore",
+        "storeId": "GiftArrayStore"
+    },
+    "name": "MyArrayStore",
+    "designerId": "b89cc43f-8dd7-457e-b788-f04a57453566",
+    "cn": [
+        {
+            "type": "Ext.data.field.String",
+            "reference": {
+                "name": "fields",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "name": "name"
+            },
+            "name": "MyString",
+            "designerId": "897e0938-ed40-4875-a4b6-fd1b81e6120a"
+        },
+        {
+            "type": "Ext.data.field.String",
+            "reference": {
+                "name": "fields",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "name": "value"
+            },
+            "name": "MyString1",
+            "designerId": "a2871d2a-1c7b-44dd-a4bc-f9727127ce41"
+        }
+    ]
+}

@@ -1,0 +1,61 @@
+{
+    "type": "Ext.app.ViewModel",
+    "reference": {
+        "name": "items",
+        "type": "array"
+    },
+    "codeClass": null,
+    "userConfig": {
+        "designer|userAlias": "ordergridpanel",
+        "designer|userClassName": "OrderGridPanelViewModel"
+    },
+    "designerId": "28510dfd-a99d-4de1-9bde-b4b46db1edc5",
+    "cn": [
+        {
+            "type": "jsonstore",
+            "reference": {
+                "name": "stores",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "autoLoad": true,
+                "autoSync": true,
+                "model": "OrderModel",
+                "name": "OrderStore"
+            },
+            "name": "MyJsonStore",
+            "designerId": "1cd02fcf-ad9d-45db-a5ed-fbac467c4bb1",
+            "cn": [
+                {
+                    "type": "Ext.data.proxy.Ajax",
+                    "reference": {
+                        "name": "proxy",
+                        "type": "object"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "url": "http://dev.finpo.com.tw/posh/public/b/order"
+                    },
+                    "name": "MyAjaxProxy",
+                    "designerId": "6e1bada9-ee80-4f5f-a312-7bc0587c6e1c",
+                    "cn": [
+                        {
+                            "type": "Ext.data.reader.Json",
+                            "reference": {
+                                "name": "reader",
+                                "type": "object"
+                            },
+                            "codeClass": null,
+                            "userConfig": {
+                                "rootProperty": "rows"
+                            },
+                            "name": "MyJsonReader",
+                            "designerId": "924b6d59-cb3f-4657-9b3c-4ff540774b1c"
+                        }
+                    ]
+                }
+            ]
+        }
+    ]
+}

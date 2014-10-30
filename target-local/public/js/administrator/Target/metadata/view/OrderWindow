@@ -1,0 +1,263 @@
+{
+    "type": "Ext.window.Window",
+    "reference": {
+        "name": "items",
+        "type": "array"
+    },
+    "codeClass": null,
+    "userConfig": {
+        "designer|userAlias": "orderwindow",
+        "designer|userClassName": "OrderWindow",
+        "height": 500,
+        "id": "orderwindow",
+        "maxWidth": 800,
+        "title": "My Window",
+        "width": 640
+    },
+    "name": "MyWindow",
+    "designerId": "329d92c7-dfdc-41c4-8a14-6e5fdc969b39",
+    "viewControllerInstanceId": "8ced4ba2-8460-4fb7-abf9-265f762c48ad",
+    "viewModelInstanceId": "2e0a19a3-a168-4137-aea3-5b12a031e56e",
+    "cn": [
+        {
+            "type": "Ext.form.field.Hidden",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "fieldLabel": "Label",
+                "id": "o_id",
+                "name": "o_id"
+            },
+            "name": "MyHiddenField",
+            "designerId": "00311e78-2b48-4f35-9c64-08db3042d65d"
+        },
+        {
+            "type": "Ext.form.Panel",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "bodyPadding": 10,
+                "container|align": "stretch",
+                "id": "orderForm",
+                "layout": "vbox",
+                "title": ""
+            },
+            "name": "MyForm",
+            "designerId": "fef6212a-9a9d-481c-b812-ec065ed6a389",
+            "cn": [
+                {
+                    "type": "Ext.form.field.TextArea",
+                    "reference": {
+                        "name": "items",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "editable": false,
+                        "fieldLabel": "商品內容",
+                        "height": 160,
+                        "margin": null,
+                        "name": "o_detail",
+                        "value": null,
+                        "width": null
+                    },
+                    "name": "MyTextArea",
+                    "designerId": "d23dbcf2-9c0d-432d-be8c-29701f1d5861"
+                },
+                {
+                    "type": "Ext.form.field.Display",
+                    "reference": {
+                        "name": "items",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "fieldLabel": "會員ID",
+                        "name": "m_id",
+                        "value": "Display Field"
+                    },
+                    "name": "MyDisplayField3",
+                    "designerId": "9c89c939-d96f-45a0-8ec6-9bd14c5e72be"
+                },
+                {
+                    "type": "Ext.form.field.Display",
+                    "reference": {
+                        "name": "items",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "fieldLabel": "訂單成立日期",
+                        "name": "o_date",
+                        "value": "Display Field"
+                    },
+                    "name": "MyDisplayField4",
+                    "designerId": "e918c870-d5d3-4b94-8842-63445f6f4cb5"
+                },
+                {
+                    "type": "Ext.form.field.TextArea",
+                    "reference": {
+                        "name": "items",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "editable": false,
+                        "fieldLabel": "Paypal訊息",
+                        "height": 160,
+                        "margin": null,
+                        "name": "o_paypal",
+                        "value": [
+                            "Display Field"
+                        ]
+                    },
+                    "name": "MyTextArea1",
+                    "designerId": "8dba8e90-efde-476b-bab2-cd7245c3f4f0"
+                },
+                {
+                    "type": "Ext.form.field.Text",
+                    "reference": {
+                        "name": "items",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "fieldLabel": "狀態",
+                        "margin": null,
+                        "name": "o_status"
+                    },
+                    "name": "MyTextField",
+                    "designerId": "8bb44a32-a043-4635-a09e-a4a1f28bcbdf"
+                }
+            ]
+        },
+        {
+            "type": "Ext.toolbar.Toolbar",
+            "reference": {
+                "name": "dockedItems",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "container|pack": "end",
+                "dock": "bottom"
+            },
+            "name": "MyToolbar1",
+            "designerId": "672c7b6f-9463-4fb8-b3b0-aad4b114a894",
+            "cn": [
+                {
+                    "type": "Ext.button.Button",
+                    "reference": {
+                        "name": "items",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "layout|flex": null,
+                        "text": "修改"
+                    },
+                    "name": "MyButton8",
+                    "designerId": "5d69a9dc-7a02-4e50-9923-3f1941023c36",
+                    "cn": [
+                        {
+                            "type": "basiceventbinding",
+                            "reference": {
+                                "name": "listeners",
+                                "type": "array"
+                            },
+                            "codeClass": null,
+                            "userConfig": {
+                                "fn": "onButtonClick",
+                                "implHandler": [
+                                    "var form = Ext.getCmp('orderForm').getForm();",
+                                    "",
+                                    "if(form.isValid()){",
+                                    "    var oId = Ext.getCmp('o_id').getValue();",
+                                    "    form.submit({",
+                                    "        // params: Ext.util.JSON.encode(form.getValues()),",
+                                    "        method: 'PUT',",
+                                    "        waitTitle:'訊息',",
+                                    "        waitMsg:'修改資料中',",
+                                    "        url:'http://dev.finpo.com.tw/posh/public/b/order/'+oId,",
+                                    "",
+                                    "        success:function(form,action){",
+                                    "",
+                                    "            var store  = Ext.getCmp('ordergridpanel').getViewModel().getStore('OrderStore');",
+                                    "            store.proxy.url='http://dev.finpo.com.tw/posh/public/b/order';",
+                                    "            store.load();",
+                                    "",
+                                    "            form.reset();",
+                                    "            Ext.Msg.alert('訊息','訂單修改成功', function(){",
+                                    "                var window = Ext.getCmp('orderwindow');",
+                                    "                window.close();",
+                                    "            });",
+                                    "",
+                                    "        },",
+                                    "        failure:function(form,action){",
+                                    "",
+                                    "           Ext.Msg.alert('訊息','訂單修改失敗');",
+                                    "",
+                                    "        }",
+                                    "",
+                                    "    });",
+                                    "}"
+                                ],
+                                "name": "click",
+                                "scope": "me"
+                            },
+                            "name": "onButtonClick",
+                            "designerId": "e67b6ab5-990e-4682-95f7-166c862f77a3"
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "type": "basiceventbinding",
+            "reference": {
+                "name": "listeners",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "fn": "onWindowAfterRender",
+                "implHandler": [
+                    "var oId = Ext.getCmp('o_id').getValue();",
+                    "",
+                    "Ext.Ajax.request({",
+                    "    url: 'http://dev.finpo.com.tw/posh/public/b/order/'+oId,",
+                    "    success: function(response, opts){",
+                    "        var obj = Ext.decode(response.responseText);",
+                    "        var form = Ext.getCmp('orderForm').getForm();",
+                    "        form.setValues(obj.data);",
+                    "",
+                    "        var oDetail = Ext.JSON.decode(obj.data.o_detail);",
+                    "        var oDetailEval = JSON.stringify(oDetail, null, 4);",
+                    "        //console.log(oDetailEval);",
+                    "        form.findField('o_detail').setValue(oDetailEval);",
+                    "",
+                    "        var oPaypal = Ext.JSON.decode(obj.data.o_paypal);",
+                    "        var oPaypalEval = JSON.stringify(oPaypal, null, 4);",
+                    "        //console.log(oPaypalEval);",
+                    "        form.findField('o_paypal').setValue(oPaypalEval);",
+                    "    },",
+                    "    failure: function(response, opts){",
+                    "        console.log('server-side failure with status code ' + response.status);",
+                    "    }",
+                    "",
+                    "});"
+                ],
+                "name": "afterrender",
+                "scope": "me"
+            },
+            "name": "onWindowAfterRender",
+            "designerId": "932b0199-aca6-4596-a59e-a8f22f436026"
+        }
+    ]
+}

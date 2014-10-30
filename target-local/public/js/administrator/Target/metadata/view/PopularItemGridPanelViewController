@@ -1,0 +1,13 @@
+{
+    "type": "Ext.app.ViewController",
+    "reference": {
+        "name": "items",
+        "type": "array"
+    },
+    "codeClass": null,
+    "userConfig": {
+        "designer|userAlias": "popularitemgridpanel",
+        "designer|userClassName": "PopularItemGridPanelViewController"
+    },
+    "designerId": "fbd107ad-b8e2-4189-aa13-98c67a0e582f"
+}

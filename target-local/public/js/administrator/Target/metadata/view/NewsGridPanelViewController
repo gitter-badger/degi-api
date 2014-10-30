@@ -1,0 +1,13 @@
+{
+    "type": "Ext.app.ViewController",
+    "reference": {
+        "name": "items",
+        "type": "array"
+    },
+    "codeClass": null,
+    "userConfig": {
+        "designer|userAlias": "newsgridpanel",
+        "designer|userClassName": "NewsGridPanelViewController"
+    },
+    "designerId": "e4350e4e-b1d0-4378-a568-95c5a3f428ae"
+}

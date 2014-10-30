@@ -1,0 +1,287 @@
+{
+    "type": "Ext.window.Window",
+    "reference": {
+        "name": "items",
+        "type": "array"
+    },
+    "codeClass": null,
+    "userConfig": {
+        "designer|userAlias": "reportwindow",
+        "designer|userClassName": "ReportWindow",
+        "height": 250,
+        "id": "reportWindow",
+        "modal": true,
+        "title": "My Window",
+        "width": 400
+    },
+    "name": "MyWindow",
+    "designerId": "6554c365-2c78-4967-ac89-5971ac99ca23",
+    "viewControllerInstanceId": "12b6362f-211a-4a17-bc87-3c4ae7d5fe17",
+    "viewModelInstanceId": "20908e79-0875-4ff0-bd59-213f2bd5d34a",
+    "cn": [
+        {
+            "type": "Ext.form.field.Hidden",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "fieldLabel": "Label",
+                "id": "rp_id",
+                "name": null
+            },
+            "name": "MyHiddenField",
+            "designerId": "0b57f455-f73b-4656-a890-1aa58e8c63ad"
+        },
+        {
+            "type": "Ext.form.Panel",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "bodyPadding": 10,
+                "id": "reportForm",
+                "title": ""
+            },
+            "name": "MyForm",
+            "designerId": "c004957e-f4aa-4663-b013-a00cc3eb603d",
+            "cn": [
+                {
+                    "type": "Ext.form.field.Text",
+                    "reference": {
+                        "name": "items",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "fieldLabel": "類型",
+                        "layout|anchor": "100%",
+                        "name": "rp_type"
+                    },
+                    "name": "MyTextField",
+                    "designerId": "0aacf80d-5006-49dc-bd7e-2e0f49d38b43"
+                },
+                {
+                    "type": "Ext.form.field.Hidden",
+                    "reference": {
+                        "name": "items",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "fieldLabel": "處理狀況",
+                        "height": null,
+                        "id": "rp_status",
+                        "layout|anchor": "100%",
+                        "name": "rp_status"
+                    },
+                    "name": "MyHiddenField1",
+                    "designerId": "7e80db44-abcf-463a-b954-6f492e673f3c"
+                }
+            ]
+        },
+        {
+            "type": "Ext.container.Container",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "padding": "0 0 0 10"
+            },
+            "name": "MyContainer",
+            "designerId": "695cb27f-dce6-4360-80d2-b69ec310fca1",
+            "cn": [
+                {
+                    "type": "Ext.form.field.Text",
+                    "reference": {
+                        "name": "items",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "emptyText": "open／close ...",
+                        "fieldLabel": "status",
+                        "id": "rpStatus1Value"
+                    },
+                    "name": "MyTextField4",
+                    "designerId": "16a2345f-3c3a-4286-b4ab-cbb7699dca58"
+                },
+                {
+                    "type": "Ext.form.field.Text",
+                    "reference": {
+                        "name": "items",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "emptyText": "處理中／已結案 ...",
+                        "fieldLabel": "note",
+                        "id": "rpStatus2Value"
+                    },
+                    "name": "MyTextField6",
+                    "designerId": "c7f956eb-5c47-4d1e-9376-866b96c164e6"
+                }
+            ]
+        },
+        {
+            "type": "Ext.toolbar.Toolbar",
+            "reference": {
+                "name": "dockedItems",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "container|pack": "end",
+                "dock": "bottom"
+            },
+            "name": "MyToolbar3",
+            "designerId": "82a03b66-7082-423f-a041-8c68acb596ae",
+            "cn": [
+                {
+                    "type": "Ext.button.Button",
+                    "reference": {
+                        "name": "items",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "layout|flex": null,
+                        "text": "修改"
+                    },
+                    "name": "MyButton6",
+                    "designerId": "0678bd81-1933-44bd-824b-a4e158c0289e",
+                    "cn": [
+                        {
+                            "type": "basiceventbinding",
+                            "reference": {
+                                "name": "listeners",
+                                "type": "array"
+                            },
+                            "codeClass": null,
+                            "userConfig": {
+                                "fn": "onButtonClick",
+                                "implHandler": [
+                                    "var rpStatus = {};",
+                                    "var rpKeyArray = [];",
+                                    "var rpValueArray = [];",
+                                    "",
+                                    "var rpStatusNumber = 2; //如果加欄位就改這個值，兩欄就改2, 三欄就改3, 以此類推。",
+                                    "",
+                                    "for(var i=1; i<=rpStatusNumber; i++){",
+                                    "    var fieldName = Ext.getCmp('rpStatus'+i+'Value').fieldLabel;",
+                                    "    var fieldValue = Ext.getCmp('rpStatus'+i+'Value').getValue();",
+                                    "",
+                                    "    rpKeyArray.push(fieldName);",
+                                    "    rpValueArray.push(fieldValue);",
+                                    "}",
+                                    "",
+                                    "if( rpKeyArray.length === rpValueArray.length ){",
+                                    "    for(var aLen=0; aLen<rpKeyArray.length; aLen++){",
+                                    "        rpStatus[rpKeyArray[aLen]] = rpValueArray[aLen];",
+                                    "    }",
+                                    "}",
+                                    "",
+                                    "// console.log(rpStatus);",
+                                    "// console.log(Ext.JSON.encode(rpStatus));",
+                                    "var rpStatusJson = Ext.JSON.encode(rpStatus);",
+                                    "// console.log(rpStatusJson);",
+                                    "",
+                                    "var form = Ext.getCmp('reportForm').getForm();",
+                                    "",
+                                    "if(form.isValid()){",
+                                    "    var rpId = Ext.getCmp('rp_id').getValue();",
+                                    "    form.findField('rp_status').setValue(rpStatusJson);",
+                                    "    form.submit({",
+                                    "        // params: Ext.util.JSON.encode(form.getValues()),",
+                                    "        method: 'PUT',",
+                                    "        waitTitle:'訊息',",
+                                    "        waitMsg:'修改資料中',",
+                                    "        url:'http://dev.finpo.com.tw/posh/public/b/report/'+rpId,",
+                                    "",
+                                    "        success:function(form,action){",
+                                    "",
+                                    "            var store  = Ext.getCmp('reportgridpanel').getViewModel().getStore('ReportStore');",
+                                    "            store.proxy.url='http://dev.finpo.com.tw/posh/public/b/report';",
+                                    "            store.load();",
+                                    "",
+                                    "            form.reset();",
+                                    "            Ext.Msg.alert('訊息','回報資料修改成功', function(){",
+                                    "                var window = Ext.getCmp('reportWindow');",
+                                    "                window.close();",
+                                    "            });",
+                                    "",
+                                    "        },",
+                                    "        failure:function(form,action){",
+                                    "",
+                                    "           Ext.Msg.alert('訊息','回報資料修改失敗');",
+                                    "",
+                                    "        }",
+                                    "",
+                                    "    });",
+                                    "}"
+                                ],
+                                "name": "click",
+                                "scope": "me"
+                            },
+                            "name": "onButtonClick",
+                            "designerId": "76b87a25-2605-4bbc-87f8-6151f37d45ea"
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "type": "basiceventbinding",
+            "reference": {
+                "name": "listeners",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "fn": "onWindowAfterRender",
+                "implHandler": [
+                    "var rpId = Ext.getCmp('rp_id').getValue();",
+                    "",
+                    "Ext.Ajax.request({",
+                    "    url: 'http://dev.finpo.com.tw/posh/public/b/report/'+rpId,",
+                    "    success: function(response, opts){",
+                    "        var obj = Ext.decode(response.responseText);",
+                    "",
+                    "        Ext.getCmp('reportForm').getForm().setValues(obj.data);",
+                    "",
+                    "        var rpStatus = Ext.getCmp('rp_status').getValue();",
+                    "        var rpStatusObj = Ext.JSON.decode(rpStatus);",
+                    "",
+                    "//         var len = 0;",
+                    "//         for(var key in rpStatusObj){",
+                    "//             len++;",
+                    "//         }",
+                    "//         console.log(len);",
+                    "",
+                    "        var len = 0;",
+                    "        for( var key in rpStatusObj ){",
+                    "            len++;",
+                    "            var objKey = key;",
+                    "            Ext.getCmp('rpStatus'+len+'Value').labelEl.update(key);",
+                    "            Ext.getCmp('rpStatus'+len+'Value').setValue(rpStatusObj[key]);",
+                    "        }",
+                    "",
+                    "    },",
+                    "    failure: function(response, opts){",
+                    "        console.log('server-side failure with status code ' + response.status);",
+                    "    }",
+                    "});"
+                ],
+                "name": "afterrender",
+                "scope": "me"
+            },
+            "name": "onWindowAfterRender",
+            "designerId": "369363d1-68e8-45f6-b3ba-2f746dd93ef5"
+        }
+    ]
+}

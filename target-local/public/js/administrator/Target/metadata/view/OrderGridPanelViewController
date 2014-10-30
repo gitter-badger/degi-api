@@ -1,0 +1,13 @@
+{
+    "type": "Ext.app.ViewController",
+    "reference": {
+        "name": "items",
+        "type": "array"
+    },
+    "codeClass": null,
+    "userConfig": {
+        "designer|userAlias": "ordergridpanel",
+        "designer|userClassName": "OrderGridPanelViewController"
+    },
+    "designerId": "7c75a26b-9649-4b21-ae9a-96bdf847e059"
+}

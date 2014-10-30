@@ -1,0 +1,595 @@
+{
+    "type": "Ext.grid.Panel",
+    "reference": {
+        "name": "items",
+        "type": "array"
+    },
+    "codeClass": null,
+    "userConfig": {
+        "defaultListenerScope": true,
+        "designer|userAlias": "membergridpanel",
+        "designer|userClassName": "MemberGridPanel",
+        "height": null,
+        "id": "membergridpanel",
+        "sortableColumns": null,
+        "store": [
+            "{MemberStore}"
+        ],
+        "title": "My Grid Panel",
+        "width": null
+    },
+    "name": "MyGridPanel",
+    "configAlternates": {
+        "store": "binding"
+    },
+    "designerId": "f78cc081-0f71-4b0d-8905-d0330c1a4d5f",
+    "viewControllerInstanceId": "ad769e34-d864-4ff3-941b-f5277b4dd0d4",
+    "viewModelInstanceId": "7ec8d315-a7ca-4b5d-ab7f-fe07d1a223b4",
+    "cn": [
+        {
+            "type": "Ext.grid.View",
+            "reference": {
+                "name": "viewConfig",
+                "type": "object"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "disableSelection": null
+            },
+            "name": "MyGridView1",
+            "designerId": "7cceb17f-12d5-43b2-bfee-d5dc8695b3de"
+        },
+        {
+            "type": "Ext.selection.CheckboxModel",
+            "reference": {
+                "name": "selModel",
+                "type": "object"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "mode": "SINGLE"
+            },
+            "name": "MyCheckboxSelectionModel1",
+            "designerId": "3d0ffcdf-c8af-4c0a-8b7f-aca37d524b3e"
+        },
+        {
+            "type": "Ext.grid.column.Column",
+            "reference": {
+                "name": "columns",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "dataIndex": "mm_id",
+                "flex": 0.5,
+                "text": "ID"
+            },
+            "name": "MyColumn3",
+            "designerId": "a6d471dc-b6d2-413f-bc8a-ad034b3ab925"
+        },
+        {
+            "type": "Ext.grid.column.Column",
+            "reference": {
+                "name": "columns",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "dataIndex": "mm_email",
+                "flex": 1,
+                "text": "電子信箱"
+            },
+            "name": "MyColumn",
+            "designerId": "653387a7-0497-43a6-aa9b-a3e982bfc153"
+        },
+        {
+            "type": "Ext.grid.column.Column",
+            "reference": {
+                "name": "columns",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "dataIndex": "mm_purchaser_name",
+                "flex": 1,
+                "text": "訂購人姓名"
+            },
+            "name": "MyColumn10",
+            "designerId": "0cbd0f5f-4709-4aff-a4f0-c3a3b7cf047f"
+        },
+        {
+            "type": "Ext.grid.column.Column",
+            "reference": {
+                "name": "columns",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "dataIndex": "mm_purchaser_phone",
+                "flex": 1,
+                "text": "訂購人電話"
+            },
+            "name": "MyColumn11",
+            "designerId": "ac410632-db72-4e86-a5f5-5e4026b33c40"
+        },
+        {
+            "type": "Ext.grid.column.Column",
+            "reference": {
+                "name": "columns",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "dataIndex": "mm_status",
+                "flex": 0.5,
+                "text": "啟／停用"
+            },
+            "name": "MyColumn46",
+            "designerId": "5c88036d-6489-432f-a44e-0c5ad903cd35",
+            "cn": [
+                {
+                    "type": "fixedfunction",
+                    "reference": {
+                        "name": "items",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "designer|params": [
+                            "value",
+                            "metaData",
+                            "record",
+                            "rowIndex",
+                            "colIndex",
+                            "store",
+                            "view"
+                        ],
+                        "fn": "renderer",
+                        "implHandler": [
+                            "if( value == 1 ){",
+                            "    return '啟用';",
+                            "}else{",
+                            "    return '停用';",
+                            "}"
+                        ]
+                    },
+                    "name": "renderer",
+                    "designerId": "d4173497-c2e5-41b0-bea0-bc6ceab6704c"
+                }
+            ]
+        },
+        {
+            "type": "Ext.grid.column.Column",
+            "reference": {
+                "name": "columns",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "dataIndex": "mm_created",
+                "flex": 1,
+                "text": "建立時間"
+            },
+            "name": "MyColumn24",
+            "designerId": "75880cc4-a19a-4955-aa9c-819372bed1f6"
+        },
+        {
+            "type": "Ext.toolbar.Toolbar",
+            "reference": {
+                "name": "dockedItems",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "dock": "top"
+            },
+            "name": "MyToolbar1",
+            "designerId": "fa9209ca-21ad-4038-b624-13446a4aabae",
+            "cn": [
+                {
+                    "type": "Ext.button.Button",
+                    "reference": {
+                        "name": "items",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "layout|flex": null,
+                        "text": "查看詳細資訊"
+                    },
+                    "name": "MyButton15",
+                    "designerId": "ecc8113c-f6f4-4e8e-a3a7-bcbd7a3e9b50",
+                    "cn": [
+                        {
+                            "type": "basiceventbinding",
+                            "reference": {
+                                "name": "listeners",
+                                "type": "array"
+                            },
+                            "codeClass": null,
+                            "userConfig": {
+                                "fn": "onButtonClick2",
+                                "implHandler": [
+                                    "        var selmodel = Ext.getCmp('membergridpanel').getSelectionModel();",
+                                    "        var count = selmodel.getCount();",
+                                    "",
+                                    "        if(count !== 0){",
+                                    "            var seldata = selmodel.getSelection();",
+                                    "",
+                                    "            var window = Ext.create('Target.view.MemberWindow');",
+                                    "",
+                                    "            Ext.getCmp('mm_id').setValue(seldata[0].data.mm_id);",
+                                    "",
+                                    "            window.setConfig('title', '會員資料');",
+                                    "",
+                                    "            Ext.getCmp('memberForm').getForm().setValues(seldata[0].data);",
+                                    "",
+                                    "            window.show();",
+                                    "        }else{",
+                                    "            Ext.Msg.alert('訊息', '請選擇一個會員檢視');",
+                                    "        }"
+                                ],
+                                "name": "click",
+                                "scope": "me"
+                            },
+                            "name": "onButtonClick2",
+                            "designerId": "89a78aeb-5c5e-4d52-be0b-157a12588214"
+                        }
+                    ]
+                },
+                {
+                    "type": "Ext.button.Button",
+                    "reference": {
+                        "name": "items",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "layout|flex": null,
+                        "text": "狀態更改"
+                    },
+                    "name": "MyButton2",
+                    "designerId": "e7d2f419-4d0e-4328-8e5d-93ca4925b7b9",
+                    "cn": [
+                        {
+                            "type": "Ext.menu.Menu",
+                            "reference": {
+                                "name": "menu",
+                                "type": "object"
+                            },
+                            "codeClass": null,
+                            "name": "MyMenu1",
+                            "designerId": "77f7547b-8bfe-4a4f-9f4f-74082e0a5ab6",
+                            "cn": [
+                                {
+                                    "type": "Ext.menu.Item",
+                                    "reference": {
+                                        "name": "items",
+                                        "type": "array"
+                                    },
+                                    "codeClass": null,
+                                    "userConfig": {
+                                        "text": "啟用"
+                                    },
+                                    "name": "MyMenuItem3",
+                                    "designerId": "c812bb30-acdd-4234-bf45-dacb10649524",
+                                    "cn": [
+                                        {
+                                            "type": "basiceventbinding",
+                                            "reference": {
+                                                "name": "listeners",
+                                                "type": "array"
+                                            },
+                                            "codeClass": null,
+                                            "userConfig": {
+                                                "fn": "onMenuitemClick",
+                                                "implHandler": [
+                                                    "     /* 啟用會員 */",
+                                                    "        var selmodel = Ext.getCmp('membergridpanel').getSelectionModel();",
+                                                    "        var seldata = selmodel.getSelection();",
+                                                    "        var count = selmodel.getCount();",
+                                                    "",
+                                                    "        if(count !== 0){",
+                                                    "            Ext.Msg.confirm('訊息','確定是否要啟用該會員！',function(buttonId){",
+                                                    "                if(buttonId == 'yes'){",
+                                                    "                    var selmodel = Ext.getCmp('membergridpanel').getSelectionModel();",
+                                                    "                    var seldata = selmodel.getSelection();",
+                                                    "",
+                                                    "                    Ext.Ajax.request({",
+                                                    "                        params: {",
+                                                    "                            mm_status: 1",
+                                                    "                        },",
+                                                    "                        url: 'http://dev.finpo.com.tw/degi-api/target-local/public/b/member/'+seldata[0].data.mm_id,",
+                                                    "                        method: 'PUT',",
+                                                    "                        success: function(response, option){",
+                                                    "                            var store = Ext.getCmp('membergridpanel').getViewModel().getStore('MemberStore');",
+                                                    "                            store.proxy.url='http://dev.finpo.com.tw/degi-api/target-local/public/b/member';",
+                                                    "                            store.load();",
+                                                    "                            Ext.Msg.alert('訊息','啟用會員成功');",
+                                                    "                        },",
+                                                    "                        failure: function(response, option){",
+                                                    "                            Ext.Msg.alert('訊息','啟用會員失敗');",
+                                                    "                        }",
+                                                    "                    });",
+                                                    "                }",
+                                                    "            });",
+                                                    "        }else{",
+                                                    "            Ext.Msg.alert('訊息','請選擇ㄧ個會員做啟用');",
+                                                    "        }",
+                                                    ""
+                                                ],
+                                                "name": "click",
+                                                "scope": "me"
+                                            },
+                                            "name": "onMenuitemClick",
+                                            "designerId": "0153d200-7132-4e28-ad8a-11cfd2859fdc"
+                                        }
+                                    ]
+                                },
+                                {
+                                    "type": "Ext.menu.Item",
+                                    "reference": {
+                                        "name": "items",
+                                        "type": "array"
+                                    },
+                                    "codeClass": null,
+                                    "userConfig": {
+                                        "text": "停用"
+                                    },
+                                    "name": "MyMenuItem4",
+                                    "designerId": "5db3b7f9-561f-4cd5-b445-002404de8b19",
+                                    "cn": [
+                                        {
+                                            "type": "basiceventbinding",
+                                            "reference": {
+                                                "name": "listeners",
+                                                "type": "array"
+                                            },
+                                            "codeClass": null,
+                                            "userConfig": {
+                                                "fn": "onMenuitemClick1",
+                                                "implHandler": [
+                                                    "     /* 停用會員 */",
+                                                    "        var selmodel = Ext.getCmp('membergridpanel').getSelectionModel();",
+                                                    "        var seldata = selmodel.getSelection();",
+                                                    "        var count = selmodel.getCount();",
+                                                    "",
+                                                    "        if(count !== 0){",
+                                                    "            Ext.Msg.confirm('訊息','確定是否要停用該會員！',function(buttonId){",
+                                                    "                if(buttonId == 'yes'){",
+                                                    "                    var selmodel = Ext.getCmp('membergridpanel').getSelectionModel();",
+                                                    "                    var seldata = selmodel.getSelection();",
+                                                    "                    //console.log(seldata[0].data.a_id);",
+                                                    "",
+                                                    "                    Ext.Ajax.request({",
+                                                    "                        url: 'http://dev.finpo.com.tw/degi-api/target-local/public/b/member/'+seldata[0].data.mm_id,",
+                                                    "                        method: 'DELETE',",
+                                                    "                        success: function(response, option){",
+                                                    "                            var store = Ext.getCmp('membergridpanel').getViewModel().getStore('MemberStore');",
+                                                    "                            store.proxy.url='http://dev.finpo.com.tw/degi-api/target-local/public/b/member';",
+                                                    "                            store.load();",
+                                                    "                            Ext.Msg.alert('訊息','停用會員成功');",
+                                                    "                        },",
+                                                    "                        failure: function(response, option){",
+                                                    "                            Ext.Msg.alert('訊息','停用會員失敗');",
+                                                    "                        }",
+                                                    "                    });",
+                                                    "                }",
+                                                    "            });",
+                                                    "        }else{",
+                                                    "            Ext.Msg.alert('訊息','請選擇ㄧ個會員做停用');",
+                                                    "        }",
+                                                    ""
+                                                ],
+                                                "name": "click",
+                                                "scope": "me"
+                                            },
+                                            "name": "onMenuitemClick1",
+                                            "designerId": "fafe001a-6f29-41e6-891e-2286b52083d4"
+                                        }
+                                    ]
+                                }
+                            ]
+                        }
+                    ]
+                },
+                {
+                    "type": "Ext.form.field.Text",
+                    "reference": {
+                        "name": "items",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "emptyText": "會員姓名/email 搜尋",
+                        "fieldLabel": "",
+                        "id": "MemberNameField",
+                        "layout|flex": null,
+                        "margin": null,
+                        "name": "membernamefield"
+                    },
+                    "name": "MyTextField",
+                    "configAlternates": {
+                        "margin": "binding"
+                    },
+                    "designerId": "f713972a-6bc4-4bb7-9646-de338c730ef9",
+                    "configMeta": {
+                        "margin": {
+                            "bindSingle": true
+                        }
+                    }
+                },
+                {
+                    "type": "Ext.button.Button",
+                    "reference": {
+                        "name": "items",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "layout|flex": null,
+                        "text": "查詢"
+                    },
+                    "name": "MyButton4",
+                    "designerId": "4bd47b67-2b16-4215-8d8f-e1d61f473b1c",
+                    "cn": [
+                        {
+                            "type": "basiceventbinding",
+                            "reference": {
+                                "name": "listeners",
+                                "type": "array"
+                            },
+                            "codeClass": null,
+                            "userConfig": {
+                                "fn": "onButtonClick",
+                                "implHandler": [
+                                    "var mName = Ext.getCmp('MemberNameField').getValue();",
+                                    "var store  = Ext.getCmp('membergridpanel').getViewModel().getStore('MemberStore');",
+                                    "",
+                                    "store.proxy.url='http://dev.finpo.com.tw/degi-api/target-local/public/b/member?q='+mName;",
+                                    "store.load();"
+                                ],
+                                "name": "click",
+                                "scope": "me"
+                            },
+                            "name": "onButtonClick",
+                            "designerId": "e9fa6533-5fad-4917-8e41-3485590330ec"
+                        }
+                    ]
+                },
+                {
+                    "type": "Ext.form.field.ComboBox",
+                    "reference": {
+                        "name": "items",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "editable": false,
+                        "emptyText": "狀態查詢",
+                        "fieldLabel": "",
+                        "id": "memberStatusSelector",
+                        "layout|flex": null,
+                        "queryMode": "local",
+                        "store": [
+                            "{MemberStatusStore}"
+                        ],
+                        "triggerAction": null,
+                        "valueField": "mm_status"
+                    },
+                    "name": "MyComboBox",
+                    "configAlternates": {
+                        "store": "binding"
+                    },
+                    "designerId": "7be0203e-11ea-4c98-80dd-f68ee180e150",
+                    "cn": [
+                        {
+                            "type": "basiceventbinding",
+                            "reference": {
+                                "name": "listeners",
+                                "type": "array"
+                            },
+                            "codeClass": null,
+                            "userConfig": {
+                                "fn": "onComboboxChange",
+                                "implHandler": [
+                                    "var mStatus = Ext.getCmp('memberStatusSelector').getValue();",
+                                    "var store  = Ext.getCmp('membergridpanel').getViewModel().getStore('MemberStore');",
+                                    "if( mStatus === '' ){",
+                                    "    store.proxy.url='http://dev.finpo.com.tw/degi-api/target-local/public/b/member';",
+                                    "}else{",
+                                    "    store.proxy.url='http://dev.finpo.com.tw/degi-api/target-local/public/b/member?s='+mStatus;",
+                                    "}",
+                                    "store.load();"
+                                ],
+                                "name": "change",
+                                "scope": "me"
+                            },
+                            "name": "onComboboxChange",
+                            "designerId": "0fea52de-5f89-49e4-b8d5-5b74b1996309"
+                        },
+                        {
+                            "type": "basiceventbinding",
+                            "reference": {
+                                "name": "listeners",
+                                "type": "array"
+                            },
+                            "codeClass": null,
+                            "userConfig": {
+                                "fn": "onComboboxFocus",
+                                "implHandler": [
+                                    "var mStatus = Ext.getCmp('memberStatusSelector').setValue('');"
+                                ],
+                                "name": "focus",
+                                "scope": "me"
+                            },
+                            "name": "onComboboxFocus",
+                            "designerId": "fe433c97-83ad-494d-a1ad-fb09f8ae87f8"
+                        }
+                    ]
+                },
+                {
+                    "type": "Ext.button.Button",
+                    "reference": {
+                        "name": "items",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "layout|flex": null,
+                        "text": "清除搜尋結果"
+                    },
+                    "name": "MyButton8",
+                    "designerId": "9ccc4b99-42ae-4c23-bdbe-6de2637e5b66",
+                    "cn": [
+                        {
+                            "type": "basiceventbinding",
+                            "reference": {
+                                "name": "listeners",
+                                "type": "array"
+                            },
+                            "codeClass": null,
+                            "userConfig": {
+                                "fn": "onButtonClick1",
+                                "implHandler": [
+                                    "var store  = Ext.getCmp('membergridpanel').getViewModel().getStore('MemberStore');",
+                                    "store.proxy.url='http://dev.finpo.com.tw/degi-api/target-local/public/b/member';",
+                                    "",
+                                    "Ext.getCmp('MemberNameField').setValue('');",
+                                    "Ext.getCmp('memberStatusSelector').setValue('');",
+                                    "",
+                                    "store.load();"
+                                ],
+                                "name": "click",
+                                "scope": "me"
+                            },
+                            "name": "onButtonClick1",
+                            "designerId": "f0843468-853c-44bd-be74-9443132f31ea"
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "type": "Ext.toolbar.Paging",
+            "reference": {
+                "name": "dockedItems",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "displayInfo": true,
+                "dock": "bottom",
+                "store": [
+                    "{MemberStore}"
+                ],
+                "width": 360
+            },
+            "name": "MyPagingToolbar",
+            "configAlternates": {
+                "store": "binding"
+            },
+            "designerId": "477d5af2-86b7-4b35-8eb1-f8284d2c25db"
+        }
+    ]
+}

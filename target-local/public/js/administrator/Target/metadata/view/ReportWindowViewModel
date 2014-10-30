@@ -1,0 +1,13 @@
+{
+    "type": "Ext.app.ViewModel",
+    "reference": {
+        "name": "items",
+        "type": "array"
+    },
+    "codeClass": null,
+    "userConfig": {
+        "designer|userAlias": "reportwindow",
+        "designer|userClassName": "ReportWindowViewModel"
+    },
+    "designerId": "20908e79-0875-4ff0-bd59-213f2bd5d34a"
+}

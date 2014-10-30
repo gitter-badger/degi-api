@@ -1,0 +1,13 @@
+{
+    "type": "Ext.app.ViewController",
+    "reference": {
+        "name": "items",
+        "type": "array"
+    },
+    "codeClass": null,
+    "userConfig": {
+        "designer|userAlias": "systemvariablegridpanel",
+        "designer|userClassName": "SystemVariableGridPanelViewController"
+    },
+    "designerId": "0b0b045d-8de1-43f3-9581-0d66d4a928d3"
+}

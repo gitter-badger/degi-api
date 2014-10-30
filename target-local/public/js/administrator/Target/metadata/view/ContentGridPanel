@@ -1,0 +1,195 @@
+{
+    "type": "Ext.grid.Panel",
+    "reference": {
+        "name": "items",
+        "type": "array"
+    },
+    "codeClass": null,
+    "userConfig": {
+        "designer|userAlias": "contentgridpanel",
+        "designer|userClassName": "ContentGridPanel",
+        "height": null,
+        "id": "contentgridpanel",
+        "store": [
+            "{ContentStore}"
+        ],
+        "title": "My Grid Panel",
+        "width": null
+    },
+    "name": "MyGridPanel",
+    "configAlternates": {
+        "store": "binding"
+    },
+    "designerId": "89a0fddf-31b8-4cf3-bd4d-31eed105943d",
+    "viewControllerInstanceId": "85ae3fc5-6015-43d6-b8a9-736b58ac3853",
+    "viewModelInstanceId": "bf5cb493-139f-4e12-9964-0e327ef530dc",
+    "cn": [
+        {
+            "type": "Ext.grid.View",
+            "reference": {
+                "name": "viewConfig",
+                "type": "object"
+            },
+            "codeClass": null,
+            "name": "MyGridView",
+            "designerId": "ce474a0d-ab83-44f7-991f-8588490ee565"
+        },
+        {
+            "type": "Ext.grid.column.Column",
+            "reference": {
+                "name": "columns",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "dataIndex": "c_id",
+                "flex": 0.5,
+                "text": "ID"
+            },
+            "name": "MyColumn1",
+            "designerId": "ad6517f5-ad8a-482a-a2e7-94327bfccc29"
+        },
+        {
+            "type": "Ext.grid.column.Column",
+            "reference": {
+                "name": "columns",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "dataIndex": "c_desc",
+                "flex": 1,
+                "text": "描述"
+            },
+            "name": "MyColumn2",
+            "designerId": "fa6e8301-e701-404b-a574-254116125050"
+        },
+        {
+            "type": "Ext.grid.column.Column",
+            "reference": {
+                "name": "columns",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "dataIndex": "c_key",
+                "flex": 1,
+                "text": "鍵（程式判斷用）"
+            },
+            "name": "MyColumn3",
+            "designerId": "bdb1c693-25b2-4afb-9728-c277782d4156"
+        },
+        {
+            "type": "Ext.grid.column.Column",
+            "reference": {
+                "name": "columns",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "dataIndex": "c_value",
+                "flex": 2,
+                "text": "值"
+            },
+            "name": "MyColumn4",
+            "designerId": "a4d873fe-1045-4eff-b335-d880d766c541"
+        },
+        {
+            "type": "Ext.toolbar.Paging",
+            "reference": {
+                "name": "dockedItems",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "displayInfo": true,
+                "dock": "bottom",
+                "store": [
+                    "{ContentStore}"
+                ],
+                "width": 360
+            },
+            "name": "MyPagingToolbar",
+            "configAlternates": {
+                "store": "binding"
+            },
+            "designerId": "0dadd344-ca89-4c5e-b0d5-7e10ab631740"
+        },
+        {
+            "type": "Ext.toolbar.Toolbar",
+            "reference": {
+                "name": "dockedItems",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "dock": "top"
+            },
+            "name": "MyToolbar",
+            "designerId": "ef8dd74d-712e-4e91-a76f-2cabafd4aca0",
+            "cn": [
+                {
+                    "type": "Ext.button.Button",
+                    "reference": {
+                        "name": "items",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "layout|flex": null,
+                        "text": "修改"
+                    },
+                    "name": "MyButton4",
+                    "designerId": "895c8bc8-a50e-406c-9bac-a94fb8468958",
+                    "cn": [
+                        {
+                            "type": "basiceventbinding",
+                            "reference": {
+                                "name": "listeners",
+                                "type": "array"
+                            },
+                            "codeClass": null,
+                            "userConfig": {
+                                "fn": "onButtonClick",
+                                "implHandler": [
+                                    "var selmodel = Ext.getCmp('contentgridpanel').getSelectionModel();",
+                                    "var count = selmodel.getCount();",
+                                    "",
+                                    "if( count !== 0 ){",
+                                    "    var seldata = selmodel.getSelection();",
+                                    "    var window = Ext.create('Posh.view.ContentWindow');",
+                                    "",
+                                    "    Ext.getCmp('c_id').setValue(seldata[0].data.c_id);",
+                                    "    window.setConfig('title', '修改文案');",
+                                    "",
+                                    "    window.show();",
+                                    "",
+                                    "}else{",
+                                    "    Ext.Msg.alert('訊息', '請選擇一筆文案以進行修改。');",
+                                    "}"
+                                ],
+                                "name": "click",
+                                "scope": "me"
+                            },
+                            "name": "onButtonClick",
+                            "designerId": "6b65c8a4-cddc-4e7a-a172-9050fd2830c8"
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "type": "Ext.selection.CheckboxModel",
+            "reference": {
+                "name": "selModel",
+                "type": "object"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "mode": "SINGLE"
+            },
+            "name": "MyCheckboxSelectionModel",
+            "designerId": "e07ebf15-a026-48b9-a2b9-9601d2b2a204"
+        }
+    ]
+}

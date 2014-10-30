@@ -1,0 +1,211 @@
+{
+    "type": "Ext.grid.Panel",
+    "reference": {
+        "name": "items",
+        "type": "array"
+    },
+    "codeClass": null,
+    "userConfig": {
+        "designer|userAlias": "ordergridpanel",
+        "designer|userClassName": "OrderGridPanel",
+        "height": null,
+        "id": "ordergridpanel",
+        "store": [
+            "{OrderStore}"
+        ],
+        "title": "My Grid Panel",
+        "width": null
+    },
+    "name": "MyGridPanel",
+    "configAlternates": {
+        "store": "binding"
+    },
+    "designerId": "b7d1966d-32e4-432f-bf07-ec2225f243e3",
+    "viewControllerInstanceId": "7c75a26b-9649-4b21-ae9a-96bdf847e059",
+    "viewModelInstanceId": "28510dfd-a99d-4de1-9bde-b4b46db1edc5",
+    "cn": [
+        {
+            "type": "Ext.grid.View",
+            "reference": {
+                "name": "viewConfig",
+                "type": "object"
+            },
+            "codeClass": null,
+            "name": "MyGridView",
+            "designerId": "d9231e18-01d6-4e6b-8990-84508e346eef"
+        },
+        {
+            "type": "Ext.grid.column.Column",
+            "reference": {
+                "name": "columns",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "dataIndex": "o_id",
+                "flex": 0.5,
+                "text": "訂單編號"
+            },
+            "name": "MyColumn1",
+            "designerId": "81fd6605-4b43-4f18-8acf-6668d80bd82c"
+        },
+        {
+            "type": "Ext.grid.column.Column",
+            "reference": {
+                "name": "columns",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "dataIndex": "m_id",
+                "flex": 0.5,
+                "text": "會員編號"
+            },
+            "name": "MyColumn2",
+            "designerId": "02b326eb-d086-4f2e-b038-c895300b2278"
+        },
+        {
+            "type": "Ext.grid.column.Column",
+            "reference": {
+                "name": "columns",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "dataIndex": "o_date",
+                "flex": 1,
+                "text": "建立日期"
+            },
+            "name": "MyColumn4",
+            "designerId": "607d111d-5f81-4bac-81fb-375b540cbb79"
+        },
+        {
+            "type": "Ext.grid.column.Column",
+            "reference": {
+                "name": "columns",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "dataIndex": "o_status",
+                "flex": 1,
+                "text": "訂單狀態"
+            },
+            "name": "MyColumn7",
+            "designerId": "2e062eb5-10b8-4b96-a96c-dd7cd16bf947"
+        },
+        {
+            "type": "Ext.selection.CheckboxModel",
+            "reference": {
+                "name": "selModel",
+                "type": "object"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "mode": "SINGLE"
+            },
+            "name": "MyCheckboxSelectionModel",
+            "designerId": "a50ce76b-aa78-4888-ba3e-6a425cbcdeb6"
+        },
+        {
+            "type": "Ext.toolbar.Toolbar",
+            "reference": {
+                "name": "dockedItems",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "dock": "top"
+            },
+            "name": "MyToolbar",
+            "designerId": "8d1d575f-37e6-4b99-bba5-139919ffbbc3",
+            "cn": [
+                {
+                    "type": "Ext.button.Button",
+                    "reference": {
+                        "name": "items",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "layout|flex": null,
+                        "text": "修改"
+                    },
+                    "name": "MyButton6",
+                    "designerId": "c5657866-b73e-4392-bfde-bdb830ba8c89",
+                    "cn": [
+                        {
+                            "type": "basiceventbinding",
+                            "reference": {
+                                "name": "listeners",
+                                "type": "array"
+                            },
+                            "codeClass": null,
+                            "userConfig": {
+                                "fn": "onButtonClick",
+                                "implHandler": [
+                                    "/* 修改商品 */",
+                                    "var selmodel = Ext.getCmp('ordergridpanel').getSelectionModel();",
+                                    "var count = selmodel.getCount();",
+                                    "",
+                                    "if(count !== 0){",
+                                    "    var seldata = selmodel.getSelection();",
+                                    "    var window = Ext.create('Posh.view.OrderWindow');",
+                                    "",
+                                    "    Ext.getCmp('o_id').setValue(seldata[0].data.o_id);",
+                                    "    window.setConfig('title', '訂單詳細');",
+                                    "",
+                                    "",
+                                    "//     Ext.Ajax.request({",
+                                    "//         url: 'http://dev.finpo.com.tw/posh/public/b/order/'+seldata[0].data.o_id,",
+                                    "//         success: function(response, opts){",
+                                    "//             var obj = Ext.decode(response.responseText);",
+                                    "",
+                                    "//             Ext.getCmp('orderForm').getForm().setValues(obj.data);",
+                                    "//         },",
+                                    "//         failure: function(response, opts){",
+                                    "//             console.log('server-side failure with status code ' + response.status);",
+                                    "//         }",
+                                    "",
+                                    "//     });",
+                                    "",
+                                    "    window.show();",
+                                    "",
+                                    "}else{",
+                                    "    Ext.Msg.alert('訊息', '請選擇一個訂單檢視或修改');",
+                                    "}",
+                                    ""
+                                ],
+                                "name": "click",
+                                "scope": "me"
+                            },
+                            "name": "onButtonClick",
+                            "designerId": "cd3305f0-8157-4fea-aaee-0d5aff5f619e"
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "type": "Ext.toolbar.Paging",
+            "reference": {
+                "name": "dockedItems",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "displayInfo": true,
+                "dock": "bottom",
+                "store": [
+                    "{OrderStore}"
+                ],
+                "width": 360
+            },
+            "name": "MyPagingToolbar1",
+            "configAlternates": {
+                "store": "binding"
+            },
+            "designerId": "15bb1326-70f4-4be0-ae8e-33e5a1de7d7a"
+        }
+    ]
+}

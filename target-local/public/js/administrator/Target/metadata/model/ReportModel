@@ -1,0 +1,80 @@
+{
+    "type": "Ext.data.Model",
+    "reference": {
+        "name": "items",
+        "type": "array"
+    },
+    "codeClass": null,
+    "userConfig": {
+        "designer|userClassName": "ReportModel"
+    },
+    "name": "MyModel",
+    "designerId": "17e33283-c043-4e72-8511-fd0bbb47841f",
+    "cn": [
+        {
+            "type": "Ext.data.field.Field",
+            "reference": {
+                "name": "fields",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "name": "rp_id"
+            },
+            "name": "MyField34",
+            "designerId": "5d5941f4-94ca-4922-9583-216d1a4b22f3"
+        },
+        {
+            "type": "Ext.data.field.Field",
+            "reference": {
+                "name": "fields",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "name": "rp_type"
+            },
+            "name": "MyField35",
+            "designerId": "4757d184-0e68-4f54-b70a-b9e17dca69bb"
+        },
+        {
+            "type": "Ext.data.field.Field",
+            "reference": {
+                "name": "fields",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "name": "rp_status"
+            },
+            "name": "MyField36",
+            "designerId": "e919f209-e310-4d2e-b460-62142b8fadb7"
+        },
+        {
+            "type": "Ext.data.field.Field",
+            "reference": {
+                "name": "fields",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "name": "rp_date"
+            },
+            "name": "MyField37",
+            "designerId": "c242ad55-3a25-4ae6-bd54-4ecd46d1035f"
+        },
+        {
+            "type": "Ext.data.field.Field",
+            "reference": {
+                "name": "fields",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "name": "m_id"
+            },
+            "name": "MyField38",
+            "designerId": "f5dd8b77-829e-4c52-ae5f-8148da1cb4c4"
+        }
+    ]
+}

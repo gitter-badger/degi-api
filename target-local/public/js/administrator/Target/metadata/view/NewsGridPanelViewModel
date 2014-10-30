@@ -1,0 +1,61 @@
+{
+    "type": "Ext.app.ViewModel",
+    "reference": {
+        "name": "items",
+        "type": "array"
+    },
+    "codeClass": null,
+    "userConfig": {
+        "designer|userAlias": "newsgridpanel",
+        "designer|userClassName": "NewsGridPanelViewModel"
+    },
+    "designerId": "a9c58843-0022-4334-8125-cb0059e6cb85",
+    "cn": [
+        {
+            "type": "jsonstore",
+            "reference": {
+                "name": "stores",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "autoLoad": true,
+                "autoSync": true,
+                "model": "NewsModel",
+                "name": "NewsStore"
+            },
+            "name": "MyJsonStore2",
+            "designerId": "3d3ece58-72a8-423f-8296-6a7d8e049aa8",
+            "cn": [
+                {
+                    "type": "Ext.data.proxy.Ajax",
+                    "reference": {
+                        "name": "proxy",
+                        "type": "object"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "url": "http://dev.finpo.com.tw/degi-api/target-local/public/b/news"
+                    },
+                    "name": "MyAjaxProxy2",
+                    "designerId": "64de7086-3a5d-466c-b0c0-0de06cd5e9b7",
+                    "cn": [
+                        {
+                            "type": "Ext.data.reader.Json",
+                            "reference": {
+                                "name": "reader",
+                                "type": "object"
+                            },
+                            "codeClass": null,
+                            "userConfig": {
+                                "rootProperty": "rows"
+                            },
+                            "name": "MyJsonReader2",
+                            "designerId": "ae5aa481-b663-4e37-afda-10bababd544f"
+                        }
+                    ]
+                }
+            ]
+        }
+    ]
+}

@@ -1,0 +1,63 @@
+{
+    "type": "Ext.app.ViewModel",
+    "reference": {
+        "name": "items",
+        "type": "array"
+    },
+    "codeClass": null,
+    "userConfig": {
+        "designer|userAlias": "contactcentergridpanel",
+        "designer|userClassName": "ContactCenterGridPanelViewModel"
+    },
+    "designerId": "5a22639c-3ff4-4040-b029-9b7f5750ceb8",
+    "cn": [
+        {
+            "type": "jsonstore",
+            "reference": {
+                "name": "stores",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "autoLoad": true,
+                "autoSync": true,
+                "groupDir": null,
+                "groupField": null,
+                "model": "ContactCenterModel",
+                "name": "ContactCenterStore"
+            },
+            "name": "MyJsonStore",
+            "designerId": "fd551463-d1df-4283-840d-ef0b40f01f1c",
+            "cn": [
+                {
+                    "type": "Ext.data.proxy.Ajax",
+                    "reference": {
+                        "name": "proxy",
+                        "type": "object"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "url": "http://dev.finpo.com.tw/posh/public/b/contactcenter"
+                    },
+                    "name": "MyAjaxProxy",
+                    "designerId": "1db97d14-f529-491a-bcc2-f940ea0b5e02",
+                    "cn": [
+                        {
+                            "type": "Ext.data.reader.Json",
+                            "reference": {
+                                "name": "reader",
+                                "type": "object"
+                            },
+                            "codeClass": null,
+                            "userConfig": {
+                                "rootProperty": "rows"
+                            },
+                            "name": "MyJsonReader",
+                            "designerId": "3d9c6f61-dc35-4a24-ac24-4d6df437f4a0"
+                        }
+                    ]
+                }
+            ]
+        }
+    ]
+}

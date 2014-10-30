@@ -1,0 +1,54 @@
+{
+    "type": "Ext.app.ViewModel",
+    "reference": {
+        "name": "items",
+        "type": "array"
+    },
+    "codeClass": null,
+    "userConfig": {
+        "designer|userAlias": "itemcategorywindow",
+        "designer|userClassName": "ItemCategoryWindowViewModel"
+    },
+    "designerId": "c08e5957-05f7-46bc-94b3-b92fd78b30f0",
+    "cn": [
+        {
+            "type": "arraystore",
+            "reference": {
+                "name": "stores",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "data": [
+                    "selectArray = ['宅配商品', '店面商品'];"
+                ]
+            },
+            "name": "MyArrayStore",
+            "designerId": "eaebd8f7-9dd0-45e2-bcfa-511ca686a97c",
+            "cn": [
+                {
+                    "type": "Ext.data.proxy.Ajax",
+                    "reference": {
+                        "name": "proxy",
+                        "type": "object"
+                    },
+                    "codeClass": null,
+                    "name": "MyAjaxProxy1",
+                    "designerId": "761d8c6c-4cde-4ed7-9ebd-4834fef6aac6",
+                    "cn": [
+                        {
+                            "type": "Ext.data.reader.Array",
+                            "reference": {
+                                "name": "reader",
+                                "type": "object"
+                            },
+                            "codeClass": null,
+                            "name": "MyArrayReader",
+                            "designerId": "cdd66c24-971f-4b26-9cb4-9752c101276e"
+                        }
+                    ]
+                }
+            ]
+        }
+    ]
+}

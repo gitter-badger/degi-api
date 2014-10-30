@@ -1,0 +1,156 @@
+{
+    "type": "Ext.grid.Panel",
+    "reference": {
+        "name": "items",
+        "type": "array"
+    },
+    "codeClass": null,
+    "userConfig": {
+        "designer|userAlias": "systemvariablegridpanel",
+        "designer|userClassName": "SystemVariableGridPanel",
+        "height": null,
+        "id": "systemvariablegridpanel",
+        "store": [
+            "{SystemVariableStore}"
+        ],
+        "title": null,
+        "width": null
+    },
+    "name": "MyGridPanel",
+    "configAlternates": {
+        "store": "binding"
+    },
+    "designerId": "fa51c896-f4fe-4659-a9cb-1f5a8e936edf",
+    "viewControllerInstanceId": "0b0b045d-8de1-43f3-9581-0d66d4a928d3",
+    "viewModelInstanceId": "e74d123f-63ec-4898-96d0-f97e632eba1f",
+    "cn": [
+        {
+            "type": "Ext.grid.View",
+            "reference": {
+                "name": "viewConfig",
+                "type": "object"
+            },
+            "codeClass": null,
+            "name": "MyGridView",
+            "designerId": "ebd00dfd-db20-4b55-a414-9789207603ac"
+        },
+        {
+            "type": "Ext.selection.CheckboxModel",
+            "reference": {
+                "name": "selModel",
+                "type": "object"
+            },
+            "codeClass": null,
+            "name": "MyCheckboxSelectionModel4",
+            "designerId": "57607b32-3631-45c9-8f47-e78b7fd52d4d"
+        },
+        {
+            "type": "Ext.grid.column.Column",
+            "reference": {
+                "name": "columns",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "dataIndex": "sv_name",
+                "flex": 1,
+                "text": "變數說明"
+            },
+            "name": "MyColumn3",
+            "designerId": "bc0fcf30-dae8-4e43-b09c-37cd0d965c4f"
+        },
+        {
+            "type": "Ext.grid.column.Column",
+            "reference": {
+                "name": "columns",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "dataIndex": "sv_value",
+                "flex": 1,
+                "text": "變數數值"
+            },
+            "name": "MyColumn8",
+            "designerId": "9b3bdfef-7b8c-4111-89a8-be296b6be8ad",
+            "cn": [
+                {
+                    "type": "Ext.form.field.Text",
+                    "reference": {
+                        "name": "editor",
+                        "type": "object"
+                    },
+                    "codeClass": null,
+                    "name": "MyTextField8",
+                    "designerId": "cd8e7593-79d2-4f07-86a9-e8a2e3940947"
+                }
+            ]
+        },
+        {
+            "type": "Ext.toolbar.Toolbar",
+            "reference": {
+                "name": "dockedItems",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "dock": "top"
+            },
+            "name": "MyToolbar",
+            "designerId": "0aa1c208-b5f7-475a-afdc-07ac039822ee",
+            "cn": [
+                {
+                    "type": "Ext.button.Button",
+                    "reference": {
+                        "name": "items",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "layout|flex": null,
+                        "text": "修改"
+                    },
+                    "name": "MyButton18",
+                    "designerId": "75898e9e-54c8-4b0a-a4a3-9ff73bcdb702",
+                    "cn": [
+                        {
+                            "type": "basiceventbinding",
+                            "reference": {
+                                "name": "listeners",
+                                "type": "array"
+                            },
+                            "codeClass": null,
+                            "userConfig": {
+                                "fn": "onButtonClick",
+                                "implHandler": [
+                                    "var selmodel = Ext.getCmp('systemvariablegridpanel').getSelectionModel();",
+                                    "var count = selmodel.getCount();",
+                                    "",
+                                    "if(count !== 0){",
+                                    "    var seldata = selmodel.getSelection();",
+                                    "",
+                                    "    var window = Ext.create('Target.view.SystemVariableWindow');",
+                                    "",
+                                    "    Ext.getCmp('sv_id').setValue(seldata[0].data.sv_id);",
+                                    "    Ext.getCmp('sv_value').setValue(seldata[0].data.sv_value);",
+                                    "    Ext.getCmp('sv_value').setConfig('fieldLabel',seldata[0].data.sv_name);",
+                                    "",
+                                    "    window.setConfig('title', '修改全站變數');",
+                                    "",
+                                    "    window.show();",
+                                    "}else{",
+                                    "    Ext.Msg.alert('訊息', '請選擇一個全站變數修改');",
+                                    "}"
+                                ],
+                                "name": "click",
+                                "scope": "me"
+                            },
+                            "name": "onButtonClick",
+                            "designerId": "cacea984-ce60-4914-8818-c6d04647a033"
+                        }
+                    ]
+                }
+            ]
+        }
+    ]
+}

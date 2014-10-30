@@ -1,0 +1,401 @@
+{
+    "type": "Ext.grid.Panel",
+    "reference": {
+        "name": "items",
+        "type": "array"
+    },
+    "codeClass": null,
+    "userConfig": {
+        "designer|userAlias": "reportgridpanel",
+        "designer|userClassName": "ReportGridPanel",
+        "height": null,
+        "id": "reportgridpanel",
+        "store": [
+            "{ReportStore}"
+        ],
+        "title": "My Grid Panel",
+        "width": null
+    },
+    "name": "MyGridPanel",
+    "configAlternates": {
+        "store": "binding"
+    },
+    "designerId": "93283edc-20bd-48aa-9e66-59edcffa5e85",
+    "viewControllerInstanceId": "05bf3064-2520-41a3-8609-be65a1158649",
+    "viewModelInstanceId": "b8c49bf6-5472-47ba-96d6-e8cb7e78df08",
+    "cn": [
+        {
+            "type": "Ext.grid.View",
+            "reference": {
+                "name": "viewConfig",
+                "type": "object"
+            },
+            "codeClass": null,
+            "name": "MyGridView",
+            "designerId": "82c4ca17-1516-4fdb-95b3-127519523e78"
+        },
+        {
+            "type": "Ext.grid.column.Column",
+            "reference": {
+                "name": "columns",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "dataIndex": "rp_id",
+                "flex": 0.5,
+                "text": "ID"
+            },
+            "name": "MyColumn7",
+            "designerId": "391b1797-fb6c-48ea-89e1-64ae9a4b3467"
+        },
+        {
+            "type": "Ext.grid.column.Column",
+            "reference": {
+                "name": "columns",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "dataIndex": "rp_type",
+                "flex": 1,
+                "text": "類型"
+            },
+            "name": "MyColumn8",
+            "designerId": "69fd3531-0554-4e86-9c1a-6bc2983dc259"
+        },
+        {
+            "type": "Ext.grid.column.Column",
+            "reference": {
+                "name": "columns",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "dataIndex": "rp_status",
+                "flex": 1,
+                "text": "處理狀況"
+            },
+            "name": "MyColumn9",
+            "designerId": "597d3faa-5a69-447c-ad66-5c6b0696abc7"
+        },
+        {
+            "type": "Ext.grid.column.Column",
+            "reference": {
+                "name": "columns",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "dataIndex": "rp_date",
+                "flex": 1,
+                "text": "回報日期"
+            },
+            "name": "MyColumn10",
+            "designerId": "46e3d4fe-80ee-4f37-8e74-ffc0c147fc20"
+        },
+        {
+            "type": "Ext.grid.column.Column",
+            "reference": {
+                "name": "columns",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "dataIndex": "m_id",
+                "flex": 0.5,
+                "text": "會員ID"
+            },
+            "name": "MyColumn11",
+            "designerId": "430110c9-b635-48b6-bc3d-67fee2d7abe9"
+        },
+        {
+            "type": "Ext.toolbar.Paging",
+            "reference": {
+                "name": "dockedItems",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "displayInfo": true,
+                "dock": "bottom",
+                "store": [
+                    "{ReportStore}"
+                ],
+                "width": 360
+            },
+            "name": "MyPagingToolbar1",
+            "configAlternates": {
+                "store": "binding"
+            },
+            "designerId": "1c9131d8-7462-469a-874f-93ee320ae8ca"
+        },
+        {
+            "type": "Ext.toolbar.Toolbar",
+            "reference": {
+                "name": "dockedItems",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "dock": "top",
+                "id": null
+            },
+            "name": "MyToolbar2",
+            "designerId": "e236f276-6489-4244-9c60-ae002904ecef",
+            "cn": [
+                {
+                    "type": "Ext.button.Button",
+                    "reference": {
+                        "name": "items",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "layout|flex": null,
+                        "text": "修改"
+                    },
+                    "name": "MyButton4",
+                    "designerId": "64a28585-9051-46e4-9bcd-7bc5a7483fcb",
+                    "cn": [
+                        {
+                            "type": "basiceventbinding",
+                            "reference": {
+                                "name": "listeners",
+                                "type": "array"
+                            },
+                            "codeClass": null,
+                            "userConfig": {
+                                "fn": "onButtonClick",
+                                "implHandler": [
+                                    "/* 修改資料回報 */",
+                                    "var selmodel = Ext.getCmp('reportgridpanel').getSelectionModel();",
+                                    "var count = selmodel.getCount();",
+                                    "",
+                                    "if(count !== 0){",
+                                    "    var seldata = selmodel.getSelection();",
+                                    "",
+                                    "    var window = Ext.create('Posh.view.ReportWindow');",
+                                    "",
+                                    "    Ext.getCmp('rp_id').setValue(seldata[0].data.rp_id);",
+                                    "    ",
+                                    "    window.setConfig('title', '修改資料回報');",
+                                    "",
+                                    "//     Ext.Ajax.request({",
+                                    "//         url: 'http://dev.finpo.com.tw/posh/public/b/report/'+seldata[0].data.rp_id,",
+                                    "//         success: function(response, opts){",
+                                    "//             var obj = Ext.decode(response.responseText);",
+                                    "",
+                                    "//             Ext.getCmp('reportForm').getForm().setValues(obj.data);",
+                                    "//         },",
+                                    "//         failure: function(response, opts){",
+                                    "//             console.log('server-side failure with status code ' + response.status);",
+                                    "//         }",
+                                    "",
+                                    "//     });",
+                                    "",
+                                    "    //Ext.getCmp('productAddBtn').setVisible(false);",
+                                    "    //Ext.getCmp('productUpdateBtn').setVisible(true);",
+                                    "",
+                                    "    window.show();",
+                                    "}else{",
+                                    "    Ext.Msg.alert('訊息', '請選擇一個回報資料修改');",
+                                    "}",
+                                    ""
+                                ],
+                                "name": "click",
+                                "scope": "me"
+                            },
+                            "name": "onButtonClick",
+                            "designerId": "4d6e55fd-e94a-4de6-8633-cacbd522f4c6"
+                        }
+                    ]
+                },
+                {
+                    "type": "Ext.form.field.Text",
+                    "reference": {
+                        "name": "items",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "emptyText": "回報會員ID查詢",
+                        "fieldLabel": null,
+                        "id": "ReportMemberIDField",
+                        "layout|flex": null,
+                        "name": "reportmemberidfield"
+                    },
+                    "name": "MyTextField1",
+                    "designerId": "f422496e-5156-47d9-bf92-e1985784395d"
+                },
+                {
+                    "type": "Ext.button.Button",
+                    "reference": {
+                        "name": "items",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "layout|flex": null,
+                        "text": "查詢"
+                    },
+                    "name": "MyButton6",
+                    "designerId": "2eeba1a6-badd-4316-bc31-82154a93f029",
+                    "cn": [
+                        {
+                            "type": "basiceventbinding",
+                            "reference": {
+                                "name": "listeners",
+                                "type": "array"
+                            },
+                            "codeClass": null,
+                            "userConfig": {
+                                "fn": "onButtonClick1",
+                                "implHandler": [
+                                    "var rpMemberId = Ext.getCmp('ReportMemberIDField').getValue();",
+                                    "var store  = Ext.getCmp('reportgridpanel').getViewModel().getStore('ReportStore');",
+                                    "",
+                                    "store.proxy.url='http://dev.finpo.com.tw/posh/public/b/report?m_id='+rpMemberId;",
+                                    "store.load();"
+                                ],
+                                "name": "click",
+                                "scope": "me"
+                            },
+                            "name": "onButtonClick1",
+                            "designerId": "0aaee54a-6f3f-4dba-8973-b4e1ae621f83"
+                        }
+                    ]
+                },
+                {
+                    "type": "Ext.form.field.ComboBox",
+                    "reference": {
+                        "name": "items",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "editable": false,
+                        "emptyText": "類型查詢",
+                        "fieldLabel": null,
+                        "id": "reportStatusSelector",
+                        "layout|flex": null,
+                        "queryMode": "local",
+                        "store": [
+                            "{ReportStatusStore}"
+                        ],
+                        "valueField": "rp_type"
+                    },
+                    "name": "MyComboBox1",
+                    "configAlternates": {
+                        "store": "binding"
+                    },
+                    "designerId": "0a4366ae-4c8c-405e-8837-b1698262a5d1",
+                    "cn": [
+                        {
+                            "type": "basiceventbinding",
+                            "reference": {
+                                "name": "listeners",
+                                "type": "array"
+                            },
+                            "codeClass": null,
+                            "userConfig": {
+                                "fn": "onReportStatusSelectorChange",
+                                "implHandler": [
+                                    "var rpStatus = Ext.getCmp('reportStatusSelector').getValue();",
+                                    "var store  = Ext.getCmp('reportgridpanel').getViewModel().getStore('ReportStore');",
+                                    "var rpMemberId = Ext.getCmp('ReportMemberIDField').getValue();",
+                                    "if( rpStatus === '' ){",
+                                    "    store.proxy.url='http://dev.finpo.com.tw/posh/public/b/report';",
+                                    "}else{",
+                                    "    ",
+                                    "    if(rpMemberId === ''){",
+                                    "        store.proxy.url='http://dev.finpo.com.tw/posh/public/b/report?rp_type='+rpStatus;",
+                                    "    }else{",
+                                    "        store.proxy.url='http://dev.finpo.com.tw/posh/public/b/report?m_id='+rpMemberId+'&rp_type='+rpStatus;",
+                                    "    }",
+                                    "}",
+                                    "store.load();"
+                                ],
+                                "name": "change",
+                                "scope": "me"
+                            },
+                            "name": "onReportStatusSelectorChange",
+                            "designerId": "97c8d6a5-89dc-424c-a414-514196a6bfae"
+                        },
+                        {
+                            "type": "basiceventbinding",
+                            "reference": {
+                                "name": "listeners",
+                                "type": "array"
+                            },
+                            "codeClass": null,
+                            "userConfig": {
+                                "fn": "onReportStatusSelectorFocus",
+                                "implHandler": [
+                                    "var rpStatus = Ext.getCmp('reportStatusSelector').setValue('');"
+                                ],
+                                "name": "focus",
+                                "scope": "me"
+                            },
+                            "name": "onReportStatusSelectorFocus",
+                            "designerId": "48c6e4cb-d8b1-4672-a857-4823bd5969be"
+                        }
+                    ]
+                },
+                {
+                    "type": "Ext.button.Button",
+                    "reference": {
+                        "name": "items",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "layout|flex": null,
+                        "text": "清除查詢結果"
+                    },
+                    "name": "MyButton10",
+                    "designerId": "0c288950-5e65-4317-8c8b-8e205459f22f",
+                    "cn": [
+                        {
+                            "type": "basiceventbinding",
+                            "reference": {
+                                "name": "listeners",
+                                "type": "array"
+                            },
+                            "codeClass": null,
+                            "userConfig": {
+                                "fn": "onButtonClick2",
+                                "implHandler": [
+                                    "var store  = Ext.getCmp('reportgridpanel').getViewModel().getStore('ReportStore');",
+                                    "store.proxy.url='http://dev.finpo.com.tw/posh/public/b/report';",
+                                    "",
+                                    "Ext.getCmp('ReportMemberIDField').setValue('');",
+                                    "Ext.getCmp('reportStatusSelector').setValue('');",
+                                    "",
+                                    "store.load();"
+                                ],
+                                "name": "click",
+                                "scope": "me"
+                            },
+                            "name": "onButtonClick2",
+                            "designerId": "0faf65e6-b965-417c-8a89-4e5811dbfb52"
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "type": "Ext.selection.CheckboxModel",
+            "reference": {
+                "name": "selModel",
+                "type": "object"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "mode": "SINGLE"
+            },
+            "name": "MyCheckboxSelectionModel",
+            "designerId": "adb1e8d0-299b-4d7d-a2ec-b44f57577edb"
+        }
+    ]
+}

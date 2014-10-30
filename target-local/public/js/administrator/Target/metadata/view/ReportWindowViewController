@@ -1,0 +1,13 @@
+{
+    "type": "Ext.app.ViewController",
+    "reference": {
+        "name": "items",
+        "type": "array"
+    },
+    "codeClass": null,
+    "userConfig": {
+        "designer|userAlias": "reportwindow",
+        "designer|userClassName": "ReportWindowViewController"
+    },
+    "designerId": "12b6362f-211a-4a17-bc87-3c4ae7d5fe17"
+}

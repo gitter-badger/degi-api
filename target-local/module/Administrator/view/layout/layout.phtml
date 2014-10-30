@@ -1,25 +1,29 @@
 <?php echo $this->doctype(); ?>
 
-<html lang="zh_TW">
+<html lang="zh-TW">
     <head>
         <meta charset="utf-8">
-        <base href="<?php echo $this->ServerUrl() . $this->basePath('/')  ?>" />
-        <?php echo $this->headTitle('')->setSeparator(' - ')->setAutoEscape(false) ?>
-
+        <base href="<?php echo $this->ServerUrl() . $this->basePath() . "/" ?>" />
+        <?php echo $this->headTitle($this->title); ?>
         <?php echo $this->headMeta()->appendName('viewport', 'width=device-width, initial-scale=1.0') ?>
-        
-        <?php echo $this->headLink(); ?>
+		<script>
+        var Ext = Ext || {};
+        Ext.theme = {
+            name: ""
+        };
+	    </script>
+		<script src="http://cdn.sencha.com/ext/gpl/5.0.1/build/ext-all.js"></script>
+	    <script src="http://cdn.sencha.com/ext/gpl/5.0.1/build/packages/ext-theme-crisp/build/ext-theme-crisp.js"></script>
+	    <link rel="stylesheet" href="js/administrator/Target/resources/preview-ext-theme-crisp-e7dc5086-30f9-4ca7-b0c8-71f7cce4ccb9.css">
+	    <script src="js/administrator/Target/ckeditor/ckeditor.js"></script>
+        <!-- Le styles -->
+        <?php echo $this->headLink();?>
+        <!-- Scripts -->
         <?php echo $this->headScript(); ?>
-
+		<script type="text/javascript">
+		 	var base_url = "<?php echo $this->ServerUrl() . $this->basePath() . "/"?>";			
+		</script>
     </head>
     <body>
-        <div class="header">header</div>
-        <div class="container">
-            <?php echo $this->content; ?>
-
-        </div>
-        
-        
-        <?php /**/ echo $this->inlineScript() ?>
     </body>
 </html>

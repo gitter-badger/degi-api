@@ -1,0 +1,14 @@
+{
+    "type": "Ext.app.ViewModel",
+    "reference": {
+        "name": "items",
+        "type": "array"
+    },
+    "codeClass": null,
+    "userConfig": {
+        "designer|userAlias": "systemvariablewindow",
+        "designer|userClassName": "MemberWindowViewModel1"
+    },
+    "name": "MemberWindowViewModel1",
+    "designerId": "df595d96-99db-4981-b3de-dc653a1fef05"
+}

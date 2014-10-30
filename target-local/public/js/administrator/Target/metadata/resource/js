@@ -1,0 +1,15 @@
+{
+    "type": "jsresource",
+    "reference": {
+        "name": "items",
+        "type": "array"
+    },
+    "codeClass": null,
+    "userConfig": {
+        "designer|userClassName": "js",
+        "includeInBundle": true,
+        "url": "ckeditor/ckeditor.js"
+    },
+    "name": "js",
+    "designerId": "5183c18c-ab01-4621-868c-46e10a5caff6"
+}

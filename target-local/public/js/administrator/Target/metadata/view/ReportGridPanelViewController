@@ -1,0 +1,13 @@
+{
+    "type": "Ext.app.ViewController",
+    "reference": {
+        "name": "items",
+        "type": "array"
+    },
+    "codeClass": null,
+    "userConfig": {
+        "designer|userAlias": "reportgridpanel",
+        "designer|userClassName": "ReportGridPanelViewController"
+    },
+    "designerId": "05bf3064-2520-41a3-8609-be65a1158649"
+}

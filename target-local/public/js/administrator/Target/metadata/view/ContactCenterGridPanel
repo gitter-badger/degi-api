@@ -1,0 +1,256 @@
+{
+    "type": "Ext.grid.Panel",
+    "reference": {
+        "name": "items",
+        "type": "array"
+    },
+    "codeClass": null,
+    "userConfig": {
+        "designer|userAlias": "contactcentergridpanel",
+        "designer|userClassName": "ContactCenterGridPanel",
+        "height": null,
+        "id": "contactcentergridpanel",
+        "store": [
+            "{ContactCenterStore}"
+        ],
+        "title": "My Grid Panel",
+        "width": null
+    },
+    "name": "MyGridPanel",
+    "configAlternates": {
+        "store": "binding"
+    },
+    "designerId": "1be4e9e8-4245-43e8-8c3e-6adf5620ff09",
+    "viewControllerInstanceId": "ab8d43ef-8dfd-43c4-bc25-9e016d36b977",
+    "viewModelInstanceId": "5a22639c-3ff4-4040-b029-9b7f5750ceb8",
+    "cn": [
+        {
+            "type": "Ext.grid.View",
+            "reference": {
+                "name": "viewConfig",
+                "type": "object"
+            },
+            "codeClass": null,
+            "name": "MyGridView",
+            "designerId": "b6340b5e-670f-4823-baa1-f71f7604ee6e"
+        },
+        {
+            "type": "Ext.grid.column.Column",
+            "reference": {
+                "name": "columns",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "dataIndex": "cc_id",
+                "flex": 0.5,
+                "text": "ID"
+            },
+            "name": "MyColumn1",
+            "designerId": "0e64a6ca-8752-4eaa-a039-0900a4288e66"
+        },
+        {
+            "type": "Ext.grid.column.Column",
+            "reference": {
+                "name": "columns",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "dataIndex": "cc_email",
+                "flex": 1,
+                "text": "E-mail"
+            },
+            "name": "MyColumn2",
+            "designerId": "547921a8-e22b-4408-89c5-42f6da524397"
+        },
+        {
+            "type": "Ext.grid.column.Column",
+            "reference": {
+                "name": "columns",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "dataIndex": "cc_subject",
+                "flex": 1,
+                "text": "主旨"
+            },
+            "name": "MyColumn3",
+            "designerId": "4fe4b399-60dc-498e-98f1-6585e50419b7"
+        },
+        {
+            "type": "Ext.grid.column.Column",
+            "reference": {
+                "name": "columns",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "dataIndex": "cc_status",
+                "id": null,
+                "text": "狀態"
+            },
+            "name": "MyColumn9",
+            "designerId": "cb09aada-4264-43f5-9f6d-4d1896e6f23c"
+        },
+        {
+            "type": "Ext.grid.column.Column",
+            "reference": {
+                "name": "columns",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "dataIndex": "cc_city",
+                "flex": 0.5,
+                "text": "城市"
+            },
+            "name": "MyColumn5",
+            "designerId": "bc7fd144-53c6-4c7f-89f4-c8a440cfabbb"
+        },
+        {
+            "type": "Ext.grid.column.Column",
+            "reference": {
+                "name": "columns",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "dataIndex": "cc_feedback",
+                "flex": 1,
+                "text": "感受"
+            },
+            "name": "MyColumn6",
+            "designerId": "6ac9023e-042a-4708-958d-799aa212e6a5"
+        },
+        {
+            "type": "Ext.grid.column.Column",
+            "reference": {
+                "name": "columns",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "dataIndex": "cc_date",
+                "flex": 1,
+                "text": "日期"
+            },
+            "name": "MyColumn8",
+            "designerId": "b90690ab-9d0e-4c1a-8d4e-57af2f7906c7"
+        },
+        {
+            "type": "Ext.selection.CheckboxModel",
+            "reference": {
+                "name": "selModel",
+                "type": "object"
+            },
+            "codeClass": null,
+            "name": "MyCheckboxSelectionModel",
+            "designerId": "fb54aa2d-1665-419f-be9d-f4875affe825"
+        },
+        {
+            "type": "Ext.toolbar.Toolbar",
+            "reference": {
+                "name": "dockedItems",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "dock": "top"
+            },
+            "name": "MyToolbar",
+            "designerId": "b047de3e-a30d-499b-89fe-a09cc484c9cb",
+            "cn": [
+                {
+                    "type": "Ext.button.Button",
+                    "reference": {
+                        "name": "items",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "layout|flex": null,
+                        "text": "修改"
+                    },
+                    "name": "MyButton6",
+                    "designerId": "b8a08282-c623-445c-9aeb-dcb8d26147f5",
+                    "cn": [
+                        {
+                            "type": "basiceventbinding",
+                            "reference": {
+                                "name": "listeners",
+                                "type": "array"
+                            },
+                            "codeClass": null,
+                            "userConfig": {
+                                "fn": "onButtonClick",
+                                "implHandler": [
+                                    "/* 修改資料回報 */",
+                                    "var selmodel = Ext.getCmp('contactcentergridpanel').getSelectionModel();",
+                                    "var count = selmodel.getCount();",
+                                    "",
+                                    "if(count !== 0){",
+                                    "    var seldata = selmodel.getSelection();",
+                                    "",
+                                    "    var window = Ext.create('Posh.view.ContactCenterWindow');",
+                                    "",
+                                    "    Ext.getCmp('cc_id').setValue(seldata[0].data.cc_id);",
+                                    "",
+                                    "    window.setConfig('title', '修改聯絡中心資料');",
+                                    "",
+                                    "//     Ext.Ajax.request({",
+                                    "//         url: 'http://dev.finpo.com.tw/posh/public/b/report/'+seldata[0].data.rp_id,",
+                                    "//         success: function(response, opts){",
+                                    "//             var obj = Ext.decode(response.responseText);",
+                                    "",
+                                    "//             Ext.getCmp('reportForm').getForm().setValues(obj.data);",
+                                    "//         },",
+                                    "//         failure: function(response, opts){",
+                                    "//             console.log('server-side failure with status code ' + response.status);",
+                                    "//         }",
+                                    "",
+                                    "//     });",
+                                    "",
+                                    "    //Ext.getCmp('productAddBtn').setVisible(false);",
+                                    "    //Ext.getCmp('productUpdateBtn').setVisible(true);",
+                                    "",
+                                    "    window.show();",
+                                    "}else{",
+                                    "    Ext.Msg.alert('訊息', '請選擇一個聯絡中心資料修改');",
+                                    "}",
+                                    ""
+                                ],
+                                "name": "click",
+                                "scope": "me"
+                            },
+                            "name": "onButtonClick",
+                            "designerId": "a5b954d6-efb0-448a-be83-77d6dc1b5737"
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "type": "Ext.toolbar.Paging",
+            "reference": {
+                "name": "dockedItems",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "displayInfo": true,
+                "dock": "bottom",
+                "store": [
+                    "{ContactCenterStore}"
+                ],
+                "width": 360
+            },
+            "name": "MyPagingToolbar",
+            "configAlternates": {
+                "store": "binding"
+            },
+            "designerId": "cd9ac913-858a-4fb0-a496-0b4f56fb8fc4"
+        }
+    ]
+}

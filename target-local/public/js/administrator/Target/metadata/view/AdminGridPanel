@@ -1,0 +1,301 @@
+{
+    "type": "Ext.grid.Panel",
+    "reference": {
+        "name": "items",
+        "type": "array"
+    },
+    "codeClass": null,
+    "userConfig": {
+        "designer|userAlias": "admingridpanel",
+        "designer|userClassName": "AdminGridPanel",
+        "height": null,
+        "id": "admingridpanel",
+        "store": [
+            "{AdminStore}"
+        ],
+        "title": "My Grid Panel",
+        "width": null
+    },
+    "name": "MyGridPanel",
+    "configAlternates": {
+        "store": "binding"
+    },
+    "designerId": "7619842a-67e0-4552-a3f6-0bb3a8c3a960",
+    "viewControllerInstanceId": "f9954924-e0c3-4257-913b-6de467c2a16b",
+    "viewModelInstanceId": "941bcc21-9125-4b10-a613-4f0f2104e3cd",
+    "cn": [
+        {
+            "type": "Ext.grid.View",
+            "reference": {
+                "name": "viewConfig",
+                "type": "object"
+            },
+            "codeClass": null,
+            "name": "MyGridView",
+            "designerId": "9778608f-e153-45e1-bdc6-562687307203"
+        },
+        {
+            "type": "Ext.grid.column.Column",
+            "reference": {
+                "name": "columns",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "dataIndex": "a_account",
+                "flex": 1,
+                "id": "a_account",
+                "text": "帳號"
+            },
+            "name": "MyColumn2",
+            "designerId": "58cfd0ac-3304-4234-87e2-95c6de466629"
+        },
+        {
+            "type": "Ext.grid.column.Column",
+            "reference": {
+                "name": "columns",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "dataIndex": "a_email",
+                "flex": 1,
+                "text": "E-mail"
+            },
+            "name": "MyColumn4",
+            "designerId": "3692dd54-e72c-45ec-8a81-842c17b2059f"
+        },
+        {
+            "type": "Ext.grid.column.Column",
+            "reference": {
+                "name": "columns",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "dataIndex": "a_displayname",
+                "flex": 1,
+                "text": "顯示名稱"
+            },
+            "name": "MyColumn5",
+            "designerId": "671bdb4d-c0cd-4c13-8d7b-97861a809ec4"
+        },
+        {
+            "type": "Ext.grid.column.Column",
+            "reference": {
+                "name": "columns",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "dataIndex": "a_last_login",
+                "flex": 1,
+                "text": "最後登入"
+            },
+            "name": "MyColumn6",
+            "designerId": "f7ea9632-4bc5-4ec3-9bcb-7ed19531e463"
+        },
+        {
+            "type": "Ext.grid.column.Column",
+            "reference": {
+                "name": "columns",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "dataIndex": "a_status",
+                "flex": 0.5,
+                "text": "啟／停用"
+            },
+            "name": "MyColumn7",
+            "designerId": "4a92b95e-66fc-4c2f-a233-f84a90f31c01",
+            "cn": [
+                {
+                    "type": "fixedfunction",
+                    "reference": {
+                        "name": "items",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "designer|params": [
+                            "value",
+                            "metaData",
+                            "record",
+                            "rowIndex",
+                            "colIndex",
+                            "store",
+                            "view"
+                        ],
+                        "fn": "renderer",
+                        "implHandler": [
+                            "if( value == 1){",
+                            "    return '啟用';",
+                            "}else{",
+                            "    return '停用';",
+                            "}"
+                        ]
+                    },
+                    "name": "renderer",
+                    "designerId": "19cffaca-b776-4e03-ab89-50ff31c556be"
+                }
+            ]
+        },
+        {
+            "type": "Ext.grid.column.Column",
+            "reference": {
+                "name": "columns",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "dataIndex": "a_created",
+                "flex": 1,
+                "text": "建立時間"
+            },
+            "name": "MyColumn8",
+            "designerId": "d844591c-2a52-485c-9e0c-eb46d79024e0"
+        },
+        {
+            "type": "Ext.grid.column.Column",
+            "reference": {
+                "name": "columns",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "dataIndex": "a_modified",
+                "flex": 1,
+                "text": "最後修改"
+            },
+            "name": "MyColumn9",
+            "designerId": "0426c77e-67db-47da-9109-b1f23f8657ab"
+        },
+        {
+            "type": "Ext.toolbar.Toolbar",
+            "reference": {
+                "name": "dockedItems",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "dock": "top"
+            },
+            "name": "MyToolbar",
+            "designerId": "73e47d27-50a8-4e54-b033-1d7153fad98c",
+            "cn": [
+                {
+                    "type": "Ext.button.Button",
+                    "reference": {
+                        "name": "items",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "layout|flex": null,
+                        "text": "新增"
+                    },
+                    "name": "MyButton16",
+                    "designerId": "24480d82-1492-4da6-a1cb-77d4bf54aefb",
+                    "cn": [
+                        {
+                            "type": "basiceventbinding",
+                            "reference": {
+                                "name": "listeners",
+                                "type": "array"
+                            },
+                            "codeClass": null,
+                            "userConfig": {
+                                "fn": "onButtonClick",
+                                "implHandler": [
+                                    "/* 新增管理者 */",
+                                    "var window = Ext.create('Target.view.AdminWindow');",
+                                    "",
+                                    "window.setConfig('title', '新增管理者');",
+                                    "",
+                                    "Ext.getCmp('adminUpdateBtn').setVisible(false);",
+                                    "Ext.getCmp('adminAddBtn').setVisible(true);",
+                                    "",
+                                    "window.show();"
+                                ],
+                                "name": "click",
+                                "scope": "me"
+                            },
+                            "name": "onButtonClick",
+                            "designerId": "cc322f53-6954-48d4-910f-5aa2bd473581"
+                        }
+                    ]
+                },
+                {
+                    "type": "Ext.button.Button",
+                    "reference": {
+                        "name": "items",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "layout|flex": null,
+                        "text": "修改"
+                    },
+                    "name": "MyButton17",
+                    "designerId": "73c248bf-3bef-402a-915c-7ab4193af02c",
+                    "cn": [
+                        {
+                            "type": "basiceventbinding",
+                            "reference": {
+                                "name": "listeners",
+                                "type": "array"
+                            },
+                            "codeClass": null,
+                            "userConfig": {
+                                "fn": "onButtonClick1",
+                                "implHandler": [
+                                    "/* 修改管理者 */",
+                                    "var selmodel = Ext.getCmp('admingridpanel').getSelectionModel();",
+                                    "var count = selmodel.getCount();",
+                                    "",
+                                    "if(count !== 0){",
+                                    "    var seldata = selmodel.getSelection();",
+                                    "",
+                                    "    var window = Ext.create('Target.view.AdminWindow');",
+                                    "",
+                                    "    Ext.getCmp('a_id').setValue(seldata[0].data.a_id);",
+                                    "    Ext.getCmp('a_passwordTemp').setValue(seldata[0].data.a_password);",
+                                    "",
+                                    "    window.setConfig('title', '修改管理者');",
+                                    "",
+                                    "    Ext.getCmp('adminForm').getForm().setValues(seldata[0].data);",
+                                    "",
+                                    "    Ext.getCmp('a_account').setDisabled(true);",
+                                    "",
+                                    "    Ext.getCmp('adminAddBtn').setVisible(false);",
+                                    "    Ext.getCmp('adminUpdateBtn').setVisible(true);",
+                                    "",
+                                    "    window.show();",
+                                    "}else{",
+                                    "    Ext.Msg.alert('訊息', '請選擇一個管理者修改');",
+                                    "}",
+                                    ""
+                                ],
+                                "name": "click",
+                                "scope": "me"
+                            },
+                            "name": "onButtonClick1",
+                            "designerId": "1b33bc68-b861-4ed1-b2df-c617822e41b2"
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "type": "Ext.selection.CheckboxModel",
+            "reference": {
+                "name": "selModel",
+                "type": "object"
+            },
+            "codeClass": null,
+            "name": "MyCheckboxSelectionModel3",
+            "designerId": "8b90c863-2835-4756-8ef5-3e9538edf917"
+        }
+    ]
+}

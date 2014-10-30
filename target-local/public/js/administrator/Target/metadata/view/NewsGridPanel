@@ -1,0 +1,177 @@
+{
+    "type": "Ext.grid.Panel",
+    "reference": {
+        "name": "items",
+        "type": "array"
+    },
+    "codeClass": null,
+    "userConfig": {
+        "designer|userAlias": "newsgridpanel",
+        "designer|userClassName": "NewsGridPanel",
+        "height": null,
+        "id": "newsgridpanel",
+        "store": [
+            "{NewsStore}"
+        ],
+        "title": "My Grid Panel",
+        "width": null
+    },
+    "name": "MyGridPanel",
+    "configAlternates": {
+        "store": "binding"
+    },
+    "designerId": "1d1996d6-d0dd-403e-800e-1c0d95f62d81",
+    "viewControllerInstanceId": "e4350e4e-b1d0-4378-a568-95c5a3f428ae",
+    "viewModelInstanceId": "a9c58843-0022-4334-8125-cb0059e6cb85",
+    "cn": [
+        {
+            "type": "Ext.toolbar.Toolbar",
+            "reference": {
+                "name": "dockedItems",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "dock": "top"
+            },
+            "name": "MyToolbar2",
+            "designerId": "b13c6fc4-dace-4574-a745-c44fc46c5dbd",
+            "cn": [
+                {
+                    "type": "Ext.button.Button",
+                    "reference": {
+                        "name": "items",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "layout|flex": null,
+                        "text": "功能"
+                    },
+                    "name": "MyButton14",
+                    "designerId": "364782fc-13e2-4ea8-be72-059a95f7bfdc",
+                    "cn": [
+                        {
+                            "type": "Ext.menu.Menu",
+                            "reference": {
+                                "name": "menu",
+                                "type": "object"
+                            },
+                            "codeClass": null,
+                            "name": "MyMenu2",
+                            "designerId": "88fccbb5-9643-46cb-86ee-b073cb2f956c",
+                            "cn": [
+                                {
+                                    "type": "Ext.menu.Item",
+                                    "reference": {
+                                        "name": "items",
+                                        "type": "array"
+                                    },
+                                    "codeClass": null,
+                                    "userConfig": {
+                                        "text": "新增"
+                                    },
+                                    "name": "MyMenuItem6",
+                                    "designerId": "c647ecd0-65f1-4492-b643-0750a6926700"
+                                },
+                                {
+                                    "type": "Ext.menu.Item",
+                                    "reference": {
+                                        "name": "items",
+                                        "type": "array"
+                                    },
+                                    "codeClass": null,
+                                    "userConfig": {
+                                        "text": "修改"
+                                    },
+                                    "name": "MyMenuItem7",
+                                    "designerId": "94f85a27-504d-425b-bb5f-9051f3448d17"
+                                }
+                            ]
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "type": "Ext.grid.View",
+            "reference": {
+                "name": "viewConfig",
+                "type": "object"
+            },
+            "codeClass": null,
+            "name": "MyGridView2",
+            "designerId": "8cc96ba2-996b-4d7f-b956-16a8f655977b"
+        },
+        {
+            "type": "Ext.grid.column.Column",
+            "reference": {
+                "name": "columns",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "dataIndex": "nm_title",
+                "flex": 1,
+                "text": "標題"
+            },
+            "name": "MyColumn2",
+            "designerId": "d8c81331-719c-4922-b5d5-4e648c7cce6b"
+        },
+        {
+            "type": "Ext.grid.column.Column",
+            "reference": {
+                "name": "columns",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "dataIndex": "nm_publish_date",
+                "flex": 0.8,
+                "text": "發佈日"
+            },
+            "name": "MyColumn5",
+            "designerId": "6673918d-dd89-4868-b205-2cc019084c6f"
+        },
+        {
+            "type": "Ext.grid.column.Column",
+            "reference": {
+                "name": "columns",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "dataIndex": "nm_created",
+                "flex": 0.8,
+                "text": "建立時間"
+            },
+            "name": "MyColumn6",
+            "designerId": "8a23d5c3-c9b4-4037-86a3-50023e3eefcb"
+        },
+        {
+            "type": "Ext.grid.column.Column",
+            "reference": {
+                "name": "columns",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "dataIndex": "nm_modified",
+                "flex": 0.8,
+                "text": "最後修改"
+            },
+            "name": "MyColumn7",
+            "designerId": "e750c6ce-6fc1-40bc-a946-c71597d98f3b"
+        },
+        {
+            "type": "Ext.selection.CheckboxModel",
+            "reference": {
+                "name": "selModel",
+                "type": "object"
+            },
+            "codeClass": null,
+            "name": "MyCheckboxSelectionModel2",
+            "designerId": "79738c25-14df-45bb-a02d-c71f67116a86"
+        }
+    ]
+}

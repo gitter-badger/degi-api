@@ -1,0 +1,67 @@
+{
+    "type": "Ext.data.Model",
+    "reference": {
+        "name": "items",
+        "type": "array"
+    },
+    "codeClass": null,
+    "userConfig": {
+        "designer|userClassName": "SystemVariableModel"
+    },
+    "name": "MyModel",
+    "designerId": "6049da2a-5e03-4748-8fe1-d673bd40e4c3",
+    "cn": [
+        {
+            "type": "Ext.data.field.Field",
+            "reference": {
+                "name": "fields",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "name": "sv_id"
+            },
+            "name": "MyField30",
+            "designerId": "93e7b28d-8856-4d45-9eee-9a7d3bfd268f"
+        },
+        {
+            "type": "Ext.data.field.Field",
+            "reference": {
+                "name": "fields",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "name": "sv_name"
+            },
+            "name": "MyField31",
+            "designerId": "acff269b-69a3-4bf8-aec0-cf47841153d3"
+        },
+        {
+            "type": "Ext.data.field.Field",
+            "reference": {
+                "name": "fields",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "name": "sv_key"
+            },
+            "name": "MyField32",
+            "designerId": "e5b27ccd-01bc-4db0-94a8-3cd46070866b"
+        },
+        {
+            "type": "Ext.data.field.Field",
+            "reference": {
+                "name": "fields",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "name": "sv_value"
+            },
+            "name": "MyField33",
+            "designerId": "ac085928-f716-43b8-bc5b-5c587cca50f2"
+        }
+    ]
+}

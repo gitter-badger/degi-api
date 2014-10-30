@@ -1,0 +1,579 @@
+{
+    "type": "Ext.container.Viewport",
+    "reference": {
+        "name": "items",
+        "type": "array"
+    },
+    "codeClass": null,
+    "userConfig": {
+        "designer|initialView": true,
+        "designer|userAlias": "myviewport",
+        "designer|userClassName": "MyViewport",
+        "id": "mainViewport",
+        "layout": "border"
+    },
+    "name": "MyViewport",
+    "designerId": "0cfcc428-6d78-45b2-b611-9733bbc5e314",
+    "viewControllerInstanceId": "0e9da48b-606a-42cf-8d9e-d279d159ea4b",
+    "viewModelInstanceId": "d963e1ae-03d2-455e-8357-e72675a25257",
+    "cn": [
+        {
+            "type": "Ext.panel.Panel",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "container|align": "stretch",
+                "container|pack": "end",
+                "height": 35,
+                "layout": "hbox",
+                "layout|region": "north",
+                "title": ""
+            },
+            "name": "MyPanel",
+            "designerId": "056537e7-57f5-4dd2-9e24-74287e7d65ba",
+            "cn": [
+                {
+                    "type": "Ext.button.Button",
+                    "reference": {
+                        "name": "items",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "margin": 5,
+                        "text": "登出",
+                        "width": 107
+                    },
+                    "name": "MyButton9",
+                    "designerId": "37b00eaf-7c84-4f64-bcc6-78a164bb1945",
+                    "cn": [
+                        {
+                            "type": "basiceventbinding",
+                            "reference": {
+                                "name": "listeners",
+                                "type": "array"
+                            },
+                            "codeClass": null,
+                            "userConfig": {
+                                "fn": "onButtonClick4",
+                                "implHandler": [
+                                    "Ext.Ajax.request({",
+                                    "    method: 'DELETE',",
+                                    "    url: 'http://dev.finpo.com.tw/degi-api/target-local/public/b/auth',",
+                                    "    success: function(response, opts){",
+                                    "        var obj = Ext.decode(response.responseText);",
+                                    "        //console.log(obj);",
+                                    "        if(obj.success === true){",
+                                    "            window.location.reload();",
+                                    "        }",
+                                    "    }",
+                                    "});"
+                                ],
+                                "name": "click",
+                                "scope": "me"
+                            },
+                            "name": "onButtonClick4",
+                            "designerId": "e611b84e-83ac-4a30-ba07-691adb24b5bd"
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "type": "Ext.panel.Panel",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "collapsible": true,
+                "container|align": "stretch",
+                "layout": "vbox",
+                "layout|region": "west",
+                "title": "主功能",
+                "width": 150
+            },
+            "name": "MyPanel1",
+            "designerId": "53641457-337e-4649-9424-2b90768682a3",
+            "cn": [
+                {
+                    "type": "Ext.button.Button",
+                    "reference": {
+                        "name": "items",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "allowDepress": null,
+                        "hideMode": null,
+                        "id": "adminButton",
+                        "layout|flex": null,
+                        "margin": "5px",
+                        "text": "管理者"
+                    },
+                    "name": "MyButton",
+                    "designerId": "a5c28f1f-9ef3-4bed-9b1e-7c34db8822a2",
+                    "cn": [
+                        {
+                            "type": "basiceventbinding",
+                            "reference": {
+                                "name": "listeners",
+                                "type": "array"
+                            },
+                            "codeClass": null,
+                            "userConfig": {
+                                "fn": "adminMgrBtnClick",
+                                "implHandler": [
+                                    "var tab = Ext.getCmp('tabpanel');",
+                                    "if(!Ext.getCmp('admingridpanel')){",
+                                    "    panel = Ext.create('Target.view.AdminGridPanel',{",
+                                    "        tabConfig: {",
+                                    "            title: '管理者',",
+                                    "            closable: true",
+                                    "        }",
+                                    "    });",
+                                    "",
+                                    "    tab.add(panel);",
+                                    "    tab.setActiveTab('admingridpanel');",
+                                    "}else{",
+                                    "    tab.setActiveTab('admingridpanel');",
+                                    "}"
+                                ],
+                                "name": "click",
+                                "scope": "me"
+                            },
+                            "name": "adminMgrBtnClick",
+                            "designerId": "8f4638ac-5bd8-4dc1-b67b-dfb921fc74cd"
+                        }
+                    ]
+                },
+                {
+                    "type": "Ext.button.Button",
+                    "reference": {
+                        "name": "items",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "id": "memberButton",
+                        "layout|flex": null,
+                        "layout|margins": null,
+                        "margin": "5px",
+                        "text": "會員管理"
+                    },
+                    "name": "MyButton1",
+                    "designerId": "285519c6-1dcc-4086-ab32-a9e1d2f3d4f7",
+                    "cn": [
+                        {
+                            "type": "basiceventbinding",
+                            "reference": {
+                                "name": "listeners",
+                                "type": "array"
+                            },
+                            "codeClass": null,
+                            "userConfig": {
+                                "fn": "memberMgrBtnClick",
+                                "implHandler": [
+                                    "var tab = Ext.getCmp('tabpanel');",
+                                    "if(!Ext.getCmp('membergridpanel')){",
+                                    "    panel = Ext.create('Target.view.MemberGridPanel',{",
+                                    "        tabConfig: {",
+                                    "            title: '會員管理',",
+                                    "            closable: true",
+                                    "        }",
+                                    "    });",
+                                    "",
+                                    "    tab.add(panel);",
+                                    "    tab.setActiveTab('membergridpanel');",
+                                    "}else{",
+                                    "    tab.setActiveTab('membergridpanel');",
+                                    "}"
+                                ],
+                                "name": "click",
+                                "scope": "me"
+                            },
+                            "name": "memberMgrBtnClick",
+                            "designerId": "9fbe70a9-0baf-4748-9df7-e088fa420a49"
+                        }
+                    ]
+                },
+                {
+                    "type": "Ext.button.Button",
+                    "reference": {
+                        "name": "items",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "id": "itemCategoryButton",
+                        "layout|flex": null,
+                        "margin": 5,
+                        "text": "商品分類管理"
+                    },
+                    "name": "MyButton10",
+                    "designerId": "e417bd7b-3eaa-4780-9ca1-8f3d2a2bcd13",
+                    "cn": [
+                        {
+                            "type": "basiceventbinding",
+                            "reference": {
+                                "name": "listeners",
+                                "type": "array"
+                            },
+                            "codeClass": null,
+                            "userConfig": {
+                                "fn": "itemCategoryMgrBtnClick",
+                                "implHandler": [
+                                    "var tab = Ext.getCmp('tabpanel');",
+                                    "",
+                                    "if(!Ext.getCmp('itemcategorygridpanel')){",
+                                    "    panel = Ext.create('Target.view.ItemCategoryGridPanel',{",
+                                    "        tabConfig: {",
+                                    "            title: '商品分類管理',",
+                                    "            closable: true",
+                                    "        }",
+                                    "    });",
+                                    "    tab.add(panel);",
+                                    "    tab.setActiveTab('itemcategorygridpanel');",
+                                    "}else{",
+                                    "    tab.setActiveTab('itemcategorygridpanel');",
+                                    "}"
+                                ],
+                                "name": "click",
+                                "scope": "me"
+                            },
+                            "name": "itemCategoryMgrBtnClick",
+                            "designerId": "9fc706a4-520c-4a08-8e3a-bbdf71b929a5"
+                        }
+                    ]
+                },
+                {
+                    "type": "Ext.button.Button",
+                    "reference": {
+                        "name": "items",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "id": "itemButton",
+                        "layout|flex": null,
+                        "margin": 5,
+                        "text": "商品管理"
+                    },
+                    "name": "MyButton2",
+                    "designerId": "9eeba491-f6d2-44b1-9c16-dd14b6f9b63e",
+                    "cn": [
+                        {
+                            "type": "basiceventbinding",
+                            "reference": {
+                                "name": "listeners",
+                                "type": "array"
+                            },
+                            "codeClass": null,
+                            "userConfig": {
+                                "fn": "itemMgrBtnClick",
+                                "implHandler": [
+                                    "var tab = Ext.getCmp('tabpanel');",
+                                    "",
+                                    "if(!Ext.getCmp('itemgridpanel')){",
+                                    "    panel = Ext.create('Target.view.ItemGridPanel',{",
+                                    "        tabConfig: {",
+                                    "            title: '商品管理',",
+                                    "            closable: true",
+                                    "        }",
+                                    "    });",
+                                    "    tab.add(panel);",
+                                    "    tab.setActiveTab('itemgridpanel');",
+                                    "}else{",
+                                    "    tab.setActiveTab('itemgridpanel');",
+                                    "}"
+                                ],
+                                "name": "click",
+                                "scope": "me"
+                            },
+                            "name": "itemMgrBtnClick",
+                            "designerId": "cfd6c592-530a-448a-9103-2138e0a27cec"
+                        }
+                    ]
+                },
+                {
+                    "type": "Ext.button.Button",
+                    "reference": {
+                        "name": "items",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "id": "newsButton",
+                        "layout|flex": null,
+                        "margin": 5,
+                        "text": "最新消息管理"
+                    },
+                    "name": "MyButton5",
+                    "designerId": "b27f7335-4dec-431a-8bc9-8a227041016f",
+                    "cn": [
+                        {
+                            "type": "basiceventbinding",
+                            "reference": {
+                                "name": "listeners",
+                                "type": "array"
+                            },
+                            "codeClass": null,
+                            "userConfig": {
+                                "fn": "newsMgrButtonClick",
+                                "implHandler": [
+                                    "var tab = Ext.getCmp('tabpanel');",
+                                    "",
+                                    "if(!Ext.getCmp('newsgridpanel')){",
+                                    "    panel = Ext.create('Target.view.NewsGridPanel',{",
+                                    "        tabConfig: {",
+                                    "            title: '最新消息管理',",
+                                    "            closable: true",
+                                    "        }",
+                                    "    });",
+                                    "    tab.add(panel);",
+                                    "    tab.setActiveTab('newsgridpanel');",
+                                    "}else{",
+                                    "    tab.setActiveTab('newsgridpanel');",
+                                    "}"
+                                ],
+                                "name": "click",
+                                "scope": "me"
+                            },
+                            "name": "newsMgrButtonClick",
+                            "designerId": "0c955114-752a-482b-af3c-7f44182d682d"
+                        }
+                    ]
+                },
+                {
+                    "type": "Ext.button.Button",
+                    "reference": {
+                        "name": "items",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "id": "popularItemButton",
+                        "layout|flex": null,
+                        "margin": 5,
+                        "text": "熱銷商品管理"
+                    },
+                    "name": "MyButton6",
+                    "designerId": "212baeeb-0f60-45d5-a17e-dff4ec9f3662",
+                    "cn": [
+                        {
+                            "type": "basiceventbinding",
+                            "reference": {
+                                "name": "listeners",
+                                "type": "array"
+                            },
+                            "codeClass": null,
+                            "userConfig": {
+                                "fn": "popularItemMgrButtonClick",
+                                "implHandler": [
+                                    "var tab = Ext.getCmp('tabpanel');",
+                                    "",
+                                    "if(!Ext.getCmp('popularitemgridpanel')){",
+                                    "    panel = Ext.create('Target.view.PopularItemGridPanel',{",
+                                    "        tabConfig: {",
+                                    "            title: '熱銷商品管理',",
+                                    "            closable: true",
+                                    "        }",
+                                    "    });",
+                                    "    tab.add(panel);",
+                                    "    tab.setActiveTab('popularitemgridpanel');",
+                                    "}else{",
+                                    "    tab.setActiveTab('popularitemgridpanel');",
+                                    "}"
+                                ],
+                                "name": "click",
+                                "scope": "me"
+                            },
+                            "name": "popularItemMgrButtonClick",
+                            "designerId": "4778b823-69d9-440d-aaf1-04ed786fc0d9"
+                        }
+                    ]
+                },
+                {
+                    "type": "Ext.button.Button",
+                    "reference": {
+                        "name": "items",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "id": "orderButton",
+                        "layout|flex": null,
+                        "layout|margins": null,
+                        "margin": 5,
+                        "text": "訂單管理"
+                    },
+                    "name": "MyButton4",
+                    "designerId": "27090ab2-b98c-460c-93ac-a617a0f1b02d",
+                    "cn": [
+                        {
+                            "type": "basiceventbinding",
+                            "reference": {
+                                "name": "listeners",
+                                "type": "array"
+                            },
+                            "codeClass": null,
+                            "userConfig": {
+                                "fn": "orderMgrButtonClick",
+                                "implHandler": [
+                                    "var tab = Ext.getCmp('tabpanel');",
+                                    "",
+                                    "if(!Ext.getCmp('ordergridpanel')){",
+                                    "    panel = Ext.create('Target.view.OrderGridPanel',{",
+                                    "        tabConfig: {",
+                                    "            title: '訂單管理',",
+                                    "            closable: true",
+                                    "        }",
+                                    "    });",
+                                    "    tab.add(panel);",
+                                    "    tab.setActiveTab('ordergridpanel');",
+                                    "}else{",
+                                    "    tab.setActiveTab('ordergridpanel');",
+                                    "}"
+                                ],
+                                "name": "click",
+                                "scope": "me"
+                            },
+                            "name": "orderMgrButtonClick",
+                            "designerId": "4698512b-b84c-4da7-bd4e-4cbc4ca4ce7b"
+                        }
+                    ]
+                },
+                {
+                    "type": "Ext.button.Button",
+                    "reference": {
+                        "name": "items",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "id": "systemVariableButton",
+                        "layout|flex": null,
+                        "margin": 5,
+                        "text": "全站變數管理"
+                    },
+                    "name": "MyButton3",
+                    "designerId": "ad86ffbc-790c-4528-a5bb-cca927e21f8e",
+                    "cn": [
+                        {
+                            "type": "basiceventbinding",
+                            "reference": {
+                                "name": "listeners",
+                                "type": "array"
+                            },
+                            "codeClass": null,
+                            "userConfig": {
+                                "fn": "systemVariableMgrButtonClick",
+                                "implHandler": [
+                                    "var tab = Ext.getCmp('tabpanel');",
+                                    "",
+                                    "if(!Ext.getCmp('systemvariablegridpanel')){",
+                                    "    panel = Ext.create('Target.view.SystemVariableGridPanel',{",
+                                    "        tabConfig: {",
+                                    "            title: '全站變數管理',",
+                                    "            closable: true",
+                                    "        }",
+                                    "    });",
+                                    "    tab.add(panel);",
+                                    "    tab.setActiveTab('systemvariablegridpanel');",
+                                    "}else{",
+                                    "    tab.setActiveTab('systemvariablegridpanel');",
+                                    "}"
+                                ],
+                                "name": "click",
+                                "scope": "me"
+                            },
+                            "name": "systemVariableMgrButtonClick",
+                            "designerId": "47038066-4e8f-4006-b529-d8bfa720e4a4"
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "type": "Ext.tab.Panel",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "id": "tabpanel",
+                "layout|region": "center"
+            },
+            "name": "MyTabPanel",
+            "designerId": "a5e67fba-6641-493c-b5f9-d991eb33167f"
+        },
+        {
+            "type": "Ext.panel.Panel",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "height": 35,
+                "layout|region": "south",
+                "title": ""
+            },
+            "name": "MyPanel3",
+            "designerId": "3e1eb570-7183-434e-8810-8c1cd4f49464"
+        },
+        {
+            "type": "basiceventbinding",
+            "reference": {
+                "name": "listeners",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "fn": "onMainViewportAfterRender",
+                "implHandler": [
+                    "// baseURL = document.URL;",
+                    "Ext.Ajax.request({",
+                    "    method: 'GET',",
+                    "    url: 'http://dev.finpo.com.tw/degi-api/target-local/public/b/auth',",
+                    "    success: function(response, opts){",
+                    "        var obj = Ext.decode(response.responseText);",
+                    "        //console.log(obj.success);",
+                    "",
+                    "        if(obj.success === false){",
+                    "            var loginWindow = Ext.create('Target.view.LoginWindow');",
+                    "            loginWindow.show();",
+                    "        }else{",
+                    "//             Ext.Ajax.request({",
+                    "//                 method: 'GET',",
+                    "//                 url: 'http://dev.finpo.com.tw/degi-api/target-local/public/b/auth/'+obj.data.a_id,",
+                    "//                 success: function(response, opts){",
+                    "//                     var obj2 = Ext.decode(response.responseText);",
+                    "//                     //console.log(obj2.data.a_permission);",
+                    "//                     var adminPermissionJson = obj2.data.a_permission;",
+                    "//                     var adminPermissionObject = Ext.decode(adminPermissionJson);",
+                    "//                     var adminPermissionArray = adminPermissionObject.aPermission;",
+                    "",
+                    "//                     for(var i in adminPermissionArray){",
+                    "//                         var buttonName = adminPermissionArray[i].replace(/check/, \"Button\");",
+                    "//                         Ext.getCmp(buttonName).show();",
+                    "//                     }",
+                    "//                 }",
+                    "//             });",
+                    "        }",
+                    "    }",
+                    "});"
+                ],
+                "name": "afterrender",
+                "scope": "me"
+            },
+            "name": "onMainViewportAfterRender",
+            "designerId": "e13c4d35-1c4e-4118-ac9e-f23a15a01c26"
+        }
+    ]
+}

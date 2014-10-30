@@ -69,8 +69,12 @@ class Admin{
         
         if($rs){
             unset($rs->a_password);
+            $rs->a_last_login = date('Y-m-d H:i:s');
+            $data['a_last_login'] = $rs->a_last_login;
+            $this->db->update($data , array('a_id'=>$rs->a_id));           
+            
             $auth = new Container('auth');
-            $auth->data = $rs ;
+            $auth->data = $rs ;          
             return array('success'=>true , 'data'=> $rs ) ;
         }else {
             return array('success'=>false , 'msg'=> '找不到帳號資料');

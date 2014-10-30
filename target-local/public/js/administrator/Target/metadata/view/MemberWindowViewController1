@@ -1,0 +1,14 @@
+{
+    "type": "Ext.app.ViewController",
+    "reference": {
+        "name": "items",
+        "type": "array"
+    },
+    "codeClass": null,
+    "userConfig": {
+        "designer|userAlias": "systemvariablewindow",
+        "designer|userClassName": "MemberWindowViewController1"
+    },
+    "name": "MemberWindowViewController1",
+    "designerId": "75d62091-aba7-4ddd-95fb-5107be31b73f"
+}

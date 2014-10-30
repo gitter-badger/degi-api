@@ -1,0 +1,93 @@
+{
+    "type": "Ext.data.Model",
+    "reference": {
+        "name": "items",
+        "type": "array"
+    },
+    "codeClass": null,
+    "userConfig": {
+        "designer|userClassName": "NewsModel"
+    },
+    "name": "MyModel",
+    "designerId": "74dec6a3-4f32-4e7a-9e31-abd96283ba3a",
+    "cn": [
+        {
+            "type": "Ext.data.field.Field",
+            "reference": {
+                "name": "fields",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "name": "nm_id"
+            },
+            "name": "MyField",
+            "designerId": "0d9c5813-102a-4c8f-a0ad-865df32cef01"
+        },
+        {
+            "type": "Ext.data.field.Field",
+            "reference": {
+                "name": "fields",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "name": "nm_title"
+            },
+            "name": "MyField1",
+            "designerId": "daef3a7a-9d41-4990-a027-92f7e5712e68"
+        },
+        {
+            "type": "Ext.data.field.Field",
+            "reference": {
+                "name": "fields",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "name": "nm_body"
+            },
+            "name": "MyField2",
+            "designerId": "0c269e4c-c2cf-48c7-b6c5-24dd32bb3a9b"
+        },
+        {
+            "type": "Ext.data.field.Field",
+            "reference": {
+                "name": "fields",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "name": "nm_publish_date"
+            },
+            "name": "MyField3",
+            "designerId": "48a73ad2-a6b0-4363-9dac-235282602ea2"
+        },
+        {
+            "type": "Ext.data.field.Field",
+            "reference": {
+                "name": "fields",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "name": "nm_created"
+            },
+            "name": "MyField4",
+            "designerId": "e1a3d043-0cbe-407d-a9b3-037efa63e4e2"
+        },
+        {
+            "type": "Ext.data.field.Field",
+            "reference": {
+                "name": "fields",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "name": "nm_modified"
+            },
+            "name": "MyField5",
+            "designerId": "ff34fc27-9cd6-447a-8a30-b7c881c43454"
+        }
+    ]
+}

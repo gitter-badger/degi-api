@@ -1,0 +1,116 @@
+{
+    "type": "Ext.app.ViewModel",
+    "reference": {
+        "name": "items",
+        "type": "array"
+    },
+    "codeClass": null,
+    "userConfig": {
+        "designer|userAlias": "reportgridpanel",
+        "designer|userClassName": "ReportGridPanelViewModel"
+    },
+    "designerId": "b8c49bf6-5472-47ba-96d6-e8cb7e78df08",
+    "cn": [
+        {
+            "type": "jsonstore",
+            "reference": {
+                "name": "stores",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "autoLoad": true,
+                "autoSync": true,
+                "groupDir": null,
+                "groupField": null,
+                "model": "ReportModel",
+                "name": "ReportStore"
+            },
+            "name": "MyJsonStore1",
+            "designerId": "4e54b232-b5e7-4cb4-87a7-28175f5c4ac7",
+            "cn": [
+                {
+                    "type": "Ext.data.proxy.Ajax",
+                    "reference": {
+                        "name": "proxy",
+                        "type": "object"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "url": "http://dev.finpo.com.tw/posh/public/b/report"
+                    },
+                    "name": "MyAjaxProxy1",
+                    "designerId": "595314d7-1e3f-4db8-8ddb-de1eba180e8b",
+                    "cn": [
+                        {
+                            "type": "Ext.data.reader.Json",
+                            "reference": {
+                                "name": "reader",
+                                "type": "object"
+                            },
+                            "codeClass": null,
+                            "userConfig": {
+                                "rootProperty": "rows"
+                            },
+                            "name": "MyJsonReader1",
+                            "designerId": "4837a666-e332-4a65-9df2-a290aff3607c"
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "type": "Ext.data.Store",
+            "reference": {
+                "name": "stores",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "data": [
+                    "[",
+                    "{'rp_type':'申請續約升級', 'text':'申請續約升級'},",
+                    "{'rp_type':'申請退會還機', 'text':'申請退會還機'},",
+                    "{'rp_type':'申請遺失續約', 'text':'申請遺失續約'},",
+                    "{'rp_type':'申請遺失退會', 'text':'申請遺失退會'},",
+                    "{'rp_type':'POSHGback退會', 'text':'POSHGback退會'},",
+                    "{'rp_type':'POSHGkeep會籍', 'text':'POSHGkeep會籍'},",
+                    "{'rp_type':'故障回報', 'text':'故障回報'},",
+                    "{'rp_type':'遺失回報', 'text':'遺失回報'}",
+                    "]"
+                ],
+                "name": "ReportStatusStore"
+            },
+            "name": "MyStore1",
+            "designerId": "99ad2928-0cf6-4d97-bf8b-00618b6276c9",
+            "cn": [
+                {
+                    "type": "Ext.data.field.Field",
+                    "reference": {
+                        "name": "fields",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "name": "rp_type"
+                    },
+                    "name": "MyField2",
+                    "designerId": "d50eba75-87f5-4d5e-9c4c-68cf7142155f"
+                },
+                {
+                    "type": "Ext.data.field.Field",
+                    "reference": {
+                        "name": "fields",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "name": "text"
+                    },
+                    "name": "MyField3",
+                    "designerId": "a6676fbe-3340-4cfd-bf49-7f8b6245d3f5"
+                }
+            ]
+        }
+    ]
+}

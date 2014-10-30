@@ -1,0 +1,143 @@
+{
+    "type": "Ext.window.Window",
+    "reference": {
+        "name": "items",
+        "type": "array"
+    },
+    "codeClass": null,
+    "userConfig": {
+        "designer|userAlias": "itemcategorywindow",
+        "designer|userClassName": "ItemCategoryWindow",
+        "height": 250,
+        "id": "itemcategorywindow",
+        "title": "My Window",
+        "width": 400
+    },
+    "name": "MyWindow1",
+    "designerId": "e020fc44-0870-4031-b969-fafb7c8afaeb",
+    "viewControllerInstanceId": "23a7b4dd-6a0f-4878-8d8c-bd5992bb2b68",
+    "viewModelInstanceId": "c08e5957-05f7-46bc-94b3-b92fd78b30f0",
+    "cn": [
+        {
+            "type": "Ext.form.Panel",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "bodyPadding": 10,
+                "title": ""
+            },
+            "name": "MyForm2",
+            "designerId": "cc560935-6fe0-4878-bd28-aad4b1da38e2",
+            "cn": [
+                {
+                    "type": "Ext.form.field.ComboBox",
+                    "reference": {
+                        "name": "items",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "fieldLabel": "類型"
+                    },
+                    "name": "TriggerField",
+                    "designerId": "a2cb9dbc-5d55-4ea2-9eaf-a4be81ec1bc4",
+                    "isBuiltIn": true,
+                    "iconCls": "icon-trigger-field",
+                    "autoName": "TriggerField"
+                },
+                {
+                    "type": "Ext.form.field.Text",
+                    "reference": {
+                        "name": "items",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "fieldLabel": "名稱",
+                        "layout|anchor": "100%"
+                    },
+                    "name": "MyTextField5",
+                    "designerId": "9d87cb0e-d434-4c24-bf5d-df6d735a0f52"
+                },
+                {
+                    "type": "Ext.form.field.Number",
+                    "reference": {
+                        "name": "items",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "fieldLabel": "排序",
+                        "labelWidth": null,
+                        "layout|anchor": "100%",
+                        "width": null
+                    },
+                    "name": "MyNumberField",
+                    "designerId": "f8cec84b-9401-49f7-82db-c83b13687aa4"
+                },
+                {
+                    "type": "Ext.form.field.Checkbox",
+                    "reference": {
+                        "name": "items",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "boxLabel": "",
+                        "fieldLabel": "上架",
+                        "layout|anchor": "100%"
+                    },
+                    "name": "MyCheckbox1",
+                    "designerId": "25455ec4-92be-41c4-8dd6-f9957eb17523"
+                }
+            ]
+        },
+        {
+            "type": "Ext.toolbar.Toolbar",
+            "reference": {
+                "name": "dockedItems",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "container|pack": "end",
+                "dock": "bottom"
+            },
+            "name": "MyToolbar2",
+            "designerId": "d21eb869-1b96-4bee-bfb3-cb32ba685065",
+            "cn": [
+                {
+                    "type": "Ext.button.Button",
+                    "reference": {
+                        "name": "items",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "layout|flex": null,
+                        "text": "新增"
+                    },
+                    "name": "MyButton7",
+                    "designerId": "721156a0-b475-4b7c-b420-53a545941915"
+                },
+                {
+                    "type": "Ext.button.Button",
+                    "reference": {
+                        "name": "items",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "layout|flex": null,
+                        "text": "修改"
+                    },
+                    "name": "MyButton8",
+                    "designerId": "ba067d76-3f31-4d6a-8040-4c2a662e4d9b"
+                }
+            ]
+        }
+    ]
+}

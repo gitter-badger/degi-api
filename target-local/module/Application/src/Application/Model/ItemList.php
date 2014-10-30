@@ -13,7 +13,7 @@ class ItemList{
    			$select = $this->if_db->getSql()->select();
    			$select->join('item_main','item_main.im_id = item_flavor.im_id',array('im_name'));
    			$select->join('item_cate_rel','item_main.im_id = item_cate_rel.im_id',array());
-   			$select->join('item_category','item_category.ic_id = item_cate_rel.ic_id',array());
+   			$select->join('item_category','item_category.ic_id = item_cate_rel.ic_id',array('ic_id'));
    			if( $id == '-1'){
    				$select->where('item_category.ic_type = 1');
    			}else if( $id == '-2'){
