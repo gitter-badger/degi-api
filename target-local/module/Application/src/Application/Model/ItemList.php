@@ -11,7 +11,7 @@ class ItemList{
     public function get($id,$server_url,$query){
    		try {
    			$select = $this->if_db->getSql()->select();
-   			$select->join('item_main','item_main.im_id = item_flavor.im_id',array('im_name'));
+   			$select->join('item_main','item_main.im_id = item_flavor.im_id',array('im_name','im_spec'));
    			$select->join('item_cate_rel','item_main.im_id = item_cate_rel.im_id',array());
    			$select->join('item_category','item_category.ic_id = item_cate_rel.ic_id',array('ic_id'));
    			if( $id == '-1'){
