@@ -149,6 +149,15 @@ return array(
             				),
             		),
             ),
+            'store_location_f' => array(
+            		'type' => 'Segment',
+            		'options' => array(
+            				'route'    => '/f/store_location[/:id]',
+            				'defaults' => array(
+            						'controller' => 'Application\Controller\StoreLocation'
+            				),
+            		),
+            ),
         ),
     ),
     'service_manager' => array(
@@ -179,7 +188,8 @@ return array(
             'Application\Controller\NewsMain' => 'Application\Controller\NewsMainController',
             'Application\Controller\IndexSlide' => 'Application\Controller\IndexSlideController',
             'Application\Controller\FoodCertification' => 'Application\Controller\FoodCertificationController',
-            'Application\Controller\ContactUs' => 'Application\Controller\ContactUsController'
+            'Application\Controller\ContactUs' => 'Application\Controller\ContactUsController',
+            'Application\Controller\StoreLocation' => 'Application\Controller\StoreLocationController'
          ),
     ),
     'view_manager' => array(
