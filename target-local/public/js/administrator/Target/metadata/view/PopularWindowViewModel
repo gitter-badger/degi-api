@@ -1,0 +1,83 @@
+{
+    "type": "Ext.app.ViewModel",
+    "reference": {
+        "name": "items",
+        "type": "array"
+    },
+    "codeClass": null,
+    "userConfig": {
+        "designer|userAlias": "popularwindow",
+        "designer|userClassName": "PopularWindowViewModel"
+    },
+    "name": "AdminWindowViewModel1",
+    "designerId": "769d2a76-a061-4762-95de-dc6abfbc83fe",
+    "cn": [
+        {
+            "type": "Ext.data.Store",
+            "reference": {
+                "name": "stores",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "data": [
+                    "[",
+                    "    {",
+                    "        \"pi_status\": 1,",
+                    "        \"text\": \"宅配熱銷\"",
+                    "    },",
+                    "    {",
+                    "        \"pi_status\": 2,",
+                    "        \"text\": \"店面熱銷\"",
+                    "    }",
+                    "]"
+                ],
+                "designer|displayName": "",
+                "name": "PopularStatusStore"
+            },
+            "name": "MyStore",
+            "designerId": "d13f0966-7d6c-4623-aa05-e9f146ee782c",
+            "cn": [
+                {
+                    "type": "Ext.data.field.Field",
+                    "reference": {
+                        "name": "fields",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "name": "pi_status"
+                    },
+                    "name": "MyField9",
+                    "designerId": "8b22f007-5146-4f79-984b-ba18e6fd4534"
+                },
+                {
+                    "type": "Ext.data.field.Field",
+                    "reference": {
+                        "name": "fields",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "name": "text"
+                    },
+                    "name": "MyField10",
+                    "designerId": "ff64da57-2d1d-4b43-9f00-87b52456fef8"
+                }
+            ]
+        },
+        {
+            "type": "Ext.data.Store",
+            "reference": {
+                "name": "stores",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "name": "MainItemStore"
+            },
+            "name": "MyStore2",
+            "designerId": "3ddd045d-1eca-4238-b96a-357944dcd94c"
+        }
+    ]
+}

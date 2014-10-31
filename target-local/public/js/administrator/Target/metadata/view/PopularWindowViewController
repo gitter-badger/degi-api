@@ -1,0 +1,14 @@
+{
+    "type": "Ext.app.ViewController",
+    "reference": {
+        "name": "items",
+        "type": "array"
+    },
+    "codeClass": null,
+    "userConfig": {
+        "designer|userAlias": "popularwindow",
+        "designer|userClassName": "PopularWindowViewController"
+    },
+    "name": "AdminWindowViewController1",
+    "designerId": "8adddfeb-4ec7-4690-981e-0aac1fe88ab5"
+}

@@ -14,6 +14,11 @@ class ItemInfoController extends AbstractRestfulController
 		$server_url = $this->getRequest()->getUri()->getScheme() . '://' . $this->getRequest()->getUri()->getHost();
 		return new JsonModel($db->get($id,$server_url));
 	}
+	public function options(){
+		$response = $this->getResponse();
+		$response->getHeaders()->addHeaderLine('Allow','GET');
+		return $response;
+	}
 }
 
 ?>

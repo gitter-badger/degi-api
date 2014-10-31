@@ -3,16 +3,16 @@ namespace Application\Controller;
 
 use Zend\Mvc\Controller\AbstractRestfulController;
 use Zend\View\Model\JsonModel ;
-use Application\Model\Carousel;
+use Application\Model\IndexSlide;
 
-class CarouselController extends AbstractRestfulController
+class IndexSlideController extends AbstractRestfulController
 {
-	public function get($id){
+	public function getList(){
 		$response = $this->getResponse();
 		$response->setStatusCode(200);
-		$db = new Carousel();
+		$db = new IndexSlide();
 		$server_url = $this->getRequest()->getUri()->getScheme() . '://' . $this->getRequest()->getUri()->getHost();
-		return new JsonModel($db->get($id,$server_url));
+		return new JsonModel($db->selectAll($server_url,$this->params()->fromQuery()));
 	}
 	public function options(){
 		$response = $this->getResponse();

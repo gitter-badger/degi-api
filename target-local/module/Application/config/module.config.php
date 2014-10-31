@@ -113,6 +113,42 @@ return array(
             				),
             		),
             ),
+            'food_certification_f' => array(
+            		'type' => 'Segment',
+            		'options' => array(
+            				'route'    => '/f/food_certification[/:id]',
+            				'defaults' => array(
+            						'controller' => 'Application\Controller\FoodCertification'
+            				),
+            		),
+            ),
+            'index_slide_f' => array(
+            		'type' => 'Segment',
+            		'options' => array(
+            				'route'    => '/f/index_slide[/:id]',
+            				'defaults' => array(
+            						'controller' => 'Application\Controller\IndexSlide'
+            				),
+            		),
+            ),
+            'news_f' => array(
+            		'type' => 'Segment',
+            		'options' => array(
+            				'route'    => '/f/news[/:id]',
+            				'defaults' => array(
+            						'controller' => 'Application\Controller\NewsMain'
+            				),
+            		),
+            ),
+            'contact_us_f' => array(
+            		'type' => 'Segment',
+            		'options' => array(
+            				'route'    => '/f/contact_us[/:id]',
+            				'defaults' => array(
+            						'controller' => 'Application\Controller\ContactUs'
+            				),
+            		),
+            ),
         ),
     ),
     'service_manager' => array(
@@ -139,7 +175,11 @@ return array(
             'Application\Controller\ItemList' => 'Application\Controller\ItemListController',
             'Application\Controller\Carousel' => 'Application\Controller\CarouselController',
             'Application\Controller\ItemInfo' => 'Application\Controller\ItemInfoController',
-            'Application\Controller\PopularItem' => 'Application\Controller\PopularItemController'
+            'Application\Controller\PopularItem' => 'Application\Controller\PopularItemController',
+            'Application\Controller\NewsMain' => 'Application\Controller\NewsMainController',
+            'Application\Controller\IndexSlide' => 'Application\Controller\IndexSlideController',
+            'Application\Controller\FoodCertification' => 'Application\Controller\FoodCertificationController',
+            'Application\Controller\ContactUs' => 'Application\Controller\ContactUsController'
          ),
     ),
     'view_manager' => array(

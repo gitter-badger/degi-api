@@ -1,0 +1,354 @@
+{
+    "type": "Ext.window.Window",
+    "reference": {
+        "name": "items",
+        "type": "array"
+    },
+    "codeClass": null,
+    "userConfig": {
+        "designer|userAlias": "popularwindow",
+        "designer|userClassName": "popularwindow",
+        "height": 329,
+        "id": "popularwindow",
+        "modal": true,
+        "title": null,
+        "width": 568
+    },
+    "name": "AdminWindow1",
+    "designerId": "ba3ac60a-7c71-438b-97ba-150b0303e774",
+    "viewControllerInstanceId": "8adddfeb-4ec7-4690-981e-0aac1fe88ab5",
+    "viewModelInstanceId": "769d2a76-a061-4762-95de-dc6abfbc83fe",
+    "cn": [
+        {
+            "type": "Ext.form.field.Hidden",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "fieldLabel": null,
+                "id": "pi_id",
+                "name": "a_id"
+            },
+            "name": "MyHiddenField",
+            "designerId": "f0dbdd0c-caef-468c-933b-61957c6de4a5"
+        },
+        {
+            "type": "Ext.form.Panel",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "bodyPadding": "20 0 0 0 ",
+                "height": 240,
+                "id": "popularitemForm",
+                "title": null,
+                "width": 626
+            },
+            "name": "MyForm",
+            "designerId": "70a37b90-babf-4c5e-ad5b-ca07173212c4",
+            "cn": [
+                {
+                    "type": "Ext.form.field.Text",
+                    "reference": {
+                        "name": "items",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "fieldLabel": "商品標題",
+                        "labelAlign": "right",
+                        "layout|anchor": "80%",
+                        "name": "pi_title",
+                        "width": 356
+                    },
+                    "name": "MyTextField",
+                    "designerId": "3c7db15f-5faa-4793-bff7-b959d7d28caa"
+                },
+                {
+                    "type": "Ext.form.field.ComboBox",
+                    "reference": {
+                        "name": "items",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "fieldLabel": "商品主資料",
+                        "id": null,
+                        "labelAlign": "right",
+                        "layout|anchor": "80%",
+                        "name": "im_id"
+                    },
+                    "name": "MyComboBox",
+                    "designerId": "c1379cd2-c433-4037-a188-1cf88241f54a"
+                },
+                {
+                    "type": "Ext.form.field.ComboBox",
+                    "reference": {
+                        "name": "items",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "editable": false,
+                        "fieldLabel": "商品類型",
+                        "labelAlign": "right",
+                        "layout|anchor": "80%",
+                        "name": "pi_type",
+                        "queryMode": "local",
+                        "store": [
+                            "{PopularStatusStore}"
+                        ]
+                    },
+                    "name": "MyComboBox2",
+                    "configAlternates": {
+                        "store": "binding"
+                    },
+                    "designerId": "6d68a82b-640e-4e5f-952a-93b361a68aa2"
+                },
+                {
+                    "type": "Ext.form.field.File",
+                    "reference": {
+                        "name": "items",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "buttonText": "Browse",
+                        "fieldLabel": "商品大圖",
+                        "labelAlign": "right",
+                        "layout|anchor": null,
+                        "name": "pi_image",
+                        "width": 498
+                    },
+                    "name": "MyFileUpload",
+                    "designerId": "58065d45-28ef-4d0a-a403-6d359b59d3b3"
+                },
+                {
+                    "type": "Ext.form.field.TextArea",
+                    "reference": {
+                        "name": "items",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "fieldLabel": "商品描述",
+                        "height": 62,
+                        "labelAlign": "right",
+                        "layout|anchor": "80%",
+                        "name": "pi_description",
+                        "width": 500
+                    },
+                    "name": "MyTextArea4",
+                    "designerId": "923e16ea-1bce-4a60-88c2-d6931c8e84f4"
+                },
+                {
+                    "type": "Ext.form.field.Number",
+                    "reference": {
+                        "name": "items",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "fieldLabel": "商品排序",
+                        "labelAlign": "right",
+                        "layout|anchor": "80%",
+                        "minValue": 1,
+                        "name": "pi_seq",
+                        "width": null
+                    },
+                    "name": "MyNumberField2",
+                    "designerId": "a6650c6b-5b4f-43b0-94d0-05b8cb50df67"
+                }
+            ]
+        },
+        {
+            "type": "Ext.toolbar.Toolbar",
+            "reference": {
+                "name": "dockedItems",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "container|pack": "end",
+                "dock": "bottom",
+                "height": 41
+            },
+            "name": "MyToolbar1",
+            "designerId": "8a8f40ee-f437-4359-9943-164bbcd67dee",
+            "cn": [
+                {
+                    "type": "Ext.button.Button",
+                    "reference": {
+                        "name": "items",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "id": "popularAddBtn",
+                        "layout|flex": null,
+                        "text": "新增",
+                        "width": 550
+                    },
+                    "name": "MyButton2",
+                    "designerId": "d7626657-5207-4a8a-806a-e50219c9da50",
+                    "cn": [
+                        {
+                            "type": "basiceventbinding",
+                            "reference": {
+                                "name": "listeners",
+                                "type": "array"
+                            },
+                            "codeClass": null,
+                            "userConfig": {
+                                "fn": "onPopularAddBtnClick",
+                                "implHandler": [
+                                    "var form = Ext.getCmp('adminForm').getForm();",
+                                    "",
+                                    "if(form.isValid()){",
+                                    "    form.submit({",
+                                    "",
+                                    "        waitTitle:'訊息',",
+                                    "        waitMsg:'新增資料中',",
+                                    "        url:'http://dev.finpo.com.tw/degi-api/target-local/public/b/admin',",
+                                    "",
+                                    "        success:function(form,action){",
+                                    "",
+                                    "            var store  = Ext.getCmp('admingridpanel').getViewModel().getStore('AdminStore');",
+                                    "            store.proxy.url='http://dev.finpo.com.tw/degi-api/target-local/public/b/admin';",
+                                    "            store.load();",
+                                    "            var window = Ext.getCmp('adminWindow');",
+                                    "            window.close();",
+                                    "            form.reset();",
+                                    "            Ext.Msg.alert('訊息','管理者新增成功');",
+                                    "",
+                                    "        },",
+                                    "        failure:function(form,action){",
+                                    "",
+                                    "           Ext.Msg.alert('訊息','管理者新增失敗');",
+                                    "",
+                                    "        }",
+                                    "",
+                                    "    });",
+                                    "}"
+                                ],
+                                "name": "click",
+                                "scope": "me"
+                            },
+                            "name": "onPopularAddBtnClick",
+                            "designerId": "90758e07-ca09-4767-bf00-5ef5ac8a695d"
+                        }
+                    ]
+                },
+                {
+                    "type": "Ext.button.Button",
+                    "reference": {
+                        "name": "items",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "id": "popularUpdateBtn",
+                        "layout|flex": null,
+                        "text": "修改",
+                        "width": 550
+                    },
+                    "name": "MyButton3",
+                    "designerId": "641f2db2-ef4d-43ff-8a62-bba389315053",
+                    "cn": [
+                        {
+                            "type": "basiceventbinding",
+                            "reference": {
+                                "name": "listeners",
+                                "type": "array"
+                            },
+                            "codeClass": null,
+                            "userConfig": {
+                                "fn": "onPopularUpdateBtnClick",
+                                "implHandler": [
+                                    "var form = Ext.getCmp('adminForm').getForm();",
+                                    "",
+                                    "if(form.isValid()){",
+                                    "    var aId = Ext.getCmp('a_id').getValue();",
+                                    "    var aPassword = Ext.getCmp('a_password').getValue();",
+                                    "    var aPasswordTemp = Ext.getCmp('a_passwordTemp').getValue();",
+                                    "",
+                                    "    var aStatusOn = Ext.getCmp('a_status_on').getValue();",
+                                    "    var aStatusOff = Ext.getCmp('a_status_off').getValue();",
+                                    "    var aStatus = 0;",
+                                    "    if(aStatusOn === true && aStatusOff === false){",
+                                    "        aStatus = 1;",
+                                    "    }else if(aStatusOn === false && aStatusOff === true){",
+                                    "        aStatus = 2;",
+                                    "    }else{",
+                                    "        aStatus = 2;",
+                                    "    }",
+                                    "",
+                                    "    if(aPassword === aPasswordTemp){",
+                                    "        Ext.Ajax.request({",
+                                    "            method: 'PUT',",
+                                    "            url:'http://dev.finpo.com.tw/degi-api/target-local/public/b/admin/'+aId,",
+                                    "",
+                                    "            params: {",
+                                    "                a_account: form.findField('a_account').getValue(),",
+                                    "                a_email: form.findField('a_email').getValue(),",
+                                    "                a_displayname: form.findField('a_displayname').getValue(),",
+                                    "                a_status: aStatus",
+                                    "            },",
+                                    "            success: function(response, options){",
+                                    "                var obj = Ext.JSON.decode(response.responseText);",
+                                    "                var store  = Ext.getCmp('admingridpanel').getViewModel().getStore('AdminStore');",
+                                    "                store.proxy.url='http://dev.finpo.com.tw/degi-api/target-local/public/b/admin';",
+                                    "                store.load();",
+                                    "",
+                                    "                form.reset();",
+                                    "                Ext.Msg.alert('訊息','管理者修改成功', function(){",
+                                    "                    var window = Ext.getCmp('adminWindow');",
+                                    "                    window.close();",
+                                    "                });",
+                                    "            }",
+                                    "        });",
+                                    "    }else{",
+                                    "        form.submit({",
+                                    "            method: 'PUT',",
+                                    "            waitTitle:'訊息',",
+                                    "            waitMsg:'修改資料中',",
+                                    "            url:'http://dev.finpo.com.tw/degi-api/target-local/public/b/admin/'+aId,",
+                                    "",
+                                    "            success:function(form,action){",
+                                    "",
+                                    "                var store  = Ext.getCmp('admingridpanel').getViewModel().getStore('AdminStore');",
+                                    "                store.proxy.url='http://dev.finpo.com.tw/degi-api/target-local/public/b/admin';",
+                                    "                store.load();",
+                                    "",
+                                    "                form.reset();",
+                                    "                Ext.Msg.alert('訊息','管理者修改成功', function(){",
+                                    "                    var window = Ext.getCmp('adminWindow');",
+                                    "                    window.close();",
+                                    "                });",
+                                    "",
+                                    "            },",
+                                    "            failure:function(form,action){",
+                                    "                Ext.Msg.alert('訊息','管理者修改失敗');",
+                                    "            }",
+                                    "        });",
+                                    "",
+                                    "    }",
+                                    "",
+                                    "}"
+                                ],
+                                "name": "click",
+                                "scope": "me"
+                            },
+                            "name": "onPopularUpdateBtnClick",
+                            "designerId": "8f7a3dec-2a9d-41ae-8ca5-e013ab50682f"
+                        }
+                    ]
+                }
+            ]
+        }
+    ]
+}
