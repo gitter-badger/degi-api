@@ -4,10 +4,12 @@ encoding//module/Administrator/src/Administrator/Controller/AdminerController.ph
 encoding//module/Administrator/src/Administrator/Controller/MemberController.php=UTF-8
 encoding//module/Application/src/Application/Controller/AuthController.php=UTF-8
 encoding//module/Application/src/Application/Controller/BulkOrderMainController.php=UTF-8
+encoding//module/Application/src/Application/Controller/CompanyMemberAuthController.php=UTF-8
 encoding//module/Application/src/Application/Controller/ContactUsController.php=UTF-8
 encoding//module/Application/src/Application/Controller/MemberController.php=UTF-8
 encoding//module/Application/src/Application/Controller/SystemVariableController.php=UTF-8
 encoding//module/Application/src/Application/Model/BulkOrder.php=UTF-8
+encoding//module/Application/src/Application/Model/CompanyMember.php=UTF-8
 encoding//module/Application/src/Application/Model/ContactUs.php=UTF-8
 encoding//module/Application/src/Application/Model/FoodCertification.php=UTF-8
 encoding//module/Application/src/Application/Model/IndexSlide.php=UTF-8

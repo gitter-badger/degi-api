@@ -185,6 +185,15 @@ return array(
             				),
             		),
             ),
+            'company_member_auth_f' => array(
+            		'type' => 'Segment',
+            		'options' => array(
+            				'route'    => '/f/company_member_auth[/:id]',
+            				'defaults' => array(
+            						'controller' => 'Application\Controller\CompanyMemberAuth'
+            				),
+            		),
+            ),
             'system_variable_f' => array(
             		'type' => 'Segment',
             		'options' => array(
@@ -230,6 +239,7 @@ return array(
             'Application\Controller\BulkItem' => 'Application\Controller\BulkItemController',
             'Application\Controller\BulkOrderMain' => 'Application\Controller\BulkOrderMainController',
             'Application\Controller\CompanyMemberPoint' => 'Application\Controller\CompanyMemberPointController',
+            'Application\Controller\CompanyMemberAuth' => 'Application\Controller\CompanyMemberAuthController',
             'Application\Controller\SystemVariable' => 'Application\Controller\SystemVariableController'            		
          ),
     ),
