@@ -11,14 +11,10 @@ class CompanyMemberAuthController extends AbstractRestfulController
     	$response = $this->getResponse();
     	$response->setStatusCode(200);
     	
-    	if( empty($data['cm_account']) || empty($data['cm_password']) || empty($data['cm_auth']) || empty($data['cm_reauth'])){
+    	if( empty($data['cm_account']) || empty($data['cm_password'])){
     	    return new JsonModel(array('success'=>false , 'msg'=>'遺漏參數' ));
     	}
-    	
-    	if ( $data['cm_auth'] != $data['cm_reauth'] ){
-    		return new JsonModel(array('success'=>false , 'msg'=>'驗證碼輸入錯誤' ));
-    	}
-    	
+
     	$account = $data['cm_account'];
     	$password = $data['cm_password'];
 
