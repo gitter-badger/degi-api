@@ -158,6 +158,43 @@ return array(
             				),
             		),
             ),
+            'bulk_item_f' => array(
+            		'type' => 'Segment',
+            		'options' => array(
+            				'route'    => '/f/bulk_item[/:id]',
+            				'defaults' => array(
+            						'controller' => 'Application\Controller\BulkItem'
+            				),
+            		),
+            ),
+            'bulk_order_f' => array(
+            		'type' => 'Segment',
+            		'options' => array(
+            				'route'    => '/f/bulk_order[/:id]',
+            				'defaults' => array(
+            						'controller' => 'Application\Controller\BulkOrderMain'
+            				),
+            		),
+            ),
+            'company_member_f' => array(
+            		'type' => 'Segment',
+            		'options' => array(
+            				'route'    => '/f/company_member[/:id]',
+            				'defaults' => array(
+            						'controller' => 'Application\Controller\CompanyMemberPoint'
+            				),
+            		),
+            ),
+            'system_variable_f' => array(
+            		'type' => 'Segment',
+            		'options' => array(
+            				'route'    => '/f/system_variable[/:id]',
+            				'defaults' => array(
+            						'controller' => 'Application\Controller\SystemVariable'
+            				),
+            		),
+            ),
+            
         ),
     ),
     'service_manager' => array(
@@ -189,7 +226,11 @@ return array(
             'Application\Controller\IndexSlide' => 'Application\Controller\IndexSlideController',
             'Application\Controller\FoodCertification' => 'Application\Controller\FoodCertificationController',
             'Application\Controller\ContactUs' => 'Application\Controller\ContactUsController',
-            'Application\Controller\StoreLocation' => 'Application\Controller\StoreLocationController'
+            'Application\Controller\StoreLocation' => 'Application\Controller\StoreLocationController',
+            'Application\Controller\BulkItem' => 'Application\Controller\BulkItemController',
+            'Application\Controller\BulkOrderMain' => 'Application\Controller\BulkOrderMainController',
+            'Application\Controller\CompanyMemberPoint' => 'Application\Controller\CompanyMemberPointController',
+            'Application\Controller\SystemVariable' => 'Application\Controller\SystemVariableController'            		
          ),
     ),
     'view_manager' => array(

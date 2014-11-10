@@ -22,6 +22,6 @@ class StoreLocation{
         }catch (\Exception $e){
         	return array('success'=>false , 'msg'=> $e->getMessage() );
         }
-    }
+    } 
 }
 ?>
