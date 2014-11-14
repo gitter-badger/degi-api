@@ -4,6 +4,7 @@ namespace Application\Model;
 use Application\Model\Table\BulkOrderMainTable;
 use Zend\Db\Sql\Expression;
 use Application\Model\Table\BulkItemTable;
+use Zend\Debug\Debug;
 
 class BulkOrder{
 	
@@ -17,6 +18,7 @@ class BulkOrder{
 			if( !$member->InternalCheckLogin($query['access_token']) ){
 				return array('success'=>false , 'msg'=> '未通過登入認證，請重新登入!' );
 			}
+			Debug::dump($bpom_order_number);
    			$select = $this->db->getSql()->select();
    			$select->join('company_member_point','company_member_point.cmp_id = bulk_purchase_order_main.cmp_id',array('cmp_name','cmp_address'));   			
         	$select->where('bulk_purchase_order_main.bpom_order_number='.$bpom_order_number);
