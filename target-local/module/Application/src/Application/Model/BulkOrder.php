@@ -18,10 +18,10 @@ class BulkOrder{
 			if( !$member->InternalCheckLogin($query['access_token']) ){
 				return array('success'=>false , 'msg'=> '未通過登入認證，請重新登入!' );
 			}
-			Debug::dump($bpom_order_number);
+			//Debug::dump($bpom_order_number);
    			$select = $this->db->getSql()->select();
    			$select->join('company_member_point','company_member_point.cmp_id = bulk_purchase_order_main.cmp_id',array('cmp_name','cmp_address'));   			
-        	$select->where('bulk_purchase_order_main.bpom_order_number='.$bpom_order_number);
+        	$select->where('bulk_purchase_order_main.bpom_order_number='.(int)$bpom_order_number);
    			$select->columns(array('bpom_order_number','bpom_content_json','bpom_delivery_year', 'bpom_delivery_month', 'bpom_delivery_day', 'bpom_delivery_hour','bpom_subtotal', 'bpom_shipping_fee','bpom_total','bpom_status'));
         	$result_row = $this->db->selectWith($select)->toArray();  
         	$result['success'] = true ;
