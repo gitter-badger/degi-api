@@ -15,6 +15,7 @@ class Member{
 			if( !$member->InternalCheckLogin($data['access_token']) ){
 				return array('success'=>false , 'msg'=> '未通過登入認證，請重新登入!' );
 			}
+			unset($data['access_token']);
 			
 			if( !empty($data['mm_password']) ){
 				if(empty($data['mm_repassword'])){
