@@ -11,7 +11,7 @@ class BulkItemController extends AbstractRestfulController
 		$response = $this->getResponse();
 		$response->setStatusCode(200);
 		$db = new BulkItem();
-		return new JsonModel($db->get($id));
+		return new JsonModel($db->get($id,$this->params()->fromQuery()));
 	}
 	public function options(){
 		$response = $this->getResponse();

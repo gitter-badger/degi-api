@@ -32,7 +32,7 @@ class BulkOrderMainController extends AbstractRestfulController
         $response = $this->getResponse();
         $response->setStatusCode(200);   
         $db = new BulkOrder();
-        return new JsonModel($db->get($bpom_order_number));
+        return new JsonModel($db->get($bpom_order_number,$this->params()->fromQuery()));
     }  
 
     public function delete($cm_id){

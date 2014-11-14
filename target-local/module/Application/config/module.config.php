@@ -158,6 +158,15 @@ return array(
             				),
             		),
             ),
+            'order_f' => array(
+            		'type' => 'Segment',
+            		'options' => array(
+            				'route'    => '/f/order[/:id]',
+            				'defaults' => array(
+            						'controller' => 'Application\Controller\Order'
+            				),
+            		),
+            ),
             'bulk_item_f' => array(
             		'type' => 'Segment',
             		'options' => array(
@@ -240,7 +249,8 @@ return array(
             'Application\Controller\BulkOrderMain' => 'Application\Controller\BulkOrderMainController',
             'Application\Controller\CompanyMemberPoint' => 'Application\Controller\CompanyMemberPointController',
             'Application\Controller\CompanyMemberAuth' => 'Application\Controller\CompanyMemberAuthController',
-            'Application\Controller\SystemVariable' => 'Application\Controller\SystemVariableController'            		
+            'Application\Controller\SystemVariable' => 'Application\Controller\SystemVariableController',
+            'Application\Controller\Order' => 'Application\Controller\OrderController'
          ),
     ),
     'view_manager' => array(

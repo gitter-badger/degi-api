@@ -37,7 +37,15 @@ class CompanyMember{
 			unset($rs->cm_password);
 			return array('success'=>true, 'data'=> $rs );
 		}else{
-			return array('success'=>false, 'msg'=>'此access_token無法使用' ) ;
+			return array('success'=>false, 'msg'=>'此access_token無法使用, 請重新登入!' ) ;
+		}
+	}
+	public function InternalCheckLogin($AccessToken){
+		$rs = $this->db->select(array('cm_token'=>$AccessToken))->current();
+		if( $rs && !empty($rs->cm_token) && TokenHash::ExpiresIn($rs->cm_token, 3600) ){
+			return 1;
+		}else{
+			return 0;
 		}
 	}
 }

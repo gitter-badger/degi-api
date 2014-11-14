@@ -3,6 +3,7 @@ namespace Application\Model;
 
 use Application\Model\Table\BulkOrderMainTable;
 use Zend\Db\Sql\Expression;
+use Application\Model\Table\BulkItemTable;
 
 class BulkOrder{
 	
@@ -10,8 +11,12 @@ class BulkOrder{
 	public function __construct(){
 		$this->db = new BulkOrderMainTable();
 	}
-	public function get($bpom_order_number){
+	public function get($bpom_order_number,$query){//query{access_token}
 		try {
+			$member = new CompanyMember();
+			if( !$member->InternalCheckLogin($query['access_token']) ){
+				return array('success'=>false , 'msg'=> '未通過登入認證，請重新登入!' );
+			}
    			$select = $this->db->getSql()->select();
    			$select->join('company_member_point','company_member_point.cmp_id = bulk_purchase_order_main.cmp_id',array('cmp_name','cmp_address'));   			
         	$select->where('bulk_purchase_order_main.bpom_order_number='.$bpom_order_number);
@@ -30,6 +35,11 @@ class BulkOrder{
 			$cm_id = $query['cm_id'];
 			$query_y = $query['year'];
 			$query_m = $query['month'];
+			
+			$member = new CompanyMember();
+			if( !$member->InternalCheckLogin($query['access_token']) ){
+				return array('success'=>false , 'msg'=> '未通過登入認證，請重新登入!' );
+			}
 			
 			$select = $this->db->getSql()->select();
 			$select->join('company_member_point','company_member_point.cmp_id = bulk_purchase_order_main.cmp_id',array('cmp_name'));		
@@ -58,7 +68,26 @@ class BulkOrder{
 		}
 	}
 	public function insert($data){
+		
 		try {		
+			$member = new CompanyMember();
+			if( !$member->InternalCheckLogin($data['access_token']) ){
+				return array('success'=>false , 'msg'=> '未通過登入認證，請重新登入!' );
+			}
+
+			//"ic_id","bpi_category","im_id","bpi_name","bpi_flavor","bpi_sprice"
+			$bulk_item_db = new BulkItemTable();
+			$data['bpom_content_json'] = json_decode($data['bpom_content_json']);
+			$bpom_subtotal_check = 0;
+			foreach ($data['bpom_content_json'] as $items){
+				$select = $bulk_item_db->getSql()->select();
+				$select->where('bpi_id='.$items->bpi_id);
+				$result_row = $bulk_item_db->selectWith($select)->toArray();
+				$bpom_subtotal_check += $result_row[0]['bpi_sprice'] * $items->count;
+			}
+			$data['bpom_content_json'] = json_encode($data['bpom_content_json']);
+			$data['bpom_subtotal'] = $bpom_subtotal_check;
+			$data['bpom_total'] = $data['bpom_subtotal'] + $data['bpom_shipping_fee'];
 			$select = $this->db->getSql()->select();
 			$select->where('date(`bpom_created`) ='.date('Ymd'));
 			$select->order('bpom_created DESC');
@@ -70,11 +99,12 @@ class BulkOrder{
 				$data['bpom_order_number'] = (int)(date('Ymd').'001');
 			}
 			$data['bpom_created']=date('Y-m-d H:i:s');
-			$data['bpom_content_json'] = $data['sub'];
-			unset($data['sub']);
+			unset($data['access_token']);
 			$data['bpom_status'] = 1; 
 			$this->db->insert($data);				
 			$data['bpom_id'] = $this->db->getLastInsertValue() ;
+			$data['bpom_content_json'] = json_decode($data['bpom_content_json']);
+				
 			return array('success'=>true , 'data'=> $data);
 		}catch (\Exception $e){
 			return array('success'=>false , 'msg'=> $e->getMessage() );

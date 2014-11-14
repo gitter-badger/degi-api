@@ -7,9 +7,12 @@ class BulkItem{
 	public function __construct(){
 		$this->db = new BulkItemTable();
 	}
-    public function get($id){
+    public function get($id,$query){//query{access_token}
    		try {
-   			
+   			$member = new CompanyMember();
+   			if( !$member->InternalCheckLogin($query['access_token']) ){
+   				return array('success'=>false , 'msg'=> '未通過登入認證，請重新登入!' );
+   			}
    			$select = $this->db->getSql()->select();
         	$select->where('cm_id='.$id);
    			$select->columns(array('bpi_id','ic_id','bpi_category','im_id','bpi_name','bpi_flavor','bpi_sprice'));

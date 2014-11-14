@@ -8,8 +8,14 @@ class Member{
 	public function __construct(){
 		$this->db = new MemberTable();
 	}
-	public function update($data , $id){
+	public function update($data , $id){ //data['access_token'], id:mm_id
+		
 		try {
+			$member = new Member();
+			if( !$member->InternalCheckLogin($data['access_token']) ){
+				return array('success'=>false , 'msg'=> '未通過登入認證，請重新登入!' );
+			}
+			
 			if( !empty($data['mm_password']) ){
 				if(empty($data['mm_repassword'])){
 					return array('success'=> false , 'msg'=>'未輸入確認密碼');
@@ -35,8 +41,12 @@ class Member{
 		}
 	}
 
-	public function get($id){
+	public function get($id,$query){//query{access_token}
 		try {
+			$member = new Member();
+			if( !$member->InternalCheckLogin($query['access_token']) ){
+				return array('success'=>false , 'msg'=> '未通過登入認證，請重新登入!' );
+			}
 			return array('success'=>true , 'data'=> $this->db->select(array('mm_id'=>$id))->current() );
 		}catch (\Exception $e){
 			return array('success'=>false , 'msg'=> $e->getMessage() );
@@ -122,7 +132,15 @@ class Member{
 			unset($rs->mm_password);
 			return array('success'=>true, 'data'=> $rs ) ;
 		}else{
-			return array('success'=>false, 'msg'=>'此access_token無法使用' ) ;
+			return array('success'=>false, 'msg'=>'此access_token無法使用, 請重新登入!' ) ;
+		}
+	}
+	public function InternalCheckLogin($AccessToken){
+		$rs = $this->db->select(array('mm_token'=>$AccessToken))->current();
+		if( $rs && !empty($rs->mm_token) && TokenHash::ExpiresIn($rs->mm_token, 3600) ){
+			return 1;
+		}else{
+			return 0;
 		}
 	}
 	function generatorPassword()

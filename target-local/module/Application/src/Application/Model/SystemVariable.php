@@ -17,6 +17,12 @@ class SystemVariable{
         }catch (\Exception $e){
         	return array('success'=>false , 'msg'=> $e->getMessage() );
         }
-    } 
+    }
+    public function GetValueByKey($key){
+    	$select = $this->db->getSql()->select();
+        $select->where('sv_key=\''.$key.'\''); 
+        $sv = $this->db->selectWith($select)->toArray();
+        return $sv[0]['sv_value'];
+    }  
 }
 ?>

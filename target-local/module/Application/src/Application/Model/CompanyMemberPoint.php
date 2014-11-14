@@ -9,8 +9,12 @@ class CompanyMemberPoint{
 	public function __construct(){
 		$this->db = new CompanyMemberPointTable();
 	}
-    public function get($id){
+    public function get($id,$query){
    		try {
+   			$member = new CompanyMember();
+   			if( !$member->InternalCheckLogin($query['access_token']) ){
+   				return array('success'=>false , 'msg'=> '未通過登入認證，請重新登入!' );
+   			}
    			$db_cmp_main = new CompanyMemberTable();
    			$db_bulk_order = new BulkOrderMainTable();
    			

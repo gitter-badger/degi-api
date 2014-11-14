@@ -28,7 +28,7 @@ class MemberController extends AbstractRestfulController
         
         $admin = new Member();
 
-        return new JsonModel($admin->get($id));
+        return new JsonModel($admin->get($id,$this->params()->fromQuery()));
     }  
     //put
     public function update($id , $data){
@@ -37,7 +37,7 @@ class MemberController extends AbstractRestfulController
     
     	$admin = new Member();
     
-    	return new JsonModel(array('success'=>true , 'data'=> $admin->update($data,$id) ));
+    	return new JsonModel($admin->update($data,$id));
     }
     public function delete($email){
     	$response = $this->getResponse();
