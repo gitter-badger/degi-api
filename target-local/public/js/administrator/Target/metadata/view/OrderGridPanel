@@ -42,8 +42,8 @@
             },
             "codeClass": null,
             "userConfig": {
-                "dataIndex": "o_id",
-                "flex": 0.5,
+                "dataIndex": "om_internal_id",
+                "flex": 1,
                 "text": "訂單編號"
             },
             "name": "MyColumn1",
@@ -57,7 +57,7 @@
             },
             "codeClass": null,
             "userConfig": {
-                "dataIndex": "m_id",
+                "dataIndex": "mm_id",
                 "flex": 0.5,
                 "text": "會員編號"
             },
@@ -72,12 +72,12 @@
             },
             "codeClass": null,
             "userConfig": {
-                "dataIndex": "o_date",
-                "flex": 1,
-                "text": "建立日期"
+                "dataIndex": "om_status",
+                "flex": 0.5,
+                "text": "出貨狀態"
             },
-            "name": "MyColumn4",
-            "designerId": "607d111d-5f81-4bac-81fb-375b540cbb79"
+            "name": "MyColumn7",
+            "designerId": "2e062eb5-10b8-4b96-a96c-dd7cd16bf947"
         },
         {
             "type": "Ext.grid.column.Column",
@@ -87,12 +87,57 @@
             },
             "codeClass": null,
             "userConfig": {
-                "dataIndex": "o_status",
-                "flex": 1,
-                "text": "訂單狀態"
+                "dataIndex": "om_total",
+                "flex": 0.5,
+                "text": "訂單總金額"
             },
-            "name": "MyColumn7",
-            "designerId": "2e062eb5-10b8-4b96-a96c-dd7cd16bf947"
+            "name": "MyColumn",
+            "designerId": "f62d9d8e-adde-425e-aeae-3e6c913fe027"
+        },
+        {
+            "type": "Ext.grid.column.Column",
+            "reference": {
+                "name": "columns",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "dataIndex": "om_use_point",
+                "flex": 0.5,
+                "text": "使用紅利"
+            },
+            "name": "MyColumn3",
+            "designerId": "bf6e21e5-b891-432d-be06-15aa6e538473"
+        },
+        {
+            "type": "Ext.grid.column.Column",
+            "reference": {
+                "name": "columns",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "dataIndex": "om_get_point",
+                "flex": 0.5,
+                "text": "取得紅利"
+            },
+            "name": "MyColumn5",
+            "designerId": "9e91f2b7-8c97-47e5-9f9f-c702afb115a9"
+        },
+        {
+            "type": "Ext.grid.column.Column",
+            "reference": {
+                "name": "columns",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "dataIndex": "om_created",
+                "flex": 1,
+                "text": "建立日期"
+            },
+            "name": "MyColumn4",
+            "designerId": "607d111d-5f81-4bac-81fb-375b540cbb79"
         },
         {
             "type": "Ext.selection.CheckboxModel",

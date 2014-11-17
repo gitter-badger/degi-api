@@ -5,7 +5,6 @@ use Application\Model\Table\ItemFlavorTable;
 use Application\Model\Table\MemberPointTable;
 use Application\Model\Table\ItemMainTable;
 use Application\Model\Table\MemberTable;
-use Zend\Debug\Debug;
 
 class Order{
 	public $db = null ;

@@ -22,25 +22,76 @@ Ext.define('Target.model.OrderModel', {
 
     fields: [
         {
-            name: 'o_id'
+            name: 'om_id'
         },
         {
-            name: 'm_id'
+            name: 'om_internal_id'
         },
         {
-            name: 'o_detail'
+            name: 'om_subtotal'
         },
         {
-            name: 'o_date'
+            name: 'om_freight_fee'
         },
         {
-            name: 'o_server'
+            name: 'om_full_box'
         },
         {
-            name: 'o_paypal'
+            name: 'om_unfull_box'
         },
         {
-            name: 'o_status'
+            name: 'om_use_point'
+        },
+        {
+            name: 'om_total'
+        },
+        {
+            name: 'om_get_point'
+        },
+        {
+            name: 'mm_id'
+        },
+        {
+            name: 'om_pruchase'
+        },
+        {
+            name: 'om_purchaser_name'
+        },
+        {
+            name: 'om_purchaser_tel'
+        },
+        {
+            name: 'om_consignee_email'
+        },
+        {
+            name: 'om_consignee_address'
+        },
+        {
+            name: 'om_consignee_name'
+        },
+        {
+            name: 'om_consignee_tel'
+        },
+        {
+            name: 'om_payment_method'
+        },
+        {
+            name: 'om_payment_status'
+        },
+        {
+            name: 'om_note'
+        },
+        {
+            name: 'om_status'
+        },
+        {
+            name: 'om_content_json'
+        },
+        {
+            name: 'om_group_buying_info'
+        },
+        {
+            name: 'om_created'
         }
     ]
 });

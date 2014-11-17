@@ -35,7 +35,7 @@
                     },
                     "codeClass": null,
                     "userConfig": {
-                        "url": "http://dev.finpo.com.tw/posh/public/b/order"
+                        "url": "http://dev.finpo.com.tw/degi-api/target-local/public/b/order"
                     },
                     "name": "MyAjaxProxy",
                     "designerId": "6e1bada9-ee80-4f5f-a312-7bc0587c6e1c",

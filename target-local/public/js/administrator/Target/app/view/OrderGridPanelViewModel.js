@@ -30,7 +30,7 @@ Ext.define('Target.view.OrderGridPanelViewModel', {
             model: 'Target.model.OrderModel',
             proxy: {
                 type: 'ajax',
-                url: 'http://dev.finpo.com.tw/posh/public/b/order',
+                url: 'http://dev.finpo.com.tw/degi-api/target-local/public/b/order',
                 reader: {
                     type: 'json',
                     rootProperty: 'rows'

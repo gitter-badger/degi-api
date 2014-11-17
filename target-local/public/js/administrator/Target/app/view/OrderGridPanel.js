@@ -39,26 +39,44 @@ Ext.define('Target.view.OrderGridPanel', {
     columns: [
         {
             xtype: 'gridcolumn',
-            dataIndex: 'o_id',
+            dataIndex: 'om_internal_id',
             text: '訂單編號',
-            flex: 0.5
+            flex: 1
         },
         {
             xtype: 'gridcolumn',
-            dataIndex: 'm_id',
+            dataIndex: 'mm_id',
             text: '會員編號',
             flex: 0.5
         },
         {
             xtype: 'gridcolumn',
-            dataIndex: 'o_date',
-            text: '建立日期',
-            flex: 1
+            dataIndex: 'om_status',
+            text: '出貨狀態',
+            flex: 0.5
         },
         {
             xtype: 'gridcolumn',
-            dataIndex: 'o_status',
-            text: '訂單狀態',
+            dataIndex: 'om_total',
+            text: '訂單總金額',
+            flex: 0.5
+        },
+        {
+            xtype: 'gridcolumn',
+            dataIndex: 'om_use_point',
+            text: '使用紅利',
+            flex: 0.5
+        },
+        {
+            xtype: 'gridcolumn',
+            dataIndex: 'om_get_point',
+            text: '取得紅利',
+            flex: 0.5
+        },
+        {
+            xtype: 'gridcolumn',
+            dataIndex: 'om_created',
+            text: '建立日期',
             flex: 1
         }
     ],
