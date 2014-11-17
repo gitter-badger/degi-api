@@ -64,6 +64,15 @@ return array(
             				),
             		),
             ),
+            'order_b' => array(
+            		'type' => 'Segment',
+            		'options' => array(
+            				'route'    => '/b/order[/:id]',
+            				'defaults' => array(
+            						'controller' => 'Administrator\Controller\Order'
+            				),
+            		),
+            ),
             'item_category_b' => array(
             		'type' => 'Segment',
             		'options' => array(
@@ -151,6 +160,7 @@ return array(
             'Administrator\Controller\Auth' => 'Administrator\Controller\AuthController',
             'Administrator\Controller\Adminer' => 'Administrator\Controller\AdminerController',
             'Administrator\Controller\Member' => 'Administrator\Controller\MemberController',   
+            'Administrator\Controller\Order' => 'Administrator\Controller\OrderController',      
             'Administrator\Controller\ItemCategory' => 'Administrator\Controller\ItemCategoryController',
             'Administrator\Controller\ItemCategoryRelate' => 'Administrator\Controller\ItemCategoryRelateController',
             'Administrator\Controller\ItemMain' => 'Administrator\Controller\ItemMainController',
