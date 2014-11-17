@@ -5,6 +5,7 @@ use Application\Model\Table\ItemFlavorTable;
 use Application\Model\Table\MemberPointTable;
 use Application\Model\Table\ItemMainTable;
 use Application\Model\Table\MemberTable;
+use Zend\Debug\Debug;
 
 class Order{
 	public $db = null ;
@@ -306,8 +307,9 @@ class Order{
 					$member_db = new MemberTable();
 					$data_member = array();
 					$data_member['mm_point'] = $data['mrp_now_amount'];
-					$member_db->update($data_member , array('mm_id'=>$data['mm_id']));
-					
+					Debug::dump($data_member);
+					$o = $member_db->update($data_member , array('mm_id'=>$data['mm_id']));
+					Debug::dump($o);
 				}
 			}
 			return array('success'=>true , 'data'=> $data);
