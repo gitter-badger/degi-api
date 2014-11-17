@@ -307,9 +307,9 @@ class Order{
 					$member_db = new MemberTable();
 					$data_member = array();
 					$data_member['mm_point'] = $data['mrp_now_amount'];
-					Debug::dump($data_member);
-					$o = $member_db->update($data_member , array('mm_id'=>$data['mm_id']));
-					Debug::dump($o);
+					//Debug::dump($data_member);
+					$member_db->update($data_member , array('mm_id'=>$data['mm_id']));
+					//Debug::dump($o);
 				}
 			}
 			return array('success'=>true , 'data'=> $data);
