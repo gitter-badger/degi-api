@@ -209,6 +209,155 @@
                     },
                     "codeClass": null,
                     "userConfig": {
+                        "id": "orderButton",
+                        "layout|flex": null,
+                        "layout|margins": null,
+                        "margin": 5,
+                        "text": "一般訂單管理"
+                    },
+                    "name": "MyButton4",
+                    "designerId": "27090ab2-b98c-460c-93ac-a617a0f1b02d",
+                    "cn": [
+                        {
+                            "type": "basiceventbinding",
+                            "reference": {
+                                "name": "listeners",
+                                "type": "array"
+                            },
+                            "codeClass": null,
+                            "userConfig": {
+                                "fn": "orderMgrButtonClick",
+                                "implHandler": [
+                                    "var tab = Ext.getCmp('tabpanel');",
+                                    "",
+                                    "if(!Ext.getCmp('ordergridpanel')){",
+                                    "    panel = Ext.create('Target.view.OrderGridPanel',{",
+                                    "        tabConfig: {",
+                                    "            title: '訂單管理',",
+                                    "            closable: true",
+                                    "        }",
+                                    "    });",
+                                    "    tab.add(panel);",
+                                    "    tab.setActiveTab('ordergridpanel');",
+                                    "}else{",
+                                    "    tab.setActiveTab('ordergridpanel');",
+                                    "}"
+                                ],
+                                "name": "click",
+                                "scope": "me"
+                            },
+                            "name": "orderMgrButtonClick",
+                            "designerId": "4698512b-b84c-4da7-bd4e-4cbc4ca4ce7b"
+                        }
+                    ]
+                },
+                {
+                    "type": "Ext.button.Button",
+                    "reference": {
+                        "name": "items",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "id": "CompanyMemberButton",
+                        "layout|flex": null,
+                        "margin": 5,
+                        "text": "公司會員管理"
+                    },
+                    "name": "MyButton12",
+                    "designerId": "c338300f-bbf3-4778-858d-d0cefbda651c",
+                    "cn": [
+                        {
+                            "type": "basiceventbinding",
+                            "reference": {
+                                "name": "listeners",
+                                "type": "array"
+                            },
+                            "codeClass": null,
+                            "userConfig": {
+                                "fn": "CompantMemberMgrButtonClick",
+                                "implHandler": [
+                                    "var tab = Ext.getCmp('tabpanel');",
+                                    "",
+                                    "if(!Ext.getCmp('companymembergridpanel')){",
+                                    "    panel = Ext.create('Target.view.CompanyMemberGridPanel',{",
+                                    "        tabConfig: {",
+                                    "            title: '公司會員管理',",
+                                    "            closable: true",
+                                    "        }",
+                                    "    });",
+                                    "    tab.add(panel);",
+                                    "    tab.setActiveTab('companymembergridpanel');",
+                                    "}else{",
+                                    "    tab.setActiveTab('companymembergridpanel');",
+                                    "}"
+                                ],
+                                "name": "click",
+                                "scope": "me"
+                            },
+                            "name": "CompantMemberMgrButtonClick",
+                            "designerId": "f737ec15-47eb-4761-a263-ce39c21e54f4"
+                        }
+                    ]
+                },
+                {
+                    "type": "Ext.button.Button",
+                    "reference": {
+                        "name": "items",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "id": "companyorderButton",
+                        "layout|flex": null,
+                        "layout|margins": null,
+                        "margin": 5,
+                        "text": "公司訂單管理"
+                    },
+                    "name": "MyButton13",
+                    "designerId": "e8dafefc-12e6-4a8c-9f74-ddbed52b08c9",
+                    "cn": [
+                        {
+                            "type": "basiceventbinding",
+                            "reference": {
+                                "name": "listeners",
+                                "type": "array"
+                            },
+                            "codeClass": null,
+                            "userConfig": {
+                                "fn": "companyorderMgrButtonClick",
+                                "implHandler": [
+                                    "var tab = Ext.getCmp('tabpanel');",
+                                    "",
+                                    "if(!Ext.getCmp('companyordergridpanel')){",
+                                    "    panel = Ext.create('Target.view.CompanyOrderGridPanel',{",
+                                    "        tabConfig: {",
+                                    "            title: '公司訂單管理',",
+                                    "            closable: true",
+                                    "        }",
+                                    "    });",
+                                    "    tab.add(panel);",
+                                    "    tab.setActiveTab('companyordergridpanel');",
+                                    "}else{",
+                                    "    tab.setActiveTab('companyordergridpanel');",
+                                    "}"
+                                ],
+                                "name": "click",
+                                "scope": "me"
+                            },
+                            "name": "companyorderMgrButtonClick",
+                            "designerId": "e5d4f328-5686-4eeb-8d9e-f94a5588fa28"
+                        }
+                    ]
+                },
+                {
+                    "type": "Ext.button.Button",
+                    "reference": {
+                        "name": "items",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
                         "id": "itemCategoryButton",
                         "layout|flex": null,
                         "margin": 5,
@@ -307,13 +456,13 @@
                     },
                     "codeClass": null,
                     "userConfig": {
-                        "id": "newsButton",
+                        "id": "IndexSlideButton",
                         "layout|flex": null,
                         "margin": 5,
-                        "text": "最新消息管理"
+                        "text": "首頁輪播管理"
                     },
-                    "name": "MyButton5",
-                    "designerId": "b27f7335-4dec-431a-8bc9-8a227041016f",
+                    "name": "MyButton11",
+                    "designerId": "cca9ec3d-c161-4a0b-ba56-5c074892b45d",
                     "cn": [
                         {
                             "type": "basiceventbinding",
@@ -323,28 +472,28 @@
                             },
                             "codeClass": null,
                             "userConfig": {
-                                "fn": "newsMgrButtonClick",
+                                "fn": "IndexSlideMgrButtonClick",
                                 "implHandler": [
                                     "var tab = Ext.getCmp('tabpanel');",
                                     "",
-                                    "if(!Ext.getCmp('newsgridpanel')){",
-                                    "    panel = Ext.create('Target.view.NewsGridPanel',{",
+                                    "if(!Ext.getCmp('indexslidegridpanel')){",
+                                    "    panel = Ext.create('Target.view.IndexSlideGridPanel',{",
                                     "        tabConfig: {",
-                                    "            title: '最新消息管理',",
+                                    "            title: '首頁輪播管理',",
                                     "            closable: true",
                                     "        }",
                                     "    });",
                                     "    tab.add(panel);",
-                                    "    tab.setActiveTab('newsgridpanel');",
+                                    "    tab.setActiveTab('indexslidegridpanel');",
                                     "}else{",
-                                    "    tab.setActiveTab('newsgridpanel');",
+                                    "    tab.setActiveTab('indexslidegridpanel');",
                                     "}"
                                 ],
                                 "name": "click",
                                 "scope": "me"
                             },
-                            "name": "newsMgrButtonClick",
-                            "designerId": "0c955114-752a-482b-af3c-7f44182d682d"
+                            "name": "IndexSlideMgrButtonClick",
+                            "designerId": "9c5b1e8b-bc8b-46d2-b269-9cc691dc7bce"
                         }
                     ]
                 },
@@ -405,14 +554,13 @@
                     },
                     "codeClass": null,
                     "userConfig": {
-                        "id": "orderButton",
+                        "id": "newsButton",
                         "layout|flex": null,
-                        "layout|margins": null,
                         "margin": 5,
-                        "text": "訂單管理"
+                        "text": "最新消息管理"
                     },
-                    "name": "MyButton4",
-                    "designerId": "27090ab2-b98c-460c-93ac-a617a0f1b02d",
+                    "name": "MyButton5",
+                    "designerId": "b27f7335-4dec-431a-8bc9-8a227041016f",
                     "cn": [
                         {
                             "type": "basiceventbinding",
@@ -422,28 +570,126 @@
                             },
                             "codeClass": null,
                             "userConfig": {
-                                "fn": "orderMgrButtonClick",
+                                "fn": "newsMgrButtonClick",
                                 "implHandler": [
                                     "var tab = Ext.getCmp('tabpanel');",
                                     "",
-                                    "if(!Ext.getCmp('ordergridpanel')){",
-                                    "    panel = Ext.create('Target.view.OrderGridPanel',{",
+                                    "if(!Ext.getCmp('newsgridpanel')){",
+                                    "    panel = Ext.create('Target.view.NewsGridPanel',{",
                                     "        tabConfig: {",
-                                    "            title: '訂單管理',",
+                                    "            title: '最新消息管理',",
                                     "            closable: true",
                                     "        }",
                                     "    });",
                                     "    tab.add(panel);",
-                                    "    tab.setActiveTab('ordergridpanel');",
+                                    "    tab.setActiveTab('newsgridpanel');",
                                     "}else{",
-                                    "    tab.setActiveTab('ordergridpanel');",
+                                    "    tab.setActiveTab('newsgridpanel');",
                                     "}"
                                 ],
                                 "name": "click",
                                 "scope": "me"
                             },
-                            "name": "orderMgrButtonClick",
-                            "designerId": "4698512b-b84c-4da7-bd4e-4cbc4ca4ce7b"
+                            "name": "newsMgrButtonClick",
+                            "designerId": "0c955114-752a-482b-af3c-7f44182d682d"
+                        }
+                    ]
+                },
+                {
+                    "type": "Ext.button.Button",
+                    "reference": {
+                        "name": "items",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "id": "storeButton",
+                        "layout|flex": null,
+                        "margin": 5,
+                        "text": "店面資訊管理"
+                    },
+                    "name": "MyButton7",
+                    "designerId": "61203ca2-bb5a-4fc0-8322-c0101eb45d75",
+                    "cn": [
+                        {
+                            "type": "basiceventbinding",
+                            "reference": {
+                                "name": "listeners",
+                                "type": "array"
+                            },
+                            "codeClass": null,
+                            "userConfig": {
+                                "fn": "storeMgrButtonClick",
+                                "implHandler": [
+                                    "var tab = Ext.getCmp('tabpanel');",
+                                    "",
+                                    "if(!Ext.getCmp('storegridpanel')){",
+                                    "    panel = Ext.create('Target.view.StoreGridPanel',{",
+                                    "        tabConfig: {",
+                                    "            title: '店面資訊管理',",
+                                    "            closable: true",
+                                    "        }",
+                                    "    });",
+                                    "    tab.add(panel);",
+                                    "    tab.setActiveTab('storegridpanel');",
+                                    "}else{",
+                                    "    tab.setActiveTab('storegridpanel');",
+                                    "}"
+                                ],
+                                "name": "click",
+                                "scope": "me"
+                            },
+                            "name": "storeMgrButtonClick",
+                            "designerId": "7f5bd1ad-7846-4f89-921b-de7684afaff5"
+                        }
+                    ]
+                },
+                {
+                    "type": "Ext.button.Button",
+                    "reference": {
+                        "name": "items",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "id": "foodButton",
+                        "layout|flex": null,
+                        "margin": 5,
+                        "text": "食安認證管理"
+                    },
+                    "name": "MyButton8",
+                    "designerId": "2a8da411-e232-4aff-a219-683f67ea1afe",
+                    "cn": [
+                        {
+                            "type": "basiceventbinding",
+                            "reference": {
+                                "name": "listeners",
+                                "type": "array"
+                            },
+                            "codeClass": null,
+                            "userConfig": {
+                                "fn": "foodMgrButtonClick",
+                                "implHandler": [
+                                    "var tab = Ext.getCmp('tabpanel');",
+                                    "",
+                                    "if(!Ext.getCmp('foodgridpanel')){",
+                                    "    panel = Ext.create('Target.view.FoodGridPanel',{",
+                                    "        tabConfig: {",
+                                    "            title: '食安認證管理',",
+                                    "            closable: true",
+                                    "        }",
+                                    "    });",
+                                    "    tab.add(panel);",
+                                    "    tab.setActiveTab('foodgridpanel');",
+                                    "}else{",
+                                    "    tab.setActiveTab('foodgridpanel');",
+                                    "}"
+                                ],
+                                "name": "click",
+                                "scope": "me"
+                            },
+                            "name": "foodMgrButtonClick",
+                            "designerId": "99f62cad-9e7e-46dc-b943-9f1a17d1e953"
                         }
                     ]
                 },

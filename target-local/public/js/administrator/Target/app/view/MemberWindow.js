@@ -28,7 +28,7 @@ Ext.define('Target.view.MemberWindow', {
     viewModel: {
         type: 'memberwindow'
     },
-    height: 225,
+    height: 221,
     id: 'memberWindow',
     width: 650,
     modal: true,
@@ -111,11 +111,6 @@ Ext.define('Target.view.MemberWindow', {
                                 },
                                 {
                                     xtype: 'displayfield',
-                                    fieldLabel: '收貨人姓名',
-                                    name: 'mm_consignee_name'
-                                },
-                                {
-                                    xtype: 'displayfield',
                                     fieldLabel: '收貨人地址',
                                     name: 'mm_consignee_address'
                                 },
@@ -128,6 +123,11 @@ Ext.define('Target.view.MemberWindow', {
                                     xtype: 'displayfield',
                                     fieldLabel: '收貨人信箱',
                                     name: 'mm_consignee_email'
+                                },
+                                {
+                                    xtype: 'displayfield',
+                                    fieldLabel: '會員剩餘紅利',
+                                    name: 'mm_point'
                                 }
                             ]
                         }

@@ -4,6 +4,7 @@ use Application\Model\Table\OrderMainTable;
 use Application\Model\Table\ItemFlavorTable;
 use Application\Model\Table\MemberPointTable;
 use Application\Model\Table\ItemMainTable;
+use Application\Model\Table\MemberTable;
 
 class Order{
 	public $db = null ;
@@ -49,6 +50,11 @@ class Order{
 			$data_om = array();
 			$data_om['mm_id'] = $mm_id; 
 			$this->db->update($data_om , array('om_id'=>$data['om_id']));
+			
+			$member_db = new MemberTable();
+			$data_member = array();
+			$data_member['mm_point'] = $data['mrp_now_amount'];
+			$member_db->update($data_member , array('mm_id'=>$mm_id));
 			
 			return array('success'=>true , 'data'=> $data_mpr );
 		}catch (\Exception $e){
@@ -296,6 +302,12 @@ class Order{
 					$data_mpr['mrp_created'] = date('Y-m-d H:i:s');
 					$member_point_db->insert($data_mpr);
 					$data['mrp_id'] = $member_point_db->getLastInsertValue() ;
+					
+					$member_db = new MemberTable();
+					$data_member = array();
+					$data_member['mm_point'] = $data['mrp_now_amount'];
+					$member_db->update($data_member , array('mm_id'=>$data['mm_id']));
+					
 				}
 			}
 			return array('success'=>true , 'data'=> $data);

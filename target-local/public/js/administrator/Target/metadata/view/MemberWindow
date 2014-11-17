@@ -9,7 +9,7 @@
         "container|align": "stretch",
         "designer|userAlias": "memberwindow",
         "designer|userClassName": "MemberWindow",
-        "height": 225,
+        "height": 221,
         "id": "memberWindow",
         "layout": "vbox",
         "modal": true,
@@ -199,20 +199,6 @@
                                     },
                                     "codeClass": null,
                                     "userConfig": {
-                                        "fieldLabel": "收貨人姓名",
-                                        "name": "mm_consignee_name"
-                                    },
-                                    "name": "MyDisplayField8",
-                                    "designerId": "c13a43d0-e37a-4c67-951f-81c00cfcbea5"
-                                },
-                                {
-                                    "type": "Ext.form.field.Display",
-                                    "reference": {
-                                        "name": "items",
-                                        "type": "array"
-                                    },
-                                    "codeClass": null,
-                                    "userConfig": {
                                         "fieldLabel": "收貨人地址",
                                         "name": "mm_consignee_address"
                                     },
@@ -246,6 +232,20 @@
                                     },
                                     "name": "MyDisplayField11",
                                     "designerId": "c72c515c-939f-408b-8c8e-ee050e1cef41"
+                                },
+                                {
+                                    "type": "Ext.form.field.Display",
+                                    "reference": {
+                                        "name": "items",
+                                        "type": "array"
+                                    },
+                                    "codeClass": null,
+                                    "userConfig": {
+                                        "fieldLabel": "會員剩餘紅利",
+                                        "name": "mm_point"
+                                    },
+                                    "name": "MyDisplayField8",
+                                    "designerId": "c13a43d0-e37a-4c67-951f-81c00cfcbea5"
                                 }
                             ]
                         }

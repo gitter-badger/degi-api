@@ -56,6 +56,9 @@ Ext.define('Target.model.MemberModel', {
         },
         {
             name: 'mm_modified'
+        },
+        {
+            name: 'mm_point'
         }
     ]
 });

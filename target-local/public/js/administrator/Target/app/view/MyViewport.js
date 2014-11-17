@@ -84,6 +84,33 @@ Ext.define('Target.view.MyViewport', {
                 },
                 {
                     xtype: 'button',
+                    id: 'orderButton',
+                    margin: 5,
+                    text: '一般訂單管理',
+                    listeners: {
+                        click: 'orderMgrButtonClick'
+                    }
+                },
+                {
+                    xtype: 'button',
+                    id: 'CompanyMemberButton',
+                    margin: 5,
+                    text: '公司會員管理',
+                    listeners: {
+                        click: 'CompantMemberMgrButtonClick'
+                    }
+                },
+                {
+                    xtype: 'button',
+                    id: 'companyorderButton',
+                    margin: 5,
+                    text: '公司訂單管理',
+                    listeners: {
+                        click: 'companyorderMgrButtonClick'
+                    }
+                },
+                {
+                    xtype: 'button',
                     id: 'itemCategoryButton',
                     margin: 5,
                     text: '商品分類管理',
@@ -102,11 +129,11 @@ Ext.define('Target.view.MyViewport', {
                 },
                 {
                     xtype: 'button',
-                    id: 'newsButton',
+                    id: 'IndexSlideButton',
                     margin: 5,
-                    text: '最新消息管理',
+                    text: '首頁輪播管理',
                     listeners: {
-                        click: 'newsMgrButtonClick'
+                        click: 'IndexSlideMgrButtonClick'
                     }
                 },
                 {
@@ -120,11 +147,29 @@ Ext.define('Target.view.MyViewport', {
                 },
                 {
                     xtype: 'button',
-                    id: 'orderButton',
+                    id: 'newsButton',
                     margin: 5,
-                    text: '訂單管理',
+                    text: '最新消息管理',
                     listeners: {
-                        click: 'orderMgrButtonClick'
+                        click: 'newsMgrButtonClick'
+                    }
+                },
+                {
+                    xtype: 'button',
+                    id: 'storeButton',
+                    margin: 5,
+                    text: '店面資訊管理',
+                    listeners: {
+                        click: 'storeMgrButtonClick'
+                    }
+                },
+                {
+                    xtype: 'button',
+                    id: 'foodButton',
+                    margin: 5,
+                    text: '食安認證管理',
+                    listeners: {
+                        click: 'foodMgrButtonClick'
                     }
                 },
                 {
@@ -202,6 +247,57 @@ Ext.define('Target.view.MyViewport', {
         }
     },
 
+    orderMgrButtonClick: function(button, e, eOpts) {
+        var tab = Ext.getCmp('tabpanel');
+
+        if(!Ext.getCmp('ordergridpanel')){
+            panel = Ext.create('Target.view.OrderGridPanel',{
+                tabConfig: {
+                    title: '訂單管理',
+                    closable: true
+                }
+            });
+            tab.add(panel);
+            tab.setActiveTab('ordergridpanel');
+        }else{
+            tab.setActiveTab('ordergridpanel');
+        }
+    },
+
+    CompantMemberMgrButtonClick: function(button, e, eOpts) {
+        var tab = Ext.getCmp('tabpanel');
+
+        if(!Ext.getCmp('companymembergridpanel')){
+            panel = Ext.create('Target.view.CompanyMemberGridPanel',{
+                tabConfig: {
+                    title: '公司會員管理',
+                    closable: true
+                }
+            });
+            tab.add(panel);
+            tab.setActiveTab('companymembergridpanel');
+        }else{
+            tab.setActiveTab('companymembergridpanel');
+        }
+    },
+
+    companyorderMgrButtonClick: function(button, e, eOpts) {
+        var tab = Ext.getCmp('tabpanel');
+
+        if(!Ext.getCmp('companyordergridpanel')){
+            panel = Ext.create('Target.view.CompanyOrderGridPanel',{
+                tabConfig: {
+                    title: '公司訂單管理',
+                    closable: true
+                }
+            });
+            tab.add(panel);
+            tab.setActiveTab('companyordergridpanel');
+        }else{
+            tab.setActiveTab('companyordergridpanel');
+        }
+    },
+
     itemCategoryMgrBtnClick: function(button, e, eOpts) {
         var tab = Ext.getCmp('tabpanel');
 
@@ -236,20 +332,20 @@ Ext.define('Target.view.MyViewport', {
         }
     },
 
-    newsMgrButtonClick: function(button, e, eOpts) {
+    IndexSlideMgrButtonClick: function(button, e, eOpts) {
         var tab = Ext.getCmp('tabpanel');
 
-        if(!Ext.getCmp('newsgridpanel')){
-            panel = Ext.create('Target.view.NewsGridPanel',{
+        if(!Ext.getCmp('indexslidegridpanel')){
+            panel = Ext.create('Target.view.IndexSlideGridPanel',{
                 tabConfig: {
-                    title: '最新消息管理',
+                    title: '首頁輪播管理',
                     closable: true
                 }
             });
             tab.add(panel);
-            tab.setActiveTab('newsgridpanel');
+            tab.setActiveTab('indexslidegridpanel');
         }else{
-            tab.setActiveTab('newsgridpanel');
+            tab.setActiveTab('indexslidegridpanel');
         }
     },
 
@@ -270,20 +366,54 @@ Ext.define('Target.view.MyViewport', {
         }
     },
 
-    orderMgrButtonClick: function(button, e, eOpts) {
+    newsMgrButtonClick: function(button, e, eOpts) {
         var tab = Ext.getCmp('tabpanel');
 
-        if(!Ext.getCmp('ordergridpanel')){
-            panel = Ext.create('Target.view.OrderGridPanel',{
+        if(!Ext.getCmp('newsgridpanel')){
+            panel = Ext.create('Target.view.NewsGridPanel',{
                 tabConfig: {
-                    title: '訂單管理',
+                    title: '最新消息管理',
                     closable: true
                 }
             });
             tab.add(panel);
-            tab.setActiveTab('ordergridpanel');
+            tab.setActiveTab('newsgridpanel');
         }else{
-            tab.setActiveTab('ordergridpanel');
+            tab.setActiveTab('newsgridpanel');
+        }
+    },
+
+    storeMgrButtonClick: function(button, e, eOpts) {
+        var tab = Ext.getCmp('tabpanel');
+
+        if(!Ext.getCmp('storegridpanel')){
+            panel = Ext.create('Target.view.StoreGridPanel',{
+                tabConfig: {
+                    title: '店面資訊管理',
+                    closable: true
+                }
+            });
+            tab.add(panel);
+            tab.setActiveTab('storegridpanel');
+        }else{
+            tab.setActiveTab('storegridpanel');
+        }
+    },
+
+    foodMgrButtonClick: function(button, e, eOpts) {
+        var tab = Ext.getCmp('tabpanel');
+
+        if(!Ext.getCmp('foodgridpanel')){
+            panel = Ext.create('Target.view.FoodGridPanel',{
+                tabConfig: {
+                    title: '食安認證管理',
+                    closable: true
+                }
+            });
+            tab.add(panel);
+            tab.setActiveTab('foodgridpanel');
+        }else{
+            tab.setActiveTab('foodgridpanel');
         }
     },
 
