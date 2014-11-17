@@ -53,7 +53,7 @@ class Order{
 			
 			$member_db = new MemberTable();
 			$data_member = array();
-			$data_member['mm_point'] = $data['mrp_now_amount'];
+			$data_member['mm_point'] = $data_mpr['mrp_now_amount'];
 			$member_db->update($data_member , array('mm_id'=>$mm_id));
 			
 			return array('success'=>true , 'data'=> $data_mpr );
