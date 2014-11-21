@@ -1,0 +1,188 @@
+{
+    "type": "Ext.window.Window",
+    "reference": {
+        "name": "items",
+        "type": "array"
+    },
+    "codeClass": null,
+    "userConfig": {
+        "container|align": "stretch",
+        "designer|userAlias": "grouporderwindow",
+        "designer|userClassName": "GroupOrderWindow",
+        "height": 543,
+        "id": "GroupOrderWindow",
+        "layout": "vbox",
+        "modal": true,
+        "title": null,
+        "width": 738
+    },
+    "name": "OrderWindow1",
+    "designerId": "88e8147a-2758-4c61-802c-31bc198169c7",
+    "viewControllerInstanceId": "8dc71ed9-ab82-45ef-bc4c-3e8d13c01efd",
+    "viewModelInstanceId": "321262b2-1afe-49af-bb24-65072de2ac91",
+    "cn": [
+        {
+            "type": "Ext.form.FieldContainer",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "container|align": "stretch",
+                "container|padding": null,
+                "fieldLabel": null,
+                "height": null,
+                "layout": "vbox",
+                "layout|flex": 1,
+                "width": 644
+            },
+            "name": "MyFieldContainer1",
+            "designerId": "495177b8-3843-42e8-bf35-87ba3d5a284a",
+            "cn": [
+                {
+                    "type": "Ext.container.Container",
+                    "reference": {
+                        "name": "items",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "autoScroll": true,
+                        "container|align": "stretch",
+                        "layout": "vbox",
+                        "layout|flex": 1,
+                        "width": null
+                    },
+                    "name": "MyContainer3",
+                    "designerId": "13d608c8-4cf9-4c32-90dc-5b01a1b19f6a",
+                    "cn": [
+                        {
+                            "type": "Ext.grid.Panel",
+                            "reference": {
+                                "name": "items",
+                                "type": "array"
+                            },
+                            "codeClass": null,
+                            "userConfig": {
+                                "id": "grouporderpanel",
+                                "rowLines": false,
+                                "store": "GroupOrderArrayStore",
+                                "title": null
+                            },
+                            "name": "MyGridPanel",
+                            "designerId": "6a8ebd64-b57b-4efc-90b5-19aadb6b859b",
+                            "cn": [
+                                {
+                                    "type": "Ext.grid.column.Column",
+                                    "reference": {
+                                        "name": "columns",
+                                        "type": "array"
+                                    },
+                                    "codeClass": null,
+                                    "userConfig": {
+                                        "dataIndex": "id",
+                                        "flex": 0.5,
+                                        "text": "編號"
+                                    },
+                                    "name": "MyColumn19",
+                                    "designerId": "aff2aa0e-1359-4ef4-a248-08445ce40c3d"
+                                },
+                                {
+                                    "type": "Ext.grid.column.Column",
+                                    "reference": {
+                                        "name": "columns",
+                                        "type": "array"
+                                    },
+                                    "codeClass": null,
+                                    "userConfig": {
+                                        "dataIndex": "name",
+                                        "flex": 1,
+                                        "text": "訂購人"
+                                    },
+                                    "name": "MyColumn28",
+                                    "designerId": "51d1088f-f212-4ca2-8e07-b2703a68ecb7"
+                                },
+                                {
+                                    "type": "Ext.grid.column.Column",
+                                    "reference": {
+                                        "name": "columns",
+                                        "type": "array"
+                                    },
+                                    "codeClass": null,
+                                    "userConfig": {
+                                        "dataIndex": "im_name",
+                                        "flex": 1,
+                                        "text": "商品名稱"
+                                    },
+                                    "name": "MyColumn27",
+                                    "designerId": "ebbcc302-7008-426e-8b8e-d3631941d76a"
+                                },
+                                {
+                                    "type": "Ext.grid.column.Column",
+                                    "reference": {
+                                        "name": "columns",
+                                        "type": "array"
+                                    },
+                                    "codeClass": null,
+                                    "userConfig": {
+                                        "dataIndex": "if_name",
+                                        "flex": 1,
+                                        "text": "口味"
+                                    },
+                                    "name": "MyColumn21",
+                                    "designerId": "5e51b59a-a03e-49ac-8732-4207df9f4741"
+                                },
+                                {
+                                    "type": "Ext.grid.column.Column",
+                                    "reference": {
+                                        "name": "columns",
+                                        "type": "array"
+                                    },
+                                    "codeClass": null,
+                                    "userConfig": {
+                                        "dataIndex": "if_unit_price",
+                                        "flex": 1,
+                                        "text": "單價"
+                                    },
+                                    "name": "MyColumn22",
+                                    "designerId": "3bf2891b-3bf8-4776-a790-3bca92d9198a"
+                                },
+                                {
+                                    "type": "Ext.grid.column.Column",
+                                    "reference": {
+                                        "name": "columns",
+                                        "type": "array"
+                                    },
+                                    "codeClass": null,
+                                    "userConfig": {
+                                        "dataIndex": "if_count",
+                                        "flex": 1,
+                                        "text": "購買數量"
+                                    },
+                                    "name": "MyColumn23",
+                                    "designerId": "898bfe56-d9ff-4f39-bcd3-3dc944cd54a5"
+                                },
+                                {
+                                    "type": "Ext.grid.column.Column",
+                                    "reference": {
+                                        "name": "columns",
+                                        "type": "array"
+                                    },
+                                    "codeClass": null,
+                                    "userConfig": {
+                                        "dataIndex": "if_subtotal",
+                                        "flex": 1,
+                                        "text": "小計"
+                                    },
+                                    "name": "MyColumn26",
+                                    "designerId": "a1f3519a-10d9-4613-a7fb-cabdb3057c23"
+                                }
+                            ]
+                        }
+                    ]
+                }
+            ]
+        }
+    ]
+}

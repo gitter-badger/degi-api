@@ -1,0 +1,14 @@
+{
+    "type": "Ext.app.ViewController",
+    "reference": {
+        "name": "items",
+        "type": "array"
+    },
+    "codeClass": null,
+    "userConfig": {
+        "designer|userAlias": "grouporderwindow",
+        "designer|userClassName": "GroupWindowViewController"
+    },
+    "name": "OrderWindowViewController1",
+    "designerId": "8dc71ed9-ab82-45ef-bc4c-3e8d13c01efd"
+}

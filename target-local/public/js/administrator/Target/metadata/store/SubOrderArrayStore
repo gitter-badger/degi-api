@@ -1,0 +1,83 @@
+{
+    "type": "arraystore",
+    "reference": {
+        "name": "items",
+        "type": "array"
+    },
+    "codeClass": null,
+    "userConfig": {
+        "autoLoad": true,
+        "autoSync": true,
+        "designer|userClassName": "SubOrderArrayStore",
+        "storeId": "SubOrderArrayStore"
+    },
+    "name": "MyArrayStore",
+    "designerId": "b89cc43f-8dd7-457e-b788-f04a57453566",
+    "cn": [
+        {
+            "type": "Ext.data.field.String",
+            "reference": {
+                "name": "fields",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "name": "im_name"
+            },
+            "name": "MyString1",
+            "designerId": "a2871d2a-1c7b-44dd-a4bc-f9727127ce41"
+        },
+        {
+            "type": "Ext.data.field.String",
+            "reference": {
+                "name": "fields",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "name": "if_name"
+            },
+            "name": "MyString2",
+            "designerId": "c2651147-3bd3-487c-bbf7-854fca04cd89"
+        },
+        {
+            "type": "Ext.data.field.Field",
+            "reference": {
+                "name": "fields",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "name": "if_unit_price"
+            },
+            "name": "MyField47",
+            "designerId": "ed28b7ac-0191-48de-a51d-9357e350d045"
+        },
+        {
+            "type": "Ext.data.field.Field",
+            "reference": {
+                "name": "fields",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "name": "if_count"
+            },
+            "name": "MyField48",
+            "designerId": "6e1709ea-6cd9-49cf-81c5-a871830a40e9"
+        },
+        {
+            "type": "Ext.data.field.Field",
+            "reference": {
+                "name": "fields",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "name": "if_subtotal"
+            },
+            "name": "MyField46",
+            "designerId": "7d87ac18-7ddf-4284-8766-7db8265263ae"
+        }
+    ]
+}

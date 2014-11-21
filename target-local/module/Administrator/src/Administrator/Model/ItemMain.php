@@ -47,7 +47,7 @@ class ItemMain {
     	try {
     		$select = $this->db->getSql()->select();
     		if(empty($query['limit'])){
-    			return array('success'=>true , 'data'=>$this->db->select()->toArray() );
+    			return array('success'=>true , 'rows'=>$this->db->select()->toArray() );
     		}else{
 	    		$paginator = new Paginator(new DbSelect($select, $this->db->adapter));
 	    

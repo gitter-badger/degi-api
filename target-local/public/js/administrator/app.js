@@ -22,7 +22,7 @@ Ext.Loader.setConfig({
 Ext.application({
     appFolder: 'js/administrator/Target/app',    
 
-models: [
+    models: [
         'AdminModel',
         'MemberModel',
         'ProductModel',
@@ -39,7 +39,8 @@ models: [
     ],
     stores: [
         'SubOrderArrayStore',
-        'GroupOrderArrayStore'
+        'GroupOrderArrayStore',
+        'ItemMainStore'
     ],
     views: [
         'MyViewport',

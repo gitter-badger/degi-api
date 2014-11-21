@@ -59,6 +59,7 @@
                     },
                     "codeClass": null,
                     "userConfig": {
+                        "allowBlank": false,
                         "fieldLabel": "商品標題",
                         "labelAlign": "right",
                         "layout|anchor": "80%",
@@ -76,13 +77,23 @@
                     },
                     "codeClass": null,
                     "userConfig": {
+                        "allowBlank": false,
+                        "displayField": "im_name",
+                        "editable": false,
                         "fieldLabel": "商品主資料",
                         "id": null,
                         "labelAlign": "right",
                         "layout|anchor": "80%",
-                        "name": "im_id"
+                        "name": "im_id",
+                        "store": [
+                            "ItemMainStore"
+                        ],
+                        "valueField": "im_id"
                     },
                     "name": "MyComboBox",
+                    "configAlternates": {
+                        "store": "binding"
+                    },
                     "designerId": "c1379cd2-c433-4037-a188-1cf88241f54a"
                 },
                 {

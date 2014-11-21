@@ -57,14 +57,22 @@ Ext.define('Target.view.popularwindow', {
                     width: 356,
                     fieldLabel: '商品標題',
                     labelAlign: 'right',
-                    name: 'pi_title'
+                    name: 'pi_title',
+                    allowBlank: false
                 },
                 {
                     xtype: 'combobox',
                     anchor: '80%',
                     fieldLabel: '商品主資料',
                     labelAlign: 'right',
-                    name: 'im_id'
+                    name: 'im_id',
+                    allowBlank: false,
+                    editable: false,
+                    displayField: 'im_name',
+                    valueField: 'im_id',
+                    bind: {
+                        store: 'ItemMainStore'
+                    }
                 },
                 {
                     xtype: 'combobox',
