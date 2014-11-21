@@ -34,7 +34,7 @@ class AdminerController extends AbstractRestfulController
         $response->setStatusCode(200);
 
         $admin = new Admin();
-        return new JsonModel($admin->selectAll());
+        return new JsonModel($admin->selectAll($this->params()->fromQuery()));
     }  
     //put
     public function replaceList($data){

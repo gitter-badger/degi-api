@@ -9,5 +9,6 @@
         "designer|userAlias": "orderwindow",
         "designer|userClassName": "OrderWindowViewModel"
     },
-    "designerId": "2e0a19a3-a168-4137-aea3-5b12a031e56e"
+    "name": "MemberWindowViewModel2",
+    "designerId": "3f2d2e1a-227d-44a7-aa3c-31efb7c70f75"
 }

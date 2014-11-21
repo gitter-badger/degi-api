@@ -166,19 +166,6 @@
             },
             "name": "MyField45",
             "designerId": "acc5afdd-44f2-4f80-9ea1-9c1fbb030802"
-        },
-        {
-            "type": "Ext.data.field.Field",
-            "reference": {
-                "name": "fields",
-                "type": "array"
-            },
-            "codeClass": null,
-            "userConfig": {
-                "name": "mm_point"
-            },
-            "name": "MyField2",
-            "designerId": "75de635b-1bca-4f2a-834e-c3420dbafd77"
         }
     ]
 }

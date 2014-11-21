@@ -47,8 +47,8 @@ Ext.define('Target.view.MemberGridPanel', {
         {
             xtype: 'gridcolumn',
             dataIndex: 'mm_id',
-            text: 'ID',
-            flex: 0.5
+            text: '會員編號',
+            flex: 0.7
         },
         {
             xtype: 'gridcolumn',

@@ -296,6 +296,27 @@
             "codeClass": null,
             "name": "MyCheckboxSelectionModel3",
             "designerId": "8b90c863-2835-4756-8ef5-3e9538edf917"
+        },
+        {
+            "type": "Ext.toolbar.Paging",
+            "reference": {
+                "name": "dockedItems",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "displayInfo": true,
+                "dock": "bottom",
+                "store": [
+                    "{AdminStore}"
+                ],
+                "width": 360
+            },
+            "name": "MyPagingToolbar2",
+            "configAlternates": {
+                "store": "binding"
+            },
+            "designerId": "39a8a5be-ae85-485b-8ca8-b928fe820cd2"
         }
     ]
 }

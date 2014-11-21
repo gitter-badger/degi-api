@@ -21,157 +21,216 @@ Ext.define('Target.view.OrderWindow', {
         'Target.view.OrderWindowViewModel',
         'Ext.form.field.Hidden',
         'Ext.form.Panel',
-        'Ext.form.field.TextArea',
+        'Ext.form.FieldContainer',
         'Ext.form.field.Display',
-        'Ext.toolbar.Toolbar',
-        'Ext.button.Button'
+        'Ext.grid.Panel',
+        'Ext.grid.column.Column'
     ],
 
     viewModel: {
         type: 'orderwindow'
     },
-    height: 500,
-    id: 'orderwindow',
-    maxWidth: 800,
-    width: 640,
-    title: 'My Window',
-    defaultListenerScope: true,
+    height: 583,
+    id: 'orderWindow',
+    width: 644,
+    modal: true,
 
+    layout: {
+        type: 'vbox',
+        align: 'stretch'
+    },
     items: [
         {
             xtype: 'hiddenfield',
-            id: 'o_id',
-            fieldLabel: 'Label',
-            name: 'o_id'
+            flex: 1,
+            id: 'om_id',
+            name: 'om_id'
         },
         {
             xtype: 'form',
+            height: 289,
             id: 'orderForm',
             bodyPadding: 10,
-            title: '',
             layout: {
                 type: 'vbox',
                 align: 'stretch'
             },
             items: [
                 {
-                    xtype: 'textareafield',
-                    height: 160,
-                    fieldLabel: '商品內容',
-                    name: 'o_detail',
-                    editable: false
-                },
-                {
-                    xtype: 'displayfield',
-                    fieldLabel: '會員ID',
-                    name: 'm_id',
-                    value: 'Display Field'
-                },
-                {
-                    xtype: 'displayfield',
-                    fieldLabel: '訂單成立日期',
-                    name: 'o_date',
-                    value: 'Display Field'
-                },
-                {
-                    xtype: 'textareafield',
-                    height: 160,
-                    fieldLabel: 'Paypal訊息',
-                    name: 'o_paypal',
-                    value: 'Display Field',
-                    editable: false
-                },
-                {
-                    xtype: 'textfield',
-                    fieldLabel: '狀態',
-                    name: 'o_status'
+                    xtype: 'fieldcontainer',
+                    flex: 1,
+                    height: 290,
+                    width: 400,
+                    layout: {
+                        type: 'hbox',
+                        align: 'stretch'
+                    },
+                    items: [
+                        {
+                            xtype: 'container',
+                            autoScroll: true,
+                            height: 266,
+                            width: 329,
+                            items: [
+                                {
+                                    xtype: 'displayfield',
+                                    fieldLabel: '訂單編號',
+                                    name: 'om_internal_id'
+                                },
+                                {
+                                    xtype: 'displayfield',
+                                    fieldLabel: '訂購人姓名',
+                                    name: 'om_purchaser_name'
+                                },
+                                {
+                                    xtype: 'displayfield',
+                                    fieldLabel: '訂購人電話',
+                                    name: 'om_purchaser_tel'
+                                },
+                                {
+                                    xtype: 'displayfield',
+                                    fieldLabel: '收貨人信箱',
+                                    name: 'om_consignee_email'
+                                },
+                                {
+                                    xtype: 'displayfield',
+                                    fieldLabel: '收貨人地址',
+                                    name: 'om_consignee_address'
+                                },
+                                {
+                                    xtype: 'displayfield',
+                                    fieldLabel: '收貨人姓名',
+                                    name: 'om_consignee_name'
+                                },
+                                {
+                                    xtype: 'displayfield',
+                                    fieldLabel: '收貨人電話',
+                                    name: 'om_consignee_tel'
+                                },
+                                {
+                                    xtype: 'displayfield',
+                                    renderer: function(value, displayField) {
+                                        if(value==1){
+                                            return '信用卡';
+                                        }else{
+                                            return '貨到付款';
+                                        }
+                                    },
+                                    fieldLabel: '付款方式選擇',
+                                    name: 'om_payment_method'
+                                }
+                            ]
+                        },
+                        {
+                            xtype: 'container',
+                            flex: 1,
+                            autoScroll: true,
+                            height: 275,
+                            width: '50%',
+                            items: [
+                                {
+                                    xtype: 'displayfield',
+                                    fieldLabel: '加總',
+                                    name: 'om_subtotal'
+                                },
+                                {
+                                    xtype: 'displayfield',
+                                    fieldLabel: '運費',
+                                    name: 'om_freight_fee'
+                                },
+                                {
+                                    xtype: 'displayfield',
+                                    fieldLabel: '滿箱',
+                                    name: 'om_full_box'
+                                },
+                                {
+                                    xtype: 'displayfield',
+                                    fieldLabel: '未滿箱',
+                                    name: 'om_unfull_box'
+                                },
+                                {
+                                    xtype: 'displayfield',
+                                    fieldLabel: '使用紅利',
+                                    name: 'om_use_point'
+                                },
+                                {
+                                    xtype: 'displayfield',
+                                    fieldLabel: '總價',
+                                    name: 'om_total'
+                                },
+                                {
+                                    xtype: 'displayfield',
+                                    height: 50,
+                                    width: 276,
+                                    fieldLabel: '訂單備註',
+                                    name: 'om_note'
+                                }
+                            ]
+                        }
+                    ]
                 }
             ]
-        }
-    ],
-    dockedItems: [
+        },
         {
-            xtype: 'toolbar',
-            dock: 'bottom',
+            xtype: 'fieldcontainer',
+            flex: 1,
+            width: 644,
             layout: {
-                type: 'hbox',
-                pack: 'end'
+                type: 'vbox',
+                align: 'stretch'
             },
             items: [
                 {
-                    xtype: 'button',
-                    text: '修改',
-                    listeners: {
-                        click: 'onButtonClick'
-                    }
+                    xtype: 'container',
+                    flex: 1,
+                    autoScroll: true,
+                    layout: {
+                        type: 'vbox',
+                        align: 'stretch'
+                    },
+                    items: [
+                        {
+                            xtype: 'gridpanel',
+                            id: 'suborderpanel',
+                            rowLines: false,
+                            store: 'SubOrderArrayStore',
+                            columns: [
+                                {
+                                    xtype: 'gridcolumn',
+                                    dataIndex: 'im_name',
+                                    text: '商品名稱',
+                                    flex: 1
+                                },
+                                {
+                                    xtype: 'gridcolumn',
+                                    dataIndex: 'if_name',
+                                    text: '口味',
+                                    flex: 1
+                                },
+                                {
+                                    xtype: 'gridcolumn',
+                                    dataIndex: 'if_unit_price',
+                                    text: '單價',
+                                    flex: 1
+                                },
+                                {
+                                    xtype: 'gridcolumn',
+                                    dataIndex: 'if_count',
+                                    text: '購買數量',
+                                    flex: 1
+                                },
+                                {
+                                    xtype: 'gridcolumn',
+                                    dataIndex: 'if_subtotal',
+                                    text: '小計',
+                                    flex: 1
+                                }
+                            ]
+                        }
+                    ]
                 }
             ]
         }
-    ],
-    listeners: {
-        afterrender: 'onWindowAfterRender'
-    },
-
-    onButtonClick: function(button, e, eOpts) {
-        var form = Ext.getCmp('orderForm').getForm();
-
-        if(form.isValid()){
-            var oId = Ext.getCmp('o_id').getValue();
-            form.submit({
-                // params: Ext.util.JSON.encode(form.getValues()),
-                method: 'PUT',
-                waitTitle:'訊息',
-                waitMsg:'修改資料中',
-                url:'http://dev.finpo.com.tw/posh/public/b/order/'+oId,
-
-                success:function(form,action){
-
-                    var store  = Ext.getCmp('ordergridpanel').getViewModel().getStore('OrderStore');
-                    store.proxy.url='http://dev.finpo.com.tw/posh/public/b/order';
-                    store.load();
-
-                    form.reset();
-                    Ext.Msg.alert('訊息','訂單修改成功', function(){
-                        var window = Ext.getCmp('orderwindow');
-                        window.close();
-                    });
-
-                },
-                failure:function(form,action){
-
-                   Ext.Msg.alert('訊息','訂單修改失敗');
-
-                }
-
-            });
-        }
-    },
-
-    onWindowAfterRender: function(component, eOpts) {
-        var oId = Ext.getCmp('o_id').getValue();
-
-        Ext.Ajax.request({
-            url: 'http://dev.finpo.com.tw/posh/public/b/order/'+oId,
-            success: function(response, opts){
-                var obj = Ext.decode(response.responseText);
-                var form = Ext.getCmp('orderForm').getForm();
-                form.setValues(obj.data);
-
-                var oDetail = Ext.JSON.decode(obj.data.o_detail);
-                var oDetailEval = JSON.stringify(oDetail, null, 4);
-                //console.log(oDetailEval);
-                form.findField('o_detail').setValue(oDetailEval);
-
-                var oPaypal = Ext.JSON.decode(obj.data.o_paypal);
-                var oPaypalEval = JSON.stringify(oPaypal, null, 4);
-                //console.log(oPaypalEval);
-                form.findField('o_paypal').setValue(oPaypalEval);
-            },
-            failure: function(response, opts){
-                console.log('server-side failure with status code ' + response.status);
-            }
-
-        });
-    }
+    ]
 
 });

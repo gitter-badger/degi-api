@@ -61,8 +61,8 @@
             "codeClass": null,
             "userConfig": {
                 "dataIndex": "mm_id",
-                "flex": 0.5,
-                "text": "ID"
+                "flex": 0.7,
+                "text": "會員編號"
             },
             "name": "MyColumn3",
             "designerId": "a6d471dc-b6d2-413f-bc8a-ad034b3ab925"

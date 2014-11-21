@@ -21,9 +21,9 @@ Ext.define('Target.view.AdminGridPanel', {
         'Target.view.AdminGridPanelViewModel',
         'Ext.grid.View',
         'Ext.grid.column.Column',
-        'Ext.toolbar.Toolbar',
         'Ext.button.Button',
-        'Ext.selection.CheckboxModel'
+        'Ext.selection.CheckboxModel',
+        'Ext.toolbar.Paging'
     ],
 
     viewModel: {
@@ -108,6 +108,15 @@ Ext.define('Target.view.AdminGridPanel', {
                     }
                 }
             ]
+        },
+        {
+            xtype: 'pagingtoolbar',
+            dock: 'bottom',
+            width: 360,
+            displayInfo: true,
+            bind: {
+                store: '{AdminStore}'
+            }
         }
     ],
     selModel: {

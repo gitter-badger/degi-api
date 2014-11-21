@@ -22,12 +22,11 @@ Ext.Loader.setConfig({
 Ext.application({
     appFolder: 'js/administrator/Target/app',    
 
-    models: [
+models: [
         'AdminModel',
         'MemberModel',
         'ProductModel',
         'ReportModel',
-        'GiftArrayModel',
         'ContentModel',
         'OrderModel',
         'ContactCenterModel',
@@ -35,10 +34,12 @@ Ext.application({
         'ItemModel',
         'NewsModel',
         'PopularItemModel',
-        'SystemVariableModel'
+        'SystemVariableModel',
+        'ItemMainModel'
     ],
     stores: [
-        'GiftArrayStore'
+        'SubOrderArrayStore',
+        'GroupOrderArrayStore'
     ],
     views: [
         'MyViewport',
@@ -53,7 +54,6 @@ Ext.application({
         'ContentGridPanel',
         'ContentWindow',
         'OrderGridPanel',
-        'OrderWindow',
         'LoginWindow',
         'ContactCenterGridPanel',
         'ContactCenterWindow',
@@ -63,7 +63,11 @@ Ext.application({
         'PopularItemGridPanel',
         'SystemVariableGridPanel',
         'ItemWindow',
-        'ItemCategoryWindow'
+        'ItemCategoryWindow',
+        'SystemVariableWindow',
+        'popularwindow',
+        'OrderWindow',
+        'GroupOrderWindow'
     ],
     name: 'Target',
 

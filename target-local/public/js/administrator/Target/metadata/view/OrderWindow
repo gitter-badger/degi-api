@@ -6,18 +6,20 @@
     },
     "codeClass": null,
     "userConfig": {
+        "container|align": "stretch",
         "designer|userAlias": "orderwindow",
         "designer|userClassName": "OrderWindow",
-        "height": 500,
-        "id": "orderwindow",
-        "maxWidth": 800,
-        "title": "My Window",
-        "width": 640
+        "height": 583,
+        "id": "orderWindow",
+        "layout": "vbox",
+        "modal": true,
+        "title": null,
+        "width": 644
     },
-    "name": "MyWindow",
-    "designerId": "329d92c7-dfdc-41c4-8a14-6e5fdc969b39",
-    "viewControllerInstanceId": "8ced4ba2-8460-4fb7-abf9-265f762c48ad",
-    "viewModelInstanceId": "2e0a19a3-a168-4137-aea3-5b12a031e56e",
+    "name": "MemberWindow1",
+    "designerId": "4a8a67dc-ca62-4ae2-aefd-bd8c6016701b",
+    "viewControllerInstanceId": "0ea59c57-3d00-4177-b2e2-5b1da6fe869e",
+    "viewModelInstanceId": "3f2d2e1a-227d-44a7-aa3c-31efb7c70f75",
     "cn": [
         {
             "type": "Ext.form.field.Hidden",
@@ -27,12 +29,13 @@
             },
             "codeClass": null,
             "userConfig": {
-                "fieldLabel": "Label",
-                "id": "o_id",
-                "name": "o_id"
+                "fieldLabel": null,
+                "id": "om_id",
+                "layout|flex": 1,
+                "name": "om_id"
             },
             "name": "MyHiddenField",
-            "designerId": "00311e78-2b48-4f35-9c64-08db3042d65d"
+            "designerId": "3d10e061-84ff-4908-a2b9-146466803207"
         },
         {
             "type": "Ext.form.Panel",
@@ -44,220 +47,443 @@
             "userConfig": {
                 "bodyPadding": 10,
                 "container|align": "stretch",
+                "height": 289,
                 "id": "orderForm",
                 "layout": "vbox",
-                "title": ""
+                "title": null,
+                "width": null
             },
             "name": "MyForm",
-            "designerId": "fef6212a-9a9d-481c-b812-ec065ed6a389",
+            "designerId": "05beddeb-f603-423f-81f3-d683bef90605",
             "cn": [
                 {
-                    "type": "Ext.form.field.TextArea",
+                    "type": "Ext.form.FieldContainer",
                     "reference": {
                         "name": "items",
                         "type": "array"
                     },
                     "codeClass": null,
                     "userConfig": {
-                        "editable": false,
-                        "fieldLabel": "商品內容",
-                        "height": 160,
-                        "margin": null,
-                        "name": "o_detail",
-                        "value": null,
-                        "width": null
+                        "container|align": "stretch",
+                        "fieldLabel": null,
+                        "height": 290,
+                        "layout": "hbox",
+                        "layout|flex": 1,
+                        "width": 400
                     },
-                    "name": "MyTextArea",
-                    "designerId": "d23dbcf2-9c0d-432d-be8c-29701f1d5861"
-                },
-                {
-                    "type": "Ext.form.field.Display",
-                    "reference": {
-                        "name": "items",
-                        "type": "array"
-                    },
-                    "codeClass": null,
-                    "userConfig": {
-                        "fieldLabel": "會員ID",
-                        "name": "m_id",
-                        "value": "Display Field"
-                    },
-                    "name": "MyDisplayField3",
-                    "designerId": "9c89c939-d96f-45a0-8ec6-9bd14c5e72be"
-                },
-                {
-                    "type": "Ext.form.field.Display",
-                    "reference": {
-                        "name": "items",
-                        "type": "array"
-                    },
-                    "codeClass": null,
-                    "userConfig": {
-                        "fieldLabel": "訂單成立日期",
-                        "name": "o_date",
-                        "value": "Display Field"
-                    },
-                    "name": "MyDisplayField4",
-                    "designerId": "e918c870-d5d3-4b94-8842-63445f6f4cb5"
-                },
-                {
-                    "type": "Ext.form.field.TextArea",
-                    "reference": {
-                        "name": "items",
-                        "type": "array"
-                    },
-                    "codeClass": null,
-                    "userConfig": {
-                        "editable": false,
-                        "fieldLabel": "Paypal訊息",
-                        "height": 160,
-                        "margin": null,
-                        "name": "o_paypal",
-                        "value": [
-                            "Display Field"
-                        ]
-                    },
-                    "name": "MyTextArea1",
-                    "designerId": "8dba8e90-efde-476b-bab2-cd7245c3f4f0"
-                },
-                {
-                    "type": "Ext.form.field.Text",
-                    "reference": {
-                        "name": "items",
-                        "type": "array"
-                    },
-                    "codeClass": null,
-                    "userConfig": {
-                        "fieldLabel": "狀態",
-                        "margin": null,
-                        "name": "o_status"
-                    },
-                    "name": "MyTextField",
-                    "designerId": "8bb44a32-a043-4635-a09e-a4a1f28bcbdf"
-                }
-            ]
-        },
-        {
-            "type": "Ext.toolbar.Toolbar",
-            "reference": {
-                "name": "dockedItems",
-                "type": "array"
-            },
-            "codeClass": null,
-            "userConfig": {
-                "container|pack": "end",
-                "dock": "bottom"
-            },
-            "name": "MyToolbar1",
-            "designerId": "672c7b6f-9463-4fb8-b3b0-aad4b114a894",
-            "cn": [
-                {
-                    "type": "Ext.button.Button",
-                    "reference": {
-                        "name": "items",
-                        "type": "array"
-                    },
-                    "codeClass": null,
-                    "userConfig": {
-                        "layout|flex": null,
-                        "text": "修改"
-                    },
-                    "name": "MyButton8",
-                    "designerId": "5d69a9dc-7a02-4e50-9923-3f1941023c36",
+                    "name": "MyFieldContainer",
+                    "designerId": "2810c555-dae1-4483-a920-7b83d6f7c75c",
                     "cn": [
                         {
-                            "type": "basiceventbinding",
+                            "type": "Ext.container.Container",
                             "reference": {
-                                "name": "listeners",
+                                "name": "items",
                                 "type": "array"
                             },
                             "codeClass": null,
                             "userConfig": {
-                                "fn": "onButtonClick",
-                                "implHandler": [
-                                    "var form = Ext.getCmp('orderForm').getForm();",
-                                    "",
-                                    "if(form.isValid()){",
-                                    "    var oId = Ext.getCmp('o_id').getValue();",
-                                    "    form.submit({",
-                                    "        // params: Ext.util.JSON.encode(form.getValues()),",
-                                    "        method: 'PUT',",
-                                    "        waitTitle:'訊息',",
-                                    "        waitMsg:'修改資料中',",
-                                    "        url:'http://dev.finpo.com.tw/posh/public/b/order/'+oId,",
-                                    "",
-                                    "        success:function(form,action){",
-                                    "",
-                                    "            var store  = Ext.getCmp('ordergridpanel').getViewModel().getStore('OrderStore');",
-                                    "            store.proxy.url='http://dev.finpo.com.tw/posh/public/b/order';",
-                                    "            store.load();",
-                                    "",
-                                    "            form.reset();",
-                                    "            Ext.Msg.alert('訊息','訂單修改成功', function(){",
-                                    "                var window = Ext.getCmp('orderwindow');",
-                                    "                window.close();",
-                                    "            });",
-                                    "",
-                                    "        },",
-                                    "        failure:function(form,action){",
-                                    "",
-                                    "           Ext.Msg.alert('訊息','訂單修改失敗');",
-                                    "",
-                                    "        }",
-                                    "",
-                                    "    });",
-                                    "}"
-                                ],
-                                "name": "click",
-                                "scope": "me"
+                                "autoScroll": true,
+                                "height": 266,
+                                "width": 329
                             },
-                            "name": "onButtonClick",
-                            "designerId": "e67b6ab5-990e-4682-95f7-166c862f77a3"
+                            "name": "MyContainer",
+                            "designerId": "2344d482-cb71-49f1-a09c-4a9d9905c3b9",
+                            "cn": [
+                                {
+                                    "type": "Ext.form.field.Display",
+                                    "reference": {
+                                        "name": "items",
+                                        "type": "array"
+                                    },
+                                    "codeClass": null,
+                                    "userConfig": {
+                                        "fieldLabel": "訂單編號",
+                                        "name": "om_internal_id"
+                                    },
+                                    "name": "MyDisplayField1",
+                                    "designerId": "770069a2-0c94-456e-b4b9-ffb24fa80e73"
+                                },
+                                {
+                                    "type": "Ext.form.field.Display",
+                                    "reference": {
+                                        "name": "items",
+                                        "type": "array"
+                                    },
+                                    "codeClass": null,
+                                    "userConfig": {
+                                        "fieldLabel": "訂購人姓名",
+                                        "name": "om_purchaser_name"
+                                    },
+                                    "name": "MyDisplayField2",
+                                    "designerId": "1d73a695-71a4-4efb-88e5-03e62abd26be"
+                                },
+                                {
+                                    "type": "Ext.form.field.Display",
+                                    "reference": {
+                                        "name": "items",
+                                        "type": "array"
+                                    },
+                                    "codeClass": null,
+                                    "userConfig": {
+                                        "fieldLabel": "訂購人電話",
+                                        "name": "om_purchaser_tel"
+                                    },
+                                    "name": "MyDisplayField5",
+                                    "designerId": "09b12b16-4e8a-4b9b-bc01-782caf9e6ab4"
+                                },
+                                {
+                                    "type": "Ext.form.field.Display",
+                                    "reference": {
+                                        "name": "items",
+                                        "type": "array"
+                                    },
+                                    "codeClass": null,
+                                    "userConfig": {
+                                        "fieldLabel": "收貨人信箱",
+                                        "name": "om_consignee_email"
+                                    },
+                                    "name": "MyDisplayField6",
+                                    "designerId": "e90d3460-fd23-488c-b4aa-89e7fdaa16bd"
+                                },
+                                {
+                                    "type": "Ext.form.field.Display",
+                                    "reference": {
+                                        "name": "items",
+                                        "type": "array"
+                                    },
+                                    "codeClass": null,
+                                    "userConfig": {
+                                        "fieldLabel": "收貨人地址",
+                                        "name": "om_consignee_address"
+                                    },
+                                    "name": "MyDisplayField12",
+                                    "designerId": "2dd4f336-b1c7-4011-a1c7-f891fc2baba3"
+                                },
+                                {
+                                    "type": "Ext.form.field.Display",
+                                    "reference": {
+                                        "name": "items",
+                                        "type": "array"
+                                    },
+                                    "codeClass": null,
+                                    "userConfig": {
+                                        "fieldLabel": "收貨人姓名",
+                                        "name": "om_consignee_name"
+                                    },
+                                    "name": "MyDisplayField7",
+                                    "designerId": "6f0b1127-9931-4729-871c-0bbb995519e2"
+                                },
+                                {
+                                    "type": "Ext.form.field.Display",
+                                    "reference": {
+                                        "name": "items",
+                                        "type": "array"
+                                    },
+                                    "codeClass": null,
+                                    "userConfig": {
+                                        "fieldLabel": "收貨人電話",
+                                        "name": "om_consignee_tel"
+                                    },
+                                    "name": "MyDisplayField9",
+                                    "designerId": "d3429103-4161-48f3-bf01-122dc36ff43f"
+                                },
+                                {
+                                    "type": "Ext.form.field.Display",
+                                    "reference": {
+                                        "name": "items",
+                                        "type": "array"
+                                    },
+                                    "codeClass": null,
+                                    "userConfig": {
+                                        "fieldLabel": "付款方式選擇",
+                                        "name": "om_payment_method"
+                                    },
+                                    "name": "MyDisplayField10",
+                                    "designerId": "d5fbef0d-52da-4ac9-8981-62242c817906",
+                                    "cn": [
+                                        {
+                                            "type": "fixedfunction",
+                                            "reference": {
+                                                "name": "items",
+                                                "type": "array"
+                                            },
+                                            "codeClass": null,
+                                            "userConfig": {
+                                                "designer|params": [
+                                                    "value",
+                                                    "displayField"
+                                                ],
+                                                "fn": "renderer",
+                                                "implHandler": [
+                                                    "if(value==1){",
+                                                    "    return '信用卡';",
+                                                    "}else{",
+                                                    "    return '貨到付款';",
+                                                    "}"
+                                                ]
+                                            },
+                                            "name": "renderer",
+                                            "designerId": "ab6063fb-3c57-45cf-9026-538ac36c537a"
+                                        }
+                                    ]
+                                }
+                            ]
+                        },
+                        {
+                            "type": "Ext.container.Container",
+                            "reference": {
+                                "name": "items",
+                                "type": "array"
+                            },
+                            "codeClass": null,
+                            "userConfig": {
+                                "autoScroll": true,
+                                "height": 275,
+                                "layout|flex": 1,
+                                "width": "50%"
+                            },
+                            "name": "MyContainer1",
+                            "designerId": "8faa5c4b-4f0a-4395-9470-4c4f6d7ec4eb",
+                            "cn": [
+                                {
+                                    "type": "Ext.form.field.Display",
+                                    "reference": {
+                                        "name": "items",
+                                        "type": "array"
+                                    },
+                                    "codeClass": null,
+                                    "userConfig": {
+                                        "fieldLabel": "加總",
+                                        "name": "om_subtotal"
+                                    },
+                                    "name": "MyDisplayField11",
+                                    "designerId": "b3d24cb2-6180-4e1e-8133-2c61d006e650"
+                                },
+                                {
+                                    "type": "Ext.form.field.Display",
+                                    "reference": {
+                                        "name": "items",
+                                        "type": "array"
+                                    },
+                                    "codeClass": null,
+                                    "userConfig": {
+                                        "fieldLabel": "運費",
+                                        "name": "om_freight_fee"
+                                    },
+                                    "name": "MyDisplayField3",
+                                    "designerId": "07c82ce2-5f53-4c91-9823-8a8e2f94af36"
+                                },
+                                {
+                                    "type": "Ext.form.field.Display",
+                                    "reference": {
+                                        "name": "items",
+                                        "type": "array"
+                                    },
+                                    "codeClass": null,
+                                    "userConfig": {
+                                        "fieldLabel": "滿箱",
+                                        "name": "om_full_box"
+                                    },
+                                    "name": "MyDisplayField13",
+                                    "designerId": "8d43b0c3-1550-4d56-9f42-976f310588ae"
+                                },
+                                {
+                                    "type": "Ext.form.field.Display",
+                                    "reference": {
+                                        "name": "items",
+                                        "type": "array"
+                                    },
+                                    "codeClass": null,
+                                    "userConfig": {
+                                        "fieldLabel": "未滿箱",
+                                        "name": "om_unfull_box"
+                                    },
+                                    "name": "MyDisplayField15",
+                                    "designerId": "579840b7-3586-4944-8e37-1418f2c39f5a"
+                                },
+                                {
+                                    "type": "Ext.form.field.Display",
+                                    "reference": {
+                                        "name": "items",
+                                        "type": "array"
+                                    },
+                                    "codeClass": null,
+                                    "userConfig": {
+                                        "fieldLabel": "使用紅利",
+                                        "name": "om_use_point"
+                                    },
+                                    "name": "MyDisplayField8",
+                                    "designerId": "5067387b-9f39-4f59-851d-b933555e3858"
+                                },
+                                {
+                                    "type": "Ext.form.field.Display",
+                                    "reference": {
+                                        "name": "items",
+                                        "type": "array"
+                                    },
+                                    "codeClass": null,
+                                    "userConfig": {
+                                        "fieldLabel": "總價",
+                                        "name": "om_total"
+                                    },
+                                    "name": "MyDisplayField16",
+                                    "designerId": "143690ff-def2-4b49-9c26-687a8fbdbc3f"
+                                },
+                                {
+                                    "type": "Ext.form.field.Display",
+                                    "reference": {
+                                        "name": "items",
+                                        "type": "array"
+                                    },
+                                    "codeClass": null,
+                                    "userConfig": {
+                                        "fieldLabel": "訂單備註",
+                                        "height": 50,
+                                        "labelWidth": null,
+                                        "name": "om_note",
+                                        "width": 276
+                                    },
+                                    "name": "MyDisplayField17",
+                                    "designerId": "12881417-d643-4209-a775-6c89b29cc8a8"
+                                }
+                            ]
                         }
                     ]
                 }
             ]
         },
         {
-            "type": "basiceventbinding",
+            "type": "Ext.form.FieldContainer",
             "reference": {
-                "name": "listeners",
+                "name": "items",
                 "type": "array"
             },
             "codeClass": null,
             "userConfig": {
-                "fn": "onWindowAfterRender",
-                "implHandler": [
-                    "var oId = Ext.getCmp('o_id').getValue();",
-                    "",
-                    "Ext.Ajax.request({",
-                    "    url: 'http://dev.finpo.com.tw/posh/public/b/order/'+oId,",
-                    "    success: function(response, opts){",
-                    "        var obj = Ext.decode(response.responseText);",
-                    "        var form = Ext.getCmp('orderForm').getForm();",
-                    "        form.setValues(obj.data);",
-                    "",
-                    "        var oDetail = Ext.JSON.decode(obj.data.o_detail);",
-                    "        var oDetailEval = JSON.stringify(oDetail, null, 4);",
-                    "        //console.log(oDetailEval);",
-                    "        form.findField('o_detail').setValue(oDetailEval);",
-                    "",
-                    "        var oPaypal = Ext.JSON.decode(obj.data.o_paypal);",
-                    "        var oPaypalEval = JSON.stringify(oPaypal, null, 4);",
-                    "        //console.log(oPaypalEval);",
-                    "        form.findField('o_paypal').setValue(oPaypalEval);",
-                    "    },",
-                    "    failure: function(response, opts){",
-                    "        console.log('server-side failure with status code ' + response.status);",
-                    "    }",
-                    "",
-                    "});"
-                ],
-                "name": "afterrender",
-                "scope": "me"
+                "container|align": "stretch",
+                "container|padding": null,
+                "fieldLabel": null,
+                "height": null,
+                "layout": "vbox",
+                "layout|flex": 1,
+                "width": 644
             },
-            "name": "onWindowAfterRender",
-            "designerId": "932b0199-aca6-4596-a59e-a8f22f436026"
+            "name": "MyFieldContainer1",
+            "designerId": "46494d78-1dc5-4149-91c5-92e6fd4015e7",
+            "cn": [
+                {
+                    "type": "Ext.container.Container",
+                    "reference": {
+                        "name": "items",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "autoScroll": true,
+                        "container|align": "stretch",
+                        "layout": "vbox",
+                        "layout|flex": 1,
+                        "width": null
+                    },
+                    "name": "MyContainer3",
+                    "designerId": "b1a07058-2e9b-4af1-8633-57a192af4e72",
+                    "cn": [
+                        {
+                            "type": "Ext.grid.Panel",
+                            "reference": {
+                                "name": "items",
+                                "type": "array"
+                            },
+                            "codeClass": null,
+                            "userConfig": {
+                                "id": "suborderpanel",
+                                "rowLines": false,
+                                "store": "SubOrderArrayStore",
+                                "title": null
+                            },
+                            "name": "MyGridPanel",
+                            "designerId": "9aaa34e5-a5bd-4aa0-9f48-21020d927eff",
+                            "cn": [
+                                {
+                                    "type": "Ext.grid.column.Column",
+                                    "reference": {
+                                        "name": "columns",
+                                        "type": "array"
+                                    },
+                                    "codeClass": null,
+                                    "userConfig": {
+                                        "dataIndex": "im_name",
+                                        "flex": 1,
+                                        "text": "商品名稱"
+                                    },
+                                    "name": "MyColumn19",
+                                    "designerId": "05439df5-694a-451f-9a72-2f47f3dea478"
+                                },
+                                {
+                                    "type": "Ext.grid.column.Column",
+                                    "reference": {
+                                        "name": "columns",
+                                        "type": "array"
+                                    },
+                                    "codeClass": null,
+                                    "userConfig": {
+                                        "dataIndex": "if_name",
+                                        "flex": 1,
+                                        "text": "口味"
+                                    },
+                                    "name": "MyColumn21",
+                                    "designerId": "82b1c38e-39b1-432b-a293-78700e56349e"
+                                },
+                                {
+                                    "type": "Ext.grid.column.Column",
+                                    "reference": {
+                                        "name": "columns",
+                                        "type": "array"
+                                    },
+                                    "codeClass": null,
+                                    "userConfig": {
+                                        "dataIndex": "if_unit_price",
+                                        "flex": 1,
+                                        "text": "單價"
+                                    },
+                                    "name": "MyColumn22",
+                                    "designerId": "9eed770d-5862-4b2b-91a0-cf926480b337"
+                                },
+                                {
+                                    "type": "Ext.grid.column.Column",
+                                    "reference": {
+                                        "name": "columns",
+                                        "type": "array"
+                                    },
+                                    "codeClass": null,
+                                    "userConfig": {
+                                        "dataIndex": "if_count",
+                                        "flex": 1,
+                                        "text": "購買數量"
+                                    },
+                                    "name": "MyColumn23",
+                                    "designerId": "e9385fdd-b7ac-47cf-b034-cf920759c9cf"
+                                },
+                                {
+                                    "type": "Ext.grid.column.Column",
+                                    "reference": {
+                                        "name": "columns",
+                                        "type": "array"
+                                    },
+                                    "codeClass": null,
+                                    "userConfig": {
+                                        "dataIndex": "if_subtotal",
+                                        "flex": 1,
+                                        "text": "小計"
+                                    },
+                                    "name": "MyColumn26",
+                                    "designerId": "0164a222-92d4-411b-b6dc-fa24dcfa4d26"
+                                }
+                            ]
+                        }
+                    ]
+                }
+            ]
         }
     ]
 }

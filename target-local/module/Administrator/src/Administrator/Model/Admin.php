@@ -3,6 +3,8 @@ namespace Administrator\Model;
 
 use Administrator\Model\Table\AdminTable;
 use Zend\Session\Container;
+use Zend\Paginator\Paginator;
+use Zend\Paginator\Adapter\DbSelect;
 
 class Admin{
 	public $db = null ;
@@ -38,8 +40,30 @@ class Admin{
         return array('success'=>true , 'data'=> $this->db->select(array('a_id'=>$id))->current());
     }
     
-    public function selectAll(){
-        return array('success'=>true , 'data'=>$this->db->select()->toArray() );
+    public function selectAll($query){
+    	try {
+    		$select = $this->db->getSql()->select();
+    		
+//     		if(!empty($query['q'])){
+//     			$select->where->like('mm_email','%'.$query['q'].'%');
+//     			$select->where->or->like('mm_purchaser_name','%'.$query['q'].'%');
+//     		}
+//     		if(isset($query['s'])){
+//     			$select->where->equalTo('mm_status',$query['s']);
+//     		}
+    		
+    		$paginator = new Paginator(new DbSelect($select, $this->db->adapter));
+    
+    		$paginator->setItemCountPerPage($query['limit'])->setCurrentPageNumber($query['page']);
+    
+    		$result['success'] = true ;
+    		$result['total'] = $paginator->getTotalItemCount();
+    		$result['rows'] = $paginator->getCurrentItems()->toArray();
+    
+    		return $result;
+    	}catch (\Exception $e){
+    		return array('success'=>false , 'msg'=> $e->getMessage() );
+    	}
     }
     
     public function insert($data){

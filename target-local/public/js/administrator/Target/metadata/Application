@@ -11,7 +11,6 @@
             "MemberModel",
             "ProductModel",
             "ReportModel",
-            "GiftArrayModel",
             "ContentModel",
             "OrderModel",
             "ContactCenterModel",
@@ -24,7 +23,9 @@
         ],
         "name": "Target",
         "stores": [
-            "GiftArrayStore"
+            "SubOrderArrayStore",
+            "GroupOrderArrayStore",
+            "ItemMainStore"
         ],
         "views": [
             "MyViewport",
@@ -39,7 +40,6 @@
             "ContentGridPanel",
             "ContentWindow",
             "OrderGridPanel",
-            "OrderWindow",
             "LoginWindow",
             "ContactCenterGridPanel",
             "ContactCenterWindow",
@@ -51,7 +51,9 @@
             "ItemWindow",
             "ItemCategoryWindow",
             "SystemVariableWindow",
-            "popularwindow"
+            "popularwindow",
+            "OrderWindow",
+            "GroupOrderWindow"
         ]
     },
     "name": "Application",

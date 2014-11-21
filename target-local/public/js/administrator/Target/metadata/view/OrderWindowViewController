@@ -9,5 +9,6 @@
         "designer|userAlias": "orderwindow",
         "designer|userClassName": "OrderWindowViewController"
     },
-    "designerId": "8ced4ba2-8460-4fb7-abf9-265f762c48ad"
+    "name": "MemberWindowViewController2",
+    "designerId": "0ea59c57-3d00-4177-b2e2-5b1da6fe869e"
 }

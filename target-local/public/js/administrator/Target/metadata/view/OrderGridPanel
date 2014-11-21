@@ -14,7 +14,7 @@
             "{OrderStore}"
         ],
         "title": "My Grid Panel",
-        "width": null
+        "width": 705
     },
     "name": "MyGridPanel",
     "configAlternates": {
@@ -62,7 +62,84 @@
                 "text": "會員編號"
             },
             "name": "MyColumn2",
-            "designerId": "02b326eb-d086-4f2e-b038-c895300b2278"
+            "designerId": "02b326eb-d086-4f2e-b038-c895300b2278",
+            "cn": [
+                {
+                    "type": "fixedfunction",
+                    "reference": {
+                        "name": "items",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "designer|params": [
+                            "value",
+                            "metaData",
+                            "record",
+                            "rowIndex",
+                            "colIndex",
+                            "store",
+                            "view"
+                        ],
+                        "fn": "renderer",
+                        "implHandler": [
+                            "if( value == 0 ){",
+                            "    return '--';",
+                            "}else{",
+                            "    return value;",
+                            "}"
+                        ]
+                    },
+                    "name": "renderer",
+                    "designerId": "e3b149b6-a5b9-4de0-9464-298de708eac3"
+                }
+            ]
+        },
+        {
+            "type": "Ext.grid.column.Column",
+            "reference": {
+                "name": "columns",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "dataIndex": "om_payment_status",
+                "flex": 0.5,
+                "text": "付款狀態"
+            },
+            "name": "MyColumn7",
+            "designerId": "2e062eb5-10b8-4b96-a96c-dd7cd16bf947",
+            "cn": [
+                {
+                    "type": "fixedfunction",
+                    "reference": {
+                        "name": "items",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "designer|params": [
+                            "value",
+                            "metaData",
+                            "record",
+                            "rowIndex",
+                            "colIndex",
+                            "store",
+                            "view"
+                        ],
+                        "fn": "renderer",
+                        "implHandler": [
+                            "if( value == 1 ){",
+                            "    return '已付款';",
+                            "}else{",
+                            "    return '未付款';",
+                            "}"
+                        ]
+                    },
+                    "name": "renderer",
+                    "designerId": "214489bf-c113-4f5b-8e74-cfb697612d52"
+                }
+            ]
         },
         {
             "type": "Ext.grid.column.Column",
@@ -76,8 +153,41 @@
                 "flex": 0.5,
                 "text": "出貨狀態"
             },
-            "name": "MyColumn7",
-            "designerId": "2e062eb5-10b8-4b96-a96c-dd7cd16bf947"
+            "name": "MyColumn8",
+            "designerId": "b97bd6a4-f577-4acd-a16e-0ce3d9027458",
+            "cn": [
+                {
+                    "type": "fixedfunction",
+                    "reference": {
+                        "name": "items",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "designer|params": [
+                            "value",
+                            "metaData",
+                            "record",
+                            "rowIndex",
+                            "colIndex",
+                            "store",
+                            "view"
+                        ],
+                        "fn": "renderer",
+                        "implHandler": [
+                            "if( value == 1 ){",
+                            "    return '未處理';",
+                            "}else if ( value == 2 ){",
+                            "    return '處理中';",
+                            "}else{",
+                            "    return '已出貨';",
+                            "}"
+                        ]
+                    },
+                    "name": "renderer",
+                    "designerId": "a76708c2-01be-43d7-9bbb-60dc3f48b31a"
+                }
+            ]
         },
         {
             "type": "Ext.grid.column.Column",
@@ -132,6 +242,52 @@
             },
             "codeClass": null,
             "userConfig": {
+                "dataIndex": "om_group_buying_info",
+                "flex": 0.5,
+                "text": "類型"
+            },
+            "name": "MyColumn6",
+            "designerId": "6d7aebf7-4980-4fb6-9ff9-1353d8269658",
+            "cn": [
+                {
+                    "type": "fixedfunction",
+                    "reference": {
+                        "name": "items",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "designer|params": [
+                            "value",
+                            "metaData",
+                            "record",
+                            "rowIndex",
+                            "colIndex",
+                            "store",
+                            "view"
+                        ],
+                        "fn": "renderer",
+                        "implHandler": [
+                            "if( value =='' ){",
+                            "    return '一般';",
+                            "}else{",
+                            "    return '團購';",
+                            "}"
+                        ]
+                    },
+                    "name": "renderer",
+                    "designerId": "85f250ba-dbcf-4fa1-ae08-ccc8c94eee52"
+                }
+            ]
+        },
+        {
+            "type": "Ext.grid.column.Column",
+            "reference": {
+                "name": "columns",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
                 "dataIndex": "om_created",
                 "flex": 1,
                 "text": "建立日期"
@@ -174,58 +330,585 @@
                     "codeClass": null,
                     "userConfig": {
                         "layout|flex": null,
-                        "text": "修改"
+                        "text": "查看詳細資訊"
                     },
-                    "name": "MyButton6",
-                    "designerId": "c5657866-b73e-4392-bfde-bdb830ba8c89",
+                    "name": "MyButton",
+                    "designerId": "c4324e89-61ba-4944-8632-0d6a4249c236",
                     "cn": [
                         {
-                            "type": "basiceventbinding",
+                            "type": "Ext.menu.Menu",
                             "reference": {
-                                "name": "listeners",
-                                "type": "array"
+                                "name": "menu",
+                                "type": "object"
                             },
                             "codeClass": null,
                             "userConfig": {
-                                "fn": "onButtonClick",
-                                "implHandler": [
-                                    "/* 修改商品 */",
-                                    "var selmodel = Ext.getCmp('ordergridpanel').getSelectionModel();",
-                                    "var count = selmodel.getCount();",
-                                    "",
-                                    "if(count !== 0){",
-                                    "    var seldata = selmodel.getSelection();",
-                                    "    var window = Ext.create('Posh.view.OrderWindow');",
-                                    "",
-                                    "    Ext.getCmp('o_id').setValue(seldata[0].data.o_id);",
-                                    "    window.setConfig('title', '訂單詳細');",
-                                    "",
-                                    "",
-                                    "//     Ext.Ajax.request({",
-                                    "//         url: 'http://dev.finpo.com.tw/posh/public/b/order/'+seldata[0].data.o_id,",
-                                    "//         success: function(response, opts){",
-                                    "//             var obj = Ext.decode(response.responseText);",
-                                    "",
-                                    "//             Ext.getCmp('orderForm').getForm().setValues(obj.data);",
-                                    "//         },",
-                                    "//         failure: function(response, opts){",
-                                    "//             console.log('server-side failure with status code ' + response.status);",
-                                    "//         }",
-                                    "",
-                                    "//     });",
-                                    "",
-                                    "    window.show();",
-                                    "",
-                                    "}else{",
-                                    "    Ext.Msg.alert('訊息', '請選擇一個訂單檢視或修改');",
-                                    "}",
-                                    ""
-                                ],
-                                "name": "click",
-                                "scope": "me"
+                                "width": 120
                             },
-                            "name": "onButtonClick",
-                            "designerId": "cd3305f0-8157-4fea-aaee-0d5aff5f619e"
+                            "name": "MyMenu3",
+                            "designerId": "72b5b0f3-9461-4ffa-865b-9a7da9476c41",
+                            "cn": [
+                                {
+                                    "type": "Ext.menu.Item",
+                                    "reference": {
+                                        "name": "items",
+                                        "type": "array"
+                                    },
+                                    "codeClass": null,
+                                    "userConfig": {
+                                        "text": "一般訂單資訊"
+                                    },
+                                    "name": "MyMenuItem8",
+                                    "designerId": "3ab4c59b-d69a-4e10-8a95-90b29d64c13e",
+                                    "cn": [
+                                        {
+                                            "type": "basiceventbinding",
+                                            "reference": {
+                                                "name": "listeners",
+                                                "type": "array"
+                                            },
+                                            "codeClass": null,
+                                            "userConfig": {
+                                                "fn": "onMenuitemClick",
+                                                "implHandler": [
+                                                    "var selmodel = Ext.getCmp('ordergridpanel').getSelectionModel();",
+                                                    "var count = selmodel.getCount();",
+                                                    "",
+                                                    "if(count !== 0){",
+                                                    "    var seldata = selmodel.getSelection();",
+                                                    "    var window = Ext.create('Target.view.OrderWindow');",
+                                                    "",
+                                                    "    window.setConfig('title', '訂單一般資訊');",
+                                                    "",
+                                                    "",
+                                                    "    Ext.Ajax.request({",
+                                                    "",
+                                                    "        url: 'http://dev.finpo.com.tw/degi-api/target-local/public/b/order/'+seldata[0].data.om_id,",
+                                                    "        success: function(response, opts){",
+                                                    "                    console.log(seldata[0].data.om_id);",
+                                                    "",
+                                                    "            var obj = Ext.JSON.decode(response.responseText);",
+                                                    "            console.log(obj.data);",
+                                                    "",
+                                                    "            var form = Ext.getCmp('orderForm').getForm();",
+                                                    "            form.setValues(obj.data);",
+                                                    "",
+                                                    "            var store = Ext.getCmp('suborderpanel').getStore();",
+                                                    "",
+                                                    "            if(obj.data.om_content_json){",
+                                                    "                store.removeAll();",
+                                                    "                var suborder_detail = Ext.JSON.decode(obj.data.om_content_json);",
+                                                    "",
+                                                    "                console.log(suborder_detail.length);",
+                                                    "",
+                                                    "                for( var i=0; i<(suborder_detail.length); i++){",
+                                                    "                    store.add({",
+                                                    "                        im_name:suborder_detail[i].im_name,",
+                                                    "                        if_name:suborder_detail[i].if_name,",
+                                                    "                        if_unit_price:suborder_detail[i].if_unit_price,",
+                                                    "                        if_count:suborder_detail[i].if_count,",
+                                                    "                        if_subtotal:suborder_detail[i].if_subtotal",
+                                                    "                    });",
+                                                    "                }",
+                                                    "            }else{",
+                                                    "                store.removeAll();",
+                                                    "            }",
+                                                    "        },",
+                                                    "        failure: function(response, opts){",
+                                                    "            console.log('server-side failure with status code ' + response.status);",
+                                                    "        }",
+                                                    "",
+                                                    "    });",
+                                                    "        window.show();",
+                                                    "        }else{",
+                                                    "            Ext.Msg.alert('訊息', '請選擇一筆訂單查詢');",
+                                                    "        }",
+                                                    ""
+                                                ],
+                                                "name": "click",
+                                                "scope": "me"
+                                            },
+                                            "name": "onMenuitemClick",
+                                            "designerId": "c205555e-33db-4e87-b9ef-2be284b56eeb"
+                                        }
+                                    ]
+                                },
+                                {
+                                    "type": "Ext.menu.Item",
+                                    "reference": {
+                                        "name": "items",
+                                        "type": "array"
+                                    },
+                                    "codeClass": null,
+                                    "userConfig": {
+                                        "text": "團購資訊"
+                                    },
+                                    "name": "MyMenuItem9",
+                                    "designerId": "dcb3dca0-6bce-4792-bb66-b24357d43236",
+                                    "cn": [
+                                        {
+                                            "type": "basiceventbinding",
+                                            "reference": {
+                                                "name": "listeners",
+                                                "type": "array"
+                                            },
+                                            "codeClass": null,
+                                            "userConfig": {
+                                                "fn": "onMenuitemClick1",
+                                                "implHandler": [
+                                                    "var selmodel = Ext.getCmp('ordergridpanel').getSelectionModel();",
+                                                    "var count = selmodel.getCount();",
+                                                    "var seldata = selmodel.getSelection();",
+                                                    "",
+                                                    "if(count !== 0 && seldata[0].data.om_group_buying_info ){",
+                                                    "",
+                                                    "    var window = Ext.create('Target.view.GroupOrderWindow');",
+                                                    "",
+                                                    "    window.setConfig('title', '訂單團購資訊');",
+                                                    "",
+                                                    "",
+                                                    "    Ext.Ajax.request({",
+                                                    "",
+                                                    "        url: 'http://dev.finpo.com.tw/degi-api/target-local/public/b/order/'+seldata[0].data.om_id,",
+                                                    "        success: function(response, opts){",
+                                                    "",
+                                                    "            var obj = Ext.JSON.decode(response.responseText);",
+                                                    "            var store = Ext.getCmp('grouporderpanel').getStore();",
+                                                    "",
+                                                    "            if(obj.data.om_group_buying_info){",
+                                                    "                store.removeAll();",
+                                                    "                var om_group_buying_info_detail = Ext.JSON.decode(obj.data.om_group_buying_info);",
+                                                    "",
+                                                    "//                 console.log(suborder_detail.length);",
+                                                    "",
+                                                    "                for( var i=0; i<(om_group_buying_info_detail.length); i++){",
+                                                    "                    for ( var j=0;j<(om_group_buying_info_detail[i].sub.length);j++){",
+                                                    "                        if( j=='0' ){",
+                                                    "                            store.add({",
+                                                    "                                id:om_group_buying_info_detail[i].id,",
+                                                    "                                name:om_group_buying_info_detail[i].name,",
+                                                    "                                im_name:om_group_buying_info_detail[i].sub[j].im_name,",
+                                                    "                                if_name:om_group_buying_info_detail[i].sub[j].if_name,",
+                                                    "                                if_unit_price:om_group_buying_info_detail[i].sub[j].if_unit_price,",
+                                                    "                                if_count:om_group_buying_info_detail[i].sub[j].if_count,",
+                                                    "                                if_subtotal:om_group_buying_info_detail[i].sub[j].if_subtotal",
+                                                    "                            });",
+                                                    "",
+                                                    "                        }else{",
+                                                    "                            store.add({",
+                                                    "                                id:'--',",
+                                                    "                                name:'--',",
+                                                    "                                im_name:om_group_buying_info_detail[i].sub[j].im_name,",
+                                                    "                                if_name:om_group_buying_info_detail[i].sub[j].if_name,",
+                                                    "                                if_unit_price:om_group_buying_info_detail[i].sub[j].if_unit_price,",
+                                                    "                                if_count:om_group_buying_info_detail[i].sub[j].if_count,",
+                                                    "                                if_subtotal:om_group_buying_info_detail[i].sub[j].if_subtotal",
+                                                    "                            });",
+                                                    "                        }",
+                                                    "                    }",
+                                                    "                }",
+                                                    "            }else{",
+                                                    "                store.removeAll();",
+                                                    "            }",
+                                                    "        },",
+                                                    "        failure: function(response, opts){",
+                                                    "            console.log('server-side failure with status code ' + response.status);",
+                                                    "        }",
+                                                    "",
+                                                    "    });",
+                                                    "        window.show();",
+                                                    "        }else{",
+                                                    "            Ext.Msg.alert('訊息', '請選擇一筆團購訂單查詢團購資訊');",
+                                                    "        }"
+                                                ],
+                                                "name": "click",
+                                                "scope": "me"
+                                            },
+                                            "name": "onMenuitemClick1",
+                                            "designerId": "408f799e-53ff-40b4-8408-7535cbbd8373"
+                                        }
+                                    ]
+                                }
+                            ]
+                        }
+                    ]
+                },
+                {
+                    "type": "Ext.button.Button",
+                    "reference": {
+                        "name": "items",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "layout|flex": null,
+                        "text": "付款狀態更改"
+                    },
+                    "name": "MyButton1",
+                    "designerId": "c71d0ea7-ccc8-4e07-a90d-bf633e8dca5d",
+                    "cn": [
+                        {
+                            "type": "Ext.menu.Menu",
+                            "reference": {
+                                "name": "menu",
+                                "type": "object"
+                            },
+                            "codeClass": null,
+                            "name": "MyMenu1",
+                            "designerId": "8c628ac9-fcd2-46dc-b12a-d0b1ecbd743c",
+                            "cn": [
+                                {
+                                    "type": "Ext.menu.Item",
+                                    "reference": {
+                                        "name": "items",
+                                        "type": "array"
+                                    },
+                                    "codeClass": null,
+                                    "userConfig": {
+                                        "text": "未付款"
+                                    },
+                                    "name": "MyMenuItem4",
+                                    "designerId": "626533d5-e24a-4557-a9bb-735025b3a50e",
+                                    "cn": [
+                                        {
+                                            "type": "basiceventbinding",
+                                            "reference": {
+                                                "name": "listeners",
+                                                "type": "array"
+                                            },
+                                            "codeClass": null,
+                                            "userConfig": {
+                                                "fn": "onMenuitemClick11",
+                                                "implHandler": [
+                                                    "/* 未付款*/",
+                                                    "var selmodel = Ext.getCmp('ordergridpanel').getSelectionModel();",
+                                                    "var seldata = selmodel.getSelection();",
+                                                    "var count = selmodel.getCount();",
+                                                    "",
+                                                    "if(count !== 0){",
+                                                    "    Ext.Msg.confirm('訊息','確定此訂單未付款？',function(buttonId){",
+                                                    "        if(buttonId == 'yes'){",
+                                                    "            var selmodel = Ext.getCmp('ordergridpanel').getSelectionModel();",
+                                                    "            var seldata = selmodel.getSelection();",
+                                                    "",
+                                                    "            Ext.Ajax.request({",
+                                                    "                params: {",
+                                                    "                    om_payment_status: 2",
+                                                    "                },",
+                                                    "                url: 'http://dev.finpo.com.tw/degi-api/target-local/public/b/order/'+seldata[0].data.om_id,",
+                                                    "                method: 'PUT',",
+                                                    "                success: function(response, option){",
+                                                    "                    var store = Ext.getCmp('ordergridpanel').getViewModel().getStore('OrderStore');",
+                                                    "                    store.proxy.url='http://dev.finpo.com.tw/degi-api/target-local/public/b/order';",
+                                                    "                    store.load();",
+                                                    "                    Ext.Msg.alert('訊息','此訂單尚未付款 更新成功');",
+                                                    "                },",
+                                                    "                failure: function(response, option){",
+                                                    "                    Ext.Msg.alert('訊息','此訂單更新錯誤');",
+                                                    "                }",
+                                                    "            });",
+                                                    "        }",
+                                                    "    });",
+                                                    "}else{",
+                                                    "    Ext.Msg.alert('訊息','請選擇ㄧ筆訂單改成未付款');",
+                                                    "}",
+                                                    ""
+                                                ],
+                                                "name": "click",
+                                                "scope": "me"
+                                            },
+                                            "name": "onMenuitemClick11",
+                                            "designerId": "bf0b81cf-2aec-4fd4-89d4-8d91fa1c6f7c"
+                                        }
+                                    ]
+                                },
+                                {
+                                    "type": "Ext.menu.Item",
+                                    "reference": {
+                                        "name": "items",
+                                        "type": "array"
+                                    },
+                                    "codeClass": null,
+                                    "userConfig": {
+                                        "text": "已付款"
+                                    },
+                                    "name": "MyMenuItem3",
+                                    "designerId": "3cad34da-a0d4-4aaf-b7f8-2429c38c7422",
+                                    "cn": [
+                                        {
+                                            "type": "basiceventbinding",
+                                            "reference": {
+                                                "name": "listeners",
+                                                "type": "array"
+                                            },
+                                            "codeClass": null,
+                                            "userConfig": {
+                                                "fn": "onMenuitemClick2",
+                                                "implHandler": [
+                                                    "/* 已付款*/",
+                                                    "var selmodel = Ext.getCmp('ordergridpanel').getSelectionModel();",
+                                                    "var seldata = selmodel.getSelection();",
+                                                    "var count = selmodel.getCount();",
+                                                    "",
+                                                    "if(count !== 0){",
+                                                    "    Ext.Msg.confirm('訊息','確定此訂單已付款？',function(buttonId){",
+                                                    "        if(buttonId == 'yes'){",
+                                                    "            var selmodel = Ext.getCmp('ordergridpanel').getSelectionModel();",
+                                                    "            var seldata = selmodel.getSelection();",
+                                                    "",
+                                                    "            Ext.Ajax.request({",
+                                                    "                params: {",
+                                                    "                    om_payment_status: 1",
+                                                    "                },",
+                                                    "                url: 'http://dev.finpo.com.tw/degi-api/target-local/public/b/order/'+seldata[0].data.om_id,",
+                                                    "                method: 'PUT',",
+                                                    "                success: function(response, option){",
+                                                    "                    var store = Ext.getCmp('ordergridpanel').getViewModel().getStore('OrderStore');",
+                                                    "                    store.proxy.url='http://dev.finpo.com.tw/degi-api/target-local/public/b/order';",
+                                                    "                    store.load();",
+                                                    "                    Ext.Msg.alert('訊息','此訂單已付款 更新成功');",
+                                                    "                },",
+                                                    "                failure: function(response, option){",
+                                                    "                    Ext.Msg.alert('訊息','此訂單更新錯誤');",
+                                                    "                }",
+                                                    "            });",
+                                                    "        }",
+                                                    "    });",
+                                                    "}else{",
+                                                    "    Ext.Msg.alert('訊息','請選擇ㄧ筆訂單改成已付款');",
+                                                    "}",
+                                                    ""
+                                                ],
+                                                "name": "click",
+                                                "scope": "me"
+                                            },
+                                            "name": "onMenuitemClick2",
+                                            "designerId": "d0c6693f-89ee-4a75-9119-a86be9b9c412"
+                                        }
+                                    ]
+                                }
+                            ]
+                        }
+                    ]
+                },
+                {
+                    "type": "Ext.button.Button",
+                    "reference": {
+                        "name": "items",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "layout|flex": null,
+                        "text": "出貨狀態更改"
+                    },
+                    "name": "MyButton3",
+                    "designerId": "6739c41c-22f9-4433-ba14-9512dc1d5540",
+                    "cn": [
+                        {
+                            "type": "Ext.menu.Menu",
+                            "reference": {
+                                "name": "menu",
+                                "type": "object"
+                            },
+                            "codeClass": null,
+                            "name": "MyMenu1",
+                            "designerId": "1a8d93b6-9ac1-4dbf-b36d-b86a0ae430cb",
+                            "cn": [
+                                {
+                                    "type": "Ext.menu.Item",
+                                    "reference": {
+                                        "name": "items",
+                                        "type": "array"
+                                    },
+                                    "codeClass": null,
+                                    "userConfig": {
+                                        "text": "未處理"
+                                    },
+                                    "name": "MyMenuItem4",
+                                    "designerId": "05d26b47-3121-4fae-a88f-bcfce56536db",
+                                    "cn": [
+                                        {
+                                            "type": "basiceventbinding",
+                                            "reference": {
+                                                "name": "listeners",
+                                                "type": "array"
+                                            },
+                                            "codeClass": null,
+                                            "userConfig": {
+                                                "fn": "onMenuitemClick111",
+                                                "implHandler": [
+                                                    " /* 出貨狀態 標示為未處理*/",
+                                                    "var selmodel = Ext.getCmp('ordergridpanel').getSelectionModel();",
+                                                    "var seldata = selmodel.getSelection();",
+                                                    "var count = selmodel.getCount();",
+                                                    "",
+                                                    "if(count !== 0){",
+                                                    "    Ext.Msg.confirm('訊息','確定此訂單尚未處理？',function(buttonId){",
+                                                    "        if(buttonId == 'yes'){",
+                                                    "            var selmodel = Ext.getCmp('ordergridpanel').getSelectionModel();",
+                                                    "            var seldata = selmodel.getSelection();",
+                                                    "",
+                                                    "            Ext.Ajax.request({",
+                                                    "                params: {",
+                                                    "                    om_status: 1",
+                                                    "                },",
+                                                    "                url: 'http://dev.finpo.com.tw/degi-api/target-local/public/b/order/'+seldata[0].data.om_id,",
+                                                    "                method: 'PUT',",
+                                                    "                success: function(response, option){",
+                                                    "                    var store = Ext.getCmp('ordergridpanel').getViewModel().getStore('OrderStore');",
+                                                    "                    store.proxy.url='http://dev.finpo.com.tw/degi-api/target-local/public/b/order';",
+                                                    "                    store.load();",
+                                                    "                    Ext.Msg.alert('訊息','此訂單尚未處理 更新成功');",
+                                                    "                },",
+                                                    "                failure: function(response, option){",
+                                                    "                    Ext.Msg.alert('訊息','此訂單更新錯誤');",
+                                                    "                }",
+                                                    "            });",
+                                                    "        }",
+                                                    "    });",
+                                                    "}else{",
+                                                    "    Ext.Msg.alert('訊息','請選擇ㄧ筆訂單改成尚未處理');",
+                                                    "}"
+                                                ],
+                                                "name": "click",
+                                                "scope": "me"
+                                            },
+                                            "name": "onMenuitemClick111",
+                                            "designerId": "88252c0a-53e3-4b62-bf9f-ee405fc946fd"
+                                        }
+                                    ]
+                                },
+                                {
+                                    "type": "Ext.menu.Item",
+                                    "reference": {
+                                        "name": "items",
+                                        "type": "array"
+                                    },
+                                    "codeClass": null,
+                                    "userConfig": {
+                                        "text": "處理中"
+                                    },
+                                    "name": "MyMenuItem3",
+                                    "designerId": "0109347e-656c-4592-8a6f-d6e7e4c3811a",
+                                    "cn": [
+                                        {
+                                            "type": "basiceventbinding",
+                                            "reference": {
+                                                "name": "listeners",
+                                                "type": "array"
+                                            },
+                                            "codeClass": null,
+                                            "userConfig": {
+                                                "fn": "onMenuitemClick21",
+                                                "implHandler": [
+                                                    " /* 出貨狀態 標示為處理中*/",
+                                                    "var selmodel = Ext.getCmp('ordergridpanel').getSelectionModel();",
+                                                    "var seldata = selmodel.getSelection();",
+                                                    "var count = selmodel.getCount();",
+                                                    "",
+                                                    "if(count !== 0){",
+                                                    "    Ext.Msg.confirm('訊息','確定此訂單處理中？',function(buttonId){",
+                                                    "        if(buttonId == 'yes'){",
+                                                    "            var selmodel = Ext.getCmp('ordergridpanel').getSelectionModel();",
+                                                    "            var seldata = selmodel.getSelection();",
+                                                    "",
+                                                    "            Ext.Ajax.request({",
+                                                    "                params: {",
+                                                    "                    om_status: 2",
+                                                    "                },",
+                                                    "                url: 'http://dev.finpo.com.tw/degi-api/target-local/public/b/order/'+seldata[0].data.om_id,",
+                                                    "                method: 'PUT',",
+                                                    "                success: function(response, option){",
+                                                    "                    var store = Ext.getCmp('ordergridpanel').getViewModel().getStore('OrderStore');",
+                                                    "                    store.proxy.url='http://dev.finpo.com.tw/degi-api/target-local/public/b/order';",
+                                                    "                    store.load();",
+                                                    "                    Ext.Msg.alert('訊息','此訂單處理中 更新成功');",
+                                                    "                },",
+                                                    "                failure: function(response, option){",
+                                                    "                    Ext.Msg.alert('訊息','此訂單更新錯誤');",
+                                                    "                }",
+                                                    "            });",
+                                                    "        }",
+                                                    "    });",
+                                                    "}else{",
+                                                    "    Ext.Msg.alert('訊息','請選擇ㄧ筆訂單改成處理中');",
+                                                    "}",
+                                                    ""
+                                                ],
+                                                "name": "click",
+                                                "scope": "me"
+                                            },
+                                            "name": "onMenuitemClick21",
+                                            "designerId": "345e0625-69d2-4f87-b81c-8294a8af20c3"
+                                        }
+                                    ]
+                                },
+                                {
+                                    "type": "Ext.menu.Item",
+                                    "reference": {
+                                        "name": "items",
+                                        "type": "array"
+                                    },
+                                    "codeClass": null,
+                                    "userConfig": {
+                                        "text": "已出貨"
+                                    },
+                                    "name": "MyMenuItem10",
+                                    "designerId": "9d9129ed-fd48-4389-92f0-6335bdc01a37",
+                                    "cn": [
+                                        {
+                                            "type": "basiceventbinding",
+                                            "reference": {
+                                                "name": "listeners",
+                                                "type": "array"
+                                            },
+                                            "codeClass": null,
+                                            "userConfig": {
+                                                "fn": "onMenuitemClick1111",
+                                                "implHandler": [
+                                                    " /* 出貨狀態 標示為已出貨*/",
+                                                    "var selmodel = Ext.getCmp('ordergridpanel').getSelectionModel();",
+                                                    "var seldata = selmodel.getSelection();",
+                                                    "var count = selmodel.getCount();",
+                                                    "",
+                                                    "if(count !== 0){",
+                                                    "    Ext.Msg.confirm('訊息','確定此訂單已出貨？',function(buttonId){",
+                                                    "        if(buttonId == 'yes'){",
+                                                    "            var selmodel = Ext.getCmp('ordergridpanel').getSelectionModel();",
+                                                    "            var seldata = selmodel.getSelection();",
+                                                    "",
+                                                    "            Ext.Ajax.request({",
+                                                    "                params: {",
+                                                    "                    om_status: 3",
+                                                    "                },",
+                                                    "                url: 'http://dev.finpo.com.tw/degi-api/target-local/public/b/order/'+seldata[0].data.om_id,",
+                                                    "                method: 'PUT',",
+                                                    "                success: function(response, option){",
+                                                    "                    var store = Ext.getCmp('ordergridpanel').getViewModel().getStore('OrderStore');",
+                                                    "                    store.proxy.url='http://dev.finpo.com.tw/degi-api/target-local/public/b/order';",
+                                                    "                    store.load();",
+                                                    "                    Ext.Msg.alert('訊息','此訂單已出貨 更新成功');",
+                                                    "                },",
+                                                    "                failure: function(response, option){",
+                                                    "                    Ext.Msg.alert('訊息','此訂單更新錯誤');",
+                                                    "                }",
+                                                    "            });",
+                                                    "        }",
+                                                    "    });",
+                                                    "}else{",
+                                                    "    Ext.Msg.alert('訊息','請選擇ㄧ筆訂單改成已出貨');",
+                                                    "}"
+                                                ],
+                                                "name": "click",
+                                                "scope": "me"
+                                            },
+                                            "name": "onMenuitemClick1111",
+                                            "designerId": "a006fa7d-34fb-43e5-a894-8dfe50730ba9"
+                                        }
+                                    ]
+                                }
+                            ]
                         }
                     ]
                 }

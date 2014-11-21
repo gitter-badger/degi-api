@@ -232,20 +232,6 @@
                                     },
                                     "name": "MyDisplayField11",
                                     "designerId": "c72c515c-939f-408b-8c8e-ee050e1cef41"
-                                },
-                                {
-                                    "type": "Ext.form.field.Display",
-                                    "reference": {
-                                        "name": "items",
-                                        "type": "array"
-                                    },
-                                    "codeClass": null,
-                                    "userConfig": {
-                                        "fieldLabel": "會員剩餘紅利",
-                                        "name": "mm_point"
-                                    },
-                                    "name": "MyDisplayField8",
-                                    "designerId": "c13a43d0-e37a-4c67-951f-81c00cfcbea5"
                                 }
                             ]
                         }

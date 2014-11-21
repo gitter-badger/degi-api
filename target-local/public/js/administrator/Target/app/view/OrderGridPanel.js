@@ -23,6 +23,8 @@ Ext.define('Target.view.OrderGridPanel', {
         'Ext.grid.column.Column',
         'Ext.selection.CheckboxModel',
         'Ext.button.Button',
+        'Ext.menu.Menu',
+        'Ext.menu.Item',
         'Ext.toolbar.Paging'
     ],
 
@@ -30,6 +32,7 @@ Ext.define('Target.view.OrderGridPanel', {
         type: 'ordergridpanel'
     },
     id: 'ordergridpanel',
+    width: 705,
     title: 'My Grid Panel',
     defaultListenerScope: true,
 
@@ -45,12 +48,41 @@ Ext.define('Target.view.OrderGridPanel', {
         },
         {
             xtype: 'gridcolumn',
+            renderer: function(value, metaData, record, rowIndex, colIndex, store, view) {
+                if( value == 0 ){
+                    return '--';
+                }else{
+                    return value;
+                }
+            },
             dataIndex: 'mm_id',
             text: '會員編號',
             flex: 0.5
         },
         {
             xtype: 'gridcolumn',
+            renderer: function(value, metaData, record, rowIndex, colIndex, store, view) {
+                if( value == 1 ){
+                    return '已付款';
+                }else{
+                    return '未付款';
+                }
+            },
+            dataIndex: 'om_payment_status',
+            text: '付款狀態',
+            flex: 0.5
+        },
+        {
+            xtype: 'gridcolumn',
+            renderer: function(value, metaData, record, rowIndex, colIndex, store, view) {
+                if( value == 1 ){
+                    return '未處理';
+                }else if ( value == 2 ){
+                    return '處理中';
+                }else{
+                    return '已出貨';
+                }
+            },
             dataIndex: 'om_status',
             text: '出貨狀態',
             flex: 0.5
@@ -75,6 +107,19 @@ Ext.define('Target.view.OrderGridPanel', {
         },
         {
             xtype: 'gridcolumn',
+            renderer: function(value, metaData, record, rowIndex, colIndex, store, view) {
+                if( value =='' ){
+                    return '一般';
+                }else{
+                    return '團購';
+                }
+            },
+            dataIndex: 'om_group_buying_info',
+            text: '類型',
+            flex: 0.5
+        },
+        {
+            xtype: 'gridcolumn',
             dataIndex: 'om_created',
             text: '建立日期',
             flex: 1
@@ -91,9 +136,79 @@ Ext.define('Target.view.OrderGridPanel', {
             items: [
                 {
                     xtype: 'button',
-                    text: '修改',
-                    listeners: {
-                        click: 'onButtonClick'
+                    text: '查看詳細資訊',
+                    menu: {
+                        xtype: 'menu',
+                        width: 120,
+                        items: [
+                            {
+                                xtype: 'menuitem',
+                                text: '一般訂單資訊',
+                                listeners: {
+                                    click: 'onMenuitemClick'
+                                }
+                            },
+                            {
+                                xtype: 'menuitem',
+                                text: '團購資訊',
+                                listeners: {
+                                    click: 'onMenuitemClick1'
+                                }
+                            }
+                        ]
+                    }
+                },
+                {
+                    xtype: 'button',
+                    text: '付款狀態更改',
+                    menu: {
+                        xtype: 'menu',
+                        items: [
+                            {
+                                xtype: 'menuitem',
+                                text: '未付款',
+                                listeners: {
+                                    click: 'onMenuitemClick11'
+                                }
+                            },
+                            {
+                                xtype: 'menuitem',
+                                text: '已付款',
+                                listeners: {
+                                    click: 'onMenuitemClick2'
+                                }
+                            }
+                        ]
+                    }
+                },
+                {
+                    xtype: 'button',
+                    text: '出貨狀態更改',
+                    menu: {
+                        xtype: 'menu',
+                        items: [
+                            {
+                                xtype: 'menuitem',
+                                text: '未處理',
+                                listeners: {
+                                    click: 'onMenuitemClick111'
+                                }
+                            },
+                            {
+                                xtype: 'menuitem',
+                                text: '處理中',
+                                listeners: {
+                                    click: 'onMenuitemClick21'
+                                }
+                            },
+                            {
+                                xtype: 'menuitem',
+                                text: '已出貨',
+                                listeners: {
+                                    click: 'onMenuitemClick1111'
+                                }
+                            }
+                        ]
                     }
                 }
             ]
@@ -109,38 +224,305 @@ Ext.define('Target.view.OrderGridPanel', {
         }
     ],
 
-    onButtonClick: function(button, e, eOpts) {
-        /* 修改商品 */
+    onMenuitemClick: function(item, e, eOpts) {
         var selmodel = Ext.getCmp('ordergridpanel').getSelectionModel();
         var count = selmodel.getCount();
 
         if(count !== 0){
             var seldata = selmodel.getSelection();
-            var window = Ext.create('Posh.view.OrderWindow');
+            var window = Ext.create('Target.view.OrderWindow');
 
-            Ext.getCmp('o_id').setValue(seldata[0].data.o_id);
-            window.setConfig('title', '訂單詳細');
+            window.setConfig('title', '訂單一般資訊');
 
 
-        //     Ext.Ajax.request({
-        //         url: 'http://dev.finpo.com.tw/posh/public/b/order/'+seldata[0].data.o_id,
-        //         success: function(response, opts){
-        //             var obj = Ext.decode(response.responseText);
+            Ext.Ajax.request({
 
-        //             Ext.getCmp('orderForm').getForm().setValues(obj.data);
-        //         },
-        //         failure: function(response, opts){
-        //             console.log('server-side failure with status code ' + response.status);
-        //         }
+                url: 'http://dev.finpo.com.tw/degi-api/target-local/public/b/order/'+seldata[0].data.om_id,
+                success: function(response, opts){
+                            console.log(seldata[0].data.om_id);
 
-        //     });
+                    var obj = Ext.JSON.decode(response.responseText);
+                    console.log(obj.data);
 
-            window.show();
+                    var form = Ext.getCmp('orderForm').getForm();
+                    form.setValues(obj.data);
 
+                    var store = Ext.getCmp('suborderpanel').getStore();
+
+                    if(obj.data.om_content_json){
+                        store.removeAll();
+                        var suborder_detail = Ext.JSON.decode(obj.data.om_content_json);
+
+                        console.log(suborder_detail.length);
+
+                        for( var i=0; i<(suborder_detail.length); i++){
+                            store.add({
+                                im_name:suborder_detail[i].im_name,
+                                if_name:suborder_detail[i].if_name,
+                                if_unit_price:suborder_detail[i].if_unit_price,
+                                if_count:suborder_detail[i].if_count,
+                                if_subtotal:suborder_detail[i].if_subtotal
+                            });
+                        }
+                    }else{
+                        store.removeAll();
+                    }
+                },
+                failure: function(response, opts){
+                    console.log('server-side failure with status code ' + response.status);
+                }
+
+            });
+                window.show();
+                }else{
+                    Ext.Msg.alert('訊息', '請選擇一筆訂單查詢');
+                }
+
+    },
+
+    onMenuitemClick1: function(item, e, eOpts) {
+        var selmodel = Ext.getCmp('ordergridpanel').getSelectionModel();
+        var count = selmodel.getCount();
+        var seldata = selmodel.getSelection();
+
+        if(count !== 0 && seldata[0].data.om_group_buying_info ){
+
+            var window = Ext.create('Target.view.GroupOrderWindow');
+
+            window.setConfig('title', '訂單團購資訊');
+
+
+            Ext.Ajax.request({
+
+                url: 'http://dev.finpo.com.tw/degi-api/target-local/public/b/order/'+seldata[0].data.om_id,
+                success: function(response, opts){
+
+                    var obj = Ext.JSON.decode(response.responseText);
+                    var store = Ext.getCmp('grouporderpanel').getStore();
+
+                    if(obj.data.om_group_buying_info){
+                        store.removeAll();
+                        var om_group_buying_info_detail = Ext.JSON.decode(obj.data.om_group_buying_info);
+
+        //                 console.log(suborder_detail.length);
+
+                        for( var i=0; i<(om_group_buying_info_detail.length); i++){
+                            for ( var j=0;j<(om_group_buying_info_detail[i].sub.length);j++){
+                                if( j=='0' ){
+                                    store.add({
+                                        id:om_group_buying_info_detail[i].id,
+                                        name:om_group_buying_info_detail[i].name,
+                                        im_name:om_group_buying_info_detail[i].sub[j].im_name,
+                                        if_name:om_group_buying_info_detail[i].sub[j].if_name,
+                                        if_unit_price:om_group_buying_info_detail[i].sub[j].if_unit_price,
+                                        if_count:om_group_buying_info_detail[i].sub[j].if_count,
+                                        if_subtotal:om_group_buying_info_detail[i].sub[j].if_subtotal
+                                    });
+
+                                }else{
+                                    store.add({
+                                        id:'--',
+                                        name:'--',
+                                        im_name:om_group_buying_info_detail[i].sub[j].im_name,
+                                        if_name:om_group_buying_info_detail[i].sub[j].if_name,
+                                        if_unit_price:om_group_buying_info_detail[i].sub[j].if_unit_price,
+                                        if_count:om_group_buying_info_detail[i].sub[j].if_count,
+                                        if_subtotal:om_group_buying_info_detail[i].sub[j].if_subtotal
+                                    });
+                                }
+                            }
+                        }
+                    }else{
+                        store.removeAll();
+                    }
+                },
+                failure: function(response, opts){
+                    console.log('server-side failure with status code ' + response.status);
+                }
+
+            });
+                window.show();
+                }else{
+                    Ext.Msg.alert('訊息', '請選擇一筆團購訂單查詢團購資訊');
+                }
+    },
+
+    onMenuitemClick11: function(item, e, eOpts) {
+        /* 未付款*/
+        var selmodel = Ext.getCmp('ordergridpanel').getSelectionModel();
+        var seldata = selmodel.getSelection();
+        var count = selmodel.getCount();
+
+        if(count !== 0){
+            Ext.Msg.confirm('訊息','確定此訂單未付款？',function(buttonId){
+                if(buttonId == 'yes'){
+                    var selmodel = Ext.getCmp('ordergridpanel').getSelectionModel();
+                    var seldata = selmodel.getSelection();
+
+                    Ext.Ajax.request({
+                        params: {
+                            om_payment_status: 2
+                        },
+                        url: 'http://dev.finpo.com.tw/degi-api/target-local/public/b/order/'+seldata[0].data.om_id,
+                        method: 'PUT',
+                        success: function(response, option){
+                            var store = Ext.getCmp('ordergridpanel').getViewModel().getStore('OrderStore');
+                            store.proxy.url='http://dev.finpo.com.tw/degi-api/target-local/public/b/order';
+                            store.load();
+                            Ext.Msg.alert('訊息','此訂單尚未付款 更新成功');
+                        },
+                        failure: function(response, option){
+                            Ext.Msg.alert('訊息','此訂單更新錯誤');
+                        }
+                    });
+                }
+            });
         }else{
-            Ext.Msg.alert('訊息', '請選擇一個訂單檢視或修改');
+            Ext.Msg.alert('訊息','請選擇ㄧ筆訂單改成未付款');
         }
 
+    },
+
+    onMenuitemClick2: function(item, e, eOpts) {
+        /* 已付款*/
+        var selmodel = Ext.getCmp('ordergridpanel').getSelectionModel();
+        var seldata = selmodel.getSelection();
+        var count = selmodel.getCount();
+
+        if(count !== 0){
+            Ext.Msg.confirm('訊息','確定此訂單已付款？',function(buttonId){
+                if(buttonId == 'yes'){
+                    var selmodel = Ext.getCmp('ordergridpanel').getSelectionModel();
+                    var seldata = selmodel.getSelection();
+
+                    Ext.Ajax.request({
+                        params: {
+                            om_payment_status: 1
+                        },
+                        url: 'http://dev.finpo.com.tw/degi-api/target-local/public/b/order/'+seldata[0].data.om_id,
+                        method: 'PUT',
+                        success: function(response, option){
+                            var store = Ext.getCmp('ordergridpanel').getViewModel().getStore('OrderStore');
+                            store.proxy.url='http://dev.finpo.com.tw/degi-api/target-local/public/b/order';
+                            store.load();
+                            Ext.Msg.alert('訊息','此訂單已付款 更新成功');
+                        },
+                        failure: function(response, option){
+                            Ext.Msg.alert('訊息','此訂單更新錯誤');
+                        }
+                    });
+                }
+            });
+        }else{
+            Ext.Msg.alert('訊息','請選擇ㄧ筆訂單改成已付款');
+        }
+
+    },
+
+    onMenuitemClick111: function(item, e, eOpts) {
+         /* 出貨狀態 標示為未處理*/
+        var selmodel = Ext.getCmp('ordergridpanel').getSelectionModel();
+        var seldata = selmodel.getSelection();
+        var count = selmodel.getCount();
+
+        if(count !== 0){
+            Ext.Msg.confirm('訊息','確定此訂單尚未處理？',function(buttonId){
+                if(buttonId == 'yes'){
+                    var selmodel = Ext.getCmp('ordergridpanel').getSelectionModel();
+                    var seldata = selmodel.getSelection();
+
+                    Ext.Ajax.request({
+                        params: {
+                            om_status: 1
+                        },
+                        url: 'http://dev.finpo.com.tw/degi-api/target-local/public/b/order/'+seldata[0].data.om_id,
+                        method: 'PUT',
+                        success: function(response, option){
+                            var store = Ext.getCmp('ordergridpanel').getViewModel().getStore('OrderStore');
+                            store.proxy.url='http://dev.finpo.com.tw/degi-api/target-local/public/b/order';
+                            store.load();
+                            Ext.Msg.alert('訊息','此訂單尚未處理 更新成功');
+                        },
+                        failure: function(response, option){
+                            Ext.Msg.alert('訊息','此訂單更新錯誤');
+                        }
+                    });
+                }
+            });
+        }else{
+            Ext.Msg.alert('訊息','請選擇ㄧ筆訂單改成尚未處理');
+        }
+    },
+
+    onMenuitemClick21: function(item, e, eOpts) {
+         /* 出貨狀態 標示為處理中*/
+        var selmodel = Ext.getCmp('ordergridpanel').getSelectionModel();
+        var seldata = selmodel.getSelection();
+        var count = selmodel.getCount();
+
+        if(count !== 0){
+            Ext.Msg.confirm('訊息','確定此訂單處理中？',function(buttonId){
+                if(buttonId == 'yes'){
+                    var selmodel = Ext.getCmp('ordergridpanel').getSelectionModel();
+                    var seldata = selmodel.getSelection();
+
+                    Ext.Ajax.request({
+                        params: {
+                            om_status: 2
+                        },
+                        url: 'http://dev.finpo.com.tw/degi-api/target-local/public/b/order/'+seldata[0].data.om_id,
+                        method: 'PUT',
+                        success: function(response, option){
+                            var store = Ext.getCmp('ordergridpanel').getViewModel().getStore('OrderStore');
+                            store.proxy.url='http://dev.finpo.com.tw/degi-api/target-local/public/b/order';
+                            store.load();
+                            Ext.Msg.alert('訊息','此訂單處理中 更新成功');
+                        },
+                        failure: function(response, option){
+                            Ext.Msg.alert('訊息','此訂單更新錯誤');
+                        }
+                    });
+                }
+            });
+        }else{
+            Ext.Msg.alert('訊息','請選擇ㄧ筆訂單改成處理中');
+        }
+
+    },
+
+    onMenuitemClick1111: function(item, e, eOpts) {
+         /* 出貨狀態 標示為已出貨*/
+        var selmodel = Ext.getCmp('ordergridpanel').getSelectionModel();
+        var seldata = selmodel.getSelection();
+        var count = selmodel.getCount();
+
+        if(count !== 0){
+            Ext.Msg.confirm('訊息','確定此訂單已出貨？',function(buttonId){
+                if(buttonId == 'yes'){
+                    var selmodel = Ext.getCmp('ordergridpanel').getSelectionModel();
+                    var seldata = selmodel.getSelection();
+
+                    Ext.Ajax.request({
+                        params: {
+                            om_status: 3
+                        },
+                        url: 'http://dev.finpo.com.tw/degi-api/target-local/public/b/order/'+seldata[0].data.om_id,
+                        method: 'PUT',
+                        success: function(response, option){
+                            var store = Ext.getCmp('ordergridpanel').getViewModel().getStore('OrderStore');
+                            store.proxy.url='http://dev.finpo.com.tw/degi-api/target-local/public/b/order';
+                            store.load();
+                            Ext.Msg.alert('訊息','此訂單已出貨 更新成功');
+                        },
+                        failure: function(response, option){
+                            Ext.Msg.alert('訊息','此訂單更新錯誤');
+                        }
+                    });
+                }
+            });
+        }else{
+            Ext.Msg.alert('訊息','請選擇ㄧ筆訂單改成已出貨');
+        }
     }
 
 });

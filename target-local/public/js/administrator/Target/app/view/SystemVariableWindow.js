@@ -22,13 +22,14 @@ Ext.define('Target.view.SystemVariableWindow', {
         'Ext.form.field.Hidden',
         'Ext.form.Panel',
         'Ext.form.field.TextArea',
+        'Ext.toolbar.Toolbar',
         'Ext.button.Button'
     ],
 
     viewModel: {
         type: 'systemvariablewindow'
     },
-    height: 194,
+    height: 208,
     id: 'SystemVariableWindow',
     width: 413,
     modal: true,
@@ -44,10 +45,16 @@ Ext.define('Target.view.SystemVariableWindow', {
             flex: 1,
             id: 'sv_id',
             name: 'sv_id'
-        },
+        }
+    ],
+    dockedItems: [
         {
             xtype: 'form',
+            flex: 1,
+            dock: 'top',
+            height: 135,
             id: 'SystemVariableForm',
+            width: 411,
             bodyPadding: 10,
             layout: {
                 type: 'vbox',
@@ -57,7 +64,7 @@ Ext.define('Target.view.SystemVariableWindow', {
                 {
                     xtype: 'textareafield',
                     flex: 1,
-                    height: 104,
+                    height: 102,
                     id: 'sv_value',
                     fieldLabel: '',
                     name: 'sv_value',
@@ -66,13 +73,19 @@ Ext.define('Target.view.SystemVariableWindow', {
             ]
         },
         {
-            xtype: 'button',
+            xtype: 'toolbar',
             flex: 1,
-            height: 44,
-            text: '修改',
-            listeners: {
-                click: 'onButtonClick'
-            }
+            dock: 'top',
+            items: [
+                {
+                    xtype: 'button',
+                    width: 393,
+                    text: '修改',
+                    listeners: {
+                        click: 'onButtonClick'
+                    }
+                }
+            ]
         }
     ],
 

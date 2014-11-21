@@ -4,7 +4,7 @@ use Application\Model\Table\OrderMainTable;
 use Application\Model\Table\ItemFlavorTable;
 use Application\Model\Table\MemberPointTable;
 use Application\Model\Table\ItemMainTable;
-use Application\Model\Table\MemberTable;
+use Zend\Db\Sql\Expression;
 
 class Order{
 	public $db = null ;
@@ -27,11 +27,12 @@ class Order{
 			
 			$select = $member_point_db->getSql()->select();
 			$select->where('mm_id='.$mm_id);
-			$select->order('mrp_created DESC');
-			$select->limit(1);
+			$select->where->greaterThanOrEqualTo("mrp_reward_deadline", date('Y-m-d'));
+			$select->order('mrp_created ASC');
+			$select->columns(array('total'=>new Expression("SUM(`mrp_used_check`)")));			
 			$member_last_order = $member_point_db->selectWith($select)->toArray();
-			$member_last_amount = (int)(!empty($member_last_order[0])?$member_last_order[0]['mrp_now_amount']:0);
-
+			$member_last_amount = $member_last_order[0]['total'];
+			
 			$select = $this->db->getSql()->select();
 			$select->where('om_id='.(int)$data['om_id']);
 			$om = $this->db->selectWith($select)->toArray();
@@ -42,7 +43,13 @@ class Order{
 			$data_mpr['mrp_last_amount'] = $member_last_amount;
 			$data_mpr['mrp_use_reward'] = 0;
 			$data_mpr['mrp_get_reward'] = (int)$om[0]['om_get_point'];
+			$data_mpr['mrp_used_check'] = $data_mpr['mrp_get_reward'];
 			$data_mpr['mrp_now_amount'] = $data_mpr['mrp_last_amount'] - $data_mpr['mrp_use_reward'] + $data_mpr['mrp_get_reward'];
+			
+			$date = new \DateTime(date('Y-m-d'));
+			$date->add(new \DateInterval('P1Y'));			
+			$data_mpr['mrp_reward_deadline'] = $date->format('Y-m-d');
+			
 			$data_mpr['mrp_created'] = date('Y-m-d H:i:s');
 			$member_point_db->insert($data_mpr);
 			$data_mpr['mrp_id'] = $member_point_db->getLastInsertValue() ;
@@ -50,11 +57,6 @@ class Order{
 			$data_om = array();
 			$data_om['mm_id'] = $mm_id; 
 			$this->db->update($data_om , array('om_id'=>$data['om_id']));
-			
-			$member_db = new MemberTable();
-			$data_member = array();
-			$data_member['mm_point'] = $data_mpr['mrp_now_amount'];
-			$member_db->update($data_member , array('mm_id'=>$mm_id));
 			
 			return array('success'=>true , 'data'=> $data_mpr );
 		}catch (\Exception $e){
@@ -136,14 +138,15 @@ class Order{
 			}
 			
 			$result['success'] = true;
-				
-			$member_point_db = new MemberPointTable();
+			
+			$member_point_db = new MemberPointTable();				
 			$select = $member_point_db->getSql()->select();
 			$select->where('mm_id='.$mm_id);
-			$select->order('mrp_created DESC');
-			$select->limit(1);
-			$member = $member_point_db->selectWith($select)->toArray();
-			$result['mrp_now_amount'] = $member[0]['mrp_now_amount'];
+			$select->where->greaterThanOrEqualTo("mrp_reward_deadline", date('Y-m-d'));
+			$select->order('mrp_created ASC');
+			$select->columns(array('total'=>new Expression("SUM(`mrp_used_check`)")));			
+			$member_last_order = $member_point_db->selectWith($select)->toArray();
+			$result['mrp_now_amount'] = $member_last_order[0]['total'];
 			
 			$result['data'] = $result_row;
 			return $result;
@@ -243,15 +246,32 @@ class Order{
 				}
 				$member_point_db = new MemberPointTable();
 				$select = $member_point_db->getSql()->select();
-				$select->where('mm_id='.$data['mm_id']); 
-				$select->order('mrp_created DESC');
-				$select->limit(1);
+				$select->where('mm_id='.$data['mm_id']);
+				$select->where->greaterThanOrEqualTo("mrp_reward_deadline", date('Y-m-d'));
+				$select->order('mrp_created ASC');
+				$select->columns(array('mrp_id','mrp_used_check'));
 				$member_last_order = $member_point_db->selectWith($select)->toArray();
-				$member_last_amount = (int)(!empty($member_last_order[0])?$member_last_order[0]['mrp_now_amount']:0);
+				$member_last_amount = 0;
+				foreach( $member_last_order as $value){
+					$member_last_amount += $value['mrp_used_check'];
+				}
 				$data['mrp_last_amount'] = $member_last_amount;
+				
 				if(!empty($data['om_want_use_point'])){
-					$data['om_use_point'] = $data['om_want_use_point'] > $member_last_amount ? $member_last_amount : $data['om_want_use_point'];				
-					$data['om_total'] -= $data['om_use_point'];			
+					$data['om_use_point'] = $data['om_want_use_point'] > $member_last_amount ? $member_last_amount : $data['om_want_use_point'];
+					$record_want_use_point = $data['om_use_point'];
+					foreach( $member_last_order as $value){
+						if( $value['mrp_used_check'] >= $record_want_use_point ){
+							$value['mrp_used_check'] -= $record_want_use_point ;
+							$record_want_use_point = 0;
+						}else{
+							$record_want_use_point -= $value['mrp_used_check'];
+							$value['mrp_used_check'] = 0;
+						}
+						$member_point_db->update($value , array('mrp_id'=>$value['mrp_id']));						
+						if($record_want_use_point == 0) break;
+					}
+ 					$data['om_total'] -= $data['om_use_point'];	
 				}else{
 					$data['om_want_use_point']= 0;
 					$data['om_use_point'] = 0;
@@ -297,18 +317,17 @@ class Order{
 					$data_mpr['mrp_last_amount'] = $mrp_last_amount;
 					$data_mpr['mrp_use_reward'] = (int)$data['om_use_point'];
 					$data_mpr['mrp_get_reward'] = (int)$data['om_get_point'];
+					$data_mpr['mrp_used_check'] = $data_mpr['mrp_get_reward'];
 					$data_mpr['mrp_now_amount'] = $data_mpr['mrp_last_amount'] - $data_mpr['mrp_use_reward'] + $data_mpr['mrp_get_reward'];				
 					$data['mrp_now_amount'] = $data_mpr['mrp_now_amount'];
+					
+					$date = new \DateTime(date('Y-m-d'));
+					$date->add(new \DateInterval('P1Y'));
+					$data_mpr['mrp_reward_deadline'] = $date->format('Y-m-d');
+					
 					$data_mpr['mrp_created'] = date('Y-m-d H:i:s');
 					$member_point_db->insert($data_mpr);
 					$data['mrp_id'] = $member_point_db->getLastInsertValue() ;
-					
-					$member_db = new MemberTable();
-					$data_member = array();
-					$data_member['mm_point'] = $data['mrp_now_amount'];
-					//Debug::dump($data_member);
-					$member_db->update($data_member , array('mm_id'=>$data['mm_id']));
-					//Debug::dump($o);
 				}
 			}
 			return array('success'=>true , 'data'=> $data);

@@ -123,11 +123,6 @@ Ext.define('Target.view.MemberWindow', {
                                     xtype: 'displayfield',
                                     fieldLabel: '收貨人信箱',
                                     name: 'mm_consignee_email'
-                                },
-                                {
-                                    xtype: 'displayfield',
-                                    fieldLabel: '會員剩餘紅利',
-                                    name: 'mm_point'
                                 }
                             ]
                         }

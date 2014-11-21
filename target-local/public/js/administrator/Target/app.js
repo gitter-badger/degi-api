@@ -25,7 +25,6 @@ Ext.application({
         'MemberModel',
         'ProductModel',
         'ReportModel',
-        'GiftArrayModel',
         'ContentModel',
         'OrderModel',
         'ContactCenterModel',
@@ -37,7 +36,9 @@ Ext.application({
         'ItemMainModel'
     ],
     stores: [
-        'GiftArrayStore'
+        'SubOrderArrayStore',
+        'GroupOrderArrayStore',
+        'ItemMainStore'
     ],
     views: [
         'MyViewport',
@@ -52,7 +53,6 @@ Ext.application({
         'ContentGridPanel',
         'ContentWindow',
         'OrderGridPanel',
-        'OrderWindow',
         'LoginWindow',
         'ContactCenterGridPanel',
         'ContactCenterWindow',
@@ -64,7 +64,9 @@ Ext.application({
         'ItemWindow',
         'ItemCategoryWindow',
         'SystemVariableWindow',
-        'popularwindow'
+        'popularwindow',
+        'OrderWindow',
+        'GroupOrderWindow'
     ],
     name: 'Target',
 

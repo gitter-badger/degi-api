@@ -46,15 +46,19 @@ class ItemMain {
     public function selectAll($query){
     	try {
     		$select = $this->db->getSql()->select();
-    		$paginator = new Paginator(new DbSelect($select, $this->db->adapter));
-    
-    		$paginator->setItemCountPerPage($query['limit'])->setCurrentPageNumber($query['page']);
-    
-    		$result['success'] = true ;
-    		$result['total'] = $paginator->getTotalItemCount();
-    		$result['rows'] = $paginator->getCurrentItems()->toArray();
-    
-    		return $result;
+    		if(empty($query['limit'])){
+    			return array('success'=>true , 'data'=>$this->db->select()->toArray() );
+    		}else{
+	    		$paginator = new Paginator(new DbSelect($select, $this->db->adapter));
+	    
+	    		$paginator->setItemCountPerPage($query['limit'])->setCurrentPageNumber($query['page']);
+	    
+	    		$result['success'] = true ;
+	    		$result['total'] = $paginator->getTotalItemCount();
+	    		$result['rows'] = $paginator->getCurrentItems()->toArray();
+	    		return $result;
+    		}
+    		
     	}catch (\Exception $e){
     		return array('success'=>false , 'msg'=> $e->getMessage() );
     	}
