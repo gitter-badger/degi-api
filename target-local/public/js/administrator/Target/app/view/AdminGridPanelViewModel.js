@@ -33,7 +33,7 @@ Ext.define('Target.view.AdminGridPanelViewModel', {
                 url: 'http://dev.finpo.com.tw/degi-api/target-local/public/b/admin',
                 reader: {
                     type: 'json',
-                    rootProperty: 'data'
+                    rootProperty: 'rows'
                 }
             }
         }
