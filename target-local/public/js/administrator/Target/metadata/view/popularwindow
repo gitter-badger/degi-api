@@ -85,8 +85,9 @@
                         "labelAlign": "right",
                         "layout|anchor": "80%",
                         "name": "im_id",
+                        "queryMode": "local",
                         "store": [
-                            "ItemMainStore"
+                            "{ItemMainStore}"
                         ],
                         "valueField": "im_id"
                     },

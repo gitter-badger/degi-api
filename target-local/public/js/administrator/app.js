@@ -21,7 +21,6 @@ Ext.Loader.setConfig({
 
 Ext.application({
     appFolder: 'js/administrator/Target/app',    
-
     models: [
         'AdminModel',
         'MemberModel',
@@ -39,8 +38,7 @@ Ext.application({
     ],
     stores: [
         'SubOrderArrayStore',
-        'GroupOrderArrayStore',
-        'ItemMainStore'
+        'GroupOrderArrayStore'
     ],
     views: [
         'MyViewport',
@@ -71,7 +69,6 @@ Ext.application({
         'GroupOrderWindow'
     ],
     name: 'Target',
-
     launch: function() {
         Ext.create('Target.view.MyViewport');
     }

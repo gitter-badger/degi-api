@@ -24,8 +24,7 @@
         "name": "Target",
         "stores": [
             "SubOrderArrayStore",
-            "GroupOrderArrayStore",
-            "ItemMainStore"
+            "GroupOrderArrayStore"
         ],
         "views": [
             "MyViewport",

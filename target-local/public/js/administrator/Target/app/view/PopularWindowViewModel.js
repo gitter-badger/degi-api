@@ -19,7 +19,9 @@ Ext.define('Target.view.PopularWindowViewModel', {
 
     requires: [
         'Ext.data.Store',
-        'Ext.data.field.Field'
+        'Ext.data.field.Field',
+        'Ext.data.proxy.Ajax',
+        'Ext.data.reader.Json'
     ],
 
     stores: {
@@ -43,8 +45,18 @@ Ext.define('Target.view.PopularWindowViewModel', {
                 }
             ]
         },
-        MainItemStore: {
-
+        ItemMainStore: {
+            autoLoad: true,
+            autoSync: true,
+            model: 'Target.model.ItemMainModel',
+            proxy: {
+                type: 'ajax',
+                url: 'http://dev.finpo.com.tw/degi-api/target-local/public/b/item_main',
+                reader: {
+                    type: 'json',
+                    rootProperty: 'rows'
+                }
+            }
         }
     }
 

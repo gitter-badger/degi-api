@@ -69,9 +69,10 @@ Ext.define('Target.view.popularwindow', {
                     allowBlank: false,
                     editable: false,
                     displayField: 'im_name',
+                    queryMode: 'local',
                     valueField: 'im_id',
                     bind: {
-                        store: 'ItemMainStore'
+                        store: '{ItemMainStore}'
                     }
                 },
                 {

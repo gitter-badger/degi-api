@@ -37,8 +37,7 @@ Ext.application({
     ],
     stores: [
         'SubOrderArrayStore',
-        'GroupOrderArrayStore',
-        'ItemMainStore'
+        'GroupOrderArrayStore'
     ],
     views: [
         'MyViewport',

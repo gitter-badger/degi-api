@@ -67,17 +67,50 @@
             ]
         },
         {
-            "type": "Ext.data.Store",
+            "type": "jsonstore",
             "reference": {
                 "name": "stores",
                 "type": "array"
             },
             "codeClass": null,
             "userConfig": {
-                "name": "MainItemStore"
+                "autoLoad": true,
+                "autoSync": true,
+                "model": "ItemMainModel",
+                "name": "ItemMainStore"
             },
-            "name": "MyStore2",
-            "designerId": "3ddd045d-1eca-4238-b96a-357944dcd94c"
+            "name": "MyJsonStore3",
+            "designerId": "87e63568-3c20-4141-b0b1-5e2779840df2",
+            "cn": [
+                {
+                    "type": "Ext.data.proxy.Ajax",
+                    "reference": {
+                        "name": "proxy",
+                        "type": "object"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "url": "http://dev.finpo.com.tw/degi-api/target-local/public/b/item_main"
+                    },
+                    "name": "MyAjaxProxy",
+                    "designerId": "441ac74b-50c7-42a9-8eba-a1d8c6bd9ed8",
+                    "cn": [
+                        {
+                            "type": "Ext.data.reader.Json",
+                            "reference": {
+                                "name": "reader",
+                                "type": "object"
+                            },
+                            "codeClass": null,
+                            "userConfig": {
+                                "rootProperty": "rows"
+                            },
+                            "name": "MyJsonReader",
+                            "designerId": "bde6232c-8fa8-43e2-9e54-e0910f9bca8f"
+                        }
+                    ]
+                }
+            ]
         }
     ]
 }
