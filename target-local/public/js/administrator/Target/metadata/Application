@@ -19,7 +19,8 @@
             "NewsModel",
             "PopularItemModel",
             "SystemVariableModel",
-            "ItemMainModel"
+            "ItemMainModel",
+            "PopularStatusModel"
         ],
         "name": "Target",
         "stores": [

@@ -101,6 +101,32 @@
                             "codeClass": null,
                             "userConfig": {
                                 "fn": "onButtonClick1",
+                                "implHandler": [
+                                    "var selmodel = Ext.getCmp('popularitemgridpanel').getSelectionModel();",
+                                    "var count = selmodel.getCount();",
+                                    "",
+                                    "if(count !== 0){",
+                                    "    var seldata = selmodel.getSelection();",
+                                    "",
+                                    "    var window = Ext.create('Target.view.popularwindow');",
+                                    "",
+                                    "    Ext.getCmp('pi_id').setValue(seldata[0].data.pi_id);",
+                                    "    window.setConfig('title', '修改熱銷商品');",
+                                    "",
+                                    "    Ext.getCmp('popularitemForm').getForm().setValues(seldata[0].data);",
+                                    "",
+                                    "    Ext.getCmp('pi_image').allowBlank = true;",
+                                    "    Ext.getCmp('pi_image').emptyText = seldata[0].data.pi_image;",
+                                    "    Ext.getCmp('pi_image').applyEmptyText();",
+                                    "    ",
+                                    "    Ext.getCmp('popularUpdateBtn').setVisible(true);",
+                                    "    Ext.getCmp('popularAddBtn').setVisible(false);",
+                                    "    ",
+                                    "    window.show();",
+                                    "}else{",
+                                    "    Ext.Msg.alert('訊息', '請選擇一個熱銷商品修改');",
+                                    "}"
+                                ],
                                 "name": "click",
                                 "scope": "me"
                             },
@@ -281,6 +307,27 @@
             "codeClass": null,
             "name": "MyCheckboxSelectionModel",
             "designerId": "621709cf-5354-4111-9453-c8f1ad0b0170"
+        },
+        {
+            "type": "Ext.toolbar.Paging",
+            "reference": {
+                "name": "dockedItems",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "displayInfo": true,
+                "dock": "bottom",
+                "store": [
+                    "{PopularItemStore}"
+                ],
+                "width": 360
+            },
+            "name": "MyPagingToolbar",
+            "configAlternates": {
+                "store": "binding"
+            },
+            "designerId": "dff19d21-3c7a-4084-aadc-7568a94196d1"
         }
     ]
 }

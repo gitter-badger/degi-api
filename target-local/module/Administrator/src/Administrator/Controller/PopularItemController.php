@@ -5,7 +5,6 @@ use Zend\Mvc\Controller\AbstractRestfulController;
 use Zend\View\Model\JsonModel ;
 use Administrator\Model\Tool\InputCheck ;
 use Administrator\Model\PopularItem;
-use Zend\Debug\Debug;
 
 class PopularItemController extends AbstractRestfulController
 {
@@ -47,7 +46,7 @@ class PopularItemController extends AbstractRestfulController
         $response->setStatusCode(200);
         
         $db = new PopularItem();   
-        return new JsonModel(array('success'=>true , 'data'=> $db->update($data,$id) ));
+        return new JsonModel($db->update($data,$id) );
     }
     
     //delete

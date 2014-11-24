@@ -19,11 +19,11 @@ Ext.define('Target.view.PopularItemGridPanel', {
 
     requires: [
         'Target.view.PopularItemGridPanelViewModel',
-        'Ext.toolbar.Toolbar',
         'Ext.button.Button',
         'Ext.grid.View',
         'Ext.grid.column.Column',
-        'Ext.selection.CheckboxModel'
+        'Ext.selection.CheckboxModel',
+        'Ext.toolbar.Paging'
     ],
 
     viewModel: {
@@ -55,6 +55,15 @@ Ext.define('Target.view.PopularItemGridPanel', {
                     }
                 }
             ]
+        },
+        {
+            xtype: 'pagingtoolbar',
+            dock: 'bottom',
+            width: 360,
+            displayInfo: true,
+            bind: {
+                store: '{PopularItemStore}'
+            }
         }
     ],
     columns: [
@@ -124,7 +133,30 @@ Ext.define('Target.view.PopularItemGridPanel', {
     },
 
     onButtonClick1: function(button, e, eOpts) {
+        var selmodel = Ext.getCmp('popularitemgridpanel').getSelectionModel();
+        var count = selmodel.getCount();
 
+        if(count !== 0){
+            var seldata = selmodel.getSelection();
+
+            var window = Ext.create('Target.view.popularwindow');
+
+            Ext.getCmp('pi_id').setValue(seldata[0].data.pi_id);
+            window.setConfig('title', '修改熱銷商品');
+
+            Ext.getCmp('popularitemForm').getForm().setValues(seldata[0].data);
+
+            Ext.getCmp('pi_image').allowBlank = true;
+            Ext.getCmp('pi_image').emptyText = seldata[0].data.pi_image;
+            Ext.getCmp('pi_image').applyEmptyText();
+
+            Ext.getCmp('popularUpdateBtn').setVisible(true);
+            Ext.getCmp('popularAddBtn').setVisible(false);
+
+            window.show();
+        }else{
+            Ext.Msg.alert('訊息', '請選擇一個熱銷商品修改');
+        }
     }
 
 });

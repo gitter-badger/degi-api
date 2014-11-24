@@ -33,7 +33,8 @@ Ext.application({
         'NewsModel',
         'PopularItemModel',
         'SystemVariableModel',
-        'ItemMainModel'
+        'ItemMainModel',
+        'PopularStatusModel'
     ],
     stores: [
         'SubOrderArrayStore',

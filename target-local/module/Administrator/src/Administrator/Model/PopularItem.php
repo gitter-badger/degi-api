@@ -4,7 +4,6 @@ namespace Administrator\Model;
 use Zend\Paginator\Paginator;
 use Zend\Paginator\Adapter\DbSelect;
 use Administrator\Model\Table\PopularTable;
-use Administrator\model\Tool;
 
 class PopularItem {
 	
@@ -23,23 +22,32 @@ class PopularItem {
     
     public function update($data , $id){
         try {
-//         	if($input['pi_image']['name'] == '' || $input['si_cover']['name'] == NULL){
-//         		unset($input['si_cover']);
-//         	}
-//         	$input = $this->setInputCols($input, 'edit');
-//         	$tool = new Tool();
-//         	$result = $tool->upload($input);
-//         	if (! $result['success']) {
-//         		echo Json::encode(array('success' => false,'msg' => $result['msg']));exit();
-//         	}
-//         	if (! empty($result['files'])) {
-//         		$row = $this->db->select('si_id =' . (int) $id)->toArray();
-//         		foreach ($result['files'] as $index => $val) {
-//         			$path = PUBLIC_PATH .'/'.$input['m_path'][$index];
-//         			$tool->deleteimg($path,$row[0][$index]);
-//         			$input[$index] = $val;
-//         		}
-//         	}
+        	//Debug::dump($data);
+        	//Debug::dump($id);
+        	if($data['pi_image'] == ''){
+        		unset($data['pi_image']);
+        	}else{
+        		unset($data['pi_image']);
+        		
+	            $input['m_path']['pi_image']  ="images/popular_item";
+	
+	        	$tool = new \Administrator\Model\Tool\Tool();
+        		$result = $tool->upload($input);
+	        	if (! $result['success']) {
+	        		return array('success'=>false, 'msg'=>'上傳圖片失敗!');
+	        	}
+	        	if (! empty($result['files'])) {
+	        		//Debug::dump($result['files']);
+	        		$row = $this->db->select('pi_id =' . (int) $id)->toArray();
+	        		foreach ($result['files'] as $index => $val) {
+	        			$path = PUBLIC_PATH .'/'.$input['m_path'][$index];
+	        			$tool->deleteimg($path,$row[0][$index]);
+	        			$data[$index] = $val;
+	        		}
+	        	}
+        	}
+        	//Debug::dump($data);
+        	//Debug::dump($id);
         	
         	#檢查同類型同商品存在與否
         	if( !empty($data['pi_type']) && !empty($data['im_id']) ){	

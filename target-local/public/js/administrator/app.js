@@ -34,7 +34,8 @@ Ext.application({
         'NewsModel',
         'PopularItemModel',
         'SystemVariableModel',
-        'ItemMainModel'
+        'ItemMainModel',
+        'PopularStatusModel'
     ],
     stores: [
         'SubOrderArrayStore',
@@ -69,6 +70,7 @@ Ext.application({
         'GroupOrderWindow'
     ],
     name: 'Target',
+
     launch: function() {
         Ext.create('Target.view.MyViewport');
     }

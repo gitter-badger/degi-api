@@ -28,20 +28,20 @@ Ext.define('Target.view.PopularWindowViewModel', {
         PopularStatusStore: {
             data: [
                 {
-                    pi_status: 1,
-                    text: '宅配熱銷'
+                    pi_type: '1',
+                    pi_name: '宅配熱銷'
                 },
                 {
-                    pi_status: 2,
-                    text: '店面熱銷'
+                    pi_type: '2',
+                    pi_name: '店面熱銷'
                 }
             ],
             fields: [
                 {
-                    name: 'pi_status'
+                    name: 'pi_type'
                 },
                 {
-                    name: 'text'
+                    name: 'pi_name'
                 }
             ]
         },

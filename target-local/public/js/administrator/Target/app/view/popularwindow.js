@@ -42,7 +42,7 @@ Ext.define('Target.view.popularwindow', {
         {
             xtype: 'hiddenfield',
             id: 'pi_id',
-            name: 'a_id'
+            name: 'pi_id'
         },
         {
             xtype: 'form',
@@ -83,14 +83,15 @@ Ext.define('Target.view.popularwindow', {
                     name: 'pi_type',
                     allowBlank: false,
                     editable: false,
-                    queryMode: 'local',
-                    valueField: 'pi_status',
+                    displayField: 'pi_name',
+                    valueField: 'pi_type',
                     bind: {
                         store: '{PopularStatusStore}'
                     }
                 },
                 {
                     xtype: 'filefield',
+                    id: 'pi_image',
                     width: 498,
                     fieldLabel: '商品大圖',
                     labelAlign: 'right',
@@ -157,7 +158,7 @@ Ext.define('Target.view.popularwindow', {
 
         if(form.isValid()){
             form.submit({
-
+                method: 'POST',
                 waitTitle:'訊息',
                 waitMsg:'新增資料中',
                 url:'http://dev.finpo.com.tw/degi-api/target-local/public/b/popular_item',
@@ -185,75 +186,41 @@ Ext.define('Target.view.popularwindow', {
     },
 
     onPopularUpdateBtnClick: function(button, e, eOpts) {
-        var form = Ext.getCmp('adminForm').getForm();
+        var form = Ext.getCmp('popularitemForm').getForm();
+        var Id = Ext.getCmp('pi_id').getValue();
 
         if(form.isValid()){
-            var aId = Ext.getCmp('a_id').getValue();
-            var aPassword = Ext.getCmp('a_password').getValue();
-            var aPasswordTemp = Ext.getCmp('a_passwordTemp').getValue();
+            form.submit({
+                method: 'PUT',
+                waitTitle:'訊息',
+                waitMsg:'修改資料中',
+                url:'http://dev.finpo.com.tw/degi-api/target-local/public/b/popular_item/'+Id,
 
-            var aStatusOn = Ext.getCmp('a_status_on').getValue();
-            var aStatusOff = Ext.getCmp('a_status_off').getValue();
-            var aStatus = 0;
-            if(aStatusOn === true && aStatusOff === false){
-                aStatus = 1;
-            }else if(aStatusOn === false && aStatusOff === true){
-                aStatus = 2;
-            }else{
-                aStatus = 2;
-            }
-
-            if(aPassword === aPasswordTemp){
-                Ext.Ajax.request({
-                    method: 'PUT',
-                    url:'http://dev.finpo.com.tw/degi-api/target-local/public/b/admin/'+aId,
-
-                    params: {
-                        a_account: form.findField('a_account').getValue(),
-                        a_email: form.findField('a_email').getValue(),
-                        a_displayname: form.findField('a_displayname').getValue(),
-                        a_status: aStatus
-                    },
-                    success: function(response, options){
-                        var obj = Ext.JSON.decode(response.responseText);
-                        var store  = Ext.getCmp('admingridpanel').getViewModel().getStore('AdminStore');
-                        store.proxy.url='http://dev.finpo.com.tw/degi-api/target-local/public/b/admin';
-                        store.load();
-
-                        form.reset();
-                        Ext.Msg.alert('訊息','管理者修改成功', function(){
-                            var window = Ext.getCmp('adminWindow');
-                            window.close();
-                        });
+        //         params: {
+        //             pi_type: form.findField('pi_type').getValue(),
+        //             im_id: form.findField('im_id').getValue(),
+        //             pi_image: form.findField('pi_image').getValue(),
+        //             pi_title: form.findField('pi_title').getValue(),
+        //             pi_description: form.findField('pi_description').getValue(),
+        //             pi_seq: form.findField('pi_seq').getValue()
+        //         },
+                success: function(form,action){
+                   var store  = Ext.getCmp('popularitemgridpanel').getViewModel().getStore('PopularItemStore');
+                    store.proxy.url='http://dev.finpo.com.tw/degi-api/target-local/public/b/popular_item';
+                    store.load();
+                    var window = Ext.getCmp('popularwindow');
+                    window.close();
+                    form.reset();
+                    Ext.Msg.alert('訊息','熱銷商品修改成功');
+                },
+                failure:function(form,action){
+                    data = Ext.decode(action.response.responseText);
+                    if (data.success === false && data.msg){
+                        Ext.Msg.alert('Error', data.msg);
                     }
-                });
-            }else{
-                form.submit({
-                    method: 'PUT',
-                    waitTitle:'訊息',
-                    waitMsg:'修改資料中',
-                    url:'http://dev.finpo.com.tw/degi-api/target-local/public/b/admin/'+aId,
+                }
 
-                    success:function(form,action){
-
-                        var store  = Ext.getCmp('admingridpanel').getViewModel().getStore('AdminStore');
-                        store.proxy.url='http://dev.finpo.com.tw/degi-api/target-local/public/b/admin';
-                        store.load();
-
-                        form.reset();
-                        Ext.Msg.alert('訊息','管理者修改成功', function(){
-                            var window = Ext.getCmp('adminWindow');
-                            window.close();
-                        });
-
-                    },
-                    failure:function(form,action){
-                        Ext.Msg.alert('訊息','管理者修改失敗');
-                    }
-                });
-
-            }
-
+            });
         }
     }
 

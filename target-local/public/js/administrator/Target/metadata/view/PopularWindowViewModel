@@ -23,12 +23,12 @@
                 "data": [
                     "[",
                     "    {",
-                    "        \"pi_status\": 1,",
-                    "        \"text\": \"宅配熱銷\"",
+                    "        \"pi_type\": \"1\",",
+                    "        \"pi_name\": \"宅配熱銷\"",
                     "    },",
                     "    {",
-                    "        \"pi_status\": 2,",
-                    "        \"text\": \"店面熱銷\"",
+                    "        \"pi_type\": \"2\",",
+                    "        \"pi_name\": \"店面熱銷\"",
                     "    }",
                     "]"
                 ],
@@ -46,9 +46,9 @@
                     },
                     "codeClass": null,
                     "userConfig": {
-                        "name": "pi_status"
+                        "name": "pi_type"
                     },
-                    "name": "MyField9",
+                    "name": "MyField39",
                     "designerId": "8b22f007-5146-4f79-984b-ba18e6fd4534"
                 },
                 {
@@ -59,9 +59,9 @@
                     },
                     "codeClass": null,
                     "userConfig": {
-                        "name": "text"
+                        "name": "pi_name"
                     },
-                    "name": "MyField10",
+                    "name": "MyField40",
                     "designerId": "ff64da57-2d1d-4b43-9f00-87b52456fef8"
                 }
             ]
