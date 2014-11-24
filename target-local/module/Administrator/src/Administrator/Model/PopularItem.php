@@ -54,7 +54,7 @@ class PopularItem {
     
     public function insert($data){
         try {
-        	$tool = new Tool();
+        	$tool = new \Administrator\Model\Tool\Tool();
         	$input['m_path']['pi_image']  ="images/popular_item";
         	$result = $tool->upload($input);
         	

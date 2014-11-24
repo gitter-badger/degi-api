@@ -1,5 +1,5 @@
 <?php
-namespace Administrator\model;
+namespace Administrator\Model\Tool;
 
 use Zend\File\Transfer\Adapter\Http;
 
