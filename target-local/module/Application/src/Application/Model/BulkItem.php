@@ -18,7 +18,7 @@ class BulkItem{
         	$select->where('cm_id='.$id);
    			$select->columns(array('bpi_id','ic_id','bpi_category','im_id','bpi_name','bpi_flavor','bpi_sprice'));
         	$result_row = $this->db->selectWith($select)->toArray();  
-        	Debug::dump($result_row);
+        	//Debug::dump($result_row);
         	$result['success'] = true ;
    			$result['rows'] = $result_row;
    			
