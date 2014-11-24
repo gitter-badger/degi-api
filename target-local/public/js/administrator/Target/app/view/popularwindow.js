@@ -81,8 +81,10 @@ Ext.define('Target.view.popularwindow', {
                     fieldLabel: '商品類型',
                     labelAlign: 'right',
                     name: 'pi_type',
+                    allowBlank: false,
                     editable: false,
                     queryMode: 'local',
+                    valueField: 'pi_status',
                     bind: {
                         store: '{PopularStatusStore}'
                     }
@@ -93,6 +95,7 @@ Ext.define('Target.view.popularwindow', {
                     fieldLabel: '商品大圖',
                     labelAlign: 'right',
                     name: 'pi_image',
+                    allowBlank: false,
                     buttonText: 'Browse'
                 },
                 {
@@ -102,7 +105,8 @@ Ext.define('Target.view.popularwindow', {
                     width: 500,
                     fieldLabel: '商品描述',
                     labelAlign: 'right',
-                    name: 'pi_description'
+                    name: 'pi_description',
+                    allowBlank: false
                 },
                 {
                     xtype: 'numberfield',
@@ -110,6 +114,7 @@ Ext.define('Target.view.popularwindow', {
                     fieldLabel: '商品排序',
                     labelAlign: 'right',
                     name: 'pi_seq',
+                    allowBlank: false,
                     minValue: 1
                 }
             ]
@@ -148,30 +153,31 @@ Ext.define('Target.view.popularwindow', {
     ],
 
     onPopularAddBtnClick: function(button, e, eOpts) {
-        var form = Ext.getCmp('adminForm').getForm();
+        var form = Ext.getCmp('popularitemForm').getForm();
 
         if(form.isValid()){
             form.submit({
 
                 waitTitle:'訊息',
                 waitMsg:'新增資料中',
-                url:'http://dev.finpo.com.tw/degi-api/target-local/public/b/admin',
+                url:'http://dev.finpo.com.tw/degi-api/target-local/public/b/popular_item',
 
                 success:function(form,action){
 
-                    var store  = Ext.getCmp('admingridpanel').getViewModel().getStore('AdminStore');
-                    store.proxy.url='http://dev.finpo.com.tw/degi-api/target-local/public/b/admin';
+                    var store  = Ext.getCmp('popularitemgridpanel').getViewModel().getStore('PopularItemStore');
+                    store.proxy.url='http://dev.finpo.com.tw/degi-api/target-local/public/b/popular_item';
                     store.load();
-                    var window = Ext.getCmp('adminWindow');
+                    var window = Ext.getCmp('popularwindow');
                     window.close();
                     form.reset();
-                    Ext.Msg.alert('訊息','管理者新增成功');
+                    Ext.Msg.alert('訊息','熱銷商品新增成功');
 
                 },
                 failure:function(form,action){
-
-                   Ext.Msg.alert('訊息','管理者新增失敗');
-
+                   data = Ext.decode(action.response.responseText);
+                    if (data.success === false && data.msg){
+                        Ext.Msg.alert('Error', data.msg);
+                    }
                 }
 
             });

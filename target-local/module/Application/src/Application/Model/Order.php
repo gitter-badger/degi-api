@@ -31,7 +31,7 @@ class Order{
 			$select->order('mrp_created ASC');
 			$select->columns(array('total'=>new Expression("SUM(`mrp_used_check`)")));			
 			$member_last_order = $member_point_db->selectWith($select)->toArray();
-			$member_last_amount = $member_last_order[0]['total'];
+			$member_last_amount = !empty($member_last_order[0]['total'])?$member_last_order[0]['total']:0;
 			
 			$select = $this->db->getSql()->select();
 			$select->where('om_id='.(int)$data['om_id']);

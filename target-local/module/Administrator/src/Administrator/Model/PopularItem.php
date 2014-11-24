@@ -4,6 +4,7 @@ namespace Administrator\Model;
 use Zend\Paginator\Paginator;
 use Zend\Paginator\Adapter\DbSelect;
 use Administrator\Model\Table\PopularTable;
+use Administrator\model\Tool;
 
 class PopularItem {
 	
@@ -53,7 +54,18 @@ class PopularItem {
     
     public function insert($data){
         try {
+        	$tool = new Tool();
+        	$input['m_path']['pi_image']  ="images/popular_item";
+        	$result = $tool->upload($input);
         	
+        	if (! $result['success']) {
+        		return array('success'=>false, 'msg'=>'上傳圖片失敗!');
+        	}
+        	if (! empty($result['files'])) {
+        		foreach ($result['files'] as $index => $val) {
+        			$data[$index] = $val;
+        		}
+        	}
             #檢查同類型同商品存在與否
             $select = $this->db->getSql()->select();
             $select->where->equalTo('pi_type',$data['pi_type'])

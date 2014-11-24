@@ -21,7 +21,7 @@ class PopularItem{
 			}
 			$result_array = array();
 			foreach ( $this->db->selectWith($select)->toArray() as $value ){
-				$value['pi_image'] = $server_url.$_SERVER['REDIRECT_BASE'].'images/item_flavor_cover/'.$value['pi_image'];
+				$value['pi_image'] = $server_url.$_SERVER['REDIRECT_BASE'].'images/popular_item/'.$value['pi_image'];
 				array_push($result_array,$value);
 			}
 				

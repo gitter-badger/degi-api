@@ -82,7 +82,7 @@ Ext.define('Target.view.PopularItemGridPanel', {
         {
             xtype: 'gridcolumn',
             renderer: function(value, metaData, record, rowIndex, colIndex, store, view) {
-                return (value !=='')?"<img src='images/item_flavor_cover/"+value+"' width='60px' />":'沒有任何圖片';
+                return (value !=='')?"<img src='images/popular_item/"+value+"' width='60px' />":'沒有任何圖片';
 
             },
             dataIndex: 'pi_image',
