@@ -30,7 +30,7 @@ class NewsController extends AbstractRestfulController
         $db = new News;
         return new JsonModel($db->selectAll($this->params()->fromQuery()));
     }
-     
+      
     //entity    
     //get 
     public function get($id){

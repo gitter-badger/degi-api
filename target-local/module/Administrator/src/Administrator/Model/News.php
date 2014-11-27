@@ -30,7 +30,18 @@ class News {
     
     public function insert($data){
         try {
-        	
+        	$tool = new \Administrator\Model\Tool\Tool();
+        	$input['m_path']['nm_cover']  ="images/news_main_cover";
+        	$result = $tool->upload($input);
+        	 
+        	if (! $result['success']) {
+        		return array('success'=>false, 'msg'=>'上傳圖片失敗!');
+        	}
+        	if (! empty($result['files'])) {
+        		foreach ($result['files'] as $index => $val) {
+        			$data[$index] = $val;
+        		}
+        	}
             $data['nm_created'] = date('Y-m-d H:i:s');
             
             $this->db->insert($data);           

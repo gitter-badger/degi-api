@@ -115,11 +115,18 @@ Ext.define('Target.view.NewsGridPanel', {
     },
 
     onButtonClick: function(button, e, eOpts) {
+        var window = Ext.create('Target.view.NewsWindow');
 
+        window.setConfig('title', '新增最新消息');
+        Ext.getCmp('nm_id').setValue(0);
+        Ext.getCmp('NewsUpdBtn').setVisible(false);
+        Ext.getCmp('NewsAddBtn').setVisible(true);
+
+        window.show();
     },
 
     onButtonClick1: function(button, e, eOpts) {
-         var selmodel = Ext.getCmp('newsgridpanel').getSelectionModel();
+        var selmodel = Ext.getCmp('newsgridpanel').getSelectionModel();
         var count = selmodel.getCount();
 
         if( count !== 0 ){
@@ -129,6 +136,9 @@ Ext.define('Target.view.NewsGridPanel', {
             Ext.getCmp('nm_id').setValue(seldata[0].data.nm_id);
             Ext.getCmp('nm_title').setValue(seldata[0].data.nm_title);
             window.setConfig('title', '修改最新消息');
+
+            Ext.getCmp('NewsUpdBtn').setVisible(true);
+            Ext.getCmp('NewsAddBtn').setVisible(false);
 
             window.show();
 

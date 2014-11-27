@@ -8,7 +8,7 @@
     "userConfig": {
         "designer|userAlias": "newswindow",
         "designer|userClassName": "NewsWindow",
-        "height": 420,
+        "height": 449,
         "id": "newswindow",
         "layout": "fit",
         "modal": true,
@@ -60,6 +60,7 @@
                     },
                     "codeClass": null,
                     "userConfig": {
+                        "allowBlank": false,
                         "fieldLabel": "標題",
                         "id": "nm_title",
                         "layout|anchor": "100%",
@@ -67,6 +68,43 @@
                     },
                     "name": "MyTextField1",
                     "designerId": "544a1f51-2904-4c80-9db5-60579467f757"
+                },
+                {
+                    "type": "Ext.form.field.Date",
+                    "reference": {
+                        "name": "items",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "allowBlank": false,
+                        "fieldLabel": "發佈日",
+                        "format": "Y-m-d",
+                        "id": "nm_publish_date",
+                        "layout|anchor": "100%",
+                        "name": "nm_publish_date"
+                    },
+                    "name": "MyDateField",
+                    "designerId": "fb160d82-7014-410c-907c-a608011c7ceb"
+                },
+                {
+                    "type": "Ext.form.field.File",
+                    "reference": {
+                        "name": "items",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "buttonText": "Browse",
+                        "fieldLabel": "首頁小圖",
+                        "id": "nm_cover",
+                        "labelAlign": null,
+                        "layout|anchor": "100%",
+                        "name": "nm_cover",
+                        "width": null
+                    },
+                    "name": "MyFileUpload2",
+                    "designerId": "e28a108d-d15d-4580-bb3e-ac48ed5b763c"
                 },
                 {
                     "type": "Ext.form.field.TextArea",
@@ -79,7 +117,7 @@
                         "border": null,
                         "fieldLabel": null,
                         "formBind": false,
-                        "height": null,
+                        "height": 191,
                         "id": "ckreplace",
                         "layout|anchor": "98%",
                         "name": "nm_body",
@@ -110,8 +148,9 @@
                             },
                             "codeClass": null,
                             "userConfig": {
+                                "id": "NewsAddBtn",
                                 "layout|flex": null,
-                                "text": "修改"
+                                "text": "新增"
                             },
                             "name": "MyButton6",
                             "designerId": "889e22f8-8509-4556-87bf-4f7c2bf31f6d",
@@ -125,6 +164,69 @@
                                     "codeClass": null,
                                     "userConfig": {
                                         "fn": "onButtonClick",
+                                        "implHandler": [
+                                            "var form = Ext.getCmp('newsForm').getForm();",
+                                            "if(form.isValid()){",
+                                            "    form.findField('nm_body').setValue(content_editor.getData());",
+                                            "    form.submit({",
+                                            "        waitTitle:'訊息',",
+                                            "        waitMsg:'新增資料中',",
+                                            "        url:'http://dev.finpo.com.tw/degi-api/target-local/public/b/news',",
+                                            "",
+                                            "        success:function(form,action){",
+                                            "",
+                                            "            var store  = Ext.getCmp('newsgridpanel').getViewModel().getStore('NewsStore');",
+                                            "            store.proxy.url='http://dev.finpo.com.tw/degi-api/target-local/public/b/news';",
+                                            "            store.load();",
+                                            "",
+                                            "            form.reset();",
+                                            "            Ext.Msg.alert('訊息','最新消息新增成功', function(){",
+                                            "                var window = Ext.getCmp('newswindow');",
+                                            "                window.close();",
+                                            "            });",
+                                            "",
+                                            "        },",
+                                            "        failure:function(form,action){",
+                                            "",
+                                            "           Ext.Msg.alert('訊息','最新消息新增失敗');",
+                                            "",
+                                            "        }",
+                                            "",
+                                            "    });",
+                                            "}"
+                                        ],
+                                        "name": "click",
+                                        "scope": "me"
+                                    },
+                                    "name": "onButtonClick",
+                                    "designerId": "7531dbb5-6736-49f6-8602-a62e416e51ed"
+                                }
+                            ]
+                        },
+                        {
+                            "type": "Ext.button.Button",
+                            "reference": {
+                                "name": "items",
+                                "type": "array"
+                            },
+                            "codeClass": null,
+                            "userConfig": {
+                                "id": "NewsUpdBtn",
+                                "layout|flex": null,
+                                "text": "修改"
+                            },
+                            "name": "MyButton9",
+                            "designerId": "c7742742-b88a-4e57-992e-12d24205cadc",
+                            "cn": [
+                                {
+                                    "type": "basiceventbinding",
+                                    "reference": {
+                                        "name": "listeners",
+                                        "type": "array"
+                                    },
+                                    "codeClass": null,
+                                    "userConfig": {
+                                        "fn": "onButtonClick1",
                                         "implHandler": [
                                             "var Id = Ext.getCmp('nm_id').getValue();",
                                             "var form = Ext.getCmp('newsForm').getForm();",
@@ -161,8 +263,8 @@
                                         "name": "click",
                                         "scope": "me"
                                     },
-                                    "name": "onButtonClick",
-                                    "designerId": "7531dbb5-6736-49f6-8602-a62e416e51ed"
+                                    "name": "onButtonClick1",
+                                    "designerId": "8f837500-ca1d-44e8-a108-45e2c0d2c514"
                                 }
                             ]
                         }
@@ -179,22 +281,27 @@
                         "fn": "onContentFormAfterRender",
                         "implHandler": [
                             "var nId = Ext.getCmp('nm_id').getValue();",
-                            "",
-                            "Ext.Ajax.request({",
-                            "    url: 'http://dev.finpo.com.tw/degi-api/target-local/public/b/news/'+nId,",
-                            "    success: function(response, opts){",
-                            "        var obj = Ext.JSON.decode(response.responseText);",
-                            "        Value = obj.data.nm_body;",
-                            "        //console.log(Value);",
-                            "        var form = Ext.getCmp('newsForm').getForm();",
-                            "        form.setValues(obj.data);",
-                            "        content_editor = CKEDITOR.replace('ckreplace');",
-                            "        content_editor.setData(Value);",
-                            "    },",
-                            "    failure: function(response, opts){",
-                            "        console.log('server-side failure with status code ' + response.status);",
-                            "    }",
-                            "});"
+                            "if( nId == '0' ){",
+                            "    var form = Ext.getCmp('newsForm').getForm();",
+                            "    Value = '';",
+                            "    content_editor = CKEDITOR.replace('ckreplace');",
+                            "    content_editor.setData(Value);",
+                            "}else{",
+                            "    Ext.Ajax.request({",
+                            "        url: 'http://dev.finpo.com.tw/degi-api/target-local/public/b/news/'+nId,",
+                            "        success: function(response, opts){",
+                            "            var obj = Ext.JSON.decode(response.responseText);",
+                            "            Value = obj.data.nm_body;",
+                            "            var form = Ext.getCmp('newsForm').getForm();",
+                            "            form.setValues(obj.data);",
+                            "            content_editor = CKEDITOR.replace('ckreplace');",
+                            "            content_editor.setData(Value);",
+                            "        },",
+                            "        failure: function(response, opts){",
+                            "            console.log('server-side failure with status code ' + response.status);",
+                            "        }",
+                            "    });",
+                            "}"
                         ],
                         "name": "afterrender",
                         "scope": "me"

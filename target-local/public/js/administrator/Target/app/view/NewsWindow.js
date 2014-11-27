@@ -21,6 +21,8 @@ Ext.define('Target.view.NewsWindow', {
         'Target.view.NewsWindowViewModel',
         'Ext.form.field.Hidden',
         'Ext.form.Panel',
+        'Ext.form.field.Date',
+        'Ext.form.field.File',
         'Ext.form.field.TextArea',
         'Ext.toolbar.Toolbar',
         'Ext.button.Button'
@@ -29,7 +31,7 @@ Ext.define('Target.view.NewsWindow', {
     viewModel: {
         type: 'newswindow'
     },
-    height: 420,
+    height: 449,
     id: 'newswindow',
     width: 720,
     layout: 'fit',
@@ -54,12 +56,31 @@ Ext.define('Target.view.NewsWindow', {
                     anchor: '100%',
                     id: 'nm_title',
                     fieldLabel: '標題',
-                    name: 'nm_title'
+                    name: 'nm_title',
+                    allowBlank: false
+                },
+                {
+                    xtype: 'datefield',
+                    anchor: '100%',
+                    id: 'nm_publish_date',
+                    fieldLabel: '發佈日',
+                    name: 'nm_publish_date',
+                    allowBlank: false,
+                    format: 'Y-m-d'
+                },
+                {
+                    xtype: 'filefield',
+                    anchor: '100%',
+                    id: 'nm_cover',
+                    fieldLabel: '首頁小圖',
+                    name: 'nm_cover',
+                    buttonText: 'Browse'
                 },
                 {
                     xtype: 'textareafield',
                     anchor: '98%',
                     formBind: false,
+                    height: 191,
                     id: 'ckreplace',
                     name: 'nm_body'
                 }
@@ -75,9 +96,18 @@ Ext.define('Target.view.NewsWindow', {
                     items: [
                         {
                             xtype: 'button',
-                            text: '修改',
+                            id: 'NewsAddBtn',
+                            text: '新增',
                             listeners: {
                                 click: 'onButtonClick'
+                            }
+                        },
+                        {
+                            xtype: 'button',
+                            id: 'NewsUpdBtn',
+                            text: '修改',
+                            listeners: {
+                                click: 'onButtonClick1'
                             }
                         }
                     ]
@@ -90,6 +120,38 @@ Ext.define('Target.view.NewsWindow', {
     ],
 
     onButtonClick: function(button, e, eOpts) {
+        var form = Ext.getCmp('newsForm').getForm();
+        if(form.isValid()){
+            form.findField('nm_body').setValue(content_editor.getData());
+            form.submit({
+                waitTitle:'訊息',
+                waitMsg:'新增資料中',
+                url:'http://dev.finpo.com.tw/degi-api/target-local/public/b/news',
+
+                success:function(form,action){
+
+                    var store  = Ext.getCmp('newsgridpanel').getViewModel().getStore('NewsStore');
+                    store.proxy.url='http://dev.finpo.com.tw/degi-api/target-local/public/b/news';
+                    store.load();
+
+                    form.reset();
+                    Ext.Msg.alert('訊息','最新消息新增成功', function(){
+                        var window = Ext.getCmp('newswindow');
+                        window.close();
+                    });
+
+                },
+                failure:function(form,action){
+
+                   Ext.Msg.alert('訊息','最新消息新增失敗');
+
+                }
+
+            });
+        }
+    },
+
+    onButtonClick1: function(button, e, eOpts) {
         var Id = Ext.getCmp('nm_id').getValue();
         var form = Ext.getCmp('newsForm').getForm();
         if(form.isValid()){
@@ -125,22 +187,27 @@ Ext.define('Target.view.NewsWindow', {
 
     onContentFormAfterRender: function(component, eOpts) {
         var nId = Ext.getCmp('nm_id').getValue();
-
-        Ext.Ajax.request({
-            url: 'http://dev.finpo.com.tw/degi-api/target-local/public/b/news/'+nId,
-            success: function(response, opts){
-                var obj = Ext.JSON.decode(response.responseText);
-                Value = obj.data.nm_body;
-                //console.log(Value);
-                var form = Ext.getCmp('newsForm').getForm();
-                form.setValues(obj.data);
-                content_editor = CKEDITOR.replace('ckreplace');
-                content_editor.setData(Value);
-            },
-            failure: function(response, opts){
-                console.log('server-side failure with status code ' + response.status);
-            }
-        });
+        if( nId == '0' ){
+            var form = Ext.getCmp('newsForm').getForm();
+            Value = '';
+            content_editor = CKEDITOR.replace('ckreplace');
+            content_editor.setData(Value);
+        }else{
+            Ext.Ajax.request({
+                url: 'http://dev.finpo.com.tw/degi-api/target-local/public/b/news/'+nId,
+                success: function(response, opts){
+                    var obj = Ext.JSON.decode(response.responseText);
+                    Value = obj.data.nm_body;
+                    var form = Ext.getCmp('newsForm').getForm();
+                    form.setValues(obj.data);
+                    content_editor = CKEDITOR.replace('ckreplace');
+                    content_editor.setData(Value);
+                },
+                failure: function(response, opts){
+                    console.log('server-side failure with status code ' + response.status);
+                }
+            });
+        }
     }
 
 });
