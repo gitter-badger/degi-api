@@ -30,7 +30,7 @@ Ext.define('Target.view.PopularItemGridPanelViewModel', {
             model: 'Target.model.PopularItemModel',
             proxy: {
                 type: 'ajax',
-                url: 'http://dev.finpo.com.tw/degi-api/target-local/public/b/popular_item',
+                url: 'http://git.localhost/degi-api/target-local/public/b/popular_item',
                 reader: {
                     type: 'json',
                     rootProperty: 'rows'

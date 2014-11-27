@@ -60,7 +60,7 @@ class PopularItemController extends AbstractRestfulController
     
     public function options(){
         $response = $this->getResponse();
-        $response->getHeaders()->addHeaderLine('Allow','GET,POST,PUT,DELETE');
+        $response->getHeaders()->addHeaderLine('Allow','GET,PUT,POST,DELETE');
         return $response;
     }   
 }

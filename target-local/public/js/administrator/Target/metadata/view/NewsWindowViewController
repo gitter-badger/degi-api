@@ -1,0 +1,14 @@
+{
+    "type": "Ext.app.ViewController",
+    "reference": {
+        "name": "items",
+        "type": "array"
+    },
+    "codeClass": null,
+    "userConfig": {
+        "designer|userAlias": "newswindow",
+        "designer|userClassName": "NewsWindowViewController"
+    },
+    "name": "ContentWindowViewController1",
+    "designerId": "7d557c69-c355-4f48-87d1-93dfdd096304"
+}

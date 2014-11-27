@@ -35,7 +35,7 @@
                     },
                     "codeClass": null,
                     "userConfig": {
-                        "url": "http://dev.finpo.com.tw/degi-api/target-local/public/b/popular_item"
+                        "url": "http://git.localhost/degi-api/target-local/public/b/popular_item"
                     },
                     "name": "MyAjaxProxy",
                     "designerId": "73a9f367-96d2-4ff6-8c72-66c6645d1ee8",

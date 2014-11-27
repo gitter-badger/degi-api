@@ -51,7 +51,6 @@ Ext.application({
         'ReportGridPanel',
         'ReportWindow',
         'ContentGridPanel',
-        'ContentWindow',
         'OrderGridPanel',
         'LoginWindow',
         'ContactCenterGridPanel',
@@ -66,7 +65,8 @@ Ext.application({
         'SystemVariableWindow',
         'popularwindow',
         'OrderWindow',
-        'GroupOrderWindow'
+        'GroupOrderWindow',
+        'NewsWindow'
     ],
     name: 'Target',
 

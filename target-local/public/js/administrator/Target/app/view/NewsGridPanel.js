@@ -19,13 +19,11 @@ Ext.define('Target.view.NewsGridPanel', {
 
     requires: [
         'Target.view.NewsGridPanelViewModel',
-        'Ext.toolbar.Toolbar',
         'Ext.button.Button',
-        'Ext.menu.Menu',
-        'Ext.menu.Item',
         'Ext.grid.View',
         'Ext.grid.column.Column',
-        'Ext.selection.CheckboxModel'
+        'Ext.selection.CheckboxModel',
+        'Ext.toolbar.Paging'
     ],
 
     viewModel: {
@@ -33,6 +31,7 @@ Ext.define('Target.view.NewsGridPanel', {
     },
     id: 'newsgridpanel',
     title: 'My Grid Panel',
+    defaultListenerScope: true,
 
     bind: {
         store: '{NewsStore}'
@@ -44,29 +43,58 @@ Ext.define('Target.view.NewsGridPanel', {
             items: [
                 {
                     xtype: 'button',
-                    text: '功能',
-                    menu: {
-                        xtype: 'menu',
-                        items: [
-                            {
-                                xtype: 'menuitem',
-                                text: '新增'
-                            },
-                            {
-                                xtype: 'menuitem',
-                                text: '修改'
-                            }
-                        ]
+                    text: '新增',
+                    listeners: {
+                        click: 'onButtonClick'
+                    }
+                },
+                {
+                    xtype: 'button',
+                    text: '修改',
+                    listeners: {
+                        click: 'onButtonClick1'
+                    }
+                },
+                {
+                    xtype: 'button',
+                    text: '刪除',
+                    listeners: {
+                        click: 'onButtonClick2'
                     }
                 }
             ]
+        },
+        {
+            xtype: 'pagingtoolbar',
+            dock: 'bottom',
+            width: 360,
+            displayInfo: true,
+            bind: {
+                store: '{NewsStore}'
+            }
         }
     ],
     columns: [
         {
             xtype: 'gridcolumn',
+            dataIndex: 'nm_id',
+            text: 'ID',
+            flex: 0.5
+        },
+        {
+            xtype: 'gridcolumn',
             dataIndex: 'nm_title',
             text: '標題',
+            flex: 1
+        },
+        {
+            xtype: 'gridcolumn',
+            renderer: function(value, metaData, record, rowIndex, colIndex, store, view) {
+                return (value !=='')?"<img src='images/news_main_cover/"+value+"' width='60px' />":'沒有任何圖片';
+
+            },
+            dataIndex: 'nm_cover',
+            text: '首頁用小圖',
             flex: 1
         },
         {
@@ -80,16 +108,62 @@ Ext.define('Target.view.NewsGridPanel', {
             dataIndex: 'nm_created',
             text: '建立時間',
             flex: 0.8
-        },
-        {
-            xtype: 'gridcolumn',
-            dataIndex: 'nm_modified',
-            text: '最後修改',
-            flex: 0.8
         }
     ],
     selModel: {
         selType: 'checkboxmodel'
+    },
+
+    onButtonClick: function(button, e, eOpts) {
+
+    },
+
+    onButtonClick1: function(button, e, eOpts) {
+         var selmodel = Ext.getCmp('newsgridpanel').getSelectionModel();
+        var count = selmodel.getCount();
+
+        if( count !== 0 ){
+            var seldata = selmodel.getSelection();
+            var window = Ext.create('Target.view.NewsWindow');
+
+            Ext.getCmp('nm_id').setValue(seldata[0].data.nm_id);
+            Ext.getCmp('nm_title').setValue(seldata[0].data.nm_title);
+            window.setConfig('title', '修改最新消息');
+
+            window.show();
+
+        }else{
+            Ext.Msg.alert('訊息', '請選擇一筆最新消息以進行修改。');
+        }
+    },
+
+    onButtonClick2: function(button, e, eOpts) {
+        var selmodel = Ext.getCmp('newsgridpanel').getSelectionModel();
+        var count = selmodel.getCount();
+        if(count !== 0){
+            Ext.MessageBox.confirm('Confirm', 'Are you sure to delete the data?', function(btn){
+                if (btn == 'yes') {
+                    var seldata = selmodel.getSelection();
+                    var nId = seldata[0].data.nm_id;
+
+                    Ext.Ajax.request({
+                        method: 'DELETE',
+                        url:'http://dev.finpo.com.tw/degi-api/target-local/public/b/news/'+nId,
+
+                        success: function(response, options){
+                            var store  = Ext.getCmp('newsgridpanel').getViewModel().getStore('NewsStore');
+                            store.proxy.url='http://dev.finpo.com.tw/degi-api/target-local/public/b/news';
+                            store.load();
+
+                            Ext.Msg.alert('訊息','最新消息刪除成功');
+                        }
+                    });
+                }
+            });
+         }else{
+            Ext.Msg.alert('訊息', '請選擇一個最新消息刪除');
+        }
+
     }
 
 });

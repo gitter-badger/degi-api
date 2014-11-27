@@ -64,22 +64,44 @@ class Order{
 		}
 	}
 	public function get($om_id,$query){//id:om_id,query{access_token}
-		$access_token = $query['access_token'];
-		$member = new Member();
-		if( !$member->InternalCheckLogin($access_token) ){
-			return array('success'=>false , 'msg'=> '未通過登入認證，請重新登入!' );
+		if( !empty($query['access_token'])){
+			$access_token = $query['access_token'];
+			$member = new Member();
+			$mm_id = $member->InternalCheckLogin($access_token);
+			if( !$mm_id ){
+				return array('success'=>false , 'msg'=> '未通過登入認證，請重新登入!' );
+			}
+			try {
+				$select = $this->db->getSql()->select();
+				$select->where('om_id='.(int)$om_id);
+				$select->where('mm_id='.(int)$mm_id);
+				$result_row = $this->db->selectWith($select)->toArray();
+				if(!count($result_row)){
+					return array('success'=>false , 'msg'=> '此登入帳號不具此訂單權限' );
+				}else{
+					$result['success'] = true ;
+					$result['rows'] = $result_row;
+					return $result;
+				}
+			}catch (\Exception $e){
+				return array('success'=>false , 'msg'=> $e->getMessage() );
+			}
+		}else{
+			try {
+				$select = $this->db->getSql()->select();
+				$select->where('om_id='.(int)$om_id);
+				$result_row = $this->db->selectWith($select)->toArray();
+				if($result_row[0]['mm_id']!='0'){
+					return array('success'=>false , 'msg'=> '不具此訂單權限' );
+				}else{
+					$result['success'] = true ;
+					$result['rows'] = $result_row;
+					return $result;
+				}
+			}catch (\Exception $e){
+				return array('success'=>false , 'msg'=> $e->getMessage() );
+			}
 		}
-		try {
-   			$select = $this->db->getSql()->select();
-        	$select->where('om_id='.(int)$om_id);
-        	$result_row = $this->db->selectWith($select)->toArray();  
-        	$result['success'] = true ;
-   			$result['rows'] = $result_row;
-   			
-   			return $result;
-        }catch (\Exception $e){
-            return array('success'=>false , 'msg'=> $e->getMessage() );
-        }
 	}
 	public function selectAll($query){//query{mm_id,access_token}
 		

@@ -37,12 +37,12 @@ CKEDITOR.editorConfig = function( config ) {
 	
 	config.baseFloatZIndex = 999999999;
 	config.ckfinder = true;
-	config.filebrowserBrowseUrl = 'http://admin.localhost/ckfinder/ckfinder.html';
-	config.filebrowserImageBrowseUrl = 'http://admin.localhost/ckfinder/ckfinder.html?Type=Images';
-	config.filebrowserFlashBrowseUrl = 'http://admin.localhost/ckfinder/ckfinder.html?Type=Flash';
-	config.filebrowserUploadUrl = 'http://admin.localhost/ckfinder/core/connector/php/connector.php?command=QuickUpload&type=Files'; 
-	config.filebrowserImageUploadUrl = 'http://admin.localhost/ckfinder/core/connector/php/connector.php?command=QuickUpload&type=Images';
-	config.filebrowserFlashUploadUrl = 'http://admin.localhost/ckfinder/core/connector/php/connector.php?command=QuickUpload&type=Flash';
+	config.filebrowserBrowseUrl = 'http://git.localhost/degi-api/target-local/public/js/administrator/Target/ckfinder/ckfinder.html';
+	config.filebrowserImageBrowseUrl = 'http://git.localhost/degi-api/target-local/public/js/administrator/Target/ckfinder/ckfinder.html?Type=Images';
+	config.filebrowserFlashBrowseUrl = 'http://git.localhost/degi-api/target-local/public/js/administrator/Target/ckfinder/ckfinder.html?Type=Flash';
+	config.filebrowserUploadUrl = 'http://git.localhost/degi-api/target-local/public/js/administrator/Target/ckfinder/core/connector/php/connector.php?command=QuickUpload&type=Files'; 
+	config.filebrowserImageUploadUrl = 'http://git.localhost/degi-api/target-local/public/js/administrator/Target/ckfinder/core/connector/php/connector.php?command=QuickUpload&type=Images';
+	config.filebrowserFlashUploadUrl = 'http://git.localhost/degi-api/target-local/public/js/administrator/Target/ckfinder/core/connector/php/connector.php?command=QuickUpload&type=Flash';
 	config.extraPlugins = 'font,colorbutton';
 	config.allowedContent = true;
 };

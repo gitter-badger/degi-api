@@ -19,12 +19,12 @@ Ext.define('Target.view.popularwindow', {
 
     requires: [
         'Target.view.PopularWindowViewModel',
-        'Ext.form.field.Hidden',
         'Ext.form.Panel',
         'Ext.form.field.ComboBox',
         'Ext.form.field.File',
         'Ext.form.field.TextArea',
         'Ext.form.field.Number',
+        'Ext.form.field.Hidden',
         'Ext.toolbar.Toolbar',
         'Ext.button.Button'
     ],
@@ -39,11 +39,6 @@ Ext.define('Target.view.popularwindow', {
     defaultListenerScope: true,
 
     items: [
-        {
-            xtype: 'hiddenfield',
-            id: 'pi_id',
-            name: 'pi_id'
-        },
         {
             xtype: 'form',
             height: 240,
@@ -117,6 +112,11 @@ Ext.define('Target.view.popularwindow', {
                     name: 'pi_seq',
                     allowBlank: false,
                     minValue: 1
+                },
+                {
+                    xtype: 'hiddenfield',
+                    id: 'pi_id',
+                    name: 'pi_id'
                 }
             ]
         }
@@ -187,31 +187,23 @@ Ext.define('Target.view.popularwindow', {
 
     onPopularUpdateBtnClick: function(button, e, eOpts) {
         var form = Ext.getCmp('popularitemForm').getForm();
-        var Id = Ext.getCmp('pi_id').getValue();
 
         if(form.isValid()){
             form.submit({
-                method: 'PUT',
+                method: 'POST',
                 waitTitle:'訊息',
                 waitMsg:'修改資料中',
-                url:'http://dev.finpo.com.tw/degi-api/target-local/public/b/popular_item/'+Id,
-
-        //         params: {
-        //             pi_type: form.findField('pi_type').getValue(),
-        //             im_id: form.findField('im_id').getValue(),
-        //             pi_image: form.findField('pi_image').getValue(),
-        //             pi_title: form.findField('pi_title').getValue(),
-        //             pi_description: form.findField('pi_description').getValue(),
-        //             pi_seq: form.findField('pi_seq').getValue()
-        //         },
+                url:'http://git.localhost/degi-api/target-local/public/b/popular_item',
                 success: function(form,action){
                    var store  = Ext.getCmp('popularitemgridpanel').getViewModel().getStore('PopularItemStore');
-                    store.proxy.url='http://dev.finpo.com.tw/degi-api/target-local/public/b/popular_item';
+                    store.proxy.url='http://git.localhost/degi-api/target-local/public/b/popular_item';
                     store.load();
-                    var window = Ext.getCmp('popularwindow');
-                    window.close();
-                    form.reset();
-                    Ext.Msg.alert('訊息','熱銷商品修改成功');
+                    //form.reset();
+
+                    Ext.Msg.alert('訊息','熱銷商品修改成功', function(){
+                        var window = Ext.getCmp('popularwindow');
+                        window.close();
+                    });
                 },
                 failure:function(form,action){
                     data = Ext.decode(action.response.responseText);

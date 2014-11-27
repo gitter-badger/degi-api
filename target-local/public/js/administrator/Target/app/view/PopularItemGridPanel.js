@@ -53,6 +53,13 @@ Ext.define('Target.view.PopularItemGridPanel', {
                     listeners: {
                         click: 'onButtonClick1'
                     }
+                },
+                {
+                    xtype: 'button',
+                    text: '刪除',
+                    listeners: {
+                        click: 'onButtonClick11'
+                    }
                 }
             ]
         },
@@ -157,6 +164,35 @@ Ext.define('Target.view.PopularItemGridPanel', {
         }else{
             Ext.Msg.alert('訊息', '請選擇一個熱銷商品修改');
         }
+    },
+
+    onButtonClick11: function(button, e, eOpts) {
+        var selmodel = Ext.getCmp('popularitemgridpanel').getSelectionModel();
+        var count = selmodel.getCount();
+        if(count !== 0){
+            Ext.MessageBox.confirm('Confirm', 'Are you sure to delete the data?', function(btn){
+                if (btn == 'yes') {
+                    var seldata = selmodel.getSelection();
+                    var pId = seldata[0].data.pi_id;
+
+                    Ext.Ajax.request({
+                        method: 'DELETE',
+                        url:'http://git.localhost/degi-api/target-local/public/b/popular_item/'+pId,
+
+                        success: function(response, options){
+                            var store  = Ext.getCmp('popularitemgridpanel').getViewModel().getStore('PopularItemStore');
+                            store.proxy.url='http://git.localhost/degi-api/target-local/public/b/popular_item';
+                            store.load();
+
+                            Ext.Msg.alert('訊息','熱銷商品刪除成功');
+                        }
+                    });
+                }
+            });
+         }else{
+            Ext.Msg.alert('訊息', '請選擇一個熱銷商品刪除');
+        }
+
     }
 
 });

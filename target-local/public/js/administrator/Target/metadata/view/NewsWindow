@@ -1,0 +1,208 @@
+{
+    "type": "Ext.window.Window",
+    "reference": {
+        "name": "items",
+        "type": "array"
+    },
+    "codeClass": null,
+    "userConfig": {
+        "designer|userAlias": "newswindow",
+        "designer|userClassName": "NewsWindow",
+        "height": 420,
+        "id": "newswindow",
+        "layout": "fit",
+        "modal": true,
+        "title": null,
+        "width": 720,
+        "x": null,
+        "y": 150
+    },
+    "name": "ContentWindow1",
+    "designerId": "86cc71b6-38b2-434f-9c0b-3a2345ff8387",
+    "viewControllerInstanceId": "7d557c69-c355-4f48-87d1-93dfdd096304",
+    "viewModelInstanceId": "34b5438e-d85b-4876-8276-9887949cf6ae",
+    "cn": [
+        {
+            "type": "Ext.form.field.Hidden",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "fieldLabel": "Label",
+                "id": "nm_id",
+                "name": "nm_id"
+            },
+            "name": "MyHiddenField",
+            "designerId": "25206bc6-ab31-40c1-b513-91c9a5e72b46"
+        },
+        {
+            "type": "Ext.form.Panel",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "bodyPadding": 10,
+                "id": "newsForm",
+                "title": null
+            },
+            "name": "MyForm",
+            "designerId": "2e698f65-d27c-464d-9751-25721905cdf9",
+            "cn": [
+                {
+                    "type": "Ext.form.field.Text",
+                    "reference": {
+                        "name": "items",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "fieldLabel": "標題",
+                        "id": "nm_title",
+                        "layout|anchor": "100%",
+                        "name": "nm_title"
+                    },
+                    "name": "MyTextField1",
+                    "designerId": "544a1f51-2904-4c80-9db5-60579467f757"
+                },
+                {
+                    "type": "Ext.form.field.TextArea",
+                    "reference": {
+                        "name": "items",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "border": null,
+                        "fieldLabel": null,
+                        "formBind": false,
+                        "height": null,
+                        "id": "ckreplace",
+                        "layout|anchor": "98%",
+                        "name": "nm_body",
+                        "width": null
+                    },
+                    "name": "MyTextArea3",
+                    "designerId": "2eacdab1-73d0-40b2-8851-5a0b6c0e4d33"
+                },
+                {
+                    "type": "Ext.toolbar.Toolbar",
+                    "reference": {
+                        "name": "dockedItems",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "container|pack": "end",
+                        "dock": "bottom"
+                    },
+                    "name": "MyToolbar1",
+                    "designerId": "b4bb644a-2932-491d-a2fd-43e23058833a",
+                    "cn": [
+                        {
+                            "type": "Ext.button.Button",
+                            "reference": {
+                                "name": "items",
+                                "type": "array"
+                            },
+                            "codeClass": null,
+                            "userConfig": {
+                                "layout|flex": null,
+                                "text": "修改"
+                            },
+                            "name": "MyButton6",
+                            "designerId": "889e22f8-8509-4556-87bf-4f7c2bf31f6d",
+                            "cn": [
+                                {
+                                    "type": "basiceventbinding",
+                                    "reference": {
+                                        "name": "listeners",
+                                        "type": "array"
+                                    },
+                                    "codeClass": null,
+                                    "userConfig": {
+                                        "fn": "onButtonClick",
+                                        "implHandler": [
+                                            "var Id = Ext.getCmp('nm_id').getValue();",
+                                            "var form = Ext.getCmp('newsForm').getForm();",
+                                            "if(form.isValid()){",
+                                            "    form.findField('nm_body').setValue(content_editor.getData());    ",
+                                            "    form.submit({",
+                                            "        method: 'PUT',",
+                                            "        waitTitle:'訊息',",
+                                            "        waitMsg:'修改資料中',",
+                                            "        url:'http://dev.finpo.com.tw/degi-api/target-local/public/b/news/'+Id,",
+                                            "",
+                                            "        success:function(form,action){",
+                                            "",
+                                            "            var store  = Ext.getCmp('newsgridpanel').getViewModel().getStore('NewsStore');",
+                                            "            store.proxy.url='http://dev.finpo.com.tw/degi-api/target-local/public/b/news';",
+                                            "            store.load();",
+                                            "",
+                                            "            form.reset();",
+                                            "            Ext.Msg.alert('訊息','最新消息修改成功', function(){",
+                                            "                var window = Ext.getCmp('newswindow');",
+                                            "                window.close();",
+                                            "            });",
+                                            "",
+                                            "        },",
+                                            "        failure:function(form,action){",
+                                            "",
+                                            "           Ext.Msg.alert('訊息','最新消息修改失敗');",
+                                            "",
+                                            "        }",
+                                            "",
+                                            "    });",
+                                            "}"
+                                        ],
+                                        "name": "click",
+                                        "scope": "me"
+                                    },
+                                    "name": "onButtonClick",
+                                    "designerId": "7531dbb5-6736-49f6-8602-a62e416e51ed"
+                                }
+                            ]
+                        }
+                    ]
+                },
+                {
+                    "type": "basiceventbinding",
+                    "reference": {
+                        "name": "listeners",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "fn": "onContentFormAfterRender",
+                        "implHandler": [
+                            "var nId = Ext.getCmp('nm_id').getValue();",
+                            "",
+                            "Ext.Ajax.request({",
+                            "    url: 'http://dev.finpo.com.tw/degi-api/target-local/public/b/news/'+nId,",
+                            "    success: function(response, opts){",
+                            "        var obj = Ext.JSON.decode(response.responseText);",
+                            "        Value = obj.data.nm_body;",
+                            "        //console.log(Value);",
+                            "        var form = Ext.getCmp('newsForm').getForm();",
+                            "        form.setValues(obj.data);",
+                            "        content_editor = CKEDITOR.replace('ckreplace');",
+                            "        content_editor.setData(Value);",
+                            "    },",
+                            "    failure: function(response, opts){",
+                            "        console.log('server-side failure with status code ' + response.status);",
+                            "    }",
+                            "});"
+                        ],
+                        "name": "afterrender",
+                        "scope": "me"
+                    },
+                    "name": "onContentFormAfterRender",
+                    "designerId": "e3513be8-6c48-4b50-af9d-57967c385da4"
+                }
+            ]
+        }
+    ]
+}

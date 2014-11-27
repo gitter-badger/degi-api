@@ -32,6 +32,19 @@
             },
             "codeClass": null,
             "userConfig": {
+                "name": "nm_cover"
+            },
+            "name": "MyField41",
+            "designerId": "d0552a5b-f759-4efe-bbfd-73ff7ba581b0"
+        },
+        {
+            "type": "Ext.data.field.Field",
+            "reference": {
+                "name": "fields",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
                 "name": "nm_title"
             },
             "name": "MyField1",

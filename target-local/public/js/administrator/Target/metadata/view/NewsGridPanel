@@ -46,48 +46,133 @@
                     "codeClass": null,
                     "userConfig": {
                         "layout|flex": null,
-                        "text": "功能"
+                        "text": "新增"
                     },
-                    "name": "MyButton14",
-                    "designerId": "364782fc-13e2-4ea8-be72-059a95f7bfdc",
+                    "name": "MyButton5",
+                    "designerId": "c3702cdc-f842-4e07-8f88-a2c21f41051e",
                     "cn": [
                         {
-                            "type": "Ext.menu.Menu",
+                            "type": "basiceventbinding",
                             "reference": {
-                                "name": "menu",
-                                "type": "object"
+                                "name": "listeners",
+                                "type": "array"
                             },
                             "codeClass": null,
-                            "name": "MyMenu2",
-                            "designerId": "88fccbb5-9643-46cb-86ee-b073cb2f956c",
-                            "cn": [
-                                {
-                                    "type": "Ext.menu.Item",
-                                    "reference": {
-                                        "name": "items",
-                                        "type": "array"
-                                    },
-                                    "codeClass": null,
-                                    "userConfig": {
-                                        "text": "新增"
-                                    },
-                                    "name": "MyMenuItem6",
-                                    "designerId": "c647ecd0-65f1-4492-b643-0750a6926700"
-                                },
-                                {
-                                    "type": "Ext.menu.Item",
-                                    "reference": {
-                                        "name": "items",
-                                        "type": "array"
-                                    },
-                                    "codeClass": null,
-                                    "userConfig": {
-                                        "text": "修改"
-                                    },
-                                    "name": "MyMenuItem7",
-                                    "designerId": "94f85a27-504d-425b-bb5f-9051f3448d17"
-                                }
-                            ]
+                            "userConfig": {
+                                "fn": "onButtonClick",
+                                "name": "click",
+                                "scope": "me"
+                            },
+                            "name": "onButtonClick",
+                            "designerId": "6ba83e8d-46de-4a60-8f16-7bbe492b0721"
+                        }
+                    ]
+                },
+                {
+                    "type": "Ext.button.Button",
+                    "reference": {
+                        "name": "items",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "layout|flex": null,
+                        "text": "修改"
+                    },
+                    "name": "MyButton7",
+                    "designerId": "075bf610-3f6a-4fc5-81ee-97b6193f8b7a",
+                    "cn": [
+                        {
+                            "type": "basiceventbinding",
+                            "reference": {
+                                "name": "listeners",
+                                "type": "array"
+                            },
+                            "codeClass": null,
+                            "userConfig": {
+                                "fn": "onButtonClick1",
+                                "implHandler": [
+                                    " var selmodel = Ext.getCmp('newsgridpanel').getSelectionModel();",
+                                    "var count = selmodel.getCount();",
+                                    "",
+                                    "if( count !== 0 ){",
+                                    "    var seldata = selmodel.getSelection();",
+                                    "    var window = Ext.create('Target.view.NewsWindow');",
+                                    "",
+                                    "    Ext.getCmp('nm_id').setValue(seldata[0].data.nm_id);",
+                                    "    Ext.getCmp('nm_title').setValue(seldata[0].data.nm_title);",
+                                    "    window.setConfig('title', '修改最新消息');",
+                                    "",
+                                    "    window.show();",
+                                    "",
+                                    "}else{",
+                                    "    Ext.Msg.alert('訊息', '請選擇一筆最新消息以進行修改。');",
+                                    "}"
+                                ],
+                                "name": "click",
+                                "scope": "me"
+                            },
+                            "name": "onButtonClick1",
+                            "designerId": "68a3a88b-9681-4520-b3aa-e13ea045ae05"
+                        }
+                    ]
+                },
+                {
+                    "type": "Ext.button.Button",
+                    "reference": {
+                        "name": "items",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "layout|flex": null,
+                        "text": "刪除"
+                    },
+                    "name": "MyButton8",
+                    "designerId": "44393e3f-f2c7-4208-935f-723b24a1f9a2",
+                    "cn": [
+                        {
+                            "type": "basiceventbinding",
+                            "reference": {
+                                "name": "listeners",
+                                "type": "array"
+                            },
+                            "codeClass": null,
+                            "userConfig": {
+                                "fn": "onButtonClick2",
+                                "implHandler": [
+                                    "var selmodel = Ext.getCmp('newsgridpanel').getSelectionModel();",
+                                    "var count = selmodel.getCount();",
+                                    "if(count !== 0){",
+                                    "    Ext.MessageBox.confirm('Confirm', 'Are you sure to delete the data?', function(btn){",
+                                    "        if (btn == 'yes') {",
+                                    "            var seldata = selmodel.getSelection();",
+                                    "            var nId = seldata[0].data.nm_id;",
+                                    "",
+                                    "            Ext.Ajax.request({",
+                                    "                method: 'DELETE',",
+                                    "                url:'http://dev.finpo.com.tw/degi-api/target-local/public/b/news/'+nId,",
+                                    "",
+                                    "                success: function(response, options){",
+                                    "                    var store  = Ext.getCmp('newsgridpanel').getViewModel().getStore('NewsStore');",
+                                    "                    store.proxy.url='http://dev.finpo.com.tw/degi-api/target-local/public/b/news';",
+                                    "                    store.load();",
+                                    "",
+                                    "                    Ext.Msg.alert('訊息','最新消息刪除成功');",
+                                    "                }",
+                                    "            });",
+                                    "        }",
+                                    "    });",
+                                    " }else{",
+                                    "    Ext.Msg.alert('訊息', '請選擇一個最新消息刪除');",
+                                    "}",
+                                    ""
+                                ],
+                                "name": "click",
+                                "scope": "me"
+                            },
+                            "name": "onButtonClick2",
+                            "designerId": "15e477be-963c-4f15-8f40-26df6a6a4382"
                         }
                     ]
                 }
@@ -111,12 +196,70 @@
             },
             "codeClass": null,
             "userConfig": {
+                "dataIndex": "nm_id",
+                "flex": 0.5,
+                "text": "ID"
+            },
+            "name": "MyColumn2",
+            "designerId": "d8c81331-719c-4922-b5d5-4e648c7cce6b"
+        },
+        {
+            "type": "Ext.grid.column.Column",
+            "reference": {
+                "name": "columns",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
                 "dataIndex": "nm_title",
                 "flex": 1,
                 "text": "標題"
             },
-            "name": "MyColumn2",
-            "designerId": "d8c81331-719c-4922-b5d5-4e648c7cce6b"
+            "name": "MyColumn10",
+            "designerId": "489335ae-9e95-40ef-abdb-bf6879b6011f"
+        },
+        {
+            "type": "Ext.grid.column.Column",
+            "reference": {
+                "name": "columns",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "dataIndex": "nm_cover",
+                "flex": 1,
+                "text": "首頁用小圖"
+            },
+            "name": "MyColumn11",
+            "designerId": "32b607ce-03d4-4b68-8727-b85c3cf80ed5",
+            "cn": [
+                {
+                    "type": "fixedfunction",
+                    "reference": {
+                        "name": "items",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "designer|params": [
+                            "value",
+                            "metaData",
+                            "record",
+                            "rowIndex",
+                            "colIndex",
+                            "store",
+                            "view"
+                        ],
+                        "fn": "renderer",
+                        "implHandler": [
+                            "return (value !=='')?\"<img src='images/news_main_cover/\"+value+\"' width='60px' />\":'沒有任何圖片';",
+                            ""
+                        ]
+                    },
+                    "name": "renderer",
+                    "designerId": "6234f583-e667-4b12-a5cd-b5e42dafb938"
+                }
+            ]
         },
         {
             "type": "Ext.grid.column.Column",
@@ -149,21 +292,6 @@
             "designerId": "8a23d5c3-c9b4-4037-86a3-50023e3eefcb"
         },
         {
-            "type": "Ext.grid.column.Column",
-            "reference": {
-                "name": "columns",
-                "type": "array"
-            },
-            "codeClass": null,
-            "userConfig": {
-                "dataIndex": "nm_modified",
-                "flex": 0.8,
-                "text": "最後修改"
-            },
-            "name": "MyColumn7",
-            "designerId": "e750c6ce-6fc1-40bc-a946-c71597d98f3b"
-        },
-        {
             "type": "Ext.selection.CheckboxModel",
             "reference": {
                 "name": "selModel",
@@ -172,6 +300,27 @@
             "codeClass": null,
             "name": "MyCheckboxSelectionModel2",
             "designerId": "79738c25-14df-45bb-a02d-c71f67116a86"
+        },
+        {
+            "type": "Ext.toolbar.Paging",
+            "reference": {
+                "name": "dockedItems",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "displayInfo": true,
+                "dock": "bottom",
+                "store": [
+                    "{NewsStore}"
+                ],
+                "width": 360
+            },
+            "name": "MyPagingToolbar1",
+            "configAlternates": {
+                "store": "binding"
+            },
+            "designerId": "efb18dd4-3556-4976-a1d5-3117fa2407b3"
         }
     ]
 }

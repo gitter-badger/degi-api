@@ -134,6 +134,65 @@
                             "designerId": "de42d0cc-c0b1-4813-a637-a4026e3101e1"
                         }
                     ]
+                },
+                {
+                    "type": "Ext.button.Button",
+                    "reference": {
+                        "name": "items",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "layout|flex": null,
+                        "text": "刪除"
+                    },
+                    "name": "MyButton1",
+                    "designerId": "85e44dc7-06c0-465e-a610-52182b6823d5",
+                    "cn": [
+                        {
+                            "type": "basiceventbinding",
+                            "reference": {
+                                "name": "listeners",
+                                "type": "array"
+                            },
+                            "codeClass": null,
+                            "userConfig": {
+                                "fn": "onButtonClick11",
+                                "implHandler": [
+                                    "var selmodel = Ext.getCmp('popularitemgridpanel').getSelectionModel();",
+                                    "var count = selmodel.getCount();",
+                                    "if(count !== 0){",
+                                    "    Ext.MessageBox.confirm('Confirm', 'Are you sure to delete the data?', function(btn){",
+                                    "        if (btn == 'yes') {",
+                                    "            var seldata = selmodel.getSelection();",
+                                    "            var pId = seldata[0].data.pi_id;",
+                                    "",
+                                    "            Ext.Ajax.request({",
+                                    "                method: 'DELETE',",
+                                    "                url:'http://git.localhost/degi-api/target-local/public/b/popular_item/'+pId,",
+                                    "",
+                                    "                success: function(response, options){",
+                                    "                    var store  = Ext.getCmp('popularitemgridpanel').getViewModel().getStore('PopularItemStore');",
+                                    "                    store.proxy.url='http://git.localhost/degi-api/target-local/public/b/popular_item';",
+                                    "                    store.load();",
+                                    "",
+                                    "                    Ext.Msg.alert('訊息','熱銷商品刪除成功');",
+                                    "                }",
+                                    "            });",
+                                    "        }",
+                                    "    });",
+                                    " }else{",
+                                    "    Ext.Msg.alert('訊息', '請選擇一個熱銷商品刪除');",
+                                    "}",
+                                    ""
+                                ],
+                                "name": "click",
+                                "scope": "me"
+                            },
+                            "name": "onButtonClick11",
+                            "designerId": "402e486b-4940-4044-82b1-db4c5eaf9470"
+                        }
+                    ]
                 }
             ]
         },

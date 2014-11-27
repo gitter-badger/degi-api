@@ -38,7 +38,6 @@
             "ReportGridPanel",
             "ReportWindow",
             "ContentGridPanel",
-            "ContentWindow",
             "OrderGridPanel",
             "LoginWindow",
             "ContactCenterGridPanel",
@@ -53,7 +52,8 @@
             "SystemVariableWindow",
             "popularwindow",
             "OrderWindow",
-            "GroupOrderWindow"
+            "GroupOrderWindow",
+            "NewsWindow"
         ]
     },
     "name": "Application",

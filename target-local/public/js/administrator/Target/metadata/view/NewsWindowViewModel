@@ -1,0 +1,14 @@
+{
+    "type": "Ext.app.ViewModel",
+    "reference": {
+        "name": "items",
+        "type": "array"
+    },
+    "codeClass": null,
+    "userConfig": {
+        "designer|userAlias": "newswindow",
+        "designer|userClassName": "NewsWindowViewModel"
+    },
+    "name": "ContentWindowViewModel1",
+    "designerId": "34b5438e-d85b-4876-8276-9887949cf6ae"
+}

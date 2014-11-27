@@ -25,6 +25,9 @@ Ext.define('Target.model.NewsModel', {
             name: 'nm_id'
         },
         {
+            name: 'nm_cover'
+        },
+        {
             name: 'nm_title'
         },
         {

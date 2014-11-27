@@ -139,7 +139,7 @@ class Member{
 	public function InternalCheckLogin($AccessToken){
 		$rs = $this->db->select(array('mm_token'=>$AccessToken))->current();
 		if( $rs && !empty($rs->mm_token) && TokenHash::ExpiresIn($rs->mm_token, 3600) ){
-			return 1;
+			return $rs->mm_id;
 		}else{
 			return 0;
 		}
