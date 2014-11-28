@@ -193,10 +193,10 @@ Ext.define('Target.view.popularwindow', {
                 method: 'POST',
                 waitTitle:'訊息',
                 waitMsg:'修改資料中',
-                url:'http://git.localhost/degi-api/target-local/public/b/popular_item',
+                url:'http://dev.finpo.com.tw/degi-api/target-local/public/b/popular_item',
                 success: function(form,action){
                    var store  = Ext.getCmp('popularitemgridpanel').getViewModel().getStore('PopularItemStore');
-                    store.proxy.url='http://git.localhost/degi-api/target-local/public/b/popular_item';
+                    store.proxy.url='http://dev.finpo.com.tw/degi-api/target-local/public/b/popular_item';
                     store.load();
                     //form.reset();
 

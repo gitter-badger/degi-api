@@ -6,18 +6,18 @@
     },
     "codeClass": null,
     "userConfig": {
-        "designer|userAlias": "popularwindow",
-        "designer|userClassName": "popularwindow",
-        "height": 329,
-        "id": "popularwindow",
+        "designer|userAlias": "foodwindow",
+        "designer|userClassName": "foodwindow",
+        "height": 200,
+        "id": "foodwindow",
         "modal": true,
         "title": null,
-        "width": 568
+        "width": 531
     },
-    "name": "AdminWindow1",
-    "designerId": "ba3ac60a-7c71-438b-97ba-150b0303e774",
-    "viewControllerInstanceId": "8adddfeb-4ec7-4690-981e-0aac1fe88ab5",
-    "viewModelInstanceId": "769d2a76-a061-4762-95de-dc6abfbc83fe",
+    "name": "popularwindow1",
+    "designerId": "5f70e91d-f5cf-43b8-a3c5-0f0d767002ef",
+    "viewControllerInstanceId": "eccb6fb4-19b3-43ea-bb74-af099b11917d",
+    "viewModelInstanceId": "8d702c14-2e06-43ca-9366-b5275fb3bd18",
     "cn": [
         {
             "type": "Ext.form.Panel",
@@ -28,13 +28,13 @@
             "codeClass": null,
             "userConfig": {
                 "bodyPadding": "20 0 0 0 ",
-                "height": 240,
-                "id": "popularitemForm",
+                "height": 134,
+                "id": "foodForm",
                 "title": null,
-                "width": 626
+                "width": 592
             },
             "name": "MyForm",
-            "designerId": "70a37b90-babf-4c5e-ad5b-ca07173212c4",
+            "designerId": "7c14cc6d-a47e-4988-a5e3-01079072d75d",
             "cn": [
                 {
                     "type": "Ext.form.field.Text",
@@ -45,69 +45,14 @@
                     "codeClass": null,
                     "userConfig": {
                         "allowBlank": false,
-                        "fieldLabel": "商品標題",
+                        "fieldLabel": "顯示標題",
                         "labelAlign": "right",
                         "layout|anchor": "80%",
-                        "name": "pi_title",
+                        "name": "fc_name",
                         "width": 356
                     },
                     "name": "MyTextField",
-                    "designerId": "3c7db15f-5faa-4793-bff7-b959d7d28caa"
-                },
-                {
-                    "type": "Ext.form.field.ComboBox",
-                    "reference": {
-                        "name": "items",
-                        "type": "array"
-                    },
-                    "codeClass": null,
-                    "userConfig": {
-                        "allowBlank": false,
-                        "displayField": "im_name",
-                        "editable": false,
-                        "fieldLabel": "商品主資料",
-                        "id": null,
-                        "labelAlign": "right",
-                        "layout|anchor": "80%",
-                        "name": "im_id",
-                        "queryMode": "local",
-                        "store": [
-                            "{ItemMainStore}"
-                        ],
-                        "valueField": "im_id"
-                    },
-                    "name": "MyComboBox",
-                    "configAlternates": {
-                        "store": "binding"
-                    },
-                    "designerId": "c1379cd2-c433-4037-a188-1cf88241f54a"
-                },
-                {
-                    "type": "Ext.form.field.ComboBox",
-                    "reference": {
-                        "name": "items",
-                        "type": "array"
-                    },
-                    "codeClass": null,
-                    "userConfig": {
-                        "allowBlank": false,
-                        "displayField": "pi_name",
-                        "editable": false,
-                        "fieldLabel": "商品類型",
-                        "labelAlign": "right",
-                        "layout|anchor": "80%",
-                        "name": "pi_type",
-                        "queryMode": null,
-                        "store": [
-                            "{PopularStatusStore}"
-                        ],
-                        "valueField": "pi_type"
-                    },
-                    "name": "MyComboBox2",
-                    "configAlternates": {
-                        "store": "binding"
-                    },
-                    "designerId": "6d68a82b-640e-4e5f-952a-93b361a68aa2"
+                    "designerId": "6d6891e3-fbc4-4ad7-bd8b-486c4ae88c4d"
                 },
                 {
                     "type": "Ext.form.field.File",
@@ -119,34 +64,15 @@
                     "userConfig": {
                         "allowBlank": false,
                         "buttonText": "Browse",
-                        "fieldLabel": "商品大圖",
-                        "id": "pi_image",
+                        "fieldLabel": "認證圖檔",
+                        "id": "fc_image",
                         "labelAlign": "right",
                         "layout|anchor": null,
-                        "name": "pi_image",
-                        "width": 498
+                        "name": "fc_image",
+                        "width": 473
                     },
                     "name": "MyFileUpload",
-                    "designerId": "58065d45-28ef-4d0a-a403-6d359b59d3b3"
-                },
-                {
-                    "type": "Ext.form.field.TextArea",
-                    "reference": {
-                        "name": "items",
-                        "type": "array"
-                    },
-                    "codeClass": null,
-                    "userConfig": {
-                        "allowBlank": false,
-                        "fieldLabel": "商品描述",
-                        "height": 62,
-                        "labelAlign": "right",
-                        "layout|anchor": "80%",
-                        "name": "pi_description",
-                        "width": 500
-                    },
-                    "name": "MyTextArea4",
-                    "designerId": "923e16ea-1bce-4a60-88c2-d6931c8e84f4"
+                    "designerId": "e589fae1-96f8-4413-ab80-fa94de42ee31"
                 },
                 {
                     "type": "Ext.form.field.Number",
@@ -157,15 +83,15 @@
                     "codeClass": null,
                     "userConfig": {
                         "allowBlank": false,
-                        "fieldLabel": "商品排序",
+                        "fieldLabel": "顯示排序",
                         "labelAlign": "right",
                         "layout|anchor": "80%",
                         "minValue": 1,
-                        "name": "pi_seq",
+                        "name": "fc_seq",
                         "width": null
                     },
                     "name": "MyNumberField2",
-                    "designerId": "a6650c6b-5b4f-43b0-94d0-05b8cb50df67"
+                    "designerId": "b5194280-0f63-417f-bc64-0fe8c63ccf57"
                 },
                 {
                     "type": "Ext.form.field.Hidden",
@@ -176,11 +102,11 @@
                     "codeClass": null,
                     "userConfig": {
                         "fieldLabel": null,
-                        "id": "pi_id",
-                        "name": "pi_id"
+                        "id": "fc_id",
+                        "name": "fc_id"
                     },
                     "name": "MyHiddenField",
-                    "designerId": "f0dbdd0c-caef-468c-933b-61957c6de4a5"
+                    "designerId": "534d5a69-8161-43b4-a46e-3251c0bb1302"
                 }
             ]
         },
@@ -197,7 +123,7 @@
                 "height": 41
             },
             "name": "MyToolbar1",
-            "designerId": "8a8f40ee-f437-4359-9943-164bbcd67dee",
+            "designerId": "39eb8193-652d-4938-82da-dffe0f550abd",
             "cn": [
                 {
                     "type": "Ext.button.Button",
@@ -207,13 +133,13 @@
                     },
                     "codeClass": null,
                     "userConfig": {
-                        "id": "popularAddBtn",
+                        "id": "foodAddBtn",
                         "layout|flex": null,
                         "text": "新增",
-                        "width": 550
+                        "width": 513
                     },
                     "name": "MyButton2",
-                    "designerId": "d7626657-5207-4a8a-806a-e50219c9da50",
+                    "designerId": "dd426f27-a03a-47da-842b-92194e63e1e9",
                     "cn": [
                         {
                             "type": "basiceventbinding",
@@ -223,26 +149,26 @@
                             },
                             "codeClass": null,
                             "userConfig": {
-                                "fn": "onPopularAddBtnClick",
+                                "fn": "onFoodAddBtnClick",
                                 "implHandler": [
-                                    "var form = Ext.getCmp('popularitemForm').getForm();",
+                                    "var form = Ext.getCmp('foodForm').getForm();",
                                     "",
                                     "if(form.isValid()){",
                                     "    form.submit({",
                                     "        method: 'POST',",
                                     "        waitTitle:'訊息',",
                                     "        waitMsg:'新增資料中',",
-                                    "        url:'http://dev.finpo.com.tw/degi-api/target-local/public/b/popular_item',",
+                                    "        url:'http://dev.finpo.com.tw/degi-api/target-local/public/b/food',",
                                     "",
                                     "        success:function(form,action){",
                                     "",
-                                    "            var store  = Ext.getCmp('popularitemgridpanel').getViewModel().getStore('PopularItemStore');",
-                                    "            store.proxy.url='http://dev.finpo.com.tw/degi-api/target-local/public/b/popular_item';",
+                                    "            var store  = Ext.getCmp('foodgridpanel').getViewModel().getStore('FoodStore');",
+                                    "            store.proxy.url='http://dev.finpo.com.tw/degi-api/target-local/public/b/food';",
                                     "            store.load();",
-                                    "            var window = Ext.getCmp('popularwindow');",
+                                    "            var window = Ext.getCmp('foodwindow');",
                                     "            window.close();",
                                     "            form.reset();",
-                                    "            Ext.Msg.alert('訊息','熱銷商品新增成功');",
+                                    "            Ext.Msg.alert('訊息','食安認證新增成功');",
                                     "",
                                     "        },",
                                     "        failure:function(form,action){",
@@ -258,8 +184,8 @@
                                 "name": "click",
                                 "scope": "me"
                             },
-                            "name": "onPopularAddBtnClick",
-                            "designerId": "90758e07-ca09-4767-bf00-5ef5ac8a695d"
+                            "name": "onFoodAddBtnClick",
+                            "designerId": "c59b1500-28fe-4ff4-a313-d31b78b2e79f"
                         }
                     ]
                 },
@@ -271,13 +197,13 @@
                     },
                     "codeClass": null,
                     "userConfig": {
-                        "id": "popularUpdateBtn",
+                        "id": "foodUpdateBtn",
                         "layout|flex": null,
                         "text": "修改",
-                        "width": 550
+                        "width": 513
                     },
                     "name": "MyButton3",
-                    "designerId": "641f2db2-ef4d-43ff-8a62-bba389315053",
+                    "designerId": "0dbba252-efc1-4a51-8379-9df0f614f016",
                     "cn": [
                         {
                             "type": "basiceventbinding",
@@ -287,24 +213,24 @@
                             },
                             "codeClass": null,
                             "userConfig": {
-                                "fn": "onPopularUpdateBtnClick",
+                                "fn": "onFoodUpdateBtnClick",
                                 "implHandler": [
-                                    "var form = Ext.getCmp('popularitemForm').getForm();",
+                                    "var form = Ext.getCmp('foodForm').getForm();",
                                     "",
                                     "if(form.isValid()){",
                                     "    form.submit({",
                                     "        method: 'POST',",
                                     "        waitTitle:'訊息',",
                                     "        waitMsg:'修改資料中',",
-                                    "        url:'http://dev.finpo.com.tw/degi-api/target-local/public/b/popular_item',",
+                                    "        url:'http://dev.finpo.com.tw/degi-api/target-local/public/b/food',",
                                     "        success: function(form,action){",
-                                    "           var store  = Ext.getCmp('popularitemgridpanel').getViewModel().getStore('PopularItemStore');",
-                                    "            store.proxy.url='http://dev.finpo.com.tw/degi-api/target-local/public/b/popular_item';",
+                                    "           var store  = Ext.getCmp('foodgridpanel').getViewModel().getStore('FoodStore');",
+                                    "            store.proxy.url='http://dev.finpo.com.tw/degi-api/target-local/public/b/food';",
                                     "            store.load();",
                                     "            //form.reset();",
                                     "",
-                                    "            Ext.Msg.alert('訊息','熱銷商品修改成功', function(){",
-                                    "                var window = Ext.getCmp('popularwindow');",
+                                    "            Ext.Msg.alert('訊息','食安認證修改成功', function(){",
+                                    "                var window = Ext.getCmp('foodwindow');",
                                     "                window.close();",
                                     "            });",
                                     "        },",
@@ -321,8 +247,8 @@
                                 "name": "click",
                                 "scope": "me"
                             },
-                            "name": "onPopularUpdateBtnClick",
-                            "designerId": "8f7a3dec-2a9d-41ae-8ca5-e013ab50682f"
+                            "name": "onFoodUpdateBtnClick",
+                            "designerId": "b790e0ad-6a17-403b-8be6-39200b336323"
                         }
                     ]
                 }

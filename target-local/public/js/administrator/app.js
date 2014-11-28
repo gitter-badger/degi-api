@@ -21,7 +21,7 @@ Ext.Loader.setConfig({
 
 Ext.application({
     appFolder: 'js/administrator/Target/app',    
-    models: [
+        models: [
         'AdminModel',
         'MemberModel',
         'ProductModel',
@@ -35,7 +35,8 @@ Ext.application({
         'PopularItemModel',
         'SystemVariableModel',
         'ItemMainModel',
-        'PopularStatusModel'
+        'PopularStatusModel',
+        'FoodModel'
     ],
     stores: [
         'SubOrderArrayStore',
@@ -67,7 +68,9 @@ Ext.application({
         'popularwindow',
         'OrderWindow',
         'GroupOrderWindow',
-        'NewsWindow'
+        'NewsWindow',
+        'FoodGridPanel',
+        'foodwindow'
     ],
     name: 'Target',
 

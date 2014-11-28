@@ -6,10 +6,11 @@
     },
     "codeClass": null,
     "userConfig": {
-        "designer|userAlias": "popularitemgridpanel",
-        "designer|userClassName": "PopularItemGridPanelViewModel"
+        "designer|userAlias": "foodgridpanel",
+        "designer|userClassName": "FoodGridPanelViewModel"
     },
-    "designerId": "bb03d369-247d-4c1c-8000-e4f31e7936dd",
+    "name": "PopularItemGridPanelViewModel1",
+    "designerId": "ebf396cb-f5e9-423d-a0bc-8918c1b149af",
     "cn": [
         {
             "type": "jsonstore",
@@ -21,11 +22,11 @@
             "userConfig": {
                 "autoLoad": true,
                 "autoSync": true,
-                "model": "PopularItemModel",
-                "name": "PopularItemStore"
+                "model": "FoodModel",
+                "name": "FoodStore"
             },
             "name": "MyJsonStore",
-            "designerId": "dce2e9f5-6a00-4555-b11b-dbba8c029a2a",
+            "designerId": "4cf2a27e-8300-411b-999a-9fc15d487581",
             "cn": [
                 {
                     "type": "Ext.data.proxy.Ajax",
@@ -35,10 +36,10 @@
                     },
                     "codeClass": null,
                     "userConfig": {
-                        "url": "http://dev.finpo.com.tw/degi-api/target-local/public/b/popular_item"
+                        "url": "http://dev.finpo.com.tw/degi-api/target-local/public/b/food"
                     },
                     "name": "MyAjaxProxy",
-                    "designerId": "73a9f367-96d2-4ff6-8c72-66c6645d1ee8",
+                    "designerId": "a234568b-6fa3-4022-a8e6-588ffcf476a1",
                     "cn": [
                         {
                             "type": "Ext.data.reader.Json",
@@ -51,7 +52,7 @@
                                 "rootProperty": "rows"
                             },
                             "name": "MyJsonReader",
-                            "designerId": "791b469a-3d3f-45e0-bb7c-671ee5b9c76d"
+                            "designerId": "592119dd-9378-4377-b8dd-bec205acdcb8"
                         }
                     ]
                 }

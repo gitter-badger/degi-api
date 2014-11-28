@@ -1,0 +1,93 @@
+{
+    "type": "Ext.data.Model",
+    "reference": {
+        "name": "items",
+        "type": "array"
+    },
+    "codeClass": null,
+    "userConfig": {
+        "designer|userClassName": "FoodModel"
+    },
+    "name": "PopularItemModel1",
+    "designerId": "073d361b-a532-443f-8b83-ec70965aad84",
+    "cn": [
+        {
+            "type": "Ext.data.field.Field",
+            "reference": {
+                "name": "fields",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "name": "fc_id"
+            },
+            "name": "MyField6",
+            "designerId": "b418ecbd-1607-4e58-a0aa-b47f0987d339"
+        },
+        {
+            "type": "Ext.data.field.Field",
+            "reference": {
+                "name": "fields",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "name": "fc_name"
+            },
+            "name": "MyField25",
+            "designerId": "39286c35-4e8b-4995-926f-79b5bebb3986"
+        },
+        {
+            "type": "Ext.data.field.Field",
+            "reference": {
+                "name": "fields",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "name": "fc_image"
+            },
+            "name": "MyField24",
+            "designerId": "df878ced-7749-4eb1-8dbd-84a7ae11cec6"
+        },
+        {
+            "type": "Ext.data.field.Field",
+            "reference": {
+                "name": "fields",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "name": "fc_seq"
+            },
+            "name": "MyField27",
+            "designerId": "4deffe0a-bcf0-4a32-ac9c-657d97344d42"
+        },
+        {
+            "type": "Ext.data.field.Field",
+            "reference": {
+                "name": "fields",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "name": "fc_created"
+            },
+            "name": "MyField28",
+            "designerId": "42cd3466-fd9c-42db-9b3a-a54d3fcf53a5"
+        },
+        {
+            "type": "Ext.data.field.Field",
+            "reference": {
+                "name": "fields",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "name": "fc_modified"
+            },
+            "name": "MyField29",
+            "designerId": "aa99cde7-6255-4586-bb92-b16aaaaf86e9"
+        }
+    ]
+}

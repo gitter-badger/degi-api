@@ -1,0 +1,14 @@
+{
+    "type": "Ext.app.ViewController",
+    "reference": {
+        "name": "items",
+        "type": "array"
+    },
+    "codeClass": null,
+    "userConfig": {
+        "designer|userAlias": "foodgridpanel",
+        "designer|userClassName": "FoodGridPanelViewController"
+    },
+    "name": "PopularItemGridPanelViewController1",
+    "designerId": "df851ec4-fb62-4b2d-a0ed-0226592ee426"
+}
