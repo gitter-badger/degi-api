@@ -191,7 +191,7 @@ Ext.define('Target.view.storewindow', {
                 waitMsg:'修改資料中',
                 url:'http://dev.finpo.com.tw/degi-api/target-local/public/b/store',
                 success: function(form,action){
-                   var store  = Ext.getCmp('foodgridpanel').getViewModel().getStore('StoreStore');
+                   var store  = Ext.getCmp('storegridpanel').getViewModel().getStore('StoreStore');
                     store.proxy.url='http://dev.finpo.com.tw/degi-api/target-local/public/b/store';
                     store.load();
                     //form.reset();
