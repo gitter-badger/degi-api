@@ -36,7 +36,8 @@ Ext.application({
         'SystemVariableModel',
         'ItemMainModel',
         'PopularStatusModel',
-        'FoodModel'
+        'FoodModel',
+        'StoreModel'
     ],
     stores: [
         'SubOrderArrayStore',
