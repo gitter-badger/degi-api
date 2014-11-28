@@ -129,7 +129,7 @@ Ext.define('Target.view.foodwindow', {
                     store.load();
                     var window = Ext.getCmp('foodwindow');
                     window.close();
-                    form.reset();
+                    //form.reset();
                     Ext.Msg.alert('訊息','食安認證新增成功');
 
                 },
