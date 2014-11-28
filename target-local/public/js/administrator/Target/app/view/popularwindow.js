@@ -170,7 +170,7 @@ Ext.define('Target.view.popularwindow', {
                     store.load();
                     var window = Ext.getCmp('popularwindow');
                     window.close();
-                    form.reset();
+                    //form.reset();
                     Ext.Msg.alert('訊息','熱銷商品新增成功');
 
                 },
