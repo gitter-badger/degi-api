@@ -1,0 +1,344 @@
+{
+    "type": "Ext.grid.Panel",
+    "reference": {
+        "name": "items",
+        "type": "array"
+    },
+    "codeClass": null,
+    "userConfig": {
+        "designer|userAlias": "storegridpanel",
+        "designer|userClassName": "StoreGridPanel",
+        "height": null,
+        "id": "storegridpanel",
+        "store": [
+            "{StoreStore}"
+        ],
+        "title": null,
+        "width": null
+    },
+    "name": "FoodGridPanel1",
+    "configAlternates": {
+        "store": "binding"
+    },
+    "designerId": "81167e54-9843-4afb-9bc3-81cecf93ef0c",
+    "viewControllerInstanceId": "d8e693dc-f218-4462-a1a8-dc7e12e1fed3",
+    "viewModelInstanceId": "a6e85456-55f3-4f82-a133-7c8f73dae3be",
+    "cn": [
+        {
+            "type": "Ext.toolbar.Toolbar",
+            "reference": {
+                "name": "dockedItems",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "dock": "top"
+            },
+            "name": "MyToolbar",
+            "designerId": "351aa4dd-3e19-4d9d-b26b-772711779b65",
+            "cn": [
+                {
+                    "type": "Ext.button.Button",
+                    "reference": {
+                        "name": "items",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "layout|flex": null,
+                        "text": "新增"
+                    },
+                    "name": "MyButton",
+                    "designerId": "776fffee-17fc-409a-8fc2-0f05f09ec1c7",
+                    "cn": [
+                        {
+                            "type": "basiceventbinding",
+                            "reference": {
+                                "name": "listeners",
+                                "type": "array"
+                            },
+                            "codeClass": null,
+                            "userConfig": {
+                                "fn": "onButtonClick",
+                                "implHandler": [
+                                    "var window = Ext.create('Target.view.storewindow');",
+                                    "",
+                                    "window.setConfig('title', '新增店面資訊');",
+                                    "",
+                                    "Ext.getCmp('storeUpdateBtn').setVisible(false);",
+                                    "Ext.getCmp('storeAddBtn').setVisible(true);",
+                                    "",
+                                    "window.show();"
+                                ],
+                                "name": "click",
+                                "scope": "me"
+                            },
+                            "name": "onButtonClick",
+                            "designerId": "defe1e0d-1f40-40e7-a774-d5bbe52fcc91"
+                        }
+                    ]
+                },
+                {
+                    "type": "Ext.button.Button",
+                    "reference": {
+                        "name": "items",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "layout|flex": null,
+                        "text": "修改"
+                    },
+                    "name": "MyButton2",
+                    "designerId": "a21c8474-34d3-4d83-a55b-3028f8f49c13",
+                    "cn": [
+                        {
+                            "type": "basiceventbinding",
+                            "reference": {
+                                "name": "listeners",
+                                "type": "array"
+                            },
+                            "codeClass": null,
+                            "userConfig": {
+                                "fn": "onButtonClick1",
+                                "implHandler": [
+                                    "var selmodel = Ext.getCmp('storegridpanel').getSelectionModel();",
+                                    "var count = selmodel.getCount();",
+                                    "",
+                                    "if(count !== 0){",
+                                    "    var seldata = selmodel.getSelection();",
+                                    "",
+                                    "    var window = Ext.create('Target.view.storewindow');",
+                                    "",
+                                    "    Ext.getCmp('sl_id').setValue(seldata[0].data.sl_id);",
+                                    "    window.setConfig('title', '修改店面資訊');",
+                                    "",
+                                    "    Ext.getCmp('storeForm').getForm().setValues(seldata[0].data);",
+                                    "",
+                                    "    Ext.getCmp('sl_cover').allowBlank = true;",
+                                    "    Ext.getCmp('sl_cover').emptyText = seldata[0].data.sl_cover;",
+                                    "    Ext.getCmp('sl_cover').applyEmptyText();",
+                                    "",
+                                    "    Ext.getCmp('storeUpdateBtn').setVisible(true);",
+                                    "    Ext.getCmp('storeAddBtn').setVisible(false);",
+                                    "",
+                                    "    window.show();",
+                                    "}else{",
+                                    "    Ext.Msg.alert('訊息', '請選擇一個店面資訊修改');",
+                                    "}"
+                                ],
+                                "name": "click",
+                                "scope": "me"
+                            },
+                            "name": "onButtonClick1",
+                            "designerId": "80c00271-097e-40b7-b176-db4052793c43"
+                        }
+                    ]
+                },
+                {
+                    "type": "Ext.button.Button",
+                    "reference": {
+                        "name": "items",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "layout|flex": null,
+                        "text": "刪除"
+                    },
+                    "name": "MyButton1",
+                    "designerId": "b9c3d329-1312-41f9-8a09-69c062ff807c",
+                    "cn": [
+                        {
+                            "type": "basiceventbinding",
+                            "reference": {
+                                "name": "listeners",
+                                "type": "array"
+                            },
+                            "codeClass": null,
+                            "userConfig": {
+                                "fn": "onButtonClick11",
+                                "implHandler": [
+                                    "var selmodel = Ext.getCmp('storegridpanel').getSelectionModel();",
+                                    "var count = selmodel.getCount();",
+                                    "if(count !== 0){",
+                                    "    Ext.MessageBox.confirm('Confirm', 'Are you sure to delete the data?', function(btn){",
+                                    "        if (btn == 'yes') {",
+                                    "            var seldata = selmodel.getSelection();",
+                                    "            var Id = seldata[0].data.sl_id;",
+                                    "",
+                                    "            Ext.Ajax.request({",
+                                    "                method: 'DELETE',",
+                                    "                url:'http://dev.finpo.com.tw/degi-api/target-local/public/b/store/'+Id,",
+                                    "",
+                                    "                success: function(response, options){",
+                                    "                    var store  = Ext.getCmp('storegridpanel').getViewModel().getStore('StoreStore');",
+                                    "                    store.proxy.url='http://dev.finpo.com.tw/degi-api/target-local/public/b/store';",
+                                    "                    store.load();",
+                                    "",
+                                    "                    Ext.Msg.alert('訊息','店面資訊刪除成功');",
+                                    "                }",
+                                    "            });",
+                                    "        }",
+                                    "    });",
+                                    " }else{",
+                                    "    Ext.Msg.alert('訊息', '請選擇一個店面資訊刪除');",
+                                    "}",
+                                    ""
+                                ],
+                                "name": "click",
+                                "scope": "me"
+                            },
+                            "name": "onButtonClick11",
+                            "designerId": "24536f80-3856-46bf-8762-fa91ae559e79"
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "type": "Ext.grid.View",
+            "reference": {
+                "name": "viewConfig",
+                "type": "object"
+            },
+            "codeClass": null,
+            "name": "MyGridView",
+            "designerId": "01a31b5e-29da-4846-a6eb-6abe137f6d41"
+        },
+        {
+            "type": "Ext.grid.column.Column",
+            "reference": {
+                "name": "columns",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "dataIndex": "sl_name",
+                "flex": 0.5,
+                "text": "顯示名稱"
+            },
+            "name": "MyColumn5",
+            "designerId": "dcab8f0e-13d4-46f8-86ff-ac7d19bd245a"
+        },
+        {
+            "type": "Ext.grid.column.Column",
+            "reference": {
+                "name": "columns",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "dataIndex": "sl_googlemaps_address",
+                "flex": 1,
+                "text": "Google Maps地址"
+            },
+            "name": "MyColumn",
+            "designerId": "85e475fa-b802-4e9c-8e0d-ddb696a36f91"
+        },
+        {
+            "type": "Ext.grid.column.Column",
+            "reference": {
+                "name": "columns",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "dataIndex": "sl_cover",
+                "flex": 0.5,
+                "text": "縮圖"
+            },
+            "name": "MyColumn25",
+            "designerId": "5b9056ff-5325-4385-a8de-f3bfcb9e6513",
+            "cn": [
+                {
+                    "type": "fixedfunction",
+                    "reference": {
+                        "name": "items",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "designer|params": [
+                            "value",
+                            "metaData",
+                            "record",
+                            "rowIndex",
+                            "colIndex",
+                            "store",
+                            "view"
+                        ],
+                        "fn": "renderer",
+                        "implHandler": [
+                            "return (value !=='')?\"<img src='images/store_location_cover/\"+value+\"' width='60px' />\":'沒有任何圖片';",
+                            ""
+                        ]
+                    },
+                    "name": "renderer",
+                    "designerId": "99527cec-d903-442d-a314-ed4056879ac2"
+                }
+            ]
+        },
+        {
+            "type": "Ext.grid.column.Column",
+            "reference": {
+                "name": "columns",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "dataIndex": "sl_seq",
+                "flex": 0.5,
+                "text": "排序"
+            },
+            "name": "MyColumn7",
+            "designerId": "4a5caf68-9c4e-4fcd-a2d8-e7f27110e6f9"
+        },
+        {
+            "type": "Ext.grid.column.Column",
+            "reference": {
+                "name": "columns",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "dataIndex": "sl_created",
+                "flex": 0.8,
+                "text": "建立時間"
+            },
+            "name": "MyColumn8",
+            "designerId": "40456840-fb0c-432f-9841-e46a8e731431"
+        },
+        {
+            "type": "Ext.selection.CheckboxModel",
+            "reference": {
+                "name": "selModel",
+                "type": "object"
+            },
+            "codeClass": null,
+            "name": "MyCheckboxSelectionModel",
+            "designerId": "348a4aa2-9ff3-4a02-bb56-e2a615d15147"
+        },
+        {
+            "type": "Ext.toolbar.Paging",
+            "reference": {
+                "name": "dockedItems",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "displayInfo": true,
+                "dock": "bottom",
+                "store": [
+                    "{StoreStore}"
+                ],
+                "width": 360
+            },
+            "name": "MyPagingToolbar",
+            "configAlternates": {
+                "store": "binding"
+            },
+            "designerId": "8d44f676-65c7-40b8-b45a-772f04683f6e"
+        }
+    ]
+}

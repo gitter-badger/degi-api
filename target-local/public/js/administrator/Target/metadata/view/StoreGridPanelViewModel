@@ -1,0 +1,62 @@
+{
+    "type": "Ext.app.ViewModel",
+    "reference": {
+        "name": "items",
+        "type": "array"
+    },
+    "codeClass": null,
+    "userConfig": {
+        "designer|userAlias": "storegridpanel",
+        "designer|userClassName": "StoreGridPanelViewModel"
+    },
+    "name": "FoodGridPanelViewModel1",
+    "designerId": "a6e85456-55f3-4f82-a133-7c8f73dae3be",
+    "cn": [
+        {
+            "type": "jsonstore",
+            "reference": {
+                "name": "stores",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "autoLoad": true,
+                "autoSync": true,
+                "model": "StoreModel",
+                "name": "StoreStore"
+            },
+            "name": "MyJsonStore",
+            "designerId": "6951c589-fed5-4717-be4f-5ac319caa084",
+            "cn": [
+                {
+                    "type": "Ext.data.proxy.Ajax",
+                    "reference": {
+                        "name": "proxy",
+                        "type": "object"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "url": "http://dev.finpo.com.tw/degi-api/target-local/public/b/store"
+                    },
+                    "name": "MyAjaxProxy",
+                    "designerId": "76b74e6f-1025-4fd8-9113-844af2aac977",
+                    "cn": [
+                        {
+                            "type": "Ext.data.reader.Json",
+                            "reference": {
+                                "name": "reader",
+                                "type": "object"
+                            },
+                            "codeClass": null,
+                            "userConfig": {
+                                "rootProperty": "rows"
+                            },
+                            "name": "MyJsonReader",
+                            "designerId": "11662a2d-9ea8-48fc-8d06-1b45092ee75f"
+                        }
+                    ]
+                }
+            ]
+        }
+    ]
+}

@@ -35,7 +35,8 @@ Ext.application({
         'SystemVariableModel',
         'ItemMainModel',
         'PopularStatusModel',
-        'FoodModel'
+        'FoodModel',
+        'StoreModel'
     ],
     stores: [
         'SubOrderArrayStore',
@@ -69,7 +70,9 @@ Ext.application({
         'GroupOrderWindow',
         'NewsWindow',
         'FoodGridPanel',
-        'foodwindow'
+        'foodwindow',
+        'StoreGridPanel',
+        'storewindow'
     ],
     name: 'Target',
 

@@ -1,0 +1,14 @@
+{
+    "type": "Ext.app.ViewController",
+    "reference": {
+        "name": "items",
+        "type": "array"
+    },
+    "codeClass": null,
+    "userConfig": {
+        "designer|userAlias": "storewindow",
+        "designer|userClassName": "StoreWindowViewController"
+    },
+    "name": "FoodWindowViewController1",
+    "designerId": "eb85ea2b-f170-47c5-86a3-6827d63455e1"
+}

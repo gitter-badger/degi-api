@@ -136,6 +136,15 @@ return array(
             				),
             		),
             ),
+            'store' => array(
+            		'type' => 'Segment',
+            		'options' => array(
+            				'route'    => '/b/store[/:id]',
+            				'defaults' => array(
+            						'controller' => 'Administrator\Controller\Store'
+            				),
+            		),
+            ),
             'system_variable' => array(
             		'type' => 'Segment',
             		'options' => array(
@@ -177,6 +186,7 @@ return array(
             'Administrator\Controller\News' => 'Administrator\Controller\NewsController',
             'Administrator\Controller\PopularItem' => 'Administrator\Controller\PopularItemController',
             'Administrator\Controller\Food' => 'Administrator\Controller\FoodController',
+            'Administrator\Controller\Store' => 'Administrator\Controller\StoreController',
             'Administrator\Controller\SystemVariable' => 'Administrator\Controller\SystemVariableController'
          ),
     ),

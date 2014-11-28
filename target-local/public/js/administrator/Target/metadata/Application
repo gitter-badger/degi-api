@@ -21,7 +21,8 @@
             "SystemVariableModel",
             "ItemMainModel",
             "PopularStatusModel",
-            "FoodModel"
+            "FoodModel",
+            "StoreModel"
         ],
         "name": "Target",
         "stores": [
@@ -56,7 +57,9 @@
             "GroupOrderWindow",
             "NewsWindow",
             "FoodGridPanel",
-            "foodwindow"
+            "foodwindow",
+            "StoreGridPanel",
+            "storewindow"
         ]
     },
     "name": "Application",

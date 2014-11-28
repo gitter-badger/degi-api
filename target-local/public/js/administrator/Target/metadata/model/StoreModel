@@ -1,0 +1,158 @@
+{
+    "type": "Ext.data.Model",
+    "reference": {
+        "name": "items",
+        "type": "array"
+    },
+    "codeClass": null,
+    "userConfig": {
+        "designer|userClassName": "StoreModel"
+    },
+    "name": "FoodModel1",
+    "designerId": "398be60b-8fe8-4b2c-a834-6e475758470d",
+    "cn": [
+        {
+            "type": "Ext.data.field.Field",
+            "reference": {
+                "name": "fields",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "name": "sl_id"
+            },
+            "name": "MyField6",
+            "designerId": "6218124a-9d22-498f-a051-166f8b13dbc2"
+        },
+        {
+            "type": "Ext.data.field.Field",
+            "reference": {
+                "name": "fields",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "name": "sl_name"
+            },
+            "name": "MyField25",
+            "designerId": "0e504698-1542-45b2-ad91-f834ccc1b97f"
+        },
+        {
+            "type": "Ext.data.field.Field",
+            "reference": {
+                "name": "fields",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "name": "sl_cover"
+            },
+            "name": "MyField24",
+            "designerId": "e0bc7d85-6aeb-4896-b1d9-58c8e819e734"
+        },
+        {
+            "type": "Ext.data.field.Field",
+            "reference": {
+                "name": "fields",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "name": "sl_googlemaps_address"
+            },
+            "name": "MyField33",
+            "designerId": "f7da14b4-0c5a-4d1d-94eb-b7987c4aec4c"
+        },
+        {
+            "type": "Ext.data.field.Field",
+            "reference": {
+                "name": "fields",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "name": "sl_tel_no"
+            },
+            "name": "MyField34",
+            "designerId": "91a42d00-e154-4178-aab4-8b5526ba6f44"
+        },
+        {
+            "type": "Ext.data.field.Field",
+            "reference": {
+                "name": "fields",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "name": "sl_fax_no"
+            },
+            "name": "MyField35",
+            "designerId": "60fef36b-bb2e-415f-87bc-7f29d0f8f813"
+        },
+        {
+            "type": "Ext.data.field.Field",
+            "reference": {
+                "name": "fields",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "name": "sl_address"
+            },
+            "name": "MyField36",
+            "designerId": "ca4e8e5b-6524-412c-b4aa-51af52edc4aa"
+        },
+        {
+            "type": "Ext.data.field.Field",
+            "reference": {
+                "name": "fields",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "name": "sl_email"
+            },
+            "name": "MyField37",
+            "designerId": "731445be-cfbb-4c33-86fb-d5b5198349e5"
+        },
+        {
+            "type": "Ext.data.field.Field",
+            "reference": {
+                "name": "fields",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "name": "sl_seq"
+            },
+            "name": "MyField27",
+            "designerId": "626cd731-49dc-49f1-8e9e-571fbdcb4d31"
+        },
+        {
+            "type": "Ext.data.field.Field",
+            "reference": {
+                "name": "fields",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "name": "sl_created"
+            },
+            "name": "MyField28",
+            "designerId": "e0ad19e9-e6bf-4dd2-af31-97da31dcd387"
+        },
+        {
+            "type": "Ext.data.field.Field",
+            "reference": {
+                "name": "fields",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "name": "sl_modified"
+            },
+            "name": "MyField29",
+            "designerId": "b97fc1b0-9d47-4593-8e48-2e1d1dac75d6"
+        }
+    ]
+}

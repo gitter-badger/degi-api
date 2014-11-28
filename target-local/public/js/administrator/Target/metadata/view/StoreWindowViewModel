@@ -1,0 +1,14 @@
+{
+    "type": "Ext.app.ViewModel",
+    "reference": {
+        "name": "items",
+        "type": "array"
+    },
+    "codeClass": null,
+    "userConfig": {
+        "designer|userAlias": "storewindow",
+        "designer|userClassName": "StoreWindowViewModel"
+    },
+    "name": "FoodWindowViewModel1",
+    "designerId": "1c7ec172-027f-4dc4-91b0-378c2cd94527"
+}

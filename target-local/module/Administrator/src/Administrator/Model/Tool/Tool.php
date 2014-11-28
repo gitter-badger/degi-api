@@ -58,7 +58,7 @@ class Tool
                         $re['success'] = false;
                         $re['msg'] .= 'Please upload file formats:' . $msg_type;
                     }
-                    $size = (isset($input['size'][$index])) ? $input['size'][$index] : 200;
+                    $size = (isset($input['size'][$index])) ? $input['size'][$index] : 1000;
                     $img_size = $size * 1024;
                     if ($re['success'] && $file['size'] > $img_size) {
                         $re['success'] = false;
