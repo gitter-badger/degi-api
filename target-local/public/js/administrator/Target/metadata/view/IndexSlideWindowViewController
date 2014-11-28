@@ -1,0 +1,14 @@
+{
+    "type": "Ext.app.ViewController",
+    "reference": {
+        "name": "items",
+        "type": "array"
+    },
+    "codeClass": null,
+    "userConfig": {
+        "designer|userAlias": "indexslidewindow",
+        "designer|userClassName": "IndexSlideWindowViewController"
+    },
+    "name": "FoodWindowViewController2",
+    "designerId": "fe0e237d-085c-409d-ad7c-574ccf2a0d95"
+}

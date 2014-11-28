@@ -22,7 +22,8 @@
             "ItemMainModel",
             "PopularStatusModel",
             "FoodModel",
-            "StoreModel"
+            "StoreModel",
+            "IndexSlideModel"
         ],
         "name": "Target",
         "stores": [
@@ -59,7 +60,9 @@
             "FoodGridPanel",
             "foodwindow",
             "StoreGridPanel",
-            "storewindow"
+            "storewindow",
+            "IndexSlideGridPanel",
+            "indexslidewindow"
         ]
     },
     "name": "Application",

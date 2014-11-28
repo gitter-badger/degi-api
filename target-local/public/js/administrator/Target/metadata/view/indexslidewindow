@@ -1,0 +1,258 @@
+{
+    "type": "Ext.window.Window",
+    "reference": {
+        "name": "items",
+        "type": "array"
+    },
+    "codeClass": null,
+    "userConfig": {
+        "designer|userAlias": "indexslidewindow",
+        "designer|userClassName": "indexslidewindow",
+        "height": 200,
+        "id": "indexslidewindow",
+        "modal": true,
+        "title": null,
+        "width": 531
+    },
+    "name": "foodwindow2",
+    "designerId": "98e914c4-dccb-4e75-b7c2-7d119c3668b7",
+    "viewControllerInstanceId": "fe0e237d-085c-409d-ad7c-574ccf2a0d95",
+    "viewModelInstanceId": "2a97d431-80cb-4271-a837-8cd01ce3cce1",
+    "cn": [
+        {
+            "type": "Ext.form.Panel",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "bodyPadding": "20 0 0 0 ",
+                "height": 134,
+                "id": "indexslideForm",
+                "title": null,
+                "width": 592
+            },
+            "name": "MyForm",
+            "designerId": "6b79abe0-51c0-4ecf-bb17-fba93efd3442",
+            "cn": [
+                {
+                    "type": "Ext.form.field.Text",
+                    "reference": {
+                        "name": "items",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "allowBlank": false,
+                        "fieldLabel": "URL",
+                        "labelAlign": "right",
+                        "layout|anchor": "80%",
+                        "name": "is_url",
+                        "width": 356
+                    },
+                    "name": "MyTextField",
+                    "designerId": "9605f99c-6e61-4b7a-bef5-6d8112b6b085"
+                },
+                {
+                    "type": "Ext.form.field.File",
+                    "reference": {
+                        "name": "items",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "allowBlank": false,
+                        "buttonText": "Browse",
+                        "fieldLabel": "輪播圖檔",
+                        "id": "is_pic",
+                        "labelAlign": "right",
+                        "layout|anchor": null,
+                        "name": "is_pic",
+                        "width": 473
+                    },
+                    "name": "MyFileUpload",
+                    "designerId": "12209616-f151-4462-aa2e-aa9444ba8765"
+                },
+                {
+                    "type": "Ext.form.field.Number",
+                    "reference": {
+                        "name": "items",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "allowBlank": false,
+                        "fieldLabel": "顯示排序",
+                        "labelAlign": "right",
+                        "layout|anchor": "80%",
+                        "minValue": 1,
+                        "name": "is_seq",
+                        "width": null
+                    },
+                    "name": "MyNumberField2",
+                    "designerId": "350685dd-f661-4e59-a87f-e69edb489d33"
+                },
+                {
+                    "type": "Ext.form.field.Hidden",
+                    "reference": {
+                        "name": "items",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "fieldLabel": null,
+                        "id": "is_id",
+                        "name": "is_id"
+                    },
+                    "name": "MyHiddenField",
+                    "designerId": "d386cf2a-5bf7-4e53-84c3-b918dddf3342"
+                }
+            ]
+        },
+        {
+            "type": "Ext.toolbar.Toolbar",
+            "reference": {
+                "name": "dockedItems",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "container|pack": "end",
+                "dock": "bottom",
+                "height": 41
+            },
+            "name": "MyToolbar1",
+            "designerId": "462d67c2-dccf-4b7d-b6b4-db93537bc5a8",
+            "cn": [
+                {
+                    "type": "Ext.button.Button",
+                    "reference": {
+                        "name": "items",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "id": "indexslideAddBtn",
+                        "layout|flex": null,
+                        "text": "新增",
+                        "width": 513
+                    },
+                    "name": "MyButton2",
+                    "designerId": "fe02fd83-057f-4be8-861a-c37343d19f34",
+                    "cn": [
+                        {
+                            "type": "basiceventbinding",
+                            "reference": {
+                                "name": "listeners",
+                                "type": "array"
+                            },
+                            "codeClass": null,
+                            "userConfig": {
+                                "fn": "onIndexSlideAddBtnClick",
+                                "implHandler": [
+                                    "var form = Ext.getCmp('indexslideForm').getForm();",
+                                    "",
+                                    "if(form.isValid()){",
+                                    "    form.submit({",
+                                    "        method: 'POST',",
+                                    "        waitTitle:'訊息',",
+                                    "        waitMsg:'新增資料中',",
+                                    "        url:'http://dev.finpo.com.tw/degi-api/target-local/public/b/index_slide',",
+                                    "",
+                                    "        success:function(form,action){",
+                                    "",
+                                    "            var store  = Ext.getCmp('indexslidegridpanel').getViewModel().getStore('IndexSlideStore');",
+                                    "            store.proxy.url='http://dev.finpo.com.tw/degi-api/target-local/public/b/index_slide';",
+                                    "            store.load();",
+                                    "            var window = Ext.getCmp('indexslidewindow');",
+                                    "            window.close();",
+                                    "            //form.reset();",
+                                    "            Ext.Msg.alert('訊息','首頁輪播圖新增成功');",
+                                    "",
+                                    "        },",
+                                    "        failure:function(form,action){",
+                                    "           data = Ext.decode(action.response.responseText);",
+                                    "            if (data.success === false && data.msg){",
+                                    "                Ext.Msg.alert('Error', data.msg);",
+                                    "            }",
+                                    "        }",
+                                    "",
+                                    "    });",
+                                    "}"
+                                ],
+                                "name": "click",
+                                "scope": "me"
+                            },
+                            "name": "onIndexSlideAddBtnClick",
+                            "designerId": "de650f63-2f44-4b59-a9b7-c9be23dad630"
+                        }
+                    ]
+                },
+                {
+                    "type": "Ext.button.Button",
+                    "reference": {
+                        "name": "items",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "id": "indexslideUpdateBtn",
+                        "layout|flex": null,
+                        "text": "修改",
+                        "width": 513
+                    },
+                    "name": "MyButton3",
+                    "designerId": "c25a4868-9705-4c1e-83e8-dfcf02f32143",
+                    "cn": [
+                        {
+                            "type": "basiceventbinding",
+                            "reference": {
+                                "name": "listeners",
+                                "type": "array"
+                            },
+                            "codeClass": null,
+                            "userConfig": {
+                                "fn": "onIndexSlideUpdateBtnClick",
+                                "implHandler": [
+                                    "var form = Ext.getCmp('indexslideForm').getForm();",
+                                    "",
+                                    "if(form.isValid()){",
+                                    "    form.submit({",
+                                    "        method: 'POST',",
+                                    "        waitTitle:'訊息',",
+                                    "        waitMsg:'修改資料中',",
+                                    "        url:'http://dev.finpo.com.tw/degi-api/target-local/public/b/index_slide',",
+                                    "        success: function(form,action){",
+                                    "           var store  = Ext.getCmp('indexslidegridpanel').getViewModel().getStore('IndexSlideStore');",
+                                    "            store.proxy.url='http://dev.finpo.com.tw/degi-api/target-local/public/b/index_slide';",
+                                    "            store.load();",
+                                    "            //form.reset();",
+                                    "",
+                                    "            Ext.Msg.alert('訊息','首頁輪播修改成功', function(){",
+                                    "                var window = Ext.getCmp('indexslidewindow');",
+                                    "                window.close();",
+                                    "            });",
+                                    "        },",
+                                    "        failure:function(form,action){",
+                                    "            data = Ext.decode(action.response.responseText);",
+                                    "            if (data.success === false && data.msg){",
+                                    "                Ext.Msg.alert('Error', data.msg);",
+                                    "            }",
+                                    "        }",
+                                    "",
+                                    "    });",
+                                    "}"
+                                ],
+                                "name": "click",
+                                "scope": "me"
+                            },
+                            "name": "onIndexSlideUpdateBtnClick",
+                            "designerId": "37db3aaa-571d-40a9-b54f-c9f5fd8b429c"
+                        }
+                    ]
+                }
+            ]
+        }
+    ]
+}

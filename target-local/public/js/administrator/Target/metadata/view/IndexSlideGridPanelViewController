@@ -1,0 +1,14 @@
+{
+    "type": "Ext.app.ViewController",
+    "reference": {
+        "name": "items",
+        "type": "array"
+    },
+    "codeClass": null,
+    "userConfig": {
+        "designer|userAlias": "indexslidegridpanel",
+        "designer|userClassName": "IndexSlideGridPanelViewController"
+    },
+    "name": "FoodGridPanelViewController2",
+    "designerId": "b3f926da-8920-4c5a-b789-4a43cf70264f"
+}

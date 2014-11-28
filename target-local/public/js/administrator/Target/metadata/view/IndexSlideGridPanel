@@ -1,0 +1,329 @@
+{
+    "type": "Ext.grid.Panel",
+    "reference": {
+        "name": "items",
+        "type": "array"
+    },
+    "codeClass": null,
+    "userConfig": {
+        "designer|userAlias": "indexslidegridpanel",
+        "designer|userClassName": "IndexSlideGridPanel",
+        "height": null,
+        "id": "indexslidegridpanel",
+        "store": [
+            "{IndexSlideStore}"
+        ],
+        "title": null,
+        "width": null
+    },
+    "name": "FoodGridPanel2",
+    "configAlternates": {
+        "store": "binding"
+    },
+    "designerId": "71cccb02-2e25-4ef8-8209-a51197265ebd",
+    "viewControllerInstanceId": "b3f926da-8920-4c5a-b789-4a43cf70264f",
+    "viewModelInstanceId": "4d98b9eb-b73b-42a8-8619-dbc8506ca614",
+    "cn": [
+        {
+            "type": "Ext.toolbar.Toolbar",
+            "reference": {
+                "name": "dockedItems",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "dock": "top"
+            },
+            "name": "MyToolbar",
+            "designerId": "a3c4bb7b-7160-4bc3-8d25-03dbcdb4ee81",
+            "cn": [
+                {
+                    "type": "Ext.button.Button",
+                    "reference": {
+                        "name": "items",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "layout|flex": null,
+                        "text": "新增"
+                    },
+                    "name": "MyButton",
+                    "designerId": "8df53451-39ae-4c3d-8b1d-e5028f36c77e",
+                    "cn": [
+                        {
+                            "type": "basiceventbinding",
+                            "reference": {
+                                "name": "listeners",
+                                "type": "array"
+                            },
+                            "codeClass": null,
+                            "userConfig": {
+                                "fn": "onButtonClick",
+                                "implHandler": [
+                                    "var window = Ext.create('Target.view.indexslidewindow');",
+                                    "",
+                                    "window.setConfig('title', '新增首頁輪播圖');",
+                                    "",
+                                    "Ext.getCmp('indexslideUpdateBtn').setVisible(false);",
+                                    "Ext.getCmp('indexslideAddBtn').setVisible(true);",
+                                    "",
+                                    "window.show();"
+                                ],
+                                "name": "click",
+                                "scope": "me"
+                            },
+                            "name": "onButtonClick",
+                            "designerId": "524da338-8c8f-49ab-82a7-7a45ec5d5abc"
+                        }
+                    ]
+                },
+                {
+                    "type": "Ext.button.Button",
+                    "reference": {
+                        "name": "items",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "layout|flex": null,
+                        "text": "修改"
+                    },
+                    "name": "MyButton2",
+                    "designerId": "3abe516d-b4b7-4f3c-b40f-8397877a8791",
+                    "cn": [
+                        {
+                            "type": "basiceventbinding",
+                            "reference": {
+                                "name": "listeners",
+                                "type": "array"
+                            },
+                            "codeClass": null,
+                            "userConfig": {
+                                "fn": "onButtonClick1",
+                                "implHandler": [
+                                    "var selmodel = Ext.getCmp('indexslidegridpanel').getSelectionModel();",
+                                    "var count = selmodel.getCount();",
+                                    "",
+                                    "if(count !== 0){",
+                                    "    var seldata = selmodel.getSelection();",
+                                    "",
+                                    "    var window = Ext.create('Target.view.indexslidewindow');",
+                                    "",
+                                    "    Ext.getCmp('is_id').setValue(seldata[0].data.is_id);",
+                                    "    window.setConfig('title', '修改首頁輪播圖');",
+                                    "",
+                                    "    Ext.getCmp('indexslideForm').getForm().setValues(seldata[0].data);",
+                                    "",
+                                    "    Ext.getCmp('is_pic').allowBlank = true;",
+                                    "    Ext.getCmp('is_pic').emptyText = seldata[0].data.is_pic;",
+                                    "    Ext.getCmp('is_pic').applyEmptyText();",
+                                    "",
+                                    "    Ext.getCmp('indexslideUpdateBtn').setVisible(true);",
+                                    "    Ext.getCmp('indexslideAddBtn').setVisible(false);",
+                                    "",
+                                    "    window.show();",
+                                    "}else{",
+                                    "    Ext.Msg.alert('訊息', '請選擇一個首頁輪播圖修改');",
+                                    "}"
+                                ],
+                                "name": "click",
+                                "scope": "me"
+                            },
+                            "name": "onButtonClick1",
+                            "designerId": "0ec23ee1-a27b-4d98-8b29-5d132f5a9750"
+                        }
+                    ]
+                },
+                {
+                    "type": "Ext.button.Button",
+                    "reference": {
+                        "name": "items",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "layout|flex": null,
+                        "text": "刪除"
+                    },
+                    "name": "MyButton1",
+                    "designerId": "b8f8f84d-d20e-49f4-a187-5f30801dec95",
+                    "cn": [
+                        {
+                            "type": "basiceventbinding",
+                            "reference": {
+                                "name": "listeners",
+                                "type": "array"
+                            },
+                            "codeClass": null,
+                            "userConfig": {
+                                "fn": "onButtonClick11",
+                                "implHandler": [
+                                    "var selmodel = Ext.getCmp('indexslidegridpanel').getSelectionModel();",
+                                    "var count = selmodel.getCount();",
+                                    "if(count !== 0){",
+                                    "    Ext.MessageBox.confirm('Confirm', 'Are you sure to delete the data?', function(btn){",
+                                    "        if (btn == 'yes') {",
+                                    "            var seldata = selmodel.getSelection();",
+                                    "            var Id = seldata[0].data.is_id;",
+                                    "",
+                                    "            Ext.Ajax.request({",
+                                    "                method: 'DELETE',",
+                                    "                url:'http://dev.finpo.com.tw/degi-api/target-local/public/b/index_slide/'+Id,",
+                                    "",
+                                    "                success: function(response, options){",
+                                    "                    var store  = Ext.getCmp('indexslidegridpanel').getViewModel().getStore('IndexSlideStore');",
+                                    "                    store.proxy.url='http://dev.finpo.com.tw/degi-api/target-local/public/b/index_slide';",
+                                    "                    store.load();",
+                                    "",
+                                    "                    Ext.Msg.alert('訊息','首頁輪播圖刪除成功');",
+                                    "                }",
+                                    "            });",
+                                    "        }",
+                                    "    });",
+                                    " }else{",
+                                    "    Ext.Msg.alert('訊息', '請選擇一個首頁輪播圖刪除');",
+                                    "}",
+                                    ""
+                                ],
+                                "name": "click",
+                                "scope": "me"
+                            },
+                            "name": "onButtonClick11",
+                            "designerId": "e47d0248-f954-496c-87ce-248952be6cf4"
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "type": "Ext.grid.View",
+            "reference": {
+                "name": "viewConfig",
+                "type": "object"
+            },
+            "codeClass": null,
+            "name": "MyGridView",
+            "designerId": "8835db0d-3b3a-468f-b0b3-132662468bdf"
+        },
+        {
+            "type": "Ext.grid.column.Column",
+            "reference": {
+                "name": "columns",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "dataIndex": "is_id",
+                "flex": 0.5,
+                "text": "ID"
+            },
+            "name": "MyColumn5",
+            "designerId": "6c9f109f-39fb-43c2-a7f3-f5152e6e0ff3"
+        },
+        {
+            "type": "Ext.grid.column.Column",
+            "reference": {
+                "name": "columns",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "dataIndex": "is_url",
+                "flex": 1,
+                "text": "URL"
+            },
+            "name": "MyColumn3",
+            "designerId": "a96df014-a9bc-475d-82af-75070e0f616b"
+        },
+        {
+            "type": "Ext.grid.column.Column",
+            "reference": {
+                "name": "columns",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "dataIndex": "is_pic",
+                "flex": 0.5,
+                "text": "輪播圖"
+            },
+            "name": "MyColumn25",
+            "designerId": "053794bb-e125-4479-818f-7d19ee9517fb",
+            "cn": [
+                {
+                    "type": "fixedfunction",
+                    "reference": {
+                        "name": "items",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "designer|params": [
+                            "value",
+                            "metaData",
+                            "record",
+                            "rowIndex",
+                            "colIndex",
+                            "store",
+                            "view"
+                        ],
+                        "fn": "renderer",
+                        "implHandler": [
+                            "return (value !=='')?\"<img src='images/index_slide_pic/\"+value+\"' width='60px' />\":'沒有任何圖片';",
+                            ""
+                        ]
+                    },
+                    "name": "renderer",
+                    "designerId": "130c8e7a-b184-42e5-af76-a102c528abc6"
+                }
+            ]
+        },
+        {
+            "type": "Ext.grid.column.Column",
+            "reference": {
+                "name": "columns",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "dataIndex": "is_seq",
+                "flex": 0.5,
+                "text": "排序"
+            },
+            "name": "MyColumn7",
+            "designerId": "72b83ccd-af52-406b-8a85-4a96cc253080"
+        },
+        {
+            "type": "Ext.selection.CheckboxModel",
+            "reference": {
+                "name": "selModel",
+                "type": "object"
+            },
+            "codeClass": null,
+            "name": "MyCheckboxSelectionModel",
+            "designerId": "8e9dc8c6-bd84-4719-9a42-8adc1b24404c"
+        },
+        {
+            "type": "Ext.toolbar.Paging",
+            "reference": {
+                "name": "dockedItems",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "displayInfo": true,
+                "dock": "bottom",
+                "store": [
+                    "{IndexSlideStore}"
+                ],
+                "width": 360
+            },
+            "name": "MyPagingToolbar",
+            "configAlternates": {
+                "store": "binding"
+            },
+            "designerId": "dde0f0e5-18ff-48ab-9836-cb1374d57b9a"
+        }
+    ]
+}

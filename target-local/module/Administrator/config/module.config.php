@@ -145,6 +145,15 @@ return array(
             				),
             		),
             ),
+            'index_slide' => array(
+            		'type' => 'Segment',
+            		'options' => array(
+            				'route'    => '/b/index_slide[/:id]',
+            				'defaults' => array(
+            						'controller' => 'Administrator\Controller\IndexSlide'
+            				),
+            		),
+            ),
             'system_variable' => array(
             		'type' => 'Segment',
             		'options' => array(
@@ -187,6 +196,7 @@ return array(
             'Administrator\Controller\PopularItem' => 'Administrator\Controller\PopularItemController',
             'Administrator\Controller\Food' => 'Administrator\Controller\FoodController',
             'Administrator\Controller\Store' => 'Administrator\Controller\StoreController',
+            'Administrator\Controller\IndexSlide' => 'Administrator\Controller\IndexSlideController',
             'Administrator\Controller\SystemVariable' => 'Administrator\Controller\SystemVariableController'
          ),
     ),

@@ -37,7 +37,8 @@ Ext.application({
         'ItemMainModel',
         'PopularStatusModel',
         'FoodModel',
-        'StoreModel'
+        'StoreModel',
+        'IndexSlideModel'
     ],
     stores: [
         'SubOrderArrayStore',
@@ -73,10 +74,11 @@ Ext.application({
         'FoodGridPanel',
         'foodwindow',
         'StoreGridPanel',
-        'storewindow'
+        'storewindow',
+        'IndexSlideGridPanel',
+        'indexslidewindow'
     ],
     name: 'Target',
-
     launch: function() {
         Ext.create('Target.view.MyViewport');
     }

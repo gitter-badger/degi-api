@@ -1,0 +1,62 @@
+{
+    "type": "Ext.app.ViewModel",
+    "reference": {
+        "name": "items",
+        "type": "array"
+    },
+    "codeClass": null,
+    "userConfig": {
+        "designer|userAlias": "indexslidegridpanel",
+        "designer|userClassName": "IndexSlideGridPanelViewModel"
+    },
+    "name": "FoodGridPanelViewModel2",
+    "designerId": "4d98b9eb-b73b-42a8-8619-dbc8506ca614",
+    "cn": [
+        {
+            "type": "jsonstore",
+            "reference": {
+                "name": "stores",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "autoLoad": true,
+                "autoSync": true,
+                "model": "IndexSlideModel",
+                "name": "IndexSlideStore"
+            },
+            "name": "MyJsonStore",
+            "designerId": "f299e24c-9612-4e85-9e02-ec2295033343",
+            "cn": [
+                {
+                    "type": "Ext.data.proxy.Ajax",
+                    "reference": {
+                        "name": "proxy",
+                        "type": "object"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "url": "http://dev.finpo.com.tw/degi-api/target-local/public/b/index_slide"
+                    },
+                    "name": "MyAjaxProxy",
+                    "designerId": "82175e92-d63a-43ab-92fc-1745536bcb8f",
+                    "cn": [
+                        {
+                            "type": "Ext.data.reader.Json",
+                            "reference": {
+                                "name": "reader",
+                                "type": "object"
+                            },
+                            "codeClass": null,
+                            "userConfig": {
+                                "rootProperty": "rows"
+                            },
+                            "name": "MyJsonReader",
+                            "designerId": "47567838-f2ac-426a-bba1-4acb0b37a16e"
+                        }
+                    ]
+                }
+            ]
+        }
+    ]
+}

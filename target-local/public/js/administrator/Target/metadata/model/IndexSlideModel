@@ -1,0 +1,67 @@
+{
+    "type": "Ext.data.Model",
+    "reference": {
+        "name": "items",
+        "type": "array"
+    },
+    "codeClass": null,
+    "userConfig": {
+        "designer|userClassName": "IndexSlideModel"
+    },
+    "name": "FoodModel2",
+    "designerId": "8b152e86-6eaf-4a6a-8f79-0261bc42c95d",
+    "cn": [
+        {
+            "type": "Ext.data.field.Field",
+            "reference": {
+                "name": "fields",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "name": "is_id"
+            },
+            "name": "MyField6",
+            "designerId": "f282ae34-a5a3-4a9c-babd-ef22eb1300b6"
+        },
+        {
+            "type": "Ext.data.field.Field",
+            "reference": {
+                "name": "fields",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "name": "is_pic"
+            },
+            "name": "MyField25",
+            "designerId": "418e1d44-10ea-4420-bc1d-97c935a8179a"
+        },
+        {
+            "type": "Ext.data.field.Field",
+            "reference": {
+                "name": "fields",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "name": "is_url"
+            },
+            "name": "MyField28",
+            "designerId": "c5df2958-587e-4d16-91ba-a37eb128431b"
+        },
+        {
+            "type": "Ext.data.field.Field",
+            "reference": {
+                "name": "fields",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "name": "is_seq"
+            },
+            "name": "MyField27",
+            "designerId": "ea330ce0-b1fb-4b86-9200-81b806b5b7fa"
+        }
+    ]
+}
