@@ -19,13 +19,13 @@ Ext.define('Target.view.NewsWindow', {
 
     requires: [
         'Target.view.NewsWindowViewModel',
-        'Ext.form.field.Hidden',
         'Ext.form.Panel',
         'Ext.form.field.Date',
         'Ext.form.field.File',
         'Ext.form.field.TextArea',
         'Ext.toolbar.Toolbar',
-        'Ext.button.Button'
+        'Ext.button.Button',
+        'Ext.form.field.Hidden'
     ],
 
     viewModel: {
@@ -40,12 +40,6 @@ Ext.define('Target.view.NewsWindow', {
     defaultListenerScope: true,
 
     items: [
-        {
-            xtype: 'hiddenfield',
-            id: 'nm_id',
-            fieldLabel: 'Label',
-            name: 'nm_id'
-        },
         {
             xtype: 'form',
             id: 'newsForm',
@@ -83,6 +77,12 @@ Ext.define('Target.view.NewsWindow', {
                     height: 191,
                     id: 'ckreplace',
                     name: 'nm_body'
+                },
+                {
+                    xtype: 'hiddenfield',
+                    id: 'nm_id',
+                    fieldLabel: 'Label',
+                    name: 'nm_id'
                 }
             ],
             dockedItems: [
@@ -158,10 +158,10 @@ Ext.define('Target.view.NewsWindow', {
         if(form.isValid()){
             form.findField('nm_body').setValue(content_editor.getData());
             form.submit({
-                method: 'PUT',
+                method: 'POST',
                 waitTitle:'訊息',
                 waitMsg:'修改資料中',
-                url:'http://dev.finpo.com.tw/degi-api/target-local/public/b/news/'+Id,
+                url:'http://dev.finpo.com.tw/degi-api/target-local/public/b/news',
 
                 success:function(form,action){
 
@@ -169,7 +169,7 @@ Ext.define('Target.view.NewsWindow', {
                     store.proxy.url='http://dev.finpo.com.tw/degi-api/target-local/public/b/news';
                     store.load();
 
-                    form.reset();
+                    //form.reset();
                     Ext.Msg.alert('訊息','最新消息修改成功', function(){
                         var window = Ext.getCmp('newswindow');
                         window.close();
@@ -178,7 +178,10 @@ Ext.define('Target.view.NewsWindow', {
                 },
                 failure:function(form,action){
 
-                   Ext.Msg.alert('訊息','最新消息修改失敗');
+                    data = Ext.decode(action.response.responseText);
+                    if (data.success === false && data.msg){
+                        Ext.Msg.alert('Error', data.msg);
+                    }
 
                 }
 

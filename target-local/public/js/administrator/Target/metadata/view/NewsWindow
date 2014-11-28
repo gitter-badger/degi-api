@@ -23,21 +23,6 @@
     "viewModelInstanceId": "34b5438e-d85b-4876-8276-9887949cf6ae",
     "cn": [
         {
-            "type": "Ext.form.field.Hidden",
-            "reference": {
-                "name": "items",
-                "type": "array"
-            },
-            "codeClass": null,
-            "userConfig": {
-                "fieldLabel": "Label",
-                "id": "nm_id",
-                "name": "nm_id"
-            },
-            "name": "MyHiddenField",
-            "designerId": "25206bc6-ab31-40c1-b513-91c9a5e72b46"
-        },
-        {
             "type": "Ext.form.Panel",
             "reference": {
                 "name": "items",
@@ -232,12 +217,12 @@
                                             "var Id = Ext.getCmp('nm_id').getValue();",
                                             "var form = Ext.getCmp('newsForm').getForm();",
                                             "if(form.isValid()){",
-                                            "    form.findField('nm_body').setValue(content_editor.getData());    ",
+                                            "    form.findField('nm_body').setValue(content_editor.getData());",
                                             "    form.submit({",
-                                            "        method: 'PUT',",
+                                            "        method: 'POST',",
                                             "        waitTitle:'訊息',",
                                             "        waitMsg:'修改資料中',",
-                                            "        url:'http://dev.finpo.com.tw/degi-api/target-local/public/b/news/'+Id,",
+                                            "        url:'http://dev.finpo.com.tw/degi-api/target-local/public/b/news',",
                                             "",
                                             "        success:function(form,action){",
                                             "",
@@ -245,7 +230,7 @@
                                             "            store.proxy.url='http://dev.finpo.com.tw/degi-api/target-local/public/b/news';",
                                             "            store.load();",
                                             "",
-                                            "            form.reset();",
+                                            "            //form.reset();",
                                             "            Ext.Msg.alert('訊息','最新消息修改成功', function(){",
                                             "                var window = Ext.getCmp('newswindow');",
                                             "                window.close();",
@@ -254,7 +239,10 @@
                                             "        },",
                                             "        failure:function(form,action){",
                                             "",
-                                            "           Ext.Msg.alert('訊息','最新消息修改失敗');",
+                                            "            data = Ext.decode(action.response.responseText);",
+                                            "            if (data.success === false && data.msg){",
+                                            "                Ext.Msg.alert('Error', data.msg);",
+                                            "            }",
                                             "",
                                             "        }",
                                             "",
@@ -309,6 +297,21 @@
                     },
                     "name": "onContentFormAfterRender",
                     "designerId": "e3513be8-6c48-4b50-af9d-57967c385da4"
+                },
+                {
+                    "type": "Ext.form.field.Hidden",
+                    "reference": {
+                        "name": "items",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "fieldLabel": "Label",
+                        "id": "nm_id",
+                        "name": "nm_id"
+                    },
+                    "name": "MyHiddenField",
+                    "designerId": "25206bc6-ab31-40c1-b513-91c9a5e72b46"
                 }
             ]
         }
