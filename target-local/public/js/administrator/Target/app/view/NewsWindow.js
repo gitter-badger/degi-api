@@ -133,17 +133,18 @@ Ext.define('Target.view.NewsWindow', {
                     var store  = Ext.getCmp('newsgridpanel').getViewModel().getStore('NewsStore');
                     store.proxy.url='http://dev.finpo.com.tw/degi-api/target-local/public/b/news';
                     store.load();
-
+                    var window = Ext.getCmp('newswindow');
+                    window.close();
                     form.reset();
-                    Ext.Msg.alert('訊息','最新消息新增成功', function(){
-                        var window = Ext.getCmp('newswindow');
-                        window.close();
-                    });
+                    Ext.Msg.alert('訊息','最新消息新增成功');
 
                 },
                 failure:function(form,action){
 
-                   Ext.Msg.alert('訊息','最新消息新增失敗');
+                   data = Ext.decode(action.response.responseText);
+                    if (data.success === false && data.msg){
+                        Ext.Msg.alert('Error', data.msg);
+                    }
 
                 }
 
