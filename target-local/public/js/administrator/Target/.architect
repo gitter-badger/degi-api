@@ -2542,15 +2542,16 @@
             "7795f260-d2af-4a25-912d-9c101379da02",
             "df851ec4-fb62-4b2d-a0ed-0226592ee426",
             "ebf396cb-f5e9-423d-a0bc-8918c1b149af",
-            "5f70e91d-f5cf-43b8-a3c5-0f0d767002ef"
+            "5f70e91d-f5cf-43b8-a3c5-0f0d767002ef",
+            "0cfcc428-6d78-45b2-b611-9733bbc5e314"
         ]
     },
     "canvasState": {
         "topInstance": null
     },
     "inspectorState": {
-        "topInstance": "5f70e91d-f5cf-43b8-a3c5-0f0d767002ef",
-        "selectedInstance": "5f70e91d-f5cf-43b8-a3c5-0f0d767002ef"
+        "topInstance": "7795f260-d2af-4a25-912d-9c101379da02",
+        "selectedInstance": "7795f260-d2af-4a25-912d-9c101379da02"
     },
     "editMode": "code",
     "userSettings": {

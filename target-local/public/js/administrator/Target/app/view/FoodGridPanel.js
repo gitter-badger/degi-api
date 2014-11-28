@@ -83,7 +83,7 @@ Ext.define('Target.view.FoodGridPanel', {
         {
             xtype: 'gridcolumn',
             renderer: function(value, metaData, record, rowIndex, colIndex, store, view) {
-                return (value !=='')?"<img src='images/popular_item/"+value+"' width='60px' />":'沒有任何圖片';
+                return (value !=='')?"<img src='images/food_certification_image/"+value+"' width='60px' />":'沒有任何圖片';
 
             },
             dataIndex: 'fc_image',
