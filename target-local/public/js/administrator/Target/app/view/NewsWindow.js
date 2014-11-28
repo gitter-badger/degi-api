@@ -135,7 +135,7 @@ Ext.define('Target.view.NewsWindow', {
                     store.load();
                     var window = Ext.getCmp('newswindow');
                     window.close();
-                    form.reset();
+                    //form.reset();
                     Ext.Msg.alert('訊息','最新消息新增成功');
 
                 },
