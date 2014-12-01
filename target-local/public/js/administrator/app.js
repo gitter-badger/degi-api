@@ -21,7 +21,7 @@ Ext.Loader.setConfig({
 
 Ext.application({
     appFolder: 'js/administrator/Target/app',    
-        models: [
+    models: [
         'AdminModel',
         'MemberModel',
         'ProductModel',
@@ -38,7 +38,8 @@ Ext.application({
         'PopularStatusModel',
         'FoodModel',
         'StoreModel',
-        'IndexSlideModel'
+        'IndexSlideModel',
+        'CompanyMemberModel'
     ],
     stores: [
         'SubOrderArrayStore',
@@ -76,7 +77,8 @@ Ext.application({
         'StoreGridPanel',
         'storewindow',
         'IndexSlideGridPanel',
-        'indexslidewindow'
+        'indexslidewindow',
+        'CompanyMemberGridPanel'
     ],
     name: 'Target',
     launch: function() {
