@@ -162,7 +162,7 @@ Ext.define('Target.view.AdminWindow', {
                     store.load();
                     var window = Ext.getCmp('adminWindow');
                     window.close();
-                    form.reset();
+                    //form.reset();
                     Ext.Msg.alert('訊息','管理者新增成功');
 
                 },
@@ -212,7 +212,7 @@ Ext.define('Target.view.AdminWindow', {
                         store.proxy.url='http://dev.finpo.com.tw/degi-api/target-local/public/b/admin';
                         store.load();
 
-                        form.reset();
+                        //form.reset();
                         Ext.Msg.alert('訊息','管理者修改成功', function(){
                             var window = Ext.getCmp('adminWindow');
                             window.close();
@@ -232,7 +232,7 @@ Ext.define('Target.view.AdminWindow', {
                         store.proxy.url='http://dev.finpo.com.tw/degi-api/target-local/public/b/admin';
                         store.load();
 
-                        form.reset();
+                        //form.reset();
                         Ext.Msg.alert('訊息','管理者修改成功', function(){
                             var window = Ext.getCmp('adminWindow');
                             window.close();

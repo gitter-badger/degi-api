@@ -65,8 +65,7 @@
             "IndexSlideGridPanel",
             "indexslidewindow",
             "CompanyMemberGridPanel",
-            "CompanyMemberWindow",
-            "MyTextField21"
+            "CompanyMemberWindow"
         ]
     },
     "name": "Application",

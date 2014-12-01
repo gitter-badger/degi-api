@@ -47,9 +47,9 @@ class CompanyMember{
     			$select->where->like('cm_account','%'.$query['q'].'%');
     			$select->where->or->like('cm_title','%'.$query['q'].'%');
     		}
-//     		if(isset($query['s'])){
-//     			$select->where->equalTo('mm_status',$query['s']);
-//     		}
+    		if(isset($query['s'])){
+    			$select->where->equalTo('cm_status',$query['s']);
+    		}
     		
     		$paginator = new Paginator(new DbSelect($select, $this->db->adapter));
     

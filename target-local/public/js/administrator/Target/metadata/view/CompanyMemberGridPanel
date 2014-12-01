@@ -210,7 +210,7 @@
                     "codeClass": null,
                     "userConfig": {
                         "layout|flex": null,
-                        "text": "查看詳細資訊"
+                        "text": "功能"
                     },
                     "name": "MyButton14",
                     "designerId": "8092146d-a63c-4920-a77e-40ca9ed0537b",
@@ -393,6 +393,77 @@
                     ]
                 },
                 {
+                    "type": "Ext.form.field.ComboBox",
+                    "reference": {
+                        "name": "items",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "editable": false,
+                        "emptyText": "狀態查詢",
+                        "fieldLabel": "",
+                        "id": "memberStatusSelector1",
+                        "layout|flex": null,
+                        "queryMode": "local",
+                        "store": [
+                            "{MemberStatusStore}"
+                        ],
+                        "triggerAction": null,
+                        "valueField": "cm_status"
+                    },
+                    "name": "MyComboBox1",
+                    "configAlternates": {
+                        "store": "binding"
+                    },
+                    "designerId": "a634d7ca-d9fd-4256-a8f6-3743a4f00c8f",
+                    "cn": [
+                        {
+                            "type": "basiceventbinding",
+                            "reference": {
+                                "name": "listeners",
+                                "type": "array"
+                            },
+                            "codeClass": null,
+                            "userConfig": {
+                                "fn": "onComboboxChange1",
+                                "implHandler": [
+                                    "var mStatus = Ext.getCmp('memberStatusSelector1').getValue();",
+                                    "var store  = Ext.getCmp('companymembergridpanel').getViewModel().getStore('CompanyMemberStore');",
+                                    "if( mStatus === '' ){",
+                                    "    store.proxy.url='http://dev.finpo.com.tw/degi-api/target-local/public/b/company_member';",
+                                    "}else{",
+                                    "    store.proxy.url='http://dev.finpo.com.tw/degi-api/target-local/public/b/company_member?s='+mStatus;",
+                                    "}",
+                                    "store.load();"
+                                ],
+                                "name": "change",
+                                "scope": "me"
+                            },
+                            "name": "onComboboxChange1",
+                            "designerId": "354facbb-4e89-4841-b809-41cf7ae55d82"
+                        },
+                        {
+                            "type": "basiceventbinding",
+                            "reference": {
+                                "name": "listeners",
+                                "type": "array"
+                            },
+                            "codeClass": null,
+                            "userConfig": {
+                                "fn": "onComboboxFocus1",
+                                "implHandler": [
+                                    "var mStatus = Ext.getCmp('memberStatusSelector1').setValue('');"
+                                ],
+                                "name": "focus",
+                                "scope": "me"
+                            },
+                            "name": "onComboboxFocus1",
+                            "designerId": "4670dacc-284b-4431-a99a-3a49d6fd3eeb"
+                        }
+                    ]
+                },
+                {
                     "type": "Ext.button.Button",
                     "reference": {
                         "name": "items",
@@ -420,6 +491,7 @@
                                     "store.proxy.url='http://dev.finpo.com.tw/degi-api/target-local/public/b/company_member';",
                                     "",
                                     "Ext.getCmp('CompanyMemberNameField').setValue('');",
+                                    "Ext.getCmp('memberStatusSelector1').setValue('');",
                                     "",
                                     "store.load();"
                                 ],

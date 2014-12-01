@@ -25,7 +25,7 @@ Ext.define('Target.view.CompanyMemberGridPanel', {
         'Ext.button.Button',
         'Ext.menu.Menu',
         'Ext.menu.Item',
-        'Ext.form.field.Text',
+        'Ext.form.field.ComboBox',
         'Ext.toolbar.Paging'
     ],
 
@@ -100,7 +100,7 @@ Ext.define('Target.view.CompanyMemberGridPanel', {
             items: [
                 {
                     xtype: 'button',
-                    text: '查看詳細資訊',
+                    text: '功能',
                     menu: {
                         xtype: 'menu',
                         width: 120,
@@ -133,6 +133,22 @@ Ext.define('Target.view.CompanyMemberGridPanel', {
                     text: '查詢',
                     listeners: {
                         click: 'onButtonClick'
+                    }
+                },
+                {
+                    xtype: 'combobox',
+                    id: 'memberStatusSelector1',
+                    fieldLabel: '',
+                    editable: false,
+                    emptyText: '狀態查詢',
+                    queryMode: 'local',
+                    valueField: 'cm_status',
+                    bind: {
+                        store: '{MemberStatusStore}'
+                    },
+                    listeners: {
+                        change: 'onComboboxChange1',
+                        focus: 'onComboboxFocus1'
                     }
                 },
                 {
@@ -201,11 +217,27 @@ Ext.define('Target.view.CompanyMemberGridPanel', {
         store.load();
     },
 
+    onComboboxChange1: function(field, newValue, oldValue, eOpts) {
+        var mStatus = Ext.getCmp('memberStatusSelector1').getValue();
+        var store  = Ext.getCmp('companymembergridpanel').getViewModel().getStore('CompanyMemberStore');
+        if( mStatus === '' ){
+            store.proxy.url='http://dev.finpo.com.tw/degi-api/target-local/public/b/company_member';
+        }else{
+            store.proxy.url='http://dev.finpo.com.tw/degi-api/target-local/public/b/company_member?s='+mStatus;
+        }
+        store.load();
+    },
+
+    onComboboxFocus1: function(component, event, eOpts) {
+        var mStatus = Ext.getCmp('memberStatusSelector1').setValue('');
+    },
+
     onButtonClick1: function(button, e, eOpts) {
         var store  = Ext.getCmp('companymembergridpanel').getViewModel().getStore('CompanyMemberStore');
         store.proxy.url='http://dev.finpo.com.tw/degi-api/target-local/public/b/company_member';
 
         Ext.getCmp('CompanyMemberNameField').setValue('');
+        Ext.getCmp('memberStatusSelector1').setValue('');
 
         store.load();
     }

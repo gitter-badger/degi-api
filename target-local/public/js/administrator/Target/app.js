@@ -78,8 +78,7 @@ Ext.application({
         'IndexSlideGridPanel',
         'indexslidewindow',
         'CompanyMemberGridPanel',
-        'CompanyMemberWindow',
-        'MyTextField21'
+        'CompanyMemberWindow'
     ],
     name: 'Target',
 
