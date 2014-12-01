@@ -9,7 +9,7 @@
         "container|align": "stretch",
         "designer|userAlias": "companymemberwindow",
         "designer|userClassName": "CompanyMemberWindow",
-        "height": 362,
+        "height": 326,
         "id": "companymemberWindow",
         "layout": "vbox",
         "modal": true,
@@ -238,25 +238,11 @@
                                     },
                                     "codeClass": null,
                                     "userConfig": {
-                                        "fieldLabel": "帳號建立時間",
-                                        "name": "cm_created"
+                                        "fieldLabel": "消費總計",
+                                        "name": "cm_consumption_amount"
                                     },
-                                    "name": "MyTextField11",
-                                    "designerId": "4d7160fc-189b-44ea-b2ec-a8e687deb5c3"
-                                },
-                                {
-                                    "type": "Ext.form.field.Text",
-                                    "reference": {
-                                        "name": "items",
-                                        "type": "array"
-                                    },
-                                    "codeClass": null,
-                                    "userConfig": {
-                                        "fieldLabel": "帳號修改時間",
-                                        "name": "cm_modified"
-                                    },
-                                    "name": "MyTextField12",
-                                    "designerId": "d3ad7c47-cd4e-4151-85dd-8647dd8b0592"
+                                    "name": "MyTextField21",
+                                    "designerId": "bd12da02-ec07-4854-a124-d017d62702d7"
                                 }
                             ]
                         },
@@ -346,20 +332,6 @@
                                     },
                                     "name": "MyTextArea2",
                                     "designerId": "3eda2f40-8dd2-4fd2-a323-0e14454f7f28"
-                                },
-                                {
-                                    "type": "Ext.form.field.Text",
-                                    "reference": {
-                                        "name": "items",
-                                        "type": "array"
-                                    },
-                                    "codeClass": null,
-                                    "userConfig": {
-                                        "fieldLabel": "消費總計",
-                                        "name": "cm_consumption_amount"
-                                    },
-                                    "name": "MyTextField21",
-                                    "designerId": "bd12da02-ec07-4854-a124-d017d62702d7"
                                 },
                                 {
                                     "type": "Ext.form.RadioGroup",

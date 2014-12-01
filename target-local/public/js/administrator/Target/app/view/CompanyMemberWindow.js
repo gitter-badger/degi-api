@@ -31,7 +31,7 @@ Ext.define('Target.view.CompanyMemberWindow', {
     viewModel: {
         type: 'companymemberwindow'
     },
-    height: 362,
+    height: 326,
     id: 'companymemberWindow',
     width: 604,
     modal: true,
@@ -134,13 +134,8 @@ Ext.define('Target.view.CompanyMemberWindow', {
                                 },
                                 {
                                     xtype: 'textfield',
-                                    fieldLabel: '帳號建立時間',
-                                    name: 'cm_created'
-                                },
-                                {
-                                    xtype: 'textfield',
-                                    fieldLabel: '帳號修改時間',
-                                    name: 'cm_modified'
+                                    fieldLabel: '消費總計',
+                                    name: 'cm_consumption_amount'
                                 }
                             ]
                         },
@@ -174,11 +169,6 @@ Ext.define('Target.view.CompanyMemberWindow', {
                                     xtype: 'textareafield',
                                     fieldLabel: '發票寄送地址',
                                     name: 'cm_invoice_address'
-                                },
-                                {
-                                    xtype: 'textfield',
-                                    fieldLabel: '消費總計',
-                                    name: 'cm_consumption_amount'
                                 },
                                 {
                                     xtype: 'radiogroup',
