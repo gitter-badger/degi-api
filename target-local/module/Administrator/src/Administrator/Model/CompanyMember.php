@@ -43,10 +43,10 @@ class CompanyMember{
     	try {
     		$select = $this->db->getSql()->select();
     		
-//     		if(!empty($query['q'])){
-//     			$select->where->like('mm_email','%'.$query['q'].'%');
-//     			$select->where->or->like('mm_purchaser_name','%'.$query['q'].'%');
-//     		}
+    		if(!empty($query['q'])){
+    			$select->where->like('cm_account','%'.$query['q'].'%');
+    			$select->where->or->like('cm_title','%'.$query['q'].'%');
+    		}
 //     		if(isset($query['s'])){
 //     			$select->where->equalTo('mm_status',$query['s']);
 //     		}

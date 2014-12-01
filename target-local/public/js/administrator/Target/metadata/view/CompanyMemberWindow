@@ -38,6 +38,22 @@
             "designerId": "8fff9409-9e31-4c4b-be9d-d38858edb73f"
         },
         {
+            "type": "Ext.form.field.Hidden",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "fieldLabel": null,
+                "id": "cm_passwordTemp",
+                "layout|flex": 1,
+                "name": "cm_passwordTemp"
+            },
+            "name": "MyHiddenField2",
+            "designerId": "25af214c-3e8c-421d-89e9-e50a88f13963"
+        },
+        {
             "type": "Ext.form.Panel",
             "reference": {
                 "name": "items",
@@ -98,6 +114,7 @@
                                     "codeClass": null,
                                     "userConfig": {
                                         "fieldLabel": "帳號信箱",
+                                        "id": "cm_account",
                                         "name": "cm_account",
                                         "width": null
                                     },
@@ -113,6 +130,7 @@
                                     "codeClass": null,
                                     "userConfig": {
                                         "fieldLabel": "密碼",
+                                        "id": "cm_password",
                                         "inputType": "password",
                                         "name": "cm_password",
                                         "width": null
@@ -507,7 +525,7 @@
                                     "            store.load();",
                                     "            var window = Ext.getCmp('companymemberWindow');",
                                     "            window.close();",
-                                    "            form.reset();",
+                                    "            //form.reset();",
                                     "            Ext.Msg.alert('訊息','公司會員新增成功');",
                                     "",
                                     "        },",

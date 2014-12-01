@@ -49,6 +49,12 @@ Ext.define('Target.view.CompanyMemberWindow', {
             name: 'cm_id'
         },
         {
+            xtype: 'hiddenfield',
+            flex: 1,
+            id: 'cm_passwordTemp',
+            name: 'cm_passwordTemp'
+        },
+        {
             xtype: 'form',
             height: 297,
             id: 'companymemberForm',
@@ -77,11 +83,13 @@ Ext.define('Target.view.CompanyMemberWindow', {
                             items: [
                                 {
                                     xtype: 'textfield',
+                                    id: 'cm_account',
                                     fieldLabel: '帳號信箱',
                                     name: 'cm_account'
                                 },
                                 {
                                     xtype: 'textfield',
+                                    id: 'cm_password',
                                     fieldLabel: '密碼',
                                     name: 'cm_password',
                                     inputType: 'password'
@@ -281,7 +289,7 @@ Ext.define('Target.view.CompanyMemberWindow', {
                     store.load();
                     var window = Ext.getCmp('companymemberWindow');
                     window.close();
-                    form.reset();
+                    //form.reset();
                     Ext.Msg.alert('訊息','公司會員新增成功');
 
                 },
