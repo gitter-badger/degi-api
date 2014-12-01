@@ -64,6 +64,15 @@ return array(
             				),
             		),
             ),
+            'company_member_b' => array(
+            		'type' => 'Segment',
+            		'options' => array(
+            				'route'    => '/b/company_member[/:id]',
+            				'defaults' => array(
+            						'controller' => 'Administrator\Controller\CompanyMember'
+            				),
+            		),
+            ),
             'order_b' => array(
             		'type' => 'Segment',
             		'options' => array(
@@ -186,7 +195,8 @@ return array(
             'Administrator\Controller\Index' => 'Administrator\Controller\IndexController',
             'Administrator\Controller\Auth' => 'Administrator\Controller\AuthController',
             'Administrator\Controller\Adminer' => 'Administrator\Controller\AdminerController',
-            'Administrator\Controller\Member' => 'Administrator\Controller\MemberController',   
+            'Administrator\Controller\Member' => 'Administrator\Controller\MemberController',  
+            'Administrator\Controller\CompanyMember' => 'Administrator\Controller\CompanyMemberController',
             'Administrator\Controller\Order' => 'Administrator\Controller\OrderController',      
             'Administrator\Controller\ItemCategory' => 'Administrator\Controller\ItemCategoryController',
             'Administrator\Controller\ItemCategoryRelate' => 'Administrator\Controller\ItemCategoryRelateController',

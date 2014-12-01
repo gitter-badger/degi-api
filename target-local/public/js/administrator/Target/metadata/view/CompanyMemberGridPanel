@@ -1,0 +1,452 @@
+{
+    "type": "Ext.grid.Panel",
+    "reference": {
+        "name": "items",
+        "type": "array"
+    },
+    "codeClass": null,
+    "userConfig": {
+        "defaultListenerScope": true,
+        "designer|userAlias": "companymembergridpanel",
+        "designer|userClassName": "CompanyMemberGridPanel",
+        "height": null,
+        "id": "membergridpanel1",
+        "sortableColumns": null,
+        "store": [
+            "{CompanyMemberStore}"
+        ],
+        "title": "My Grid Panel",
+        "width": null
+    },
+    "name": "MemberGridPanel1",
+    "configAlternates": {
+        "store": "binding"
+    },
+    "designerId": "6f8d9315-4a97-45ea-bbff-aa76a3cb7f11",
+    "viewControllerInstanceId": "0c149c73-5c29-4a22-b961-debc8916859a",
+    "viewModelInstanceId": "bf304d29-b568-4588-80ae-d3833b3c4007",
+    "cn": [
+        {
+            "type": "Ext.grid.View",
+            "reference": {
+                "name": "viewConfig",
+                "type": "object"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "disableSelection": null
+            },
+            "name": "MyGridView1",
+            "designerId": "98ab0130-e39f-4efb-a157-aa214d73f9ee"
+        },
+        {
+            "type": "Ext.selection.CheckboxModel",
+            "reference": {
+                "name": "selModel",
+                "type": "object"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "mode": "SINGLE"
+            },
+            "name": "MyCheckboxSelectionModel1",
+            "designerId": "bae7fe67-7b48-455d-9f58-d2d6033627bd"
+        },
+        {
+            "type": "Ext.grid.column.Column",
+            "reference": {
+                "name": "columns",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "dataIndex": "cm_id",
+                "flex": 0.5,
+                "text": "編號"
+            },
+            "name": "MyColumn3",
+            "designerId": "710fba96-185f-49c4-bbeb-72dfeefb98f5"
+        },
+        {
+            "type": "Ext.grid.column.Column",
+            "reference": {
+                "name": "columns",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "dataIndex": "cm_account",
+                "flex": 1,
+                "text": "登入帳號"
+            },
+            "name": "MyColumn",
+            "designerId": "e1506759-8e7b-4df0-a25a-b6c36444cf94"
+        },
+        {
+            "type": "Ext.grid.column.Column",
+            "reference": {
+                "name": "columns",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "dataIndex": "cm_title",
+                "flex": 1,
+                "text": "公司名稱"
+            },
+            "name": "MyColumn12",
+            "designerId": "207cafee-1466-4da4-a950-2a4f46bae053"
+        },
+        {
+            "type": "Ext.grid.column.Column",
+            "reference": {
+                "name": "columns",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "dataIndex": "cm_contact_name",
+                "flex": 1,
+                "text": "窗口姓名"
+            },
+            "name": "MyColumn10",
+            "designerId": "d69a14ef-3318-47fb-8f60-2931e051be89"
+        },
+        {
+            "type": "Ext.grid.column.Column",
+            "reference": {
+                "name": "columns",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "dataIndex": "cm_contact_phone",
+                "flex": 1,
+                "text": "窗口電話"
+            },
+            "name": "MyColumn11",
+            "designerId": "080712c5-5272-48ad-9da7-be4554ce5eab"
+        },
+        {
+            "type": "Ext.grid.column.Column",
+            "reference": {
+                "name": "columns",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "dataIndex": "cm_status",
+                "flex": 0.5,
+                "text": "啟／停用"
+            },
+            "name": "MyColumn46",
+            "designerId": "edd72c7a-0082-423d-bab1-db9df5afea44",
+            "cn": [
+                {
+                    "type": "fixedfunction",
+                    "reference": {
+                        "name": "items",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "designer|params": [
+                            "value",
+                            "metaData",
+                            "record",
+                            "rowIndex",
+                            "colIndex",
+                            "store",
+                            "view"
+                        ],
+                        "fn": "renderer",
+                        "implHandler": [
+                            "if( value == 1 ){",
+                            "    return '啟用';",
+                            "}else{",
+                            "    return '停用';",
+                            "}"
+                        ]
+                    },
+                    "name": "renderer",
+                    "designerId": "ec027551-abfd-4d07-bd7e-bf3c3e463322"
+                }
+            ]
+        },
+        {
+            "type": "Ext.grid.column.Column",
+            "reference": {
+                "name": "columns",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "dataIndex": "cm_created",
+                "flex": 1,
+                "text": "建立時間"
+            },
+            "name": "MyColumn24",
+            "designerId": "7bcd08ba-3c90-4cf9-978b-9a16e1a0abad"
+        },
+        {
+            "type": "Ext.toolbar.Toolbar",
+            "reference": {
+                "name": "dockedItems",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "dock": "top"
+            },
+            "name": "MyToolbar1",
+            "designerId": "86d24ed8-53b7-4fe2-a456-25ab2da44168",
+            "cn": [
+                {
+                    "type": "Ext.button.Cycle",
+                    "reference": {
+                        "name": "items",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "layout|flex": null,
+                        "text": "查看詳細資訊"
+                    },
+                    "name": "MyCycleButton",
+                    "designerId": "8092146d-a63c-4920-a77e-40ca9ed0537b",
+                    "cn": [
+                        {
+                            "type": "Ext.menu.Menu",
+                            "reference": {
+                                "name": "menu",
+                                "type": "object"
+                            },
+                            "codeClass": null,
+                            "userConfig": {
+                                "width": 120
+                            },
+                            "name": "MyMenu",
+                            "designerId": "526888d5-d76f-4d3b-a2f4-e7b0568f9322",
+                            "cn": [
+                                {
+                                    "type": "Ext.menu.CheckItem",
+                                    "reference": {
+                                        "name": "items",
+                                        "type": "array"
+                                    },
+                                    "codeClass": null,
+                                    "userConfig": {
+                                        "text": "新增"
+                                    },
+                                    "name": "MyCheckItem",
+                                    "designerId": "4da6b6f4-b6d7-4371-8b2f-a8fc3a9fe8f0",
+                                    "cn": [
+                                        {
+                                            "type": "basiceventbinding",
+                                            "reference": {
+                                                "name": "listeners",
+                                                "type": "array"
+                                            },
+                                            "codeClass": null,
+                                            "userConfig": {
+                                                "fn": "onMenucheckitemClick",
+                                                "name": "click",
+                                                "scope": "me"
+                                            },
+                                            "name": "onMenucheckitemClick",
+                                            "designerId": "2fcbe4d0-e2db-4c04-8825-8c9406e41154"
+                                        }
+                                    ]
+                                },
+                                {
+                                    "type": "Ext.menu.CheckItem",
+                                    "reference": {
+                                        "name": "items",
+                                        "type": "array"
+                                    },
+                                    "codeClass": null,
+                                    "userConfig": {
+                                        "text": "修改"
+                                    },
+                                    "name": "MyCheckItem1",
+                                    "designerId": "72f9bb86-0bfd-4b79-8281-f491adf68dc3",
+                                    "cn": [
+                                        {
+                                            "type": "basiceventbinding",
+                                            "reference": {
+                                                "name": "listeners",
+                                                "type": "array"
+                                            },
+                                            "codeClass": null,
+                                            "userConfig": {
+                                                "fn": "onMenucheckitemClick1",
+                                                "name": "click",
+                                                "scope": "me"
+                                            },
+                                            "name": "onMenucheckitemClick1",
+                                            "designerId": "d1479030-c698-4f89-b584-13f7602b90b3"
+                                        }
+                                    ]
+                                },
+                                {
+                                    "type": "Ext.menu.CheckItem",
+                                    "reference": {
+                                        "name": "items",
+                                        "type": "array"
+                                    },
+                                    "codeClass": null,
+                                    "userConfig": {
+                                        "text": "刪除"
+                                    },
+                                    "name": "MyCheckItem2",
+                                    "designerId": "bb23e138-5229-49ee-bca0-7bc9bfbc85d5",
+                                    "cn": [
+                                        {
+                                            "type": "basiceventbinding",
+                                            "reference": {
+                                                "name": "listeners",
+                                                "type": "array"
+                                            },
+                                            "codeClass": null,
+                                            "userConfig": {
+                                                "fn": "onMenucheckitemClick2",
+                                                "name": "click",
+                                                "scope": "me"
+                                            },
+                                            "name": "onMenucheckitemClick2",
+                                            "designerId": "aee17b2f-babf-4781-9665-df174a25795b"
+                                        }
+                                    ]
+                                }
+                            ]
+                        }
+                    ]
+                },
+                {
+                    "type": "Ext.form.field.Text",
+                    "reference": {
+                        "name": "items",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "emptyText": "公司名稱/登入帳號 搜尋",
+                        "fieldLabel": null,
+                        "id": "CompanyMemberNameField",
+                        "layout|flex": null,
+                        "margin": null,
+                        "name": "companymembernamefield"
+                    },
+                    "name": "MyTextField",
+                    "configAlternates": {
+                        "margin": "binding"
+                    },
+                    "designerId": "cfad7dea-ae5f-47f0-96a6-b19823dedd8d",
+                    "configMeta": {
+                        "margin": {
+                            "bindSingle": true
+                        }
+                    }
+                },
+                {
+                    "type": "Ext.button.Button",
+                    "reference": {
+                        "name": "items",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "layout|flex": null,
+                        "text": "查詢"
+                    },
+                    "name": "MyButton4",
+                    "designerId": "faa5b5bf-58e3-4d9b-8598-a8c0233dba53",
+                    "cn": [
+                        {
+                            "type": "basiceventbinding",
+                            "reference": {
+                                "name": "listeners",
+                                "type": "array"
+                            },
+                            "codeClass": null,
+                            "userConfig": {
+                                "fn": "onButtonClick",
+                                "implHandler": [
+                                    "var mName = Ext.getCmp('CompanyMemberNameField').getValue();",
+                                    "var store  = Ext.getCmp('companymembergridpanel').getViewModel().getStore('CompanyMemberStore');",
+                                    "",
+                                    "store.proxy.url='http://dev.finpo.com.tw/degi-api/target-local/public/b/company_member?q='+mName;",
+                                    "store.load();"
+                                ],
+                                "name": "click",
+                                "scope": "me"
+                            },
+                            "name": "onButtonClick",
+                            "designerId": "be83e76e-6194-4442-ba73-646c88537c26"
+                        }
+                    ]
+                },
+                {
+                    "type": "Ext.button.Button",
+                    "reference": {
+                        "name": "items",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "layout|flex": null,
+                        "text": "清除搜尋結果"
+                    },
+                    "name": "MyButton8",
+                    "designerId": "baf7fae1-2bc2-4b68-a209-fd1bafb412e5",
+                    "cn": [
+                        {
+                            "type": "basiceventbinding",
+                            "reference": {
+                                "name": "listeners",
+                                "type": "array"
+                            },
+                            "codeClass": null,
+                            "userConfig": {
+                                "fn": "onButtonClick1",
+                                "implHandler": [
+                                    "var store  = Ext.getCmp('companymembergridpanel').getViewModel().getStore('CompanyMemberStore');",
+                                    "store.proxy.url='http://dev.finpo.com.tw/degi-api/target-local/public/b/company_member';",
+                                    "",
+                                    "Ext.getCmp('CompanyMemberNameField').setValue('');",
+                                    "",
+                                    "store.load();"
+                                ],
+                                "name": "click",
+                                "scope": "me"
+                            },
+                            "name": "onButtonClick1",
+                            "designerId": "060491ce-8e6f-4ece-bc53-ce981c4ba901"
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "type": "Ext.toolbar.Paging",
+            "reference": {
+                "name": "dockedItems",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "displayInfo": true,
+                "dock": "bottom",
+                "store": [
+                    "{CompanyMemberStore}"
+                ],
+                "width": 360
+            },
+            "name": "MyPagingToolbar",
+            "configAlternates": {
+                "store": "binding"
+            },
+            "designerId": "4bab118e-f281-4fec-b6dc-c7181c8b7e3c"
+        }
+    ]
+}

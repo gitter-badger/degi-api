@@ -1,0 +1,109 @@
+{
+    "type": "Ext.app.ViewModel",
+    "reference": {
+        "name": "items",
+        "type": "array"
+    },
+    "codeClass": null,
+    "userConfig": {
+        "designer|userAlias": "companymembergridpanel",
+        "designer|userClassName": "CompanyMemberGridPanelViewModel"
+    },
+    "name": "MemberGridPanelViewModel1",
+    "designerId": "bf304d29-b568-4588-80ae-d3833b3c4007",
+    "cn": [
+        {
+            "type": "jsonstore",
+            "reference": {
+                "name": "stores",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "autoLoad": true,
+                "autoSync": true,
+                "model": "CompanyMemberModel",
+                "name": "CompanyMemberStore"
+            },
+            "name": "MyJsonStore1",
+            "designerId": "aacd38df-6166-4f63-af21-b7709045712d",
+            "cn": [
+                {
+                    "type": "Ext.data.proxy.Ajax",
+                    "reference": {
+                        "name": "proxy",
+                        "type": "object"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "url": "http://dev.finpo.com.tw/degi-api/target-local/public/b/company_member"
+                    },
+                    "name": "MyAjaxProxy1",
+                    "designerId": "fa2caaf2-42e2-4345-9800-9c3ac913e289",
+                    "cn": [
+                        {
+                            "type": "Ext.data.reader.Json",
+                            "reference": {
+                                "name": "reader",
+                                "type": "object"
+                            },
+                            "codeClass": null,
+                            "userConfig": {
+                                "rootProperty": "rows"
+                            },
+                            "name": "MyJsonReader1",
+                            "designerId": "efd3f553-287b-4a34-82dc-ada6c15c7340"
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "type": "Ext.data.Store",
+            "reference": {
+                "name": "stores",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "data": [
+                    "[",
+                    "{'cm_status':1, 'text':'啟用'},",
+                    "{'cm_status':2, 'text':'停用'}",
+                    "]"
+                ],
+                "name": "MemberStatusStore"
+            },
+            "name": "MyStore",
+            "designerId": "d5409e40-37f6-4fc6-9da9-959baccd898c",
+            "cn": [
+                {
+                    "type": "Ext.data.field.Field",
+                    "reference": {
+                        "name": "fields",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "name": "cm_status"
+                    },
+                    "name": "MyField",
+                    "designerId": "250a9b08-b3b4-4eb9-96f2-19433e114b83"
+                },
+                {
+                    "type": "Ext.data.field.Field",
+                    "reference": {
+                        "name": "fields",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "name": "text"
+                    },
+                    "name": "MyField1",
+                    "designerId": "3e7170f9-4014-46e1-86dd-8c1c6912e63b"
+                }
+            ]
+        }
+    ]
+}
