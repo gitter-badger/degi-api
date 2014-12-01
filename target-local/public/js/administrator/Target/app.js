@@ -77,7 +77,9 @@ Ext.application({
         'storewindow',
         'IndexSlideGridPanel',
         'indexslidewindow',
-        'CompanyMemberGridPanel'
+        'CompanyMemberGridPanel',
+        'CompanyMemberWindow',
+        'MyTextField21'
     ],
     name: 'Target',
 

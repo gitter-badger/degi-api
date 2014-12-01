@@ -8,6 +8,14 @@ use Administrator\Model\CompanyMember;
 class CompanyMemberController extends AbstractRestfulController
 {
     //resource 
+	public function create($data){
+		$response = $this->getResponse();
+		$response->setStatusCode(200);
+		 
+		$member = new CompanyMember();
+		 
+		return new JsonModel($member->insert($data));
+	}
     //get
     public function getList(){
         $response = $this->getResponse();
@@ -46,7 +54,7 @@ class CompanyMemberController extends AbstractRestfulController
     } 
     public function options(){
         $response = $this->getResponse();
-        $response->getHeaders()->addHeaderLine('Allow','GET,PUT,DELETE');
+        $response->getHeaders()->addHeaderLine('Allow','GET,PUT,DELETE,POST');
         return $response;
     }    
 }

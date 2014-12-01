@@ -10,12 +10,12 @@
         "designer|userAlias": "companymembergridpanel",
         "designer|userClassName": "CompanyMemberGridPanel",
         "height": null,
-        "id": "membergridpanel1",
+        "id": "companymembergridpanel",
         "sortableColumns": null,
         "store": [
             "{CompanyMemberStore}"
         ],
-        "title": "My Grid Panel",
+        "title": null,
         "width": null
     },
     "name": "MemberGridPanel1",
@@ -202,7 +202,7 @@
             "designerId": "86d24ed8-53b7-4fe2-a456-25ab2da44168",
             "cn": [
                 {
-                    "type": "Ext.button.Cycle",
+                    "type": "Ext.button.Button",
                     "reference": {
                         "name": "items",
                         "type": "array"
@@ -212,7 +212,7 @@
                         "layout|flex": null,
                         "text": "查看詳細資訊"
                     },
-                    "name": "MyCycleButton",
+                    "name": "MyButton14",
                     "designerId": "8092146d-a63c-4920-a77e-40ca9ed0537b",
                     "cn": [
                         {
@@ -228,66 +228,6 @@
                             "name": "MyMenu",
                             "designerId": "526888d5-d76f-4d3b-a2f4-e7b0568f9322",
                             "cn": [
-                                {
-                                    "type": "Ext.menu.CheckItem",
-                                    "reference": {
-                                        "name": "items",
-                                        "type": "array"
-                                    },
-                                    "codeClass": null,
-                                    "userConfig": {
-                                        "text": "新增"
-                                    },
-                                    "name": "MyCheckItem",
-                                    "designerId": "4da6b6f4-b6d7-4371-8b2f-a8fc3a9fe8f0",
-                                    "cn": [
-                                        {
-                                            "type": "basiceventbinding",
-                                            "reference": {
-                                                "name": "listeners",
-                                                "type": "array"
-                                            },
-                                            "codeClass": null,
-                                            "userConfig": {
-                                                "fn": "onMenucheckitemClick",
-                                                "name": "click",
-                                                "scope": "me"
-                                            },
-                                            "name": "onMenucheckitemClick",
-                                            "designerId": "2fcbe4d0-e2db-4c04-8825-8c9406e41154"
-                                        }
-                                    ]
-                                },
-                                {
-                                    "type": "Ext.menu.CheckItem",
-                                    "reference": {
-                                        "name": "items",
-                                        "type": "array"
-                                    },
-                                    "codeClass": null,
-                                    "userConfig": {
-                                        "text": "修改"
-                                    },
-                                    "name": "MyCheckItem1",
-                                    "designerId": "72f9bb86-0bfd-4b79-8281-f491adf68dc3",
-                                    "cn": [
-                                        {
-                                            "type": "basiceventbinding",
-                                            "reference": {
-                                                "name": "listeners",
-                                                "type": "array"
-                                            },
-                                            "codeClass": null,
-                                            "userConfig": {
-                                                "fn": "onMenucheckitemClick1",
-                                                "name": "click",
-                                                "scope": "me"
-                                            },
-                                            "name": "onMenucheckitemClick1",
-                                            "designerId": "d1479030-c698-4f89-b584-13f7602b90b3"
-                                        }
-                                    ]
-                                },
                                 {
                                     "type": "Ext.menu.CheckItem",
                                     "reference": {
@@ -315,6 +255,96 @@
                                             },
                                             "name": "onMenucheckitemClick2",
                                             "designerId": "aee17b2f-babf-4781-9665-df174a25795b"
+                                        }
+                                    ]
+                                },
+                                {
+                                    "type": "Ext.menu.Item",
+                                    "reference": {
+                                        "name": "items",
+                                        "type": "array"
+                                    },
+                                    "codeClass": null,
+                                    "userConfig": {
+                                        "text": "新增"
+                                    },
+                                    "name": "MyMenuItem",
+                                    "designerId": "3dc683fa-7f81-404e-b9ac-377955c7e936",
+                                    "cn": [
+                                        {
+                                            "type": "basiceventbinding",
+                                            "reference": {
+                                                "name": "listeners",
+                                                "type": "array"
+                                            },
+                                            "codeClass": null,
+                                            "userConfig": {
+                                                "fn": "onMenuitemClick",
+                                                "name": "click",
+                                                "scope": "me"
+                                            },
+                                            "name": "onMenuitemClick",
+                                            "designerId": "9e8cfca9-4dda-4fb2-b903-8b85a7eaf448"
+                                        }
+                                    ]
+                                },
+                                {
+                                    "type": "Ext.menu.Item",
+                                    "reference": {
+                                        "name": "items",
+                                        "type": "array"
+                                    },
+                                    "codeClass": null,
+                                    "userConfig": {
+                                        "text": "修改"
+                                    },
+                                    "name": "MyMenuItem1",
+                                    "designerId": "a5d29aba-639c-4665-9786-5b50596e4499",
+                                    "cn": [
+                                        {
+                                            "type": "basiceventbinding",
+                                            "reference": {
+                                                "name": "listeners",
+                                                "type": "array"
+                                            },
+                                            "codeClass": null,
+                                            "userConfig": {
+                                                "fn": "onMenuitemClick1",
+                                                "name": "click",
+                                                "scope": "me"
+                                            },
+                                            "name": "onMenuitemClick1",
+                                            "designerId": "f5b1abd5-0c90-4984-986a-b3370e4f73dd"
+                                        }
+                                    ]
+                                },
+                                {
+                                    "type": "Ext.menu.Item",
+                                    "reference": {
+                                        "name": "items",
+                                        "type": "array"
+                                    },
+                                    "codeClass": null,
+                                    "userConfig": {
+                                        "text": "刪除"
+                                    },
+                                    "name": "MyMenuItem2",
+                                    "designerId": "ee5b7a3a-691f-40a8-bd69-2bde3dfcc821",
+                                    "cn": [
+                                        {
+                                            "type": "basiceventbinding",
+                                            "reference": {
+                                                "name": "listeners",
+                                                "type": "array"
+                                            },
+                                            "codeClass": null,
+                                            "userConfig": {
+                                                "fn": "onMenuitemClick2",
+                                                "name": "click",
+                                                "scope": "me"
+                                            },
+                                            "name": "onMenuitemClick2",
+                                            "designerId": "a3f77aa5-2fa8-4754-ab34-3dd4feaf3eeb"
                                         }
                                     ]
                                 }

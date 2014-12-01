@@ -22,7 +22,7 @@ Ext.define('Target.view.CompanyMemberGridPanel', {
         'Ext.grid.View',
         'Ext.selection.CheckboxModel',
         'Ext.grid.column.Column',
-        'Ext.button.Cycle',
+        'Ext.button.Button',
         'Ext.menu.Menu',
         'Ext.menu.CheckItem',
         'Ext.form.field.Text',
@@ -33,8 +33,7 @@ Ext.define('Target.view.CompanyMemberGridPanel', {
         type: 'companymembergridpanel'
     },
     defaultListenerScope: true,
-    id: 'membergridpanel1',
-    title: 'My Grid Panel',
+    id: 'companymembergridpanel',
 
     bind: {
         store: '{CompanyMemberStore}'
@@ -100,7 +99,7 @@ Ext.define('Target.view.CompanyMemberGridPanel', {
             dock: 'top',
             items: [
                 {
-                    xtype: 'cycle',
+                    xtype: 'button',
                     text: '查看詳細資訊',
                     menu: {
                         xtype: 'menu',
@@ -108,23 +107,30 @@ Ext.define('Target.view.CompanyMemberGridPanel', {
                         items: [
                             {
                                 xtype: 'menucheckitem',
-                                text: '新增',
-                                listeners: {
-                                    click: 'onMenucheckitemClick'
-                                }
-                            },
-                            {
-                                xtype: 'menucheckitem',
-                                text: '修改',
-                                listeners: {
-                                    click: 'onMenucheckitemClick1'
-                                }
-                            },
-                            {
-                                xtype: 'menucheckitem',
                                 text: '刪除',
                                 listeners: {
                                     click: 'onMenucheckitemClick2'
+                                }
+                            },
+                            {
+                                xtype: 'menuitem',
+                                text: '新增',
+                                listeners: {
+                                    click: 'onMenuitemClick'
+                                }
+                            },
+                            {
+                                xtype: 'menuitem',
+                                text: '修改',
+                                listeners: {
+                                    click: 'onMenuitemClick1'
+                                }
+                            },
+                            {
+                                xtype: 'menuitem',
+                                text: '刪除',
+                                listeners: {
+                                    click: 'onMenuitemClick2'
                                 }
                             }
                         ]
@@ -163,15 +169,19 @@ Ext.define('Target.view.CompanyMemberGridPanel', {
         }
     ],
 
-    onMenucheckitemClick: function(item, e, eOpts) {
-
-    },
-
-    onMenucheckitemClick1: function(item, e, eOpts) {
-
-    },
-
     onMenucheckitemClick2: function(item, e, eOpts) {
+
+    },
+
+    onMenuitemClick: function(item, e, eOpts) {
+
+    },
+
+    onMenuitemClick1: function(item, e, eOpts) {
+
+    },
+
+    onMenuitemClick2: function(item, e, eOpts) {
 
     },
 
