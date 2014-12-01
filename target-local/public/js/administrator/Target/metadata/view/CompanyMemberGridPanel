@@ -229,36 +229,6 @@
                             "designerId": "526888d5-d76f-4d3b-a2f4-e7b0568f9322",
                             "cn": [
                                 {
-                                    "type": "Ext.menu.CheckItem",
-                                    "reference": {
-                                        "name": "items",
-                                        "type": "array"
-                                    },
-                                    "codeClass": null,
-                                    "userConfig": {
-                                        "text": "刪除"
-                                    },
-                                    "name": "MyCheckItem2",
-                                    "designerId": "bb23e138-5229-49ee-bca0-7bc9bfbc85d5",
-                                    "cn": [
-                                        {
-                                            "type": "basiceventbinding",
-                                            "reference": {
-                                                "name": "listeners",
-                                                "type": "array"
-                                            },
-                                            "codeClass": null,
-                                            "userConfig": {
-                                                "fn": "onMenucheckitemClick2",
-                                                "name": "click",
-                                                "scope": "me"
-                                            },
-                                            "name": "onMenucheckitemClick2",
-                                            "designerId": "aee17b2f-babf-4781-9665-df174a25795b"
-                                        }
-                                    ]
-                                },
-                                {
                                     "type": "Ext.menu.Item",
                                     "reference": {
                                         "name": "items",
@@ -280,6 +250,16 @@
                                             "codeClass": null,
                                             "userConfig": {
                                                 "fn": "onMenuitemClick",
+                                                "implHandler": [
+                                                    "var window = Ext.create('Target.view.CompanyMemberWindow');",
+                                                    "",
+                                                    "window.setConfig('title', '新增公司會員');",
+                                                    "",
+                                                    "Ext.getCmp('cmUpdateBtn').setVisible(false);",
+                                                    "Ext.getCmp('cmAddBtn').setVisible(true);",
+                                                    "",
+                                                    "window.show();"
+                                                ],
                                                 "name": "click",
                                                 "scope": "me"
                                             },
@@ -310,41 +290,37 @@
                                             "codeClass": null,
                                             "userConfig": {
                                                 "fn": "onMenuitemClick1",
+                                                "implHandler": [
+                                                    "var selmodel = Ext.getCmp('companymembergridpanel').getSelectionModel();",
+                                                    "var count = selmodel.getCount();",
+                                                    "",
+                                                    "if(count !== 0){",
+                                                    "    var seldata = selmodel.getSelection();",
+                                                    "",
+                                                    "    var window = Ext.create('Target.view.CompanyMemberWindow');",
+                                                    "",
+                                                    "    Ext.getCmp('cm_id').setValue(seldata[0].data.cm_id);",
+                                                    "    Ext.getCmp('cm_passwordTemp').setValue(seldata[0].data.cm_password);",
+                                                    "",
+                                                    "    window.setConfig('title', '修改公司會員');",
+                                                    "",
+                                                    "    Ext.getCmp('companymemberForm').getForm().setValues(seldata[0].data);",
+                                                    "",
+                                                    "    Ext.getCmp('cm_account').setDisabled(true);",
+                                                    "",
+                                                    "    Ext.getCmp('cmAddBtn').setVisible(false);",
+                                                    "    Ext.getCmp('cmUpdateBtn').setVisible(true);",
+                                                    "",
+                                                    "    window.show();",
+                                                    "}else{",
+                                                    "    Ext.Msg.alert('訊息', '請選擇一個公司會員修改');",
+                                                    "}"
+                                                ],
                                                 "name": "click",
                                                 "scope": "me"
                                             },
                                             "name": "onMenuitemClick1",
                                             "designerId": "f5b1abd5-0c90-4984-986a-b3370e4f73dd"
-                                        }
-                                    ]
-                                },
-                                {
-                                    "type": "Ext.menu.Item",
-                                    "reference": {
-                                        "name": "items",
-                                        "type": "array"
-                                    },
-                                    "codeClass": null,
-                                    "userConfig": {
-                                        "text": "刪除"
-                                    },
-                                    "name": "MyMenuItem2",
-                                    "designerId": "ee5b7a3a-691f-40a8-bd69-2bde3dfcc821",
-                                    "cn": [
-                                        {
-                                            "type": "basiceventbinding",
-                                            "reference": {
-                                                "name": "listeners",
-                                                "type": "array"
-                                            },
-                                            "codeClass": null,
-                                            "userConfig": {
-                                                "fn": "onMenuitemClick2",
-                                                "name": "click",
-                                                "scope": "me"
-                                            },
-                                            "name": "onMenuitemClick2",
-                                            "designerId": "a3f77aa5-2fa8-4754-ab34-3dd4feaf3eeb"
                                         }
                                     ]
                                 }

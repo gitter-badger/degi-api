@@ -1,0 +1,699 @@
+{
+    "type": "Ext.window.Window",
+    "reference": {
+        "name": "items",
+        "type": "array"
+    },
+    "codeClass": null,
+    "userConfig": {
+        "container|align": "stretch",
+        "designer|userAlias": "companymemberwindow",
+        "designer|userClassName": "CompanyMemberWindow",
+        "height": 362,
+        "id": "companymemberWindow",
+        "layout": "vbox",
+        "modal": true,
+        "title": null,
+        "width": 604
+    },
+    "name": "MemberWindow1",
+    "designerId": "7b6d6a8f-7295-4192-9858-33450558d6cb",
+    "viewControllerInstanceId": "aafc3f55-8c25-4f95-9a18-267d066be5ae",
+    "viewModelInstanceId": "eb67fb6f-3aef-4078-aab6-fa92df912a61",
+    "cn": [
+        {
+            "type": "Ext.form.field.Hidden",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "fieldLabel": null,
+                "id": "cm_id",
+                "layout|flex": 1,
+                "name": "cm_id"
+            },
+            "name": "MyHiddenField",
+            "designerId": "8fff9409-9e31-4c4b-be9d-d38858edb73f"
+        },
+        {
+            "type": "Ext.form.Panel",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "bodyPadding": 10,
+                "container|align": "stretch",
+                "height": 297,
+                "id": "companymemberForm",
+                "layout": "vbox",
+                "title": null,
+                "width": 648
+            },
+            "name": "MyForm",
+            "designerId": "309d0573-2998-419d-9353-c0614227bc7b",
+            "cn": [
+                {
+                    "type": "Ext.form.FieldContainer",
+                    "reference": {
+                        "name": "items",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "container|align": "stretch",
+                        "fieldLabel": null,
+                        "height": 290,
+                        "layout": "hbox",
+                        "layout|flex": 1,
+                        "width": 400
+                    },
+                    "name": "MyFieldContainer",
+                    "designerId": "8687eb09-092b-4647-ad53-0b9fb5da031d",
+                    "cn": [
+                        {
+                            "type": "Ext.container.Container",
+                            "reference": {
+                                "name": "items",
+                                "type": "array"
+                            },
+                            "codeClass": null,
+                            "userConfig": {
+                                "autoScroll": true,
+                                "height": 347,
+                                "width": 292
+                            },
+                            "name": "MyContainer",
+                            "designerId": "4774780b-7291-4ab9-b8b6-19caea15a27b",
+                            "cn": [
+                                {
+                                    "type": "Ext.form.field.Text",
+                                    "reference": {
+                                        "name": "items",
+                                        "type": "array"
+                                    },
+                                    "codeClass": null,
+                                    "userConfig": {
+                                        "fieldLabel": "帳號信箱",
+                                        "name": "cm_account",
+                                        "width": null
+                                    },
+                                    "name": "MyTextField8",
+                                    "designerId": "4adf1441-166e-4a41-8a0c-29c166509b92"
+                                },
+                                {
+                                    "type": "Ext.form.field.Text",
+                                    "reference": {
+                                        "name": "items",
+                                        "type": "array"
+                                    },
+                                    "codeClass": null,
+                                    "userConfig": {
+                                        "fieldLabel": "密碼",
+                                        "inputType": "password",
+                                        "name": "cm_password",
+                                        "width": null
+                                    },
+                                    "name": "MyTextField17",
+                                    "designerId": "b5e36f3e-8152-4e85-ab46-acb784cf8cbf"
+                                },
+                                {
+                                    "type": "Ext.form.field.Text",
+                                    "reference": {
+                                        "name": "items",
+                                        "type": "array"
+                                    },
+                                    "codeClass": null,
+                                    "userConfig": {
+                                        "fieldLabel": "公司名稱",
+                                        "name": "cm_title"
+                                    },
+                                    "name": "MyTextField9",
+                                    "designerId": "0a96d66f-3486-40a5-b5fe-7bb72b81e186"
+                                },
+                                {
+                                    "type": "Ext.form.field.Text",
+                                    "reference": {
+                                        "name": "items",
+                                        "type": "array"
+                                    },
+                                    "codeClass": null,
+                                    "userConfig": {
+                                        "fieldLabel": "聯絡窗口姓名",
+                                        "name": "cm_contact_name"
+                                    },
+                                    "name": "MyTextField19",
+                                    "designerId": "480e1202-fbbf-44b0-bc82-2d1ebe60e1fb"
+                                },
+                                {
+                                    "type": "Ext.form.RadioGroup",
+                                    "reference": {
+                                        "name": "items",
+                                        "type": "array"
+                                    },
+                                    "codeClass": null,
+                                    "userConfig": {
+                                        "allowBlank": false,
+                                        "container|autoFlex": false,
+                                        "fieldLabel": "聯絡窗口性別",
+                                        "labelAlign": null,
+                                        "margin": null
+                                    },
+                                    "name": "MyRadioGroup1",
+                                    "designerId": "c745e5b6-0638-4000-99c9-0b161e8ae053",
+                                    "cn": [
+                                        {
+                                            "type": "Ext.form.field.Radio",
+                                            "reference": {
+                                                "name": "items",
+                                                "type": "array"
+                                            },
+                                            "codeClass": null,
+                                            "userConfig": {
+                                                "boxLabel": "先生",
+                                                "fieldLabel": null,
+                                                "id": "cm_contact_gender_on",
+                                                "inputValue": "1",
+                                                "name": "cm_contact_gender",
+                                                "width": 50
+                                            },
+                                            "name": "MyRadio",
+                                            "designerId": "2dfc58cc-a57d-40cc-b7eb-c45adc522e6f"
+                                        },
+                                        {
+                                            "type": "Ext.form.field.Radio",
+                                            "reference": {
+                                                "name": "items",
+                                                "type": "array"
+                                            },
+                                            "codeClass": null,
+                                            "userConfig": {
+                                                "boxLabel": "小姐",
+                                                "fieldLabel": null,
+                                                "id": "cm_contact_gender_off",
+                                                "inputValue": "2",
+                                                "name": "cm_contact_gender"
+                                            },
+                                            "name": "MyRadio1",
+                                            "designerId": "aa574558-58d1-46e7-bc39-94c9ae8af17c"
+                                        }
+                                    ]
+                                },
+                                {
+                                    "type": "Ext.form.field.Text",
+                                    "reference": {
+                                        "name": "items",
+                                        "type": "array"
+                                    },
+                                    "codeClass": null,
+                                    "userConfig": {
+                                        "fieldLabel": "聯絡窗口電話",
+                                        "name": "cm_contact_phone"
+                                    },
+                                    "name": "MyTextField10",
+                                    "designerId": "2f190380-7243-455f-a328-6d7eff429b67"
+                                },
+                                {
+                                    "type": "Ext.form.field.Text",
+                                    "reference": {
+                                        "name": "items",
+                                        "type": "array"
+                                    },
+                                    "codeClass": null,
+                                    "userConfig": {
+                                        "fieldLabel": "聯絡窗口手機",
+                                        "name": "cm_contact_mobile"
+                                    },
+                                    "name": "MyTextField18",
+                                    "designerId": "398579ef-0737-4e2e-8aa7-c7e57d5b7640"
+                                },
+                                {
+                                    "type": "Ext.form.field.Text",
+                                    "reference": {
+                                        "name": "items",
+                                        "type": "array"
+                                    },
+                                    "codeClass": null,
+                                    "userConfig": {
+                                        "fieldLabel": "帳號建立時間",
+                                        "name": "cm_created"
+                                    },
+                                    "name": "MyTextField11",
+                                    "designerId": "4d7160fc-189b-44ea-b2ec-a8e687deb5c3"
+                                },
+                                {
+                                    "type": "Ext.form.field.Text",
+                                    "reference": {
+                                        "name": "items",
+                                        "type": "array"
+                                    },
+                                    "codeClass": null,
+                                    "userConfig": {
+                                        "fieldLabel": "帳號修改時間",
+                                        "name": "cm_modified"
+                                    },
+                                    "name": "MyTextField12",
+                                    "designerId": "d3ad7c47-cd4e-4151-85dd-8647dd8b0592"
+                                }
+                            ]
+                        },
+                        {
+                            "type": "Ext.container.Container",
+                            "reference": {
+                                "name": "items",
+                                "type": "array"
+                            },
+                            "codeClass": null,
+                            "userConfig": {
+                                "autoScroll": true,
+                                "height": 200,
+                                "layout|flex": 1,
+                                "width": null
+                            },
+                            "name": "MyContainer1",
+                            "designerId": "1ad59af9-1f81-4d50-b91e-432a25798dfa",
+                            "cn": [
+                                {
+                                    "type": "Ext.form.field.Text",
+                                    "reference": {
+                                        "name": "items",
+                                        "type": "array"
+                                    },
+                                    "codeClass": null,
+                                    "userConfig": {
+                                        "fieldLabel": "聯絡窗口信箱",
+                                        "name": "cm_contact_email",
+                                        "width": null
+                                    },
+                                    "name": "MyTextField13",
+                                    "designerId": "073175da-d8d4-4804-8d34-4440188a6f4b"
+                                },
+                                {
+                                    "type": "Ext.form.field.Text",
+                                    "reference": {
+                                        "name": "items",
+                                        "type": "array"
+                                    },
+                                    "codeClass": null,
+                                    "userConfig": {
+                                        "fieldLabel": "結帳日",
+                                        "name": "cm_checkout_day"
+                                    },
+                                    "name": "MyTextField14",
+                                    "designerId": "d9f5edf2-048a-4bcc-a8f3-7be8e7ef6a08"
+                                },
+                                {
+                                    "type": "Ext.form.field.Text",
+                                    "reference": {
+                                        "name": "items",
+                                        "type": "array"
+                                    },
+                                    "codeClass": null,
+                                    "userConfig": {
+                                        "fieldLabel": "統一編號",
+                                        "name": "cm_ub_number"
+                                    },
+                                    "name": "MyTextField15",
+                                    "designerId": "f54952be-65f3-4fd5-bd0e-0c6a27f066f6"
+                                },
+                                {
+                                    "type": "Ext.form.field.Text",
+                                    "reference": {
+                                        "name": "items",
+                                        "type": "array"
+                                    },
+                                    "codeClass": null,
+                                    "userConfig": {
+                                        "fieldLabel": "發票抬頭",
+                                        "name": "cm_invoice_title"
+                                    },
+                                    "name": "MyTextField16",
+                                    "designerId": "f19041e5-c82f-4502-b536-7088f99c362d"
+                                },
+                                {
+                                    "type": "Ext.form.field.TextArea",
+                                    "reference": {
+                                        "name": "items",
+                                        "type": "array"
+                                    },
+                                    "codeClass": null,
+                                    "userConfig": {
+                                        "fieldLabel": "發票寄送地址",
+                                        "name": "cm_invoice_address"
+                                    },
+                                    "name": "MyTextArea2",
+                                    "designerId": "3eda2f40-8dd2-4fd2-a323-0e14454f7f28"
+                                },
+                                {
+                                    "type": "Ext.form.field.Text",
+                                    "reference": {
+                                        "name": "items",
+                                        "type": "array"
+                                    },
+                                    "codeClass": null,
+                                    "userConfig": {
+                                        "fieldLabel": "消費總計",
+                                        "name": "cm_consumption_amount"
+                                    },
+                                    "name": "MyTextField21",
+                                    "designerId": "bd12da02-ec07-4854-a124-d017d62702d7"
+                                },
+                                {
+                                    "type": "Ext.form.RadioGroup",
+                                    "reference": {
+                                        "name": "items",
+                                        "type": "array"
+                                    },
+                                    "codeClass": null,
+                                    "userConfig": {
+                                        "allowBlank": false,
+                                        "container|autoFlex": false,
+                                        "fieldLabel": "結帳方式",
+                                        "labelAlign": null,
+                                        "margin": null
+                                    },
+                                    "name": "MyRadioGroup2",
+                                    "designerId": "5b01b3ad-9531-4546-a1e0-c97303c1b26a",
+                                    "cn": [
+                                        {
+                                            "type": "Ext.form.field.Radio",
+                                            "reference": {
+                                                "name": "items",
+                                                "type": "array"
+                                            },
+                                            "codeClass": null,
+                                            "userConfig": {
+                                                "boxLabel": "貨到付款",
+                                                "fieldLabel": null,
+                                                "id": "cm_pay_method_on",
+                                                "inputValue": "1",
+                                                "labelWidth": null,
+                                                "name": "cm_pay_method",
+                                                "width": 80
+                                            },
+                                            "name": "MyRadio",
+                                            "designerId": "05eb1a1f-3aa0-4233-9764-b48099d3d032"
+                                        },
+                                        {
+                                            "type": "Ext.form.field.Radio",
+                                            "reference": {
+                                                "name": "items",
+                                                "type": "array"
+                                            },
+                                            "codeClass": null,
+                                            "userConfig": {
+                                                "boxLabel": "月結",
+                                                "fieldLabel": null,
+                                                "id": "cm_pay_method_off",
+                                                "inputValue": "2",
+                                                "name": "cm_pay_method"
+                                            },
+                                            "name": "MyRadio1",
+                                            "designerId": "92931a55-0a6d-4369-8cd8-ea790545e349"
+                                        }
+                                    ]
+                                },
+                                {
+                                    "type": "Ext.form.RadioGroup",
+                                    "reference": {
+                                        "name": "items",
+                                        "type": "array"
+                                    },
+                                    "codeClass": null,
+                                    "userConfig": {
+                                        "allowBlank": false,
+                                        "container|autoFlex": false,
+                                        "fieldLabel": "狀態",
+                                        "labelAlign": null,
+                                        "margin": null
+                                    },
+                                    "name": "MyRadioGroup4",
+                                    "designerId": "0eae0d93-3c01-4a73-83e9-e3511a493ac6",
+                                    "cn": [
+                                        {
+                                            "type": "Ext.form.field.Radio",
+                                            "reference": {
+                                                "name": "items",
+                                                "type": "array"
+                                            },
+                                            "codeClass": null,
+                                            "userConfig": {
+                                                "boxLabel": "啟用",
+                                                "fieldLabel": null,
+                                                "id": "cm_status_on",
+                                                "inputValue": "1",
+                                                "name": "cm_status",
+                                                "width": 50
+                                            },
+                                            "name": "MyRadio",
+                                            "designerId": "f3b6a3dc-3945-4a8b-be09-8f4a3846f639"
+                                        },
+                                        {
+                                            "type": "Ext.form.field.Radio",
+                                            "reference": {
+                                                "name": "items",
+                                                "type": "array"
+                                            },
+                                            "codeClass": null,
+                                            "userConfig": {
+                                                "boxLabel": "停用",
+                                                "fieldLabel": null,
+                                                "id": "cm_status_off",
+                                                "inputValue": "2",
+                                                "name": "cm_status"
+                                            },
+                                            "name": "MyRadio1",
+                                            "designerId": "627c650a-3f28-4437-8f9a-2a54241fbea9"
+                                        }
+                                    ]
+                                }
+                            ]
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "type": "Ext.toolbar.Toolbar",
+            "reference": {
+                "name": "dockedItems",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "container|pack": "end",
+                "dock": "bottom",
+                "height": 41,
+                "layout|flex": 1
+            },
+            "name": "MyToolbar2",
+            "designerId": "cfb4b179-ff82-414d-ab08-901226997744",
+            "cn": [
+                {
+                    "type": "Ext.button.Button",
+                    "reference": {
+                        "name": "items",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "height": 25,
+                        "id": "cmAddBtn",
+                        "layout|flex": null,
+                        "text": "新增",
+                        "width": 585
+                    },
+                    "name": "MyButton2",
+                    "designerId": "eacacc0f-87ed-4ddf-b5d1-0d8254181d84",
+                    "cn": [
+                        {
+                            "type": "basiceventbinding",
+                            "reference": {
+                                "name": "listeners",
+                                "type": "array"
+                            },
+                            "codeClass": null,
+                            "userConfig": {
+                                "fn": "onCmAddBtnClick",
+                                "implHandler": [
+                                    "var form = Ext.getCmp('companymemberForm').getForm();",
+                                    "",
+                                    "if(form.isValid()){",
+                                    "    form.submit({",
+                                    "",
+                                    "        waitTitle:'訊息',",
+                                    "        waitMsg:'新增資料中',",
+                                    "        url:'http://dev.finpo.com.tw/degi-api/target-local/public/b/company_member',",
+                                    "",
+                                    "        success:function(form,action){",
+                                    "",
+                                    "            var store  = Ext.getCmp('companymembergridpanel').getViewModel().getStore('CompanyMemberStore');",
+                                    "            store.proxy.url='http://dev.finpo.com.tw/degi-api/target-local/public/b/company_member';",
+                                    "            store.load();",
+                                    "            var window = Ext.getCmp('companymemberWindow');",
+                                    "            window.close();",
+                                    "            form.reset();",
+                                    "            Ext.Msg.alert('訊息','公司會員新增成功');",
+                                    "",
+                                    "        },",
+                                    "        failure:function(form,action){",
+                                    "",
+                                    "           Ext.Msg.alert('訊息','公司會員新增失敗');",
+                                    "",
+                                    "        }",
+                                    "",
+                                    "    });",
+                                    "}"
+                                ],
+                                "name": "click",
+                                "scope": "me"
+                            },
+                            "name": "onCmAddBtnClick",
+                            "designerId": "150b2e35-956f-41d3-9c7e-023d044e8bf4"
+                        }
+                    ]
+                },
+                {
+                    "type": "Ext.button.Button",
+                    "reference": {
+                        "name": "items",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "height": 25,
+                        "id": "cmUpdateBtn",
+                        "layout|flex": null,
+                        "text": "修改",
+                        "width": 585
+                    },
+                    "name": "MyButton3",
+                    "designerId": "8b96687f-9917-4bcd-84ac-a6d0b478a67b",
+                    "cn": [
+                        {
+                            "type": "basiceventbinding",
+                            "reference": {
+                                "name": "listeners",
+                                "type": "array"
+                            },
+                            "codeClass": null,
+                            "userConfig": {
+                                "fn": "onCmUpdateBtnClick",
+                                "implHandler": [
+                                    "var form = Ext.getCmp('companymemberForm').getForm();",
+                                    "",
+                                    "if(form.isValid()){",
+                                    "    var cmId = Ext.getCmp('cm_id').getValue();",
+                                    "    var cmPassword = Ext.getCmp('cm_password').getValue();",
+                                    "    var cmPasswordTemp = Ext.getCmp('cm_passwordTemp').getValue();",
+                                    "",
+                                    "    var cmStatusOn = Ext.getCmp('cm_status_on').getValue();",
+                                    "    var cmStatusOff = Ext.getCmp('cm_status_off').getValue();",
+                                    "    var cmStatus = 0;",
+                                    "    if(cmStatusOn === true && cmStatusOff === false){",
+                                    "        cmStatus = 1;",
+                                    "    }else if(cmStatusOn === false && cmStatusOff === true){",
+                                    "        cmStatus = 2;",
+                                    "    }else{",
+                                    "        cmStatus = 2;",
+                                    "    }",
+                                    "    ",
+                                    "    var cmGenderOn = Ext.getCmp('cm_contact_gender_on').getValue();",
+                                    "    var cmGenderOff = Ext.getCmp('cm_contact_gender_off').getValue();",
+                                    "    var cmGender = 0;",
+                                    "    if(cmGenderOn === true && cmGenderOff === false){",
+                                    "        cmGender = 1;",
+                                    "    }else if(cmGenderOn === false && cmGenderOff === true){",
+                                    "        cmGender = 2;",
+                                    "    }else{",
+                                    "        cmGender = 2;",
+                                    "    }",
+                                    " ",
+                                    "    var cmPayOn = Ext.getCmp('cm_pay_method_on').getValue();",
+                                    "    var cmPayOff = Ext.getCmp('cm_pay_method_off').getValue();",
+                                    "    var cmPay = 0;",
+                                    "    if(cmPayOn === true && cmPayOff === false){",
+                                    "        cmPay = 1;",
+                                    "    }else if(cmPayOn === false && cmPayOff === true){",
+                                    "        cmPay = 2;",
+                                    "    }else{",
+                                    "        cmPay = 2;",
+                                    "    }",
+                                    "    ",
+                                    "    if(cmPassword === cmPasswordTemp){",
+                                    "        Ext.Ajax.request({",
+                                    "            method: 'PUT',",
+                                    "            url:'http://dev.finpo.com.tw/degi-api/target-local/public/b/company_member/'+cmId,",
+                                    "            params: {",
+                                    "                cm_account: form.findField('cm_account').getValue(),",
+                                    "                cm_title: form.findField('cm_title').getValue(),",
+                                    "                cm_contact_name: form.findField('cm_contact_name').getValue(),",
+                                    "                cm_contact_gender: cmGender,",
+                                    "                cm_contact_phone: form.findField('cm_contact_phone').getValue(),",
+                                    "                cm_contact_mobile: form.findField('cm_contact_mobile').getValue(),",
+                                    "                cm_contact_email: form.findField('cm_contact_email').getValue(),",
+                                    "                cm_checkout_day: form.findField('cm_checkout_day').getValue(),",
+                                    "                cm_ub_number: form.findField('cm_ub_number').getValue(),",
+                                    "                cm_invoice_title: form.findField('cm_invoice_title').getValue(),",
+                                    "                cm_invoice_address: form.findField('cm_invoice_address').getValue(),",
+                                    "                cm_consumption_amount: form.findField('cm_consumption_amount').getValue(),",
+                                    "                cm_pay_method: cmPay,",
+                                    "                cm_status: cmStatus",
+                                    "            },",
+                                    "            success: function(response, options){",
+                                    "                var obj = Ext.JSON.decode(response.responseText);",
+                                    "                var store  = Ext.getCmp('companymembergridpanel').getViewModel().getStore('CompanyMemberStore');",
+                                    "                store.proxy.url='http://dev.finpo.com.tw/degi-api/target-local/public/b/company_member';",
+                                    "                store.load();",
+                                    "",
+                                    "                //form.reset();",
+                                    "                Ext.Msg.alert('訊息','公司會員修改成功', function(){",
+                                    "                    var window = Ext.getCmp('companymemberWindow');",
+                                    "                    window.close();",
+                                    "                });",
+                                    "            }",
+                                    "        });",
+                                    "    }else{",
+                                    "        form.submit({",
+                                    "            method: 'PUT',",
+                                    "            waitTitle:'訊息',",
+                                    "            waitMsg:'修改資料中',",
+                                    "            url:'http://dev.finpo.com.tw/degi-api/target-local/public/b/company_member/'+cmId,",
+                                    "",
+                                    "            success:function(form,action){",
+                                    "",
+                                    "                var store  = Ext.getCmp('companymembergridpanel').getViewModel().getStore('CompanyMemberStore');",
+                                    "                store.proxy.url='http://dev.finpo.com.tw/degi-api/target-local/public/b/company_member';",
+                                    "                store.load();",
+                                    "",
+                                    "               // form.reset();",
+                                    "                Ext.Msg.alert('訊息','公司會員修改成功', function(){",
+                                    "                    var window = Ext.getCmp('companymemberWindow');",
+                                    "                    window.close();",
+                                    "                });",
+                                    "",
+                                    "            },",
+                                    "            failure:function(form,action){",
+                                    "                Ext.Msg.alert('訊息','公司會員修改失敗');",
+                                    "            }",
+                                    "        });",
+                                    "",
+                                    "    }",
+                                    "",
+                                    "}"
+                                ],
+                                "name": "click",
+                                "scope": "me"
+                            },
+                            "name": "onCmUpdateBtnClick",
+                            "designerId": "f1dd34cb-3048-4223-aa40-32c5ac5735f5"
+                        }
+                    ]
+                }
+            ]
+        }
+    ]
+}

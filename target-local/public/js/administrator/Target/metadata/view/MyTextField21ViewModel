@@ -1,0 +1,13 @@
+{
+    "type": "Ext.app.ViewModel",
+    "reference": {
+        "name": "items",
+        "type": "array"
+    },
+    "codeClass": null,
+    "userConfig": {
+        "designer|userAlias": "mytextfield21",
+        "designer|userClassName": "MyTextField21ViewModel"
+    },
+    "designerId": "e9bd5bda-12ff-4d00-bfbb-2448524afdfa"
+}

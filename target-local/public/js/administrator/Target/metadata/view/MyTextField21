@@ -1,0 +1,18 @@
+{
+    "type": "Ext.form.field.Text",
+    "reference": {
+        "name": "items",
+        "type": "array"
+    },
+    "codeClass": null,
+    "userConfig": {
+        "designer|userAlias": "mytextfield21",
+        "designer|userClassName": "MyTextField21",
+        "fieldLabel": "消費總計",
+        "name": "mm_consignee_email"
+    },
+    "name": "MyTextField21",
+    "designerId": "cfc00666-4f1b-40e2-8b5c-0ec9f103d240",
+    "viewControllerInstanceId": "da1f2c6c-2dd6-4250-94b4-1a1529cbfc5a",
+    "viewModelInstanceId": "e9bd5bda-12ff-4d00-bfbb-2448524afdfa"
+}

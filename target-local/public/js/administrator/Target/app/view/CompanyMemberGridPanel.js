@@ -24,7 +24,7 @@ Ext.define('Target.view.CompanyMemberGridPanel', {
         'Ext.grid.column.Column',
         'Ext.button.Button',
         'Ext.menu.Menu',
-        'Ext.menu.CheckItem',
+        'Ext.menu.Item',
         'Ext.form.field.Text',
         'Ext.toolbar.Paging'
     ],
@@ -106,13 +106,6 @@ Ext.define('Target.view.CompanyMemberGridPanel', {
                         width: 120,
                         items: [
                             {
-                                xtype: 'menucheckitem',
-                                text: '刪除',
-                                listeners: {
-                                    click: 'onMenucheckitemClick2'
-                                }
-                            },
-                            {
                                 xtype: 'menuitem',
                                 text: '新增',
                                 listeners: {
@@ -124,13 +117,6 @@ Ext.define('Target.view.CompanyMemberGridPanel', {
                                 text: '修改',
                                 listeners: {
                                     click: 'onMenuitemClick1'
-                                }
-                            },
-                            {
-                                xtype: 'menuitem',
-                                text: '刪除',
-                                listeners: {
-                                    click: 'onMenuitemClick2'
                                 }
                             }
                         ]
@@ -169,20 +155,42 @@ Ext.define('Target.view.CompanyMemberGridPanel', {
         }
     ],
 
-    onMenucheckitemClick2: function(item, e, eOpts) {
-
-    },
-
     onMenuitemClick: function(item, e, eOpts) {
+        var window = Ext.create('Target.view.CompanyMemberWindow');
 
+        window.setConfig('title', '新增公司會員');
+
+        Ext.getCmp('cmUpdateBtn').setVisible(false);
+        Ext.getCmp('cmAddBtn').setVisible(true);
+
+        window.show();
     },
 
     onMenuitemClick1: function(item, e, eOpts) {
+        var selmodel = Ext.getCmp('companymembergridpanel').getSelectionModel();
+        var count = selmodel.getCount();
 
-    },
+        if(count !== 0){
+            var seldata = selmodel.getSelection();
 
-    onMenuitemClick2: function(item, e, eOpts) {
+            var window = Ext.create('Target.view.CompanyMemberWindow');
 
+            Ext.getCmp('cm_id').setValue(seldata[0].data.cm_id);
+            Ext.getCmp('cm_passwordTemp').setValue(seldata[0].data.cm_password);
+
+            window.setConfig('title', '修改公司會員');
+
+            Ext.getCmp('companymemberForm').getForm().setValues(seldata[0].data);
+
+            Ext.getCmp('cm_account').setDisabled(true);
+
+            Ext.getCmp('cmAddBtn').setVisible(false);
+            Ext.getCmp('cmUpdateBtn').setVisible(true);
+
+            window.show();
+        }else{
+            Ext.Msg.alert('訊息', '請選擇一個公司會員修改');
+        }
     },
 
     onButtonClick: function(button, e, eOpts) {
