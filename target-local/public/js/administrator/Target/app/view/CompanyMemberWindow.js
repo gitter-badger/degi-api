@@ -240,8 +240,8 @@ Ext.define('Target.view.CompanyMemberWindow', {
     dockedItems: [
         {
             xtype: 'toolbar',
-            dock: 'bottom',
             flex: 1,
+            dock: 'bottom',
             height: 41,
             layout: {
                 type: 'hbox',

@@ -1,0 +1,14 @@
+{
+    "type": "Ext.app.ViewModel",
+    "reference": {
+        "name": "items",
+        "type": "array"
+    },
+    "codeClass": null,
+    "userConfig": {
+        "designer|userAlias": "cmpointwindow",
+        "designer|userClassName": "CMPointWindowViewModel"
+    },
+    "name": "GroupWindowViewModel1",
+    "designerId": "0a386581-2bf1-46cd-8246-2ee7f794173f"
+}

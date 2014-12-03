@@ -1,0 +1,14 @@
+{
+    "type": "Ext.app.ViewModel",
+    "reference": {
+        "name": "items",
+        "type": "array"
+    },
+    "codeClass": null,
+    "userConfig": {
+        "designer|userAlias": "cmpsubwindow",
+        "designer|userClassName": "CmpSubWindowViewModel"
+    },
+    "name": "AdminWindowViewModel1",
+    "designerId": "9e02a9f0-857c-4111-b49b-5f7348883c8f"
+}

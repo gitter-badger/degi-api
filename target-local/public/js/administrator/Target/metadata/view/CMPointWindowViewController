@@ -1,0 +1,14 @@
+{
+    "type": "Ext.app.ViewController",
+    "reference": {
+        "name": "items",
+        "type": "array"
+    },
+    "codeClass": null,
+    "userConfig": {
+        "designer|userAlias": "cmpointwindow",
+        "designer|userClassName": "CMPointWindowViewController"
+    },
+    "name": "GroupWindowViewController1",
+    "designerId": "0b5522e4-0809-489c-820d-2651e8ae4dd4"
+}

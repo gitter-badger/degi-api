@@ -81,7 +81,8 @@ Ext.application({
         'indexslidewindow',
         'CompanyMemberGridPanel',
         'CompanyMemberWindow',
-        'CMPointWindow'
+        'CMPointWindow',
+        'cmpsubWindow'
     ],
     name: 'Target',
     launch: function() {

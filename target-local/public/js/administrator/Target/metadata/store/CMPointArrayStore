@@ -1,0 +1,70 @@
+{
+    "type": "arraystore",
+    "reference": {
+        "name": "items",
+        "type": "array"
+    },
+    "codeClass": null,
+    "userConfig": {
+        "autoLoad": true,
+        "autoSync": true,
+        "designer|userClassName": "CMPointArrayStore",
+        "storeId": "CMPointArrayStore"
+    },
+    "name": "GroupOrderArrayStore1",
+    "designerId": "cd80e6bc-b338-451f-b395-03d191651441",
+    "cn": [
+        {
+            "type": "Ext.data.field.Field",
+            "reference": {
+                "name": "fields",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "name": "cmp_id"
+            },
+            "name": "MyField49",
+            "designerId": "fc74426a-7578-43dc-82d5-cf088244e79f"
+        },
+        {
+            "type": "Ext.data.field.Field",
+            "reference": {
+                "name": "fields",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "name": "cmp_name"
+            },
+            "name": "MyField50",
+            "designerId": "1ffee40a-3cba-4ced-acd2-e95899e4b01c"
+        },
+        {
+            "type": "Ext.data.field.Field",
+            "reference": {
+                "name": "fields",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "name": "cmp_address"
+            },
+            "name": "MyField24",
+            "designerId": "ef0d1b87-1d14-444f-b0b6-c2480a1ee20e"
+        },
+        {
+            "type": "Ext.data.field.Field",
+            "reference": {
+                "name": "fields",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "name": "cmp_shipping_fee"
+            },
+            "name": "MyField25",
+            "designerId": "c68a97c8-7348-41fd-8ec3-fcbc0a3d20be"
+        }
+    ]
+}

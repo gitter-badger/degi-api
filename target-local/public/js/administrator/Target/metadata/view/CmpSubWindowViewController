@@ -1,0 +1,14 @@
+{
+    "type": "Ext.app.ViewController",
+    "reference": {
+        "name": "items",
+        "type": "array"
+    },
+    "codeClass": null,
+    "userConfig": {
+        "designer|userAlias": "cmpsubwindow",
+        "designer|userClassName": "CmpSubWindowViewController"
+    },
+    "name": "AdminWindowViewController1",
+    "designerId": "66762428-38d6-4f17-b3ce-c4559b3a435b"
+}
