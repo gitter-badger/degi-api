@@ -43,7 +43,8 @@ Ext.application({
     ],
     stores: [
         'SubOrderArrayStore',
-        'GroupOrderArrayStore'
+        'GroupOrderArrayStore',
+        'CMPointArrayStore'
     ],
     views: [
         'MyViewport',
@@ -78,7 +79,9 @@ Ext.application({
         'storewindow',
         'IndexSlideGridPanel',
         'indexslidewindow',
-        'CompanyMemberGridPanel'
+        'CompanyMemberGridPanel',
+        'CompanyMemberWindow',
+        'CMPointWindow'
     ],
     name: 'Target',
     launch: function() {

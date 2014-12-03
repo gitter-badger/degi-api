@@ -73,6 +73,15 @@ return array(
             				),
             		),
             ),
+            'company_member_point' => array(
+            		'type' => 'Segment',
+            		'options' => array(
+            				'route'    => '/b/company_member_point[/:id]',
+            				'defaults' => array(
+            						'controller' => 'Administrator\Controller\CompanyMemberPoint'
+            				),
+            		),
+            ),
             'order_b' => array(
             		'type' => 'Segment',
             		'options' => array(
@@ -197,6 +206,7 @@ return array(
             'Administrator\Controller\Adminer' => 'Administrator\Controller\AdminerController',
             'Administrator\Controller\Member' => 'Administrator\Controller\MemberController',  
             'Administrator\Controller\CompanyMember' => 'Administrator\Controller\CompanyMemberController',
+            'Administrator\Controller\CompanyMemberPoint' => 'Administrator\Controller\CompanyMemberPointController',
             'Administrator\Controller\Order' => 'Administrator\Controller\OrderController',      
             'Administrator\Controller\ItemCategory' => 'Administrator\Controller\ItemCategoryController',
             'Administrator\Controller\ItemCategoryRelate' => 'Administrator\Controller\ItemCategoryRelateController',

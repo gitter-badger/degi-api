@@ -123,6 +123,20 @@ Ext.define('Target.view.CompanyMemberGridPanel', {
                     }
                 },
                 {
+                    xtype: 'button',
+                    text: '配送點',
+                    listeners: {
+                        click: 'onButtonClick2'
+                    }
+                },
+                {
+                    xtype: 'button',
+                    text: '公司可訂購商品',
+                    listeners: {
+                        click: 'onButtonClick3'
+                    }
+                },
+                {
                     xtype: 'textfield',
                     id: 'CompanyMemberNameField',
                     name: 'companymembernamefield',
@@ -207,6 +221,61 @@ Ext.define('Target.view.CompanyMemberGridPanel', {
         }else{
             Ext.Msg.alert('訊息', '請選擇一個公司會員修改');
         }
+    },
+
+    onButtonClick2: function(button, e, eOpts) {
+        var selmodel = Ext.getCmp('companymembergridpanel').getSelectionModel();
+        var count = selmodel.getCount();
+        var seldata = selmodel.getSelection();
+
+        if(count !== 0 ){
+
+            var window = Ext.create('Target.view.CMPointWindow');
+
+            window.setConfig('title', '公司會員配送點管理');
+
+
+            Ext.Ajax.request({
+
+                url: 'http://dev.finpo.com.tw/degi-api/target-local/public/b/company_member_point?cm_id='+seldata[0].data.cm_id,
+                success: function(response, opts){
+
+                    var obj = Ext.JSON.decode(response.responseText);
+                    var store = Ext.getCmp('cmpointpanel').getStore();
+
+                    if(obj.rows){
+                        store.removeAll();
+                        var cmp = Ext.JSON.decode(obj.rows);
+                        //console.log(cmp);
+
+                        for( var i=0; i<(cmp.length); i++){
+                            store.add({
+                                cm_id: cmp[i].cm_id,
+                                cmp_address: cmp[i].cmp_address,
+                                cmp_id: cmp[i].cmp_id,
+                                cmp_name: cmp[i].cmp_name,
+                                cmp_shipping_fee: cmp[i].cmp_shipping_fee
+
+                            });
+                        }
+                    }else{
+                        store.removeAll();
+                    }
+                },
+                failure: function(response, opts){
+                    console.log('server-side failure with status code ' + response.status);
+                }
+
+            });
+            Ext.getCmp('cm_id_point').setValue(seldata[0].data.cm_id);
+            window.show();
+        }else{
+            Ext.Msg.alert('訊息', '請選擇一筆公司會員管理配送點資訊');
+        }
+    },
+
+    onButtonClick3: function(button, e, eOpts) {
+
     },
 
     onButtonClick: function(button, e, eOpts) {

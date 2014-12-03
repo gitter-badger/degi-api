@@ -29,7 +29,8 @@
         "name": "Target",
         "stores": [
             "SubOrderArrayStore",
-            "GroupOrderArrayStore"
+            "GroupOrderArrayStore",
+            "CMPointArrayStore"
         ],
         "views": [
             "MyViewport",
@@ -65,7 +66,9 @@
             "IndexSlideGridPanel",
             "indexslidewindow",
             "CompanyMemberGridPanel",
-            "CompanyMemberWindow"
+            "CompanyMemberWindow",
+            "CMPointWindow",
+            "cmpsubWindow"
         ]
     },
     "name": "Application",
