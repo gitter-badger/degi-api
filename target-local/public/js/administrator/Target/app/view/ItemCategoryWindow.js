@@ -22,46 +22,88 @@ Ext.define('Target.view.ItemCategoryWindow', {
         'Ext.form.Panel',
         'Ext.form.field.ComboBox',
         'Ext.form.field.Number',
-        'Ext.form.field.Checkbox',
+        'Ext.form.RadioGroup',
+        'Ext.form.field.Radio',
         'Ext.toolbar.Toolbar',
-        'Ext.button.Button'
+        'Ext.button.Button',
+        'Ext.form.field.Hidden'
     ],
 
     viewModel: {
         type: 'itemcategorywindow'
     },
-    height: 250,
+    height: 203,
     id: 'itemcategorywindow',
-    width: 400,
+    width: 397,
     title: 'My Window',
+    defaultListenerScope: true,
 
     items: [
         {
             xtype: 'form',
+            id: 'icForm',
             bodyPadding: 10,
             title: '',
             items: [
                 {
                     xtype: 'combobox',
-                    fieldLabel: '類型'
+                    anchor: '90%',
+                    width: 271,
+                    fieldLabel: '類型',
+                    name: 'ic_type',
+                    allowBlank: false,
+                    editable: false,
+                    displayField: 'pi_name',
+                    valueField: 'pi_type',
+                    bind: {
+                        store: '{PopularStatusStore}'
+                    }
                 },
                 {
                     xtype: 'textfield',
-                    anchor: '100%',
-                    fieldLabel: '名稱'
+                    anchor: '90%',
+                    width: 378,
+                    fieldLabel: '名稱',
+                    name: 'ic_name'
                 },
                 {
                     xtype: 'numberfield',
-                    anchor: '100%',
-                    fieldLabel: '排序'
+                    anchor: '90%',
+                    fieldLabel: '排序',
+                    name: 'ic_seq'
                 },
                 {
-                    xtype: 'checkboxfield',
-                    anchor: '100%',
-                    fieldLabel: '上架',
-                    boxLabel: ''
+                    xtype: 'radiogroup',
+                    fieldLabel: '狀態',
+                    allowBlank: false,
+                    layout: {
+                        type: 'checkboxgroup',
+                        autoFlex: false
+                    },
+                    items: [
+                        {
+                            xtype: 'radiofield',
+                            id: 'ic_status_on',
+                            name: 'ic_status',
+                            boxLabel: '啟用',
+                            inputValue: '1'
+                        },
+                        {
+                            xtype: 'radiofield',
+                            id: 'ic_status_off',
+                            name: 'ic_status',
+                            boxLabel: '停用',
+                            inputValue: '2'
+                        }
+                    ]
                 }
             ]
+        },
+        {
+            xtype: 'hiddenfield',
+            id: 'ic_id',
+            fieldLabel: 'Label',
+            name: 'ic_id'
         }
     ],
     dockedItems: [
@@ -75,14 +117,91 @@ Ext.define('Target.view.ItemCategoryWindow', {
             items: [
                 {
                     xtype: 'button',
-                    text: '新增'
+                    id: 'icAddBtn',
+                    width: 379,
+                    text: '新增',
+                    listeners: {
+                        click: 'onButtonClick'
+                    }
                 },
                 {
                     xtype: 'button',
-                    text: '修改'
+                    id: 'icUpdateBtn',
+                    width: 379,
+                    text: '修改',
+                    listeners: {
+                        click: 'onButtonClick1'
+                    }
                 }
             ]
         }
-    ]
+    ],
+
+    onButtonClick: function(button, e, eOpts) {
+        var form = Ext.getCmp('icForm').getForm();
+
+        if(form.isValid()){
+            form.submit({
+                waitTitle:'訊息',
+                waitMsg:'新增資料中',
+                url:'http://dev.finpo.com.tw/degi-api/target-local/public/b/item_category',
+
+                success:function(form,action){
+
+                    var store  = Ext.getCmp('itemcategorygridpanel').getViewModel().getStore('ItemCategoryStore');
+                    store.proxy.url='http://dev.finpo.com.tw/degi-api/target-local/public/b/item_category';
+                    store.load();
+                    var window = Ext.getCmp('itemcategorywindow');
+                    window.close();
+                    Ext.Msg.alert('訊息','商品分類新增成功');
+
+                },
+                failure:function(form,action){
+                    Ext.Msg.alert('訊息','公司會員新增失敗');
+                }
+            });
+        }
+
+    },
+
+    onButtonClick1: function(button, e, eOpts) {
+        var form = Ext.getCmp('icForm').getForm();
+
+        if(form.isValid()){
+            var Id = Ext.getCmp('ic_id').getValue();
+
+            var StatusOn = Ext.getCmp('ic_status_on').getValue();
+            var StatusOff = Ext.getCmp('ic_status_off').getValue();
+            var Status = 0;
+            if(StatusOn === true && StatusOff === false){
+                Status = 1;
+            }else if(StatusOn === false && StatusOff === true){
+                Status = 2;
+            }else{
+                Status = 2;
+            }
+
+            Ext.Ajax.request({
+                method: 'PUT',
+                url:'http://dev.finpo.com.tw/degi-api/target-local/public/b/item_category/'+Id,
+                params: {
+                    ic_type: form.findField('ic_type').getValue(),
+                    ic_name: form.findField('ic_name').getValue(),
+                    ic_seq: form.findField('ic_seq').getValue(),
+                    ic_status: Status
+                },
+                success: function(response, options){
+                    var store  = Ext.getCmp('itemcategorygridpanel').getViewModel().getStore('ItemCategoryStore');
+                    store.proxy.url='http://dev.finpo.com.tw/degi-api/target-local/public/b/item_category';
+                    store.load();
+
+                    var window = Ext.getCmp('itemcategorywindow');
+                    window.close();
+                    Ext.Msg.alert('訊息','商品分類修改成功');
+                }
+            });
+
+        }
+    }
 
 });

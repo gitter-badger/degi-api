@@ -586,7 +586,8 @@
                             "{BPOMStatusStore}"
                         ],
                         "triggerAction": null,
-                        "valueField": "bpom_status"
+                        "valueField": "bpom_status",
+                        "width": 100
                     },
                     "name": "MyComboBox2",
                     "configAlternates": {

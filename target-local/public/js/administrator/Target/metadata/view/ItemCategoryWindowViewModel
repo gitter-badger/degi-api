@@ -49,6 +49,60 @@
                     ]
                 }
             ]
+        },
+        {
+            "type": "Ext.data.Store",
+            "reference": {
+                "name": "stores",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "data": [
+                    "[",
+                    "    {",
+                    "        \"pi_type\": \"1\",",
+                    "        \"pi_name\": \"宅配熱銷\"",
+                    "    },",
+                    "    {",
+                    "        \"pi_type\": \"2\",",
+                    "        \"pi_name\": \"店面熱銷\"",
+                    "    }",
+                    "]"
+                ],
+                "designer|displayName": "",
+                "name": "PopularStatusStore"
+            },
+            "name": "MyStore3",
+            "designerId": "3cd9a848-d2bc-4091-b65f-a85a323114f7",
+            "cn": [
+                {
+                    "type": "Ext.data.field.Field",
+                    "reference": {
+                        "name": "fields",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "name": "pi_type"
+                    },
+                    "name": "MyField39",
+                    "designerId": "63ed940a-e5fc-44d5-9db7-d7f19a0cf804"
+                },
+                {
+                    "type": "Ext.data.field.Field",
+                    "reference": {
+                        "name": "fields",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "name": "pi_name"
+                    },
+                    "name": "MyField40",
+                    "designerId": "0b3163ec-b249-4d4e-9a38-94f7b4e2e125"
+                }
+            ]
         }
     ]
 }

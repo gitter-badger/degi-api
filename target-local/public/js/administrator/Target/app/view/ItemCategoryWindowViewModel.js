@@ -20,11 +20,31 @@ Ext.define('Target.view.ItemCategoryWindowViewModel', {
     requires: [
         'Ext.data.Store',
         'Ext.data.proxy.Ajax',
-        'Ext.data.reader.Array'
+        'Ext.data.reader.Array',
+        'Ext.data.field.Field'
     ],
 
     stores: {
-
+        PopularStatusStore: {
+            data: [
+                {
+                    pi_type: '1',
+                    pi_name: '宅配熱銷'
+                },
+                {
+                    pi_type: '2',
+                    pi_name: '店面熱銷'
+                }
+            ],
+            fields: [
+                {
+                    name: 'pi_type'
+                },
+                {
+                    name: 'pi_name'
+                }
+            ]
+        }
     }
 
 });

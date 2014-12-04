@@ -8,10 +8,10 @@
     "userConfig": {
         "designer|userAlias": "itemcategorywindow",
         "designer|userClassName": "ItemCategoryWindow",
-        "height": 250,
+        "height": 203,
         "id": "itemcategorywindow",
         "title": "My Window",
-        "width": 400
+        "width": 397
     },
     "name": "MyWindow1",
     "designerId": "e020fc44-0870-4031-b969-fafb7c8afaeb",
@@ -27,6 +27,7 @@
             "codeClass": null,
             "userConfig": {
                 "bodyPadding": 10,
+                "id": "icForm",
                 "title": ""
             },
             "name": "MyForm2",
@@ -40,9 +41,22 @@
                     },
                     "codeClass": null,
                     "userConfig": {
-                        "fieldLabel": "類型"
+                        "allowBlank": false,
+                        "displayField": "pi_name",
+                        "editable": false,
+                        "fieldLabel": "類型",
+                        "layout|anchor": "90%",
+                        "name": "ic_type",
+                        "store": [
+                            "{PopularStatusStore}"
+                        ],
+                        "valueField": "pi_type",
+                        "width": 271
                     },
                     "name": "TriggerField",
+                    "configAlternates": {
+                        "store": "binding"
+                    },
                     "designerId": "a2cb9dbc-5d55-4ea2-9eaf-a4be81ec1bc4",
                     "isBuiltIn": true,
                     "iconCls": "icon-trigger-field",
@@ -57,7 +71,9 @@
                     "codeClass": null,
                     "userConfig": {
                         "fieldLabel": "名稱",
-                        "layout|anchor": "100%"
+                        "layout|anchor": "90%",
+                        "name": "ic_name",
+                        "width": 378
                     },
                     "name": "MyTextField5",
                     "designerId": "9d87cb0e-d434-4c24-bf5d-df6d735a0f52"
@@ -72,26 +88,65 @@
                     "userConfig": {
                         "fieldLabel": "排序",
                         "labelWidth": null,
-                        "layout|anchor": "100%",
+                        "layout|anchor": "90%",
+                        "name": "ic_seq",
                         "width": null
                     },
                     "name": "MyNumberField",
                     "designerId": "f8cec84b-9401-49f7-82db-c83b13687aa4"
                 },
                 {
-                    "type": "Ext.form.field.Checkbox",
+                    "type": "Ext.form.RadioGroup",
                     "reference": {
                         "name": "items",
                         "type": "array"
                     },
                     "codeClass": null,
                     "userConfig": {
-                        "boxLabel": "",
-                        "fieldLabel": "上架",
-                        "layout|anchor": "100%"
+                        "allowBlank": false,
+                        "container|autoFlex": false,
+                        "fieldLabel": "狀態",
+                        "labelAlign": null,
+                        "margin": null
                     },
-                    "name": "MyCheckbox1",
-                    "designerId": "25455ec4-92be-41c4-8dd6-f9957eb17523"
+                    "name": "MyRadioGroup1",
+                    "designerId": "2e27ceaf-573b-4354-a4e6-844c9f1ae0a8",
+                    "cn": [
+                        {
+                            "type": "Ext.form.field.Radio",
+                            "reference": {
+                                "name": "items",
+                                "type": "array"
+                            },
+                            "codeClass": null,
+                            "userConfig": {
+                                "boxLabel": "啟用",
+                                "fieldLabel": null,
+                                "id": "ic_status_on",
+                                "inputValue": "1",
+                                "name": "ic_status"
+                            },
+                            "name": "MyRadio",
+                            "designerId": "db113e5a-a098-4302-acf9-fd9effb913f6"
+                        },
+                        {
+                            "type": "Ext.form.field.Radio",
+                            "reference": {
+                                "name": "items",
+                                "type": "array"
+                            },
+                            "codeClass": null,
+                            "userConfig": {
+                                "boxLabel": "停用",
+                                "fieldLabel": null,
+                                "id": "ic_status_off",
+                                "inputValue": "2",
+                                "name": "ic_status"
+                            },
+                            "name": "MyRadio1",
+                            "designerId": "b35c490d-6948-42bd-aef9-e3a3600fcf7c"
+                        }
+                    ]
                 }
             ]
         },
@@ -117,11 +172,56 @@
                     },
                     "codeClass": null,
                     "userConfig": {
+                        "id": "icAddBtn",
                         "layout|flex": null,
-                        "text": "新增"
+                        "text": "新增",
+                        "width": 379
                     },
                     "name": "MyButton7",
-                    "designerId": "721156a0-b475-4b7c-b420-53a545941915"
+                    "designerId": "721156a0-b475-4b7c-b420-53a545941915",
+                    "cn": [
+                        {
+                            "type": "basiceventbinding",
+                            "reference": {
+                                "name": "listeners",
+                                "type": "array"
+                            },
+                            "codeClass": null,
+                            "userConfig": {
+                                "fn": "onButtonClick",
+                                "implHandler": [
+                                    "var form = Ext.getCmp('icForm').getForm();",
+                                    "",
+                                    "if(form.isValid()){",
+                                    "    form.submit({",
+                                    "        waitTitle:'訊息',",
+                                    "        waitMsg:'新增資料中',",
+                                    "        url:'http://dev.finpo.com.tw/degi-api/target-local/public/b/item_category',",
+                                    "",
+                                    "        success:function(form,action){",
+                                    "",
+                                    "            var store  = Ext.getCmp('itemcategorygridpanel').getViewModel().getStore('ItemCategoryStore');",
+                                    "            store.proxy.url='http://dev.finpo.com.tw/degi-api/target-local/public/b/item_category';",
+                                    "            store.load();",
+                                    "            var window = Ext.getCmp('itemcategorywindow');",
+                                    "            window.close();",
+                                    "            Ext.Msg.alert('訊息','商品分類新增成功');",
+                                    "",
+                                    "        },",
+                                    "        failure:function(form,action){",
+                                    "            Ext.Msg.alert('訊息','公司會員新增失敗');",
+                                    "        }",
+                                    "    });",
+                                    "}",
+                                    ""
+                                ],
+                                "name": "click",
+                                "scope": "me"
+                            },
+                            "name": "onButtonClick",
+                            "designerId": "cdbd0815-1aaf-4b84-ad83-1f55ad9a5b8d"
+                        }
+                    ]
                 },
                 {
                     "type": "Ext.button.Button",
@@ -131,13 +231,86 @@
                     },
                     "codeClass": null,
                     "userConfig": {
+                        "id": "icUpdateBtn",
                         "layout|flex": null,
-                        "text": "修改"
+                        "text": "修改",
+                        "width": 379
                     },
                     "name": "MyButton8",
-                    "designerId": "ba067d76-3f31-4d6a-8040-4c2a662e4d9b"
+                    "designerId": "ba067d76-3f31-4d6a-8040-4c2a662e4d9b",
+                    "cn": [
+                        {
+                            "type": "basiceventbinding",
+                            "reference": {
+                                "name": "listeners",
+                                "type": "array"
+                            },
+                            "codeClass": null,
+                            "userConfig": {
+                                "fn": "onButtonClick1",
+                                "implHandler": [
+                                    "var form = Ext.getCmp('icForm').getForm();",
+                                    "",
+                                    "if(form.isValid()){",
+                                    "    var Id = Ext.getCmp('ic_id').getValue();",
+                                    "    ",
+                                    "    var StatusOn = Ext.getCmp('ic_status_on').getValue();",
+                                    "    var StatusOff = Ext.getCmp('ic_status_off').getValue();",
+                                    "    var Status = 0;",
+                                    "    if(StatusOn === true && StatusOff === false){",
+                                    "        Status = 1;",
+                                    "    }else if(StatusOn === false && StatusOff === true){",
+                                    "        Status = 2;",
+                                    "    }else{",
+                                    "        Status = 2;",
+                                    "    }",
+                                    "",
+                                    "    Ext.Ajax.request({",
+                                    "        method: 'PUT',",
+                                    "        url:'http://dev.finpo.com.tw/degi-api/target-local/public/b/item_category/'+Id,",
+                                    "        params: {",
+                                    "            ic_type: form.findField('ic_type').getValue(),",
+                                    "            ic_name: form.findField('ic_name').getValue(),",
+                                    "            ic_seq: form.findField('ic_seq').getValue(),                ",
+                                    "            ic_status: Status",
+                                    "        },",
+                                    "        success: function(response, options){",
+                                    "            var store  = Ext.getCmp('itemcategorygridpanel').getViewModel().getStore('ItemCategoryStore');",
+                                    "            store.proxy.url='http://dev.finpo.com.tw/degi-api/target-local/public/b/item_category';",
+                                    "            store.load();",
+                                    "",
+                                    "            var window = Ext.getCmp('itemcategorywindow');",
+                                    "            window.close();",
+                                    "            Ext.Msg.alert('訊息','商品分類修改成功');",
+                                    "        }",
+                                    "    });",
+                                    "    ",
+                                    "}"
+                                ],
+                                "name": "click",
+                                "scope": "me"
+                            },
+                            "name": "onButtonClick1",
+                            "designerId": "10264cc6-ddda-47c7-9b4c-1ff7a941472d"
+                        }
+                    ]
                 }
             ]
+        },
+        {
+            "type": "Ext.form.field.Hidden",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "fieldLabel": "Label",
+                "id": "ic_id",
+                "name": "ic_id"
+            },
+            "name": "MyHiddenField6",
+            "designerId": "189d1483-2f84-45e5-b8f3-b6eff4649e35"
         }
     ]
 }

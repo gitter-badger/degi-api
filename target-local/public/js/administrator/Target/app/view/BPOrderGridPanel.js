@@ -165,6 +165,7 @@ Ext.define('Target.view.BPOrderGridPanel', {
                 {
                     xtype: 'combobox',
                     id: 'BPOMStatusSelector',
+                    width: 100,
                     fieldLabel: '',
                     editable: false,
                     emptyText: '狀態查詢',

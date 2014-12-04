@@ -33,6 +33,7 @@ Ext.define('Target.view.ItemCategoryGridPanel', {
     },
     id: 'itemcategorygridpanel',
     title: 'My Grid Panel',
+    defaultListenerScope: true,
 
     bind: {
         store: '{ItemCategoryStore}'
@@ -50,22 +51,34 @@ Ext.define('Target.view.ItemCategoryGridPanel', {
                         items: [
                             {
                                 xtype: 'menuitem',
-                                text: '新增'
+                                text: '新增',
+                                listeners: {
+                                    click: 'onMenuitemClick'
+                                }
                             },
                             {
                                 xtype: 'menuitem',
-                                text: '修改'
+                                text: '修改',
+                                listeners: {
+                                    click: 'onMenuitemClick1'
+                                }
                             },
                             {
                                 xtype: 'menuitem',
-                                text: '停用'
+                                text: '停用',
+                                listeners: {
+                                    click: 'onMenuitemClick2'
+                                }
                             }
                         ]
                     }
                 },
                 {
                     xtype: 'button',
-                    text: '商品選取'
+                    text: '商品選取',
+                    listeners: {
+                        click: 'onButtonClick'
+                    }
                 }
             ]
         }
@@ -125,6 +138,75 @@ Ext.define('Target.view.ItemCategoryGridPanel', {
             text: '最後修改',
             flex: 1
         }
-    ]
+    ],
+
+    onMenuitemClick: function(item, e, eOpts) {
+        var window = Ext.create('Target.view.ItemCategoryWindow');
+
+        window.setConfig('title', '新增商品種類');
+
+        Ext.getCmp('icUpdateBtn').setVisible(false);
+        Ext.getCmp('icAddBtn').setVisible(true);
+
+        window.show();
+
+    },
+
+    onMenuitemClick1: function(item, e, eOpts) {
+        var selmodel = Ext.getCmp('itemcategorygridpanel').getSelectionModel();
+        var count = selmodel.getCount();
+
+        if(count !== 0){
+            var seldata = selmodel.getSelection();
+
+            var window = Ext.create('Target.view.ItemCategoryWindow');
+
+            Ext.getCmp('ic_id').setValue(seldata[0].data.ic_id);
+
+            window.setConfig('title', '修改商品種類');
+
+            Ext.getCmp('icForm').getForm().setValues(seldata[0].data);
+
+            Ext.getCmp('icAddBtn').setVisible(false);
+            Ext.getCmp('icUpdateBtn').setVisible(true);
+
+            window.show();
+        }else{
+            Ext.Msg.alert('訊息', '請選擇一個商品種類修改');
+        }
+    },
+
+    onMenuitemClick2: function(item, e, eOpts) {
+        var selmodel = Ext.getCmp('itemcategorygridpanel').getSelectionModel();
+        var count = selmodel.getCount();
+        if(count !== 0){
+            Ext.MessageBox.confirm('Confirm', 'Are you sure to delete the data?', function(btn){
+                if (btn == 'yes') {
+                    var seldata = selmodel.getSelection();
+                    var icId = seldata[0].data.ic_id;
+
+                    Ext.Ajax.request({
+                        method: 'DELETE',
+                        url:'http://dev.finpo.com.tw/degi-api/target-local/public/b/item_category/'+icId,
+
+                        success: function(response, options){
+                            var store  = Ext.getCmp('itemcategorygridpanel').getViewModel().getStore('ItemCategoryStore');
+                            store.proxy.url='http://dev.finpo.com.tw/degi-api/target-local/public/b/item_category';
+                            store.load();
+
+                            Ext.Msg.alert('訊息','商品種類刪除成功');
+                        }
+                    });
+                }
+            });
+        }else{
+            Ext.Msg.alert('訊息', '請選擇一個商品種類刪除');
+        }
+
+    },
+
+    onButtonClick: function(button, e, eOpts) {
+
+    }
 
 });
