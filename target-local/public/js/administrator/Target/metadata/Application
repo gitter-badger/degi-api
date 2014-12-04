@@ -24,13 +24,16 @@
             "FoodModel",
             "StoreModel",
             "IndexSlideModel",
-            "CompanyMemberModel"
+            "CompanyMemberModel",
+            "BulkItemModel",
+            "BulkItemTmpModel"
         ],
         "name": "Target",
         "stores": [
             "SubOrderArrayStore",
             "GroupOrderArrayStore",
-            "CMPointArrayStore"
+            "CMPointArrayStore",
+            "BulkItemArrayStore"
         ],
         "views": [
             "MyViewport",
@@ -68,7 +71,10 @@
             "CompanyMemberGridPanel",
             "CompanyMemberWindow",
             "CMPointWindow",
-            "cmpsubWindow"
+            "cmpsubWindow",
+            "BulkItemTmpWindow",
+            "bulkitemsubWindow",
+            "BulkItemWindow"
         ]
     },
     "name": "Application",

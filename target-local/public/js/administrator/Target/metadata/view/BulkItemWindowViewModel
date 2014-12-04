@@ -1,0 +1,14 @@
+{
+    "type": "Ext.app.ViewModel",
+    "reference": {
+        "name": "items",
+        "type": "array"
+    },
+    "codeClass": null,
+    "userConfig": {
+        "designer|userAlias": "bulkitemwindow",
+        "designer|userClassName": "BulkItemWindowViewModel"
+    },
+    "name": "CMPointWindowViewModel2",
+    "designerId": "c4b33c0f-542c-4b1a-9991-c10c9af53097"
+}

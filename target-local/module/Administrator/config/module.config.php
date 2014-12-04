@@ -64,6 +64,15 @@ return array(
             				),
             		),
             ),
+            'bulk_item' => array(
+            		'type' => 'Segment',
+            		'options' => array(
+            				'route'    => '/b/bulk_item[/:id]',
+            				'defaults' => array(
+            						'controller' => 'Administrator\Controller\BulkItem'
+            				),
+            		),
+            ),
             'company_member_b' => array(
             		'type' => 'Segment',
             		'options' => array(
@@ -205,6 +214,7 @@ return array(
             'Administrator\Controller\Auth' => 'Administrator\Controller\AuthController',
             'Administrator\Controller\Adminer' => 'Administrator\Controller\AdminerController',
             'Administrator\Controller\Member' => 'Administrator\Controller\MemberController',  
+            'Administrator\Controller\BulkItem' => 'Administrator\Controller\BulkItemController',
             'Administrator\Controller\CompanyMember' => 'Administrator\Controller\CompanyMemberController',
             'Administrator\Controller\CompanyMemberPoint' => 'Administrator\Controller\CompanyMemberPointController',
             'Administrator\Controller\Order' => 'Administrator\Controller\OrderController',      

@@ -38,12 +38,15 @@ Ext.application({
         'FoodModel',
         'StoreModel',
         'IndexSlideModel',
-        'CompanyMemberModel'
+        'CompanyMemberModel',
+        'BulkItemModel',
+        'BulkItemTmpModel'
     ],
     stores: [
         'SubOrderArrayStore',
         'GroupOrderArrayStore',
-        'CMPointArrayStore'
+        'CMPointArrayStore',
+        'BulkItemArrayStore'
     ],
     views: [
         'MyViewport',
@@ -81,7 +84,10 @@ Ext.application({
         'CompanyMemberGridPanel',
         'CompanyMemberWindow',
         'CMPointWindow',
-        'cmpsubWindow'
+        'cmpsubWindow',
+        'BulkItemTmpWindow',
+        'bulkitemsubWindow',
+        'BulkItemWindow'
     ],
     name: 'Target',
 

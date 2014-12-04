@@ -1,0 +1,274 @@
+{
+    "type": "Ext.window.Window",
+    "reference": {
+        "name": "items",
+        "type": "array"
+    },
+    "codeClass": null,
+    "userConfig": {
+        "container|align": "stretch",
+        "designer|userAlias": "bulkitemtmpwindow",
+        "designer|userClassName": "BulkItemTmpWindow",
+        "height": 543,
+        "id": "BulkItemTmpWindow",
+        "layout": "vbox",
+        "modal": true,
+        "title": null,
+        "width": 480
+    },
+    "name": "CMPointWindow1",
+    "designerId": "1899b896-9f4b-4254-b490-e06286f74552",
+    "viewControllerInstanceId": "5f457764-ddd3-4647-888d-5464f9b4b2be",
+    "viewModelInstanceId": "9d268d34-18f1-4ed1-ab9d-df60eedcade3",
+    "cn": [
+        {
+            "type": "Ext.form.FieldContainer",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "container|align": "stretch",
+                "container|padding": null,
+                "fieldLabel": null,
+                "height": 295,
+                "layout": "vbox",
+                "layout|flex": 1,
+                "width": 644
+            },
+            "name": "MyFieldContainer1",
+            "designerId": "211b1b40-c839-47b4-a063-41c1ca51ee27",
+            "cn": [
+                {
+                    "type": "Ext.container.Container",
+                    "reference": {
+                        "name": "items",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "autoScroll": true,
+                        "container|align": "stretch",
+                        "layout": "vbox",
+                        "layout|flex": 1,
+                        "width": null
+                    },
+                    "name": "MyContainer3",
+                    "designerId": "7279bca2-32fe-4717-95d0-195c7474031b",
+                    "cn": [
+                        {
+                            "type": "Ext.grid.Panel",
+                            "reference": {
+                                "name": "items",
+                                "type": "array"
+                            },
+                            "codeClass": null,
+                            "userConfig": {
+                                "id": "bulkitemtmppanel",
+                                "rowLines": false,
+                                "store": [
+                                    "{BulkItemTmpStore}"
+                                ],
+                                "title": null,
+                                "width": 736
+                            },
+                            "name": "MyGridPanel",
+                            "configAlternates": {
+                                "store": "binding"
+                            },
+                            "designerId": "1a8c3eb0-eaa0-4934-84b2-9235887c1750",
+                            "cn": [
+                                {
+                                    "type": "Ext.grid.column.Column",
+                                    "reference": {
+                                        "name": "columns",
+                                        "type": "array"
+                                    },
+                                    "codeClass": null,
+                                    "userConfig": {
+                                        "dataIndex": "bpi_category",
+                                        "flex": 1,
+                                        "text": "分類名稱"
+                                    },
+                                    "name": "MyColumn19",
+                                    "designerId": "0c0fbd30-21e2-48cb-9d1c-72d5008aef8f"
+                                },
+                                {
+                                    "type": "Ext.grid.column.Column",
+                                    "reference": {
+                                        "name": "columns",
+                                        "type": "array"
+                                    },
+                                    "codeClass": null,
+                                    "userConfig": {
+                                        "dataIndex": "bpi_name",
+                                        "flex": 1,
+                                        "text": "商品名稱"
+                                    },
+                                    "name": "MyColumn13",
+                                    "designerId": "4f1a7e18-73a0-4777-a4f9-d0abe215748f"
+                                },
+                                {
+                                    "type": "Ext.grid.column.Column",
+                                    "reference": {
+                                        "name": "columns",
+                                        "type": "array"
+                                    },
+                                    "codeClass": null,
+                                    "userConfig": {
+                                        "dataIndex": "bpi_flavor",
+                                        "flex": 1,
+                                        "text": "口味"
+                                    },
+                                    "name": "MyColumn28",
+                                    "designerId": "91017567-061e-4912-98b1-38895a369b78"
+                                },
+                                {
+                                    "type": "Ext.grid.column.Column",
+                                    "reference": {
+                                        "name": "columns",
+                                        "type": "array"
+                                    },
+                                    "codeClass": null,
+                                    "userConfig": {
+                                        "dataIndex": "bpi_price",
+                                        "flex": 0.5,
+                                        "text": "原價"
+                                    },
+                                    "name": "MyColumn27",
+                                    "designerId": "d1dba453-942f-4c37-b0e3-fe095251d044"
+                                },
+                                {
+                                    "type": "Ext.selection.CheckboxModel",
+                                    "reference": {
+                                        "name": "selModel",
+                                        "type": "object"
+                                    },
+                                    "codeClass": null,
+                                    "name": "MyCheckboxSelectionModel2",
+                                    "designerId": "7669d321-874c-4648-9134-273e7e01fda8"
+                                }
+                            ]
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "type": "Ext.toolbar.Toolbar",
+            "reference": {
+                "name": "dockedItems",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "dock": "bottom",
+                "layout|flex": 1
+            },
+            "name": "MyToolbar5",
+            "designerId": "7e787704-db92-451a-9120-9687c5ac02b4",
+            "cn": [
+                {
+                    "type": "Ext.button.Button",
+                    "reference": {
+                        "name": "items",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "height": 28,
+                        "layout|flex": null,
+                        "text": "儲存",
+                        "width": 463
+                    },
+                    "name": "MyButton10",
+                    "designerId": "b84b0a41-767a-4f74-8c69-280316e82519",
+                    "cn": [
+                        {
+                            "type": "basiceventbinding",
+                            "reference": {
+                                "name": "listeners",
+                                "type": "array"
+                            },
+                            "codeClass": null,
+                            "userConfig": {
+                                "fn": "onButtonClick",
+                                "implHandler": [
+                                    "var selection = Ext.getCmp('bulkitemtmppanel').getSelectionModel().getSelection();",
+                                    "var cm_id = Ext.getCmp('cm_id_bulk').getValue();",
+                                    "//console.log(cm_id);",
+                                    "var ids = [];",
+                                    "Ext.each(selection, function(data, index){",
+                                    "//     ids.push(parseInt(data.data.sm_id));",
+                                    "    ids.push(data.data);",
+                                    "});",
+                                    "//console.log(ids);",
+                                    "Ext.Ajax.request({",
+                                    "    params: {",
+                                    "        id: Ext.encode(ids),",
+                                    "        cm_id: cm_id",
+                                    "    },",
+                                    "    url: 'http://dev.finpo.com.tw/degi-api/target-local/public/b/bulk_item',",
+                                    "    method:'POST',",
+                                    "    success: function(response){",
+                                    "         var obj = Ext.JSON.decode(response.responseText);",
+                                    "        //console.log(obj);",
+                                    "         Ext.Ajax.request({",
+                                    "",
+                                    "             url: 'http://dev.finpo.com.tw/degi-api/target-local/public/b/bulk_item/'+cm_id,",
+                                    "             success: function(response, opts){",
+                                    "",
+                                    "                 var obj = Ext.JSON.decode(response.responseText);",
+                                    "                 var store = Ext.getCmp('bulkitempanel').getStore();",
+                                    "",
+                                    "                 if(obj.rows){",
+                                    "                     store.removeAll();",
+                                    "                     var cmp = Ext.JSON.decode(obj.rows);",
+                                    "                     //                 console.log(cmp);",
+                                    "",
+                                    "                     for( var i=0; i<(cmp.length); i++){",
+                                    "                         store.add({",
+                                    "                             bpi_id : cmp[i].bpi_id,",
+                                    "                             bpi_flavor : cmp[i].bpi_flavor,",
+                                    "                             im_id : cmp[i].im_id,",
+                                    "                             bpi_name : cmp[i].bpi_name,",
+                                    "                             ic_id : cmp[i].ic_id,",
+                                    "                             bpi_category : cmp[i].bpi_category,",
+                                    "                             bpi_price : cmp[i].bpi_price,",
+                                    "                             bpi_sprice : cmp[i].bpi_sprice,",
+                                    "                         });",
+                                    "                     }",
+                                    "                 }else{",
+                                    "                     store.removeAll();",
+                                    "                 }",
+                                    "                // console.log(store);",
+                                    "             },",
+                                    "             failure: function(response, opts){",
+                                    "                 console.log('server-side failure with status code ' + response.status);",
+                                    "             }",
+                                    "",
+                                    "         });",
+                                    "        var window = Ext.getCmp('BulkItemTmpWindow');",
+                                    "        window.close();",
+                                    "    },",
+                                    "    failure:function(response){",
+                                    "        data = Ext.decode(action.response.responseText);",
+                                    "        if (data.success === false && data.msg){",
+                                    "            Ext.Msg.alert('Error', data.msg);",
+                                    "        }",
+                                    "    }",
+                                    "});"
+                                ],
+                                "name": "click",
+                                "scope": "me"
+                            },
+                            "name": "onButtonClick",
+                            "designerId": "a9e8214a-8669-4401-8825-f8af2124e990"
+                        }
+                    ]
+                }
+            ]
+        }
+    ]
+}

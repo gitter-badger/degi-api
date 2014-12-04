@@ -1,0 +1,254 @@
+{
+    "type": "Ext.window.Window",
+    "reference": {
+        "name": "items",
+        "type": "array"
+    },
+    "codeClass": null,
+    "userConfig": {
+        "designer|userAlias": "bulkitemsubwindow",
+        "designer|userClassName": "bulkitemsubWindow",
+        "height": 258,
+        "id": "BulkItemSubWindow",
+        "modal": true,
+        "title": null,
+        "width": 431
+    },
+    "name": "cmpsubWindow1",
+    "designerId": "0e03e9bd-9195-407a-a3a5-fbfad1e3e6c0",
+    "viewControllerInstanceId": "36d88efd-bd92-4e12-a8fd-b1db5dcf3813",
+    "viewModelInstanceId": "5d62f835-feda-4570-b0fc-d25737a8752f",
+    "cn": [
+        {
+            "type": "Ext.form.field.Hidden",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "fieldLabel": null,
+                "id": "bpi_id_tmp",
+                "name": "bpi_id"
+            },
+            "name": "MyHiddenField4",
+            "designerId": "bed0a6ba-d4cf-443b-a3c4-c7ee8de80ebb"
+        },
+        {
+            "type": "Ext.form.Panel",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "bodyPadding": "20 0 0 0 ",
+                "height": null,
+                "id": "BulkForm",
+                "title": null
+            },
+            "name": "MyForm",
+            "designerId": "f7df446e-ad7f-4a38-a3c5-89fbdb79d31b",
+            "cn": [
+                {
+                    "type": "Ext.form.field.Text",
+                    "reference": {
+                        "name": "items",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "editable": false,
+                        "fieldLabel": "種類名稱",
+                        "labelAlign": "right",
+                        "layout|anchor": "80%",
+                        "name": "bpi_category",
+                        "width": 343
+                    },
+                    "name": "MyTextField",
+                    "designerId": "bc0a464b-8057-4653-9a25-6e6b8b126bf2"
+                },
+                {
+                    "type": "Ext.form.field.Text",
+                    "reference": {
+                        "name": "items",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "editable": false,
+                        "fieldLabel": "商品名稱",
+                        "labelAlign": "right",
+                        "layout|anchor": "80%",
+                        "name": "bpi_name",
+                        "width": 343
+                    },
+                    "name": "MyTextField5",
+                    "designerId": "57017396-1e5f-4101-b5d5-40130813dc42"
+                },
+                {
+                    "type": "Ext.form.field.Text",
+                    "reference": {
+                        "name": "items",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "editable": false,
+                        "fieldLabel": "口味名稱",
+                        "labelAlign": "right",
+                        "layout|anchor": "80%",
+                        "name": "bpi_flavor",
+                        "width": 343
+                    },
+                    "name": "MyTextField6",
+                    "designerId": "1e066eed-84b2-4ad8-92d2-47e5491d95b9"
+                },
+                {
+                    "type": "Ext.form.field.Text",
+                    "reference": {
+                        "name": "items",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "editable": false,
+                        "fieldLabel": "原價",
+                        "labelAlign": "right",
+                        "layout|anchor": "80%",
+                        "name": "bpi_price",
+                        "width": 343
+                    },
+                    "name": "MyTextField7",
+                    "designerId": "37623173-8e35-4f37-a3b5-321e82e4d73f"
+                },
+                {
+                    "type": "Ext.form.field.Text",
+                    "reference": {
+                        "name": "items",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "fieldLabel": "優惠價",
+                        "labelAlign": "right",
+                        "layout|anchor": "80%",
+                        "name": "bpi_sprice"
+                    },
+                    "name": "MyTextField2",
+                    "designerId": "44128fe4-bef2-4db0-a822-3ef0e9d6b614"
+                }
+            ]
+        },
+        {
+            "type": "Ext.toolbar.Toolbar",
+            "reference": {
+                "name": "dockedItems",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "container|pack": "end",
+                "dock": "bottom",
+                "height": 41
+            },
+            "name": "MyToolbar1",
+            "designerId": "9f60e1e4-2818-490b-85ec-ac969e64c686",
+            "cn": [
+                {
+                    "type": "Ext.button.Button",
+                    "reference": {
+                        "name": "items",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "id": "bpisubUpdateBtn",
+                        "layout|flex": null,
+                        "text": "修改",
+                        "width": 413
+                    },
+                    "name": "MyButton3",
+                    "designerId": "2c15ba16-2b2e-4d44-88d3-f338df3518e8",
+                    "cn": [
+                        {
+                            "type": "basiceventbinding",
+                            "reference": {
+                                "name": "listeners",
+                                "type": "array"
+                            },
+                            "codeClass": null,
+                            "userConfig": {
+                                "fn": "onBPIUpdateBtnClick",
+                                "implHandler": [
+                                    "var form = Ext.getCmp('BulkForm').getForm();",
+                                    "var bpiId = Ext.getCmp('bpi_id_tmp').getValue();",
+                                    "var cm_id = Ext.getCmp('cm_id_bulk').getValue();",
+                                    "",
+                                    "if(form.isValid()){",
+                                    "    form.submit({",
+                                    "        method: 'PUT',",
+                                    "        waitTitle:'訊息',",
+                                    "        waitMsg:'修改資料中',",
+                                    "        url:'http://dev.finpo.com.tw/degi-api/target-local/public/b/bulk_item/'+bpiId,",
+                                    "",
+                                    "        success: function(response){",
+                                    "        //var obj = Ext.JSON.decode(response.responseText);",
+                                    "        //console.log(obj);",
+                                    "             Ext.Ajax.request({",
+                                    "                 url: 'http://dev.finpo.com.tw/degi-api/target-local/public/b/bulk_item/'+cm_id,",
+                                    "                 success: function(response, opts){",
+                                    "",
+                                    "                     var obj = Ext.JSON.decode(response.responseText);",
+                                    "                     var store = Ext.getCmp('bulkitempanel').getStore();",
+                                    "",
+                                    "                     if(obj.rows){",
+                                    "                         store.removeAll();",
+                                    "                         var cmp = Ext.JSON.decode(obj.rows);",
+                                    "",
+                                    "                         for( var i=0; i<(cmp.length); i++){",
+                                    "                             store.add({",
+                                    "                                 bpi_id : cmp[i].bpi_id,",
+                                    "                                 bpi_flavor : cmp[i].bpi_flavor,",
+                                    "                                 im_id : cmp[i].im_id,",
+                                    "                                 bpi_name : cmp[i].bpi_name,",
+                                    "                                 ic_id : cmp[i].ic_id,",
+                                    "                                 bpi_category : cmp[i].bpi_category,",
+                                    "                                 bpi_price : cmp[i].bpi_price,",
+                                    "                                 bpi_sprice : cmp[i].bpi_sprice,",
+                                    "                             });",
+                                    "                         }",
+                                    "                     }else{",
+                                    "                         store.removeAll();",
+                                    "                     }",
+                                    "                     console.log(store);",
+                                    "                 },",
+                                    "                 failure: function(response, opts){",
+                                    "                     console.log('server-side failure with status code ' + response.status);",
+                                    "                 }",
+                                    "",
+                                    "             });",
+                                    "             var window = Ext.getCmp('BulkItemSubWindow');",
+                                    "             window.close();",
+                                    "             Ext.Msg.alert('訊息','公司會員商品優惠修改成功');",
+                                    "",
+                                    "           },",
+                                    "           failure:function(form,action){",
+                                    "                Ext.Msg.alert('訊息','公司會員商品優惠修改失敗');",
+                                    "",
+                                    "           }",
+                                    "    });",
+                                    "}"
+                                ],
+                                "name": "click",
+                                "scope": "me"
+                            },
+                            "name": "onBPIUpdateBtnClick",
+                            "designerId": "2cddff05-aa35-4035-bf51-1bb443ae19ed"
+                        }
+                    ]
+                }
+            ]
+        }
+    ]
+}

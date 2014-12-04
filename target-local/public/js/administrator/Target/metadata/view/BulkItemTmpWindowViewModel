@@ -1,0 +1,62 @@
+{
+    "type": "Ext.app.ViewModel",
+    "reference": {
+        "name": "items",
+        "type": "array"
+    },
+    "codeClass": null,
+    "userConfig": {
+        "designer|userAlias": "bulkitemtmpwindow",
+        "designer|userClassName": "BulkItemTmpWindowViewModel"
+    },
+    "name": "CMPointWindowViewModel1",
+    "designerId": "9d268d34-18f1-4ed1-ab9d-df60eedcade3",
+    "cn": [
+        {
+            "type": "jsonstore",
+            "reference": {
+                "name": "stores",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "autoLoad": true,
+                "autoSync": true,
+                "model": "BulkItemTmpModel",
+                "name": "BulkItemTmpStore"
+            },
+            "name": "MyJsonStore2",
+            "designerId": "729570b2-7360-4024-8615-5098814984f6",
+            "cn": [
+                {
+                    "type": "Ext.data.proxy.Ajax",
+                    "reference": {
+                        "name": "proxy",
+                        "type": "object"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "url": "http://dev.finpo.com.tw/degi-api/target-local/public/b/bulk_item"
+                    },
+                    "name": "MyAjaxProxy2",
+                    "designerId": "3f68885e-23fb-4b15-b739-f53d28d30700",
+                    "cn": [
+                        {
+                            "type": "Ext.data.reader.Json",
+                            "reference": {
+                                "name": "reader",
+                                "type": "object"
+                            },
+                            "codeClass": null,
+                            "userConfig": {
+                                "rootProperty": "rows"
+                            },
+                            "name": "MyJsonReader2",
+                            "designerId": "6d0f01e3-1215-49ab-a3f9-f4bbeb6976ec"
+                        }
+                    ]
+                }
+            ]
+        }
+    ]
+}

@@ -1,0 +1,14 @@
+{
+    "type": "Ext.app.ViewModel",
+    "reference": {
+        "name": "items",
+        "type": "array"
+    },
+    "codeClass": null,
+    "userConfig": {
+        "designer|userAlias": "bulkitemsubwindow",
+        "designer|userClassName": "BulkItemSubWindowViewModel"
+    },
+    "name": "CmpSubWindowViewModel1",
+    "designerId": "5d62f835-feda-4570-b0fc-d25737a8752f"
+}

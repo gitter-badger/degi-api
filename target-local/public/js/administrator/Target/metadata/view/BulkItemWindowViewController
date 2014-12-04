@@ -1,0 +1,14 @@
+{
+    "type": "Ext.app.ViewController",
+    "reference": {
+        "name": "items",
+        "type": "array"
+    },
+    "codeClass": null,
+    "userConfig": {
+        "designer|userAlias": "bulkitemwindow",
+        "designer|userClassName": "BulkItemWindowViewController"
+    },
+    "name": "CMPointWindowViewController2",
+    "designerId": "c79d2de9-6848-4b36-841f-ffc1f79ccce1"
+}

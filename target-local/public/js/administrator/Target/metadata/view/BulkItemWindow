@@ -1,0 +1,381 @@
+{
+    "type": "Ext.window.Window",
+    "reference": {
+        "name": "items",
+        "type": "array"
+    },
+    "codeClass": null,
+    "userConfig": {
+        "container|align": "stretch",
+        "designer|userAlias": "bulkitemwindow",
+        "designer|userClassName": "BulkItemWindow",
+        "height": 543,
+        "id": "BulkItemWindow",
+        "layout": "vbox",
+        "modal": true,
+        "title": null,
+        "width": 738
+    },
+    "name": "CMPointWindow2",
+    "designerId": "eb70cbc1-153b-4139-9b35-6c0d2742263b",
+    "viewControllerInstanceId": "c79d2de9-6848-4b36-841f-ffc1f79ccce1",
+    "viewModelInstanceId": "c4b33c0f-542c-4b1a-9991-c10c9af53097",
+    "cn": [
+        {
+            "type": "Ext.form.field.Hidden",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "dock": null,
+                "fieldLabel": null,
+                "id": "cm_id_bulk",
+                "name": "cm_id_bulk",
+                "width": 100
+            },
+            "name": "MyHiddenField3",
+            "designerId": "5dc5b380-fe7e-4508-9d6f-fb5197baa804"
+        },
+        {
+            "type": "Ext.form.FieldContainer",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "container|align": "stretch",
+                "container|padding": null,
+                "fieldLabel": null,
+                "height": null,
+                "layout": "vbox",
+                "layout|flex": 1,
+                "width": 644
+            },
+            "name": "MyFieldContainer1",
+            "designerId": "49880c8b-f38a-43da-a1c9-eceaf4c13f25",
+            "cn": [
+                {
+                    "type": "Ext.container.Container",
+                    "reference": {
+                        "name": "items",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "autoScroll": true,
+                        "container|align": "stretch",
+                        "layout": "vbox",
+                        "layout|flex": 1,
+                        "width": null
+                    },
+                    "name": "MyContainer3",
+                    "designerId": "157de618-a9d3-40c4-99b6-f289abc50f7b",
+                    "cn": [
+                        {
+                            "type": "Ext.grid.Panel",
+                            "reference": {
+                                "name": "items",
+                                "type": "array"
+                            },
+                            "codeClass": null,
+                            "userConfig": {
+                                "id": "bulkitempanel",
+                                "rowLines": false,
+                                "store": "BulkItemArrayStore",
+                                "title": null
+                            },
+                            "name": "MyGridPanel",
+                            "designerId": "4b61246d-e2eb-44e6-9928-8d014ffb7942",
+                            "cn": [
+                                {
+                                    "type": "Ext.grid.column.Column",
+                                    "reference": {
+                                        "name": "columns",
+                                        "type": "array"
+                                    },
+                                    "codeClass": null,
+                                    "userConfig": {
+                                        "dataIndex": "bpi_category",
+                                        "flex": 1,
+                                        "text": "分類名稱"
+                                    },
+                                    "name": "MyColumn19",
+                                    "designerId": "d04ac615-75a4-4941-877a-d2af5303c8c8"
+                                },
+                                {
+                                    "type": "Ext.grid.column.Column",
+                                    "reference": {
+                                        "name": "columns",
+                                        "type": "array"
+                                    },
+                                    "codeClass": null,
+                                    "userConfig": {
+                                        "dataIndex": "bpi_name",
+                                        "flex": 1,
+                                        "text": "商品名稱"
+                                    },
+                                    "name": "MyColumn28",
+                                    "designerId": "a654ab4b-410e-4346-be95-3404f733efe7"
+                                },
+                                {
+                                    "type": "Ext.grid.column.Column",
+                                    "reference": {
+                                        "name": "columns",
+                                        "type": "array"
+                                    },
+                                    "codeClass": null,
+                                    "userConfig": {
+                                        "dataIndex": "bpi_flavor",
+                                        "flex": 1,
+                                        "text": "口味"
+                                    },
+                                    "name": "MyColumn27",
+                                    "designerId": "1b6fe524-6670-4aa5-8725-b31e93f8d6cc"
+                                },
+                                {
+                                    "type": "Ext.grid.column.Column",
+                                    "reference": {
+                                        "name": "columns",
+                                        "type": "array"
+                                    },
+                                    "codeClass": null,
+                                    "userConfig": {
+                                        "dataIndex": "bpi_price",
+                                        "flex": 0.5,
+                                        "text": "原價"
+                                    },
+                                    "name": "MyColumn14",
+                                    "designerId": "440bbc98-5d7a-462c-84a7-50ca04c35278"
+                                },
+                                {
+                                    "type": "Ext.grid.column.Column",
+                                    "reference": {
+                                        "name": "columns",
+                                        "type": "array"
+                                    },
+                                    "codeClass": null,
+                                    "userConfig": {
+                                        "dataIndex": "bpi_sprice",
+                                        "flex": 0.5,
+                                        "text": "優惠價"
+                                    },
+                                    "name": "MyColumn15",
+                                    "designerId": "5c4f8dc8-aa04-48ef-a266-e813b45c5682"
+                                },
+                                {
+                                    "type": "Ext.selection.CheckboxModel",
+                                    "reference": {
+                                        "name": "selModel",
+                                        "type": "object"
+                                    },
+                                    "codeClass": null,
+                                    "name": "MyCheckboxSelectionModel2",
+                                    "designerId": "bcab710a-b498-443c-a45d-cbc98a65c615"
+                                }
+                            ]
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "type": "Ext.toolbar.Toolbar",
+            "reference": {
+                "name": "dockedItems",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "dock": "top",
+                "layout|flex": 1
+            },
+            "name": "MyToolbar4",
+            "designerId": "1a153489-4781-4af2-8c0c-776db4a0203a",
+            "cn": [
+                {
+                    "type": "Ext.button.Button",
+                    "reference": {
+                        "name": "items",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "layout|flex": null,
+                        "text": "加入新項目"
+                    },
+                    "name": "MyButton7",
+                    "designerId": "6660a17e-5a8c-477c-9cce-0069dcb8a60b",
+                    "cn": [
+                        {
+                            "type": "basiceventbinding",
+                            "reference": {
+                                "name": "listeners",
+                                "type": "array"
+                            },
+                            "codeClass": null,
+                            "userConfig": {
+                                "fn": "onButtonClick",
+                                "implHandler": [
+                                    "var window = Ext.create('Target.view.BulkItemTmpWindow');",
+                                    "",
+                                    "window.setConfig('title', '新增商品項目');",
+                                    "",
+                                    "window.show();"
+                                ],
+                                "name": "click",
+                                "scope": "me"
+                            },
+                            "name": "onButtonClick",
+                            "designerId": "5215192f-b1a2-4fc6-8a92-157c15cddd3e"
+                        }
+                    ]
+                },
+                {
+                    "type": "Ext.button.Button",
+                    "reference": {
+                        "name": "items",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "layout|flex": null,
+                        "text": "修改"
+                    },
+                    "name": "MyButton5",
+                    "designerId": "140b9838-bb88-495f-b154-09e2f5711c7f",
+                    "cn": [
+                        {
+                            "type": "basiceventbinding",
+                            "reference": {
+                                "name": "listeners",
+                                "type": "array"
+                            },
+                            "codeClass": null,
+                            "userConfig": {
+                                "fn": "onButtonClick1",
+                                "implHandler": [
+                                    "var selmodel = Ext.getCmp('bulkitempanel').getSelectionModel();",
+                                    "var count = selmodel.getCount();",
+                                    "",
+                                    "if(count !== 0){",
+                                    "    var seldata = selmodel.getSelection();",
+                                    "",
+                                    "    var window = Ext.create('Target.view.bulkitemsubWindow');",
+                                    "",
+                                    "    Ext.getCmp('bpi_id_tmp').setValue(seldata[0].data.bpi_id);",
+                                    "",
+                                    "    window.setConfig('title', '修改商品優惠價');",
+                                    "",
+                                    "    Ext.getCmp('BulkForm').getForm().setValues(seldata[0].data);",
+                                    "",
+                                    "    window.show();",
+                                    "}else{",
+                                    "    Ext.Msg.alert('訊息', '請選擇一個商品修改優惠價');",
+                                    "}"
+                                ],
+                                "name": "click",
+                                "scope": "me"
+                            },
+                            "name": "onButtonClick1",
+                            "designerId": "b54db145-893d-4ac4-aa4f-5ba93105aab3"
+                        }
+                    ]
+                },
+                {
+                    "type": "Ext.button.Button",
+                    "reference": {
+                        "name": "items",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "layout|flex": null,
+                        "text": "刪除"
+                    },
+                    "name": "MyButton9",
+                    "designerId": "c8f1f2e9-38c8-403b-94d4-205b2fc62c28",
+                    "cn": [
+                        {
+                            "type": "basiceventbinding",
+                            "reference": {
+                                "name": "listeners",
+                                "type": "array"
+                            },
+                            "codeClass": null,
+                            "userConfig": {
+                                "fn": "onButtonClick2",
+                                "implHandler": [
+                                    "var selmodel = Ext.getCmp('bulkitempanel').getSelectionModel();",
+                                    "var count = selmodel.getCount();",
+                                    "if(count !== 0){",
+                                    "    Ext.MessageBox.confirm('Confirm', 'Are you sure to delete the data?', function(btn){",
+                                    "        if (btn == 'yes') {",
+                                    "            var seldata = selmodel.getSelection();",
+                                    "            var bpiId = seldata[0].data.bpi_id;",
+                                    "            var cm_id = Ext.getCmp('cm_id_bulk').getValue();",
+                                    "",
+                                    "            Ext.Ajax.request({",
+                                    "                method: 'DELETE',",
+                                    "                url:'http://dev.finpo.com.tw/degi-api/target-local/public/b/bulk_item/'+bpiId,",
+                                    "",
+                                    "                success: function(response, options){",
+                                    "                    Ext.Ajax.request({",
+                                    "",
+                                    "                        url: 'http://dev.finpo.com.tw/degi-api/target-local/public/b/bulk_item/'+cm_id,",
+                                    "                         success: function(response, opts){",
+                                    "",
+                                    "                             var obj = Ext.JSON.decode(response.responseText);",
+                                    "                             var store = Ext.getCmp('bulkitempanel').getStore();",
+                                    "",
+                                    "                             if(obj.rows){",
+                                    "                                 store.removeAll();",
+                                    "                                 var cmp = Ext.JSON.decode(obj.rows);",
+                                    "",
+                                    "                                 for( var i=0; i<(cmp.length); i++){",
+                                    "                                     store.add({",
+                                    "                                         bpi_id : cmp[i].bpi_id,",
+                                    "                                         bpi_flavor : cmp[i].bpi_flavor,",
+                                    "                                         im_id : cmp[i].im_id,",
+                                    "                                         bpi_name : cmp[i].bpi_name,",
+                                    "                                         ic_id : cmp[i].ic_id,",
+                                    "                                         bpi_category : cmp[i].bpi_category,",
+                                    "                                         bpi_price : cmp[i].bpi_price,",
+                                    "                                         bpi_sprice : cmp[i].bpi_sprice,",
+                                    "                                     });",
+                                    "                                 }",
+                                    "                             }else{",
+                                    "                                 store.removeAll();",
+                                    "                             }",
+                                    "                             //console.log(store);",
+                                    "                         },",
+                                    "                        failure: function(response, opts){",
+                                    "                            console.log('server-side failure with status code ' + response.status);",
+                                    "                        }",
+                                    "",
+                                    "                    });",
+                                    "",
+                                    "                    Ext.Msg.alert('訊息','公司會員商品刪除成功');",
+                                    "                }",
+                                    "            });",
+                                    "        }",
+                                    "    });",
+                                    "}else{",
+                                    "    Ext.Msg.alert('訊息', '請選擇一個公司會員商品刪除');",
+                                    "}",
+                                    ""
+                                ],
+                                "name": "click",
+                                "scope": "me"
+                            },
+                            "name": "onButtonClick2",
+                            "designerId": "22c86937-5a61-40a3-9619-61c3e2825034"
+                        }
+                    ]
+                }
+            ]
+        }
+    ]
+}
