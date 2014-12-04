@@ -36,6 +36,7 @@ class BulkItem{
     		$select = $this->db->getSql()->select();
     		$select->where->equalTo('cm_id',$id);
     		$select->order('ic_id ASC');
+    		$select->order('im_id ASC');
     		$cmp = $this->db->selectWith($select)->toArray();
             $result['success'] = true;
             $result['rows'] = Json_encode($cmp);
