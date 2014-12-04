@@ -284,17 +284,17 @@ Ext.define('Target.view.MyViewport', {
     companyorderMgrButtonClick: function(button, e, eOpts) {
         var tab = Ext.getCmp('tabpanel');
 
-        if(!Ext.getCmp('companyordergridpanel')){
-            panel = Ext.create('Target.view.CompanyOrderGridPanel',{
+        if(!Ext.getCmp('bpordergridpanel')){
+            panel = Ext.create('Target.view.BPOrderGridPanel',{
                 tabConfig: {
                     title: '公司訂單管理',
                     closable: true
                 }
             });
             tab.add(panel);
-            tab.setActiveTab('companyordergridpanel');
+            tab.setActiveTab('bpordergridpanel');
         }else{
-            tab.setActiveTab('companyordergridpanel');
+            tab.setActiveTab('bpordergridpanel');
         }
     },
 
