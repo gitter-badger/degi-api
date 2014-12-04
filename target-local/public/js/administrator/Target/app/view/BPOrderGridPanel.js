@@ -367,7 +367,7 @@ Ext.define('Target.view.BPOrderGridPanel', {
     onComboboxChange1: function(field, newValue, oldValue, eOpts) {
         var Status = Ext.getCmp('BPOMStatusSelector').getValue();
         var store  = Ext.getCmp('bpordergridpanel').getViewModel().getStore('BPOrderStore');
-        if( mStatus === '' ){
+        if( Status === '' ){
             store.proxy.url='http://dev.finpo.com.tw/degi-api/target-local/public/b/bporder';
         }else{
             store.proxy.url='http://dev.finpo.com.tw/degi-api/target-local/public/b/bporder?s='+Status;
