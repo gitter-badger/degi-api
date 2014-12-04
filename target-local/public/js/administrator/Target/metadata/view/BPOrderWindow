@@ -217,7 +217,35 @@
                                         "name": "bpom_status"
                                     },
                                     "name": "MyDisplayField13",
-                                    "designerId": "d72ba3b1-9e6f-465b-b538-62ed5161c728"
+                                    "designerId": "d72ba3b1-9e6f-465b-b538-62ed5161c728",
+                                    "cn": [
+                                        {
+                                            "type": "fixedfunction",
+                                            "reference": {
+                                                "name": "items",
+                                                "type": "array"
+                                            },
+                                            "codeClass": null,
+                                            "userConfig": {
+                                                "designer|params": [
+                                                    "value",
+                                                    "displayField"
+                                                ],
+                                                "fn": "renderer",
+                                                "implHandler": [
+                                                    " if( value == 1 ){",
+                                                    "     return '未處理';",
+                                                    " }else if ( value == 2 ){",
+                                                    "     return '處理中';",
+                                                    " }else{",
+                                                    "     return '已出貨';",
+                                                    " }"
+                                                ]
+                                            },
+                                            "name": "renderer",
+                                            "designerId": "3c6e4e75-607f-40ab-9b97-ac0d4f567c5a"
+                                        }
+                                    ]
                                 },
                                 {
                                     "type": "Ext.form.field.Display",

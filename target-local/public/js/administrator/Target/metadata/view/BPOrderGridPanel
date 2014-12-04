@@ -567,6 +567,117 @@
                             ]
                         }
                     ]
+                },
+                {
+                    "type": "Ext.form.field.ComboBox",
+                    "reference": {
+                        "name": "items",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "editable": false,
+                        "emptyText": "狀態查詢",
+                        "fieldLabel": "",
+                        "id": "BPOMStatusSelector",
+                        "layout|flex": null,
+                        "queryMode": "local",
+                        "store": [
+                            "{BPOMStatusStore}"
+                        ],
+                        "triggerAction": null,
+                        "valueField": "bpom_status"
+                    },
+                    "name": "MyComboBox2",
+                    "configAlternates": {
+                        "store": "binding"
+                    },
+                    "designerId": "8fee681c-75c6-45d8-be15-5ac91711de9c",
+                    "cn": [
+                        {
+                            "type": "basiceventbinding",
+                            "reference": {
+                                "name": "listeners",
+                                "type": "array"
+                            },
+                            "codeClass": null,
+                            "userConfig": {
+                                "fn": "onComboboxChange1",
+                                "implHandler": [
+                                    "var Status = Ext.getCmp('BPOMStatusSelector').getValue();",
+                                    "var store  = Ext.getCmp('bpordergridpanel').getViewModel().getStore('BPOrderStore');",
+                                    "if( mStatus === '' ){",
+                                    "    store.proxy.url='http://dev.finpo.com.tw/degi-api/target-local/public/b/bporder';",
+                                    "}else{",
+                                    "    store.proxy.url='http://dev.finpo.com.tw/degi-api/target-local/public/b/bporder?s='+Status;",
+                                    "}",
+                                    "store.load();"
+                                ],
+                                "name": "change",
+                                "scope": "me"
+                            },
+                            "name": "onComboboxChange1",
+                            "designerId": "983cefa6-7c6f-4f76-a01c-079c1dcd7c94"
+                        },
+                        {
+                            "type": "basiceventbinding",
+                            "reference": {
+                                "name": "listeners",
+                                "type": "array"
+                            },
+                            "codeClass": null,
+                            "userConfig": {
+                                "fn": "onComboboxFocus1",
+                                "implHandler": [
+                                    "var Status = Ext.getCmp('BPOMStatusSelector').setValue('');"
+                                ],
+                                "name": "focus",
+                                "scope": "me"
+                            },
+                            "name": "onComboboxFocus1",
+                            "designerId": "f835f4f2-8c55-4ed4-936b-a93033be906f"
+                        }
+                    ]
+                },
+                {
+                    "type": "Ext.button.Button",
+                    "reference": {
+                        "name": "items",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "layout|flex": null,
+                        "text": "清除搜尋結果",
+                        "width": 100
+                    },
+                    "name": "MyButton7",
+                    "designerId": "84744683-9260-49ed-9eed-1a1dab0c08e3",
+                    "cn": [
+                        {
+                            "type": "basiceventbinding",
+                            "reference": {
+                                "name": "listeners",
+                                "type": "array"
+                            },
+                            "codeClass": null,
+                            "userConfig": {
+                                "fn": "onButtonClick111",
+                                "implHandler": [
+                                    "var store  = Ext.getCmp('bpordergridpanel').getViewModel().getStore('BPOrderStore');",
+                                    "store.proxy.url='http://dev.finpo.com.tw/degi-api/target-local/public/b/bporder';",
+                                    "",
+                                    "Ext.getCmp('BPOMStatusSelector').setValue('');",
+                                    "",
+                                    "store.load();"
+                                ],
+                                "name": "click",
+                                "scope": "me"
+                            },
+                            "name": "onButtonClick111",
+                            "designerId": "8af9ae9b-cc56-4f13-a532-355a197123f9"
+                        }
+                    ]
                 }
             ]
         },

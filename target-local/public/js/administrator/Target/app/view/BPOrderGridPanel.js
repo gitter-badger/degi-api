@@ -25,6 +25,7 @@ Ext.define('Target.view.BPOrderGridPanel', {
         'Ext.button.Button',
         'Ext.menu.Menu',
         'Ext.menu.Item',
+        'Ext.form.field.ComboBox',
         'Ext.toolbar.Paging'
     ],
 
@@ -159,6 +160,30 @@ Ext.define('Target.view.BPOrderGridPanel', {
                                 }
                             }
                         ]
+                    }
+                },
+                {
+                    xtype: 'combobox',
+                    id: 'BPOMStatusSelector',
+                    fieldLabel: '',
+                    editable: false,
+                    emptyText: '狀態查詢',
+                    queryMode: 'local',
+                    valueField: 'bpom_status',
+                    bind: {
+                        store: '{BPOMStatusStore}'
+                    },
+                    listeners: {
+                        change: 'onComboboxChange1',
+                        focus: 'onComboboxFocus1'
+                    }
+                },
+                {
+                    xtype: 'button',
+                    width: 100,
+                    text: '清除搜尋結果',
+                    listeners: {
+                        click: 'onButtonClick111'
                     }
                 }
             ]
@@ -337,6 +362,30 @@ Ext.define('Target.view.BPOrderGridPanel', {
         }else{
             Ext.Msg.alert('訊息','請選擇ㄧ筆訂單改成已出貨');
         }
+    },
+
+    onComboboxChange1: function(field, newValue, oldValue, eOpts) {
+        var Status = Ext.getCmp('BPOMStatusSelector').getValue();
+        var store  = Ext.getCmp('bpordergridpanel').getViewModel().getStore('BPOrderStore');
+        if( mStatus === '' ){
+            store.proxy.url='http://dev.finpo.com.tw/degi-api/target-local/public/b/bporder';
+        }else{
+            store.proxy.url='http://dev.finpo.com.tw/degi-api/target-local/public/b/bporder?s='+Status;
+        }
+        store.load();
+    },
+
+    onComboboxFocus1: function(component, event, eOpts) {
+        var Status = Ext.getCmp('BPOMStatusSelector').setValue('');
+    },
+
+    onButtonClick111: function(button, e, eOpts) {
+        var store  = Ext.getCmp('bpordergridpanel').getViewModel().getStore('BPOrderStore');
+        store.proxy.url='http://dev.finpo.com.tw/degi-api/target-local/public/b/bporder';
+
+        Ext.getCmp('BPOMStatusSelector').setValue('');
+
+        store.load();
     }
 
 });

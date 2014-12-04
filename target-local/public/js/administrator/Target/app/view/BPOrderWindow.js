@@ -118,6 +118,15 @@ Ext.define('Target.view.BPOrderWindow', {
                                 },
                                 {
                                     xtype: 'displayfield',
+                                    renderer: function(value, displayField) {
+                                        if( value == 1 ){
+                                            return '未處理';
+                                        }else if ( value == 2 ){
+                                            return '處理中';
+                                        }else{
+                                            return '已出貨';
+                                        }
+                                    },
                                     fieldLabel: '狀態',
                                     name: 'bpom_status'
                                 },

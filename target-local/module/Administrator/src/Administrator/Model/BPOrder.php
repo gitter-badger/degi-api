@@ -32,7 +32,9 @@ class BPOrder{
     		$select = $this->db->getSql()->select();
     		$select->join('company_member_point','company_member_point.cmp_id = bulk_purchase_order_main.cmp_id',array('cmp_name','cmp_address'));
     		$select->order('bpom_created DESC');
-    		
+    		if(isset($query['s'])){
+    			$select->where->equalTo('bpom_status',$query['s']);
+    		}
     		$paginator = new Paginator(new DbSelect($select, $this->db->adapter));
     
     		$paginator->setItemCountPerPage($query['limit'])->setCurrentPageNumber($query['page']);

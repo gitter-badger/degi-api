@@ -20,7 +20,8 @@ Ext.define('Target.view.OrderGridPanelViewModel', {
     requires: [
         'Ext.data.Store',
         'Ext.data.proxy.Ajax',
-        'Ext.data.reader.Json'
+        'Ext.data.reader.Json',
+        'Ext.data.field.Field'
     ],
 
     stores: {
@@ -36,6 +37,30 @@ Ext.define('Target.view.OrderGridPanelViewModel', {
                     rootProperty: 'rows'
                 }
             }
+        },
+        OMStatusStore: {
+            data: [
+                {
+                    om_status: 1,
+                    text: '未處理'
+                },
+                {
+                    om_status: 2,
+                    text: '處理中'
+                },
+                {
+                    om_status: 3,
+                    text: '已出貨'
+                }
+            ],
+            fields: [
+                {
+                    name: 'om_status'
+                },
+                {
+                    name: 'text'
+                }
+            ]
         }
     }
 

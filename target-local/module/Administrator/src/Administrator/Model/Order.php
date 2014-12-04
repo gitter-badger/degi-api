@@ -32,9 +32,9 @@ class Order{
 //     			$select->where->like('mm_email','%'.$query['q'].'%');
 //     			$select->where->or->like('mm_purchaser_name','%'.$query['q'].'%');
 //     		}
-//     		if(isset($query['s'])){
-//     			$select->where->equalTo('mm_status',$query['s']);
-//     		}
+    		if(isset($query['s'])){
+    			$select->where->equalTo('om_status',$query['s']);
+    		}
     		
     		$paginator = new Paginator(new DbSelect($select, $this->db->adapter));
     

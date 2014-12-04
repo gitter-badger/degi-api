@@ -57,6 +57,54 @@
                     ]
                 }
             ]
+        },
+        {
+            "type": "Ext.data.Store",
+            "reference": {
+                "name": "stores",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "data": [
+                    "[",
+                    "{'bpom_status':1, 'text':'未處理'},",
+                    "{'bpom_status':2, 'text':'處理中'},",
+                    "{'bpom_status':3, 'text':'已出貨'}",
+                    "]"
+                ],
+                "name": "BPOMStatusStore"
+            },
+            "name": "MyStore1",
+            "designerId": "207e388f-53f4-4be2-b839-e4b4c85b190b",
+            "cn": [
+                {
+                    "type": "Ext.data.field.Field",
+                    "reference": {
+                        "name": "fields",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "name": "bpom_status"
+                    },
+                    "name": "MyField",
+                    "designerId": "f609c6c1-4f00-45e5-b4a4-d7c3ab8774f6"
+                },
+                {
+                    "type": "Ext.data.field.Field",
+                    "reference": {
+                        "name": "fields",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "name": "text"
+                    },
+                    "name": "MyField1",
+                    "designerId": "e725df13-607d-41ef-80d9-68ffdf81afa3"
+                }
+            ]
         }
     ]
 }

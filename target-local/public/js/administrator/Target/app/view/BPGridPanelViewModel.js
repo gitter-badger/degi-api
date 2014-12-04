@@ -20,7 +20,8 @@ Ext.define('Target.view.BPGridPanelViewModel', {
     requires: [
         'Ext.data.Store',
         'Ext.data.proxy.Ajax',
-        'Ext.data.reader.Json'
+        'Ext.data.reader.Json',
+        'Ext.data.field.Field'
     ],
 
     stores: {
@@ -36,6 +37,30 @@ Ext.define('Target.view.BPGridPanelViewModel', {
                     rootProperty: 'rows'
                 }
             }
+        },
+        BPOMStatusStore: {
+            data: [
+                {
+                    bpom_status: 1,
+                    text: '未處理'
+                },
+                {
+                    bpom_status: 2,
+                    text: '處理中'
+                },
+                {
+                    bpom_status: 3,
+                    text: '已出貨'
+                }
+            ],
+            fields: [
+                {
+                    name: 'bpom_status'
+                },
+                {
+                    name: 'text'
+                }
+            ]
         }
     }
 
