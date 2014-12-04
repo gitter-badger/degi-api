@@ -157,7 +157,10 @@ Ext.define('Target.view.ItemCategoryWindow', {
 
                 },
                 failure:function(form,action){
-                    Ext.Msg.alert('訊息','公司會員新增失敗');
+                    data = Ext.decode(action.response.responseText);
+                    if (data.success === false && data.msg){
+                        Ext.Msg.alert('Error', data.msg);
+                    }
                 }
             });
         }
@@ -198,6 +201,12 @@ Ext.define('Target.view.ItemCategoryWindow', {
                     var window = Ext.getCmp('itemcategorywindow');
                     window.close();
                     Ext.Msg.alert('訊息','商品分類修改成功');
+                },
+                failure:function(form,action){
+                   data = Ext.decode(action.response.responseText);
+                    if (data.success === false && data.msg){
+                        Ext.Msg.alert('Error', data.msg);
+                    }
                 }
             });
 
