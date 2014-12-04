@@ -284,7 +284,7 @@ Ext.define('Target.view.BPOrderGridPanel', {
                         params: {
                             bpom_status: 2
                         },
-                        url: 'http://dev.finpo.com.tw/degi-api/target-local/public/b/bporder/'+seldata[0].data.om_id,
+                        url: 'http://dev.finpo.com.tw/degi-api/target-local/public/b/bporder/'+seldata[0].data.bpom_id,
                         method: 'PUT',
                         success: function(response, option){
                             var store = Ext.getCmp('bpordergridpanel').getViewModel().getStore('BPOrderStore');
@@ -320,7 +320,7 @@ Ext.define('Target.view.BPOrderGridPanel', {
                         params: {
                             bpom_status: 3
                         },
-                        url: 'http://dev.finpo.com.tw/degi-api/target-local/public/b/bporder/'+seldata[0].data.om_id,
+                        url: 'http://dev.finpo.com.tw/degi-api/target-local/public/b/bporder/'+seldata[0].data.bpom_id,
                         method: 'PUT',
                         success: function(response, option){
                             var store = Ext.getCmp('bpordergridpanel').getViewModel().getStore('BPOrderStore');

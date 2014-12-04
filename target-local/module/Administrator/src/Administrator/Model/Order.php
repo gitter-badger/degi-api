@@ -26,6 +26,7 @@ class Order{
     public function selectAll($query){
    	 	try {
     		$select = $this->db->getSql()->select();
+    		$select->order('om_created DESC');
     		
 //     		if(!empty($query['q'])){
 //     			$select->where->like('mm_email','%'.$query['q'].'%');
