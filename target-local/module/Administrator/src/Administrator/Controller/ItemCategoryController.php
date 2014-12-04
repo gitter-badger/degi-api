@@ -49,7 +49,7 @@ class ItemCategoryController extends AbstractRestfulController
         
         $ic = new ItemCategory();
         
-        return new JsonModel(array('success'=>true , 'data'=> $ic->update($data,$id) ));
+        return new JsonModel($ic->update($data,$id) );
     }
     
     //delete

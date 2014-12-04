@@ -47,7 +47,7 @@ class ItemCategoryRelateController extends AbstractRestfulController
         $response->setStatusCode(200);
         
         $db = new ItemCategoryRelate();   
-        return new JsonModel(array('success'=>true , 'data'=> $db->update($data,$id) ));
+        return new JsonModel($db->update($data,$id) );
     }
     
     //delete
