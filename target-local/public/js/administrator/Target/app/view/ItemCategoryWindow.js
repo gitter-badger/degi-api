@@ -193,7 +193,7 @@ Ext.define('Target.view.ItemCategoryWindow', {
                     ic_seq: form.findField('ic_seq').getValue(),
                     ic_status: Status
                 },
-                success: function(response, options){
+                success:function(form,action){
                     var store  = Ext.getCmp('itemcategorygridpanel').getViewModel().getStore('ItemCategoryStore');
                     store.proxy.url='http://dev.finpo.com.tw/degi-api/target-local/public/b/item_category';
                     store.load();
