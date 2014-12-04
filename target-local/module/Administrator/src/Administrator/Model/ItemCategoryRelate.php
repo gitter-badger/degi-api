@@ -84,7 +84,7 @@ class ItemCategoryRelate {
     public function selectAll($query){
     	try {
     		$select = $this->db->getSql()->select();
-    		$select->join('item_main','item_main.im_id = item_category_rel.im_id',array('im_name'));
+    		$select->join('item_main','item_main.im_id = item_cate_rel.im_id',array('im_name'));
     		$select->where->equalTo('ic_id',$query['ic_id']);
     		
     		$cmp = $this->db->selectWith($select)->toArray();
