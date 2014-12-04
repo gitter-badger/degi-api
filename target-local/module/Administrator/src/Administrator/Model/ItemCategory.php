@@ -82,7 +82,11 @@ class ItemCategory {
     	return array('success'=>true  );
     }
     public function selectAll($query){
-    	return array('success'=>true , 'data'=>$this->db->select()->toArray() );        
+    	$select = $this->db->getSql()->select();
+    	$select->order('ic_type ASC');
+    	$select->order('ic_seq ASC');
+    	
+    	return array('success'=>true , 'data'=>$this->db->selectWith($select)->toArray() );        
     }
 }
 ?>

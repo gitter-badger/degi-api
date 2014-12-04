@@ -31,7 +31,7 @@ Ext.define('Target.view.icrsubWindow', {
         type: 'icrsubwindow'
     },
     height: 161,
-    id: 'CmpSubWindow1',
+    id: 'icrsubWindow',
     width: 431,
     modal: true,
     defaultListenerScope: true,

@@ -86,13 +86,12 @@ class ItemCategoryRelate {
     		$select = $this->db->getSql()->select();
     		$select->join('item_main','item_main.im_id = item_cate_rel.im_id',array('im_name'));
     		$select->where->equalTo('ic_id',$query['ic_id']);
-    		
+    		$select->order('item_cate_rel.icr_seq ASC');
     		$cmp = $this->db->selectWith($select)->toArray();
             $result['success'] = true;
             $result['rows'] = Json_encode($cmp);
             return $result;
     
-    		return $result;
     	}catch (\Exception $e){
     		return array('success'=>false , 'msg'=> $e->getMessage() );
     	}

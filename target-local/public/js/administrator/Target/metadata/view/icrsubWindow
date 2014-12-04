@@ -9,7 +9,7 @@
         "designer|userAlias": "icrsubwindow",
         "designer|userClassName": "icrsubWindow",
         "height": 161,
-        "id": "CmpSubWindow1",
+        "id": "icrsubWindow",
         "modal": true,
         "title": null,
         "width": 431
