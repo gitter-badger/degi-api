@@ -26,17 +26,8 @@ class BPOrder{
     public function selectAll($query){
    	 	try {
     		$select = $this->db->getSql()->select();
-    		$select->join('company_member_point','company_member_point.cmp_id = bulk_purchase_order_main.cmp_id',array('cmp_name,cmp_address
-    				
-    		'));
-    		
-//     		if(!empty($query['q'])){
-//     			$select->where->like('mm_email','%'.$query['q'].'%');
-//     			$select->where->or->like('mm_purchaser_name','%'.$query['q'].'%');
-//     		}
-//     		if(isset($query['s'])){
-//     			$select->where->equalTo('mm_status',$query['s']);
-//     		}
+    		$select->join('company_member_point','company_member_point.cmp_id = bulk_purchase_order_main.cmp_id',array('cmp_name,cmp_address'));
+    	
     		
     		$paginator = new Paginator(new DbSelect($select, $this->db->adapter));
     

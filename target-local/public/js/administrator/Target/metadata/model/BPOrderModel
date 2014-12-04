@@ -1,0 +1,210 @@
+{
+    "type": "Ext.data.Model",
+    "reference": {
+        "name": "items",
+        "type": "array"
+    },
+    "codeClass": null,
+    "userConfig": {
+        "designer|userClassName": "BPOrderModel"
+    },
+    "name": "OrderModel1",
+    "designerId": "85225744-31ad-40de-b4b1-13c4b0e0a43e",
+    "cn": [
+        {
+            "type": "Ext.data.field.Field",
+            "reference": {
+                "name": "fields",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "name": "bpom_id"
+            },
+            "name": "MyField",
+            "designerId": "8504b263-c153-4394-936d-6b624b090db3"
+        },
+        {
+            "type": "Ext.data.field.Field",
+            "reference": {
+                "name": "fields",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "name": "bpom_order_number"
+            },
+            "name": "MyField1",
+            "designerId": "8a8feeb8-99ce-4ca6-81ca-2f3f2e86921a"
+        },
+        {
+            "type": "Ext.data.field.Field",
+            "reference": {
+                "name": "fields",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "name": "cm_id"
+            },
+            "name": "MyField2",
+            "designerId": "1bbf3cd2-5fba-4899-9669-5d131153efca"
+        },
+        {
+            "type": "Ext.data.field.Field",
+            "reference": {
+                "name": "fields",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "name": "cmp_id"
+            },
+            "name": "MyField3",
+            "designerId": "e1d98ec7-32c5-427a-93aa-cb31e82aa1db"
+        },
+        {
+            "type": "Ext.data.field.Field",
+            "reference": {
+                "name": "fields",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "name": "bpom_delivery_year"
+            },
+            "name": "MyField4",
+            "designerId": "8edb7122-c144-49cf-8fd2-ca3ba2d57311"
+        },
+        {
+            "type": "Ext.data.field.Field",
+            "reference": {
+                "name": "fields",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "name": "bpom_delivery_month"
+            },
+            "name": "MyField5",
+            "designerId": "f863ef92-9774-414e-b0b7-34f9879100a7"
+        },
+        {
+            "type": "Ext.data.field.Field",
+            "reference": {
+                "name": "fields",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "name": "bpom_delivery_day"
+            },
+            "name": "MyField9",
+            "designerId": "9c93a388-35f8-4a84-ae36-cbe3fbd8fbf4"
+        },
+        {
+            "type": "Ext.data.field.Field",
+            "reference": {
+                "name": "fields",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "name": "bpom_delivery_hour"
+            },
+            "name": "MyField10",
+            "designerId": "73263ce0-5fa2-4a8d-b581-06c2f5dbe9fe"
+        },
+        {
+            "type": "Ext.data.field.Field",
+            "reference": {
+                "name": "fields",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "name": "bpom_subtotal"
+            },
+            "name": "MyField11",
+            "designerId": "678a45e2-f8fb-477b-924d-4997388db228"
+        },
+        {
+            "type": "Ext.data.field.Field",
+            "reference": {
+                "name": "fields",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "name": "bpom_status"
+            },
+            "name": "MyField12",
+            "designerId": "6599c5cd-d1db-44c5-a94d-6184465b8002"
+        },
+        {
+            "type": "Ext.data.field.Field",
+            "reference": {
+                "name": "fields",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "name": "bpom_created"
+            },
+            "name": "MyField13",
+            "designerId": "a1b0c776-ec08-4994-9c4b-8c21d8f1d8a3"
+        },
+        {
+            "type": "Ext.data.field.Field",
+            "reference": {
+                "name": "fields",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "name": "bpom_modified"
+            },
+            "name": "MyField14",
+            "designerId": "83176805-7671-44a6-b456-7760dccaff3f"
+        },
+        {
+            "type": "Ext.data.field.Field",
+            "reference": {
+                "name": "fields",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "name": "cmp_name"
+            },
+            "name": "MyField53",
+            "designerId": "3f238e44-332c-4fa4-8fad-5c2b8d5804fd"
+        },
+        {
+            "type": "Ext.data.field.Field",
+            "reference": {
+                "name": "fields",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "name": "bpom_shipping_fee"
+            },
+            "name": "MyField54",
+            "designerId": "69e4c7ac-fc91-4edd-a726-94a6678bea76"
+        },
+        {
+            "type": "Ext.data.field.Field",
+            "reference": {
+                "name": "fields",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "name": "cmp_address"
+            },
+            "name": "MyField56",
+            "designerId": "d0fdf6be-8d2f-4551-a41d-5a989b6ca3e5"
+        }
+    ]
+}

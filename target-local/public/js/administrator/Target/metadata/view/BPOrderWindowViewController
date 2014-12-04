@@ -1,0 +1,14 @@
+{
+    "type": "Ext.app.ViewController",
+    "reference": {
+        "name": "items",
+        "type": "array"
+    },
+    "codeClass": null,
+    "userConfig": {
+        "designer|userAlias": "bporderwindow",
+        "designer|userClassName": "BPOrderWindowViewController"
+    },
+    "name": "OrderWindowViewController1",
+    "designerId": "7f73adf4-adb3-48e3-bcb7-3e9a2b8ee169"
+}

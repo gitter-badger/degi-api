@@ -1,0 +1,14 @@
+{
+    "type": "Ext.app.ViewModel",
+    "reference": {
+        "name": "items",
+        "type": "array"
+    },
+    "codeClass": null,
+    "userConfig": {
+        "designer|userAlias": "bporderwindow",
+        "designer|userClassName": "BPOrderWindowViewModel"
+    },
+    "name": "OrderWindowViewModel1",
+    "designerId": "5f359438-b8d7-4baf-be53-756fd720df7b"
+}

@@ -1,0 +1,62 @@
+{
+    "type": "Ext.app.ViewModel",
+    "reference": {
+        "name": "items",
+        "type": "array"
+    },
+    "codeClass": null,
+    "userConfig": {
+        "designer|userAlias": "bpordergridpanel",
+        "designer|userClassName": "BPGridPanelViewModel"
+    },
+    "name": "OrderGridPanelViewModel1",
+    "designerId": "a7c3d234-01d6-4fc4-b60b-dc7f90d417cd",
+    "cn": [
+        {
+            "type": "jsonstore",
+            "reference": {
+                "name": "stores",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "autoLoad": true,
+                "autoSync": true,
+                "model": "BPOrderModel",
+                "name": "BPOrderStore"
+            },
+            "name": "MyJsonStore",
+            "designerId": "acdd695d-9e71-461f-8c2d-49613d731a9e",
+            "cn": [
+                {
+                    "type": "Ext.data.proxy.Ajax",
+                    "reference": {
+                        "name": "proxy",
+                        "type": "object"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "url": "http://dev.finpo.com.tw/degi-api/target-local/public/b/bporder"
+                    },
+                    "name": "MyAjaxProxy",
+                    "designerId": "d295e8fa-7774-44b1-9d8c-ac1e3f0785e6",
+                    "cn": [
+                        {
+                            "type": "Ext.data.reader.Json",
+                            "reference": {
+                                "name": "reader",
+                                "type": "object"
+                            },
+                            "codeClass": null,
+                            "userConfig": {
+                                "rootProperty": "rows"
+                            },
+                            "name": "MyJsonReader",
+                            "designerId": "f96cac95-244c-4fd6-a202-ad0d07663b2c"
+                        }
+                    ]
+                }
+            ]
+        }
+    ]
+}
