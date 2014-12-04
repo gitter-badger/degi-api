@@ -1,8 +1,6 @@
 <?php
 namespace Administrator\Model;
 
-use Zend\Paginator\Paginator;
-use Zend\Paginator\Adapter\DbSelect;
 use Administrator\Model\Table\ItemCateRelTable;
 
 class ItemCategoryRelate {
@@ -84,20 +82,20 @@ class ItemCategoryRelate {
     	return array('success'=>true  );
     }
     public function selectAll($query){
-        try {
-            $select = $this->db->getSql()->select();
-            $paginator = new Paginator(new DbSelect($select, $this->db->adapter));
-            
-            $paginator->setItemCountPerPage($query['limit'])->setCurrentPageNumber($query['page']);
-            
-            $result['success'] = true ;
-            $result['total'] = $paginator->getTotalItemCount();
-            $result['rows'] = $paginator->getCurrentItems()->toArray();
-        
+    	try {
+    		$select = $this->db->getSql()->select();
+    		$select->join('item_main','item_main.im_id = item_category_rel.im_id',array('im_name'));
+    		$select->where->equalTo('ic_id',$query['ic_id']);
+    		
+    		$cmp = $this->db->selectWith($select)->toArray();
+            $result['success'] = true;
+            $result['rows'] = Json_encode($cmp);
             return $result;
-        }catch (\Exception $e){
-            return array('success'=>false , 'msg'=> $e->getMessage() );
-        }
+    
+    		return $result;
+    	}catch (\Exception $e){
+    		return array('success'=>false , 'msg'=> $e->getMessage() );
+    	}
     }
 }
 ?>

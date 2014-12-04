@@ -1,0 +1,14 @@
+{
+    "type": "Ext.app.ViewModel",
+    "reference": {
+        "name": "items",
+        "type": "array"
+    },
+    "codeClass": null,
+    "userConfig": {
+        "designer|userAlias": "icrwindow",
+        "designer|userClassName": "icrWindowViewModel"
+    },
+    "name": "CMPointWindowViewModel1",
+    "designerId": "b2f6855c-ce12-43a5-a6f6-c96f6e110c79"
+}

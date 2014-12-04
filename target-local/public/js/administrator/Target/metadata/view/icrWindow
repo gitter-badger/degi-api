@@ -1,0 +1,341 @@
+{
+    "type": "Ext.window.Window",
+    "reference": {
+        "name": "items",
+        "type": "array"
+    },
+    "codeClass": null,
+    "userConfig": {
+        "container|align": "stretch",
+        "designer|userAlias": "icrwindow",
+        "designer|userClassName": "icrWindow",
+        "height": 543,
+        "id": "icrWindow",
+        "layout": "vbox",
+        "modal": true,
+        "title": null,
+        "width": 738
+    },
+    "name": "CMPointWindow1",
+    "designerId": "0950cb6a-7e55-484e-a33e-75f475b0a48e",
+    "viewControllerInstanceId": "a866829e-d6f3-4f66-9ece-cd18fa0f797e",
+    "viewModelInstanceId": "b2f6855c-ce12-43a5-a6f6-c96f6e110c79",
+    "cn": [
+        {
+            "type": "Ext.form.FieldContainer",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "container|align": "stretch",
+                "container|padding": null,
+                "fieldLabel": null,
+                "height": null,
+                "layout": "vbox",
+                "layout|flex": 1,
+                "width": 644
+            },
+            "name": "MyFieldContainer1",
+            "designerId": "ef7a931c-f36b-4cdf-8bc3-e087ef0be664",
+            "cn": [
+                {
+                    "type": "Ext.container.Container",
+                    "reference": {
+                        "name": "items",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "autoScroll": true,
+                        "container|align": "stretch",
+                        "layout": "vbox",
+                        "layout|flex": 1,
+                        "width": null
+                    },
+                    "name": "MyContainer3",
+                    "designerId": "56076c50-5fc6-4a23-86c3-97564b2592bf",
+                    "cn": [
+                        {
+                            "type": "Ext.grid.Panel",
+                            "reference": {
+                                "name": "items",
+                                "type": "array"
+                            },
+                            "codeClass": null,
+                            "userConfig": {
+                                "id": "icrpanel",
+                                "rowLines": false,
+                                "store": "icrArrayStore",
+                                "title": null
+                            },
+                            "name": "MyGridPanel",
+                            "designerId": "80a4d971-b4d8-4cd0-8be6-5e4f48919930",
+                            "cn": [
+                                {
+                                    "type": "Ext.grid.column.Column",
+                                    "reference": {
+                                        "name": "columns",
+                                        "type": "array"
+                                    },
+                                    "codeClass": null,
+                                    "userConfig": {
+                                        "dataIndex": "im_name",
+                                        "flex": 1,
+                                        "text": "商品名稱"
+                                    },
+                                    "name": "MyColumn19",
+                                    "designerId": "099b4152-833c-4d56-988e-0473a32a5bf6"
+                                },
+                                {
+                                    "type": "Ext.grid.column.Column",
+                                    "reference": {
+                                        "name": "columns",
+                                        "type": "array"
+                                    },
+                                    "codeClass": null,
+                                    "userConfig": {
+                                        "dataIndex": "icr_seq",
+                                        "flex": 1,
+                                        "text": "排序"
+                                    },
+                                    "name": "MyColumn28",
+                                    "designerId": "7220c596-6d9e-4a9a-94f0-767337238a6e"
+                                },
+                                {
+                                    "type": "Ext.selection.CheckboxModel",
+                                    "reference": {
+                                        "name": "selModel",
+                                        "type": "object"
+                                    },
+                                    "codeClass": null,
+                                    "name": "MyCheckboxSelectionModel2",
+                                    "designerId": "a71e5243-2056-428e-953f-82ba9b7ccf56"
+                                }
+                            ]
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "type": "Ext.toolbar.Toolbar",
+            "reference": {
+                "name": "dockedItems",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "dock": "top",
+                "layout|flex": 1
+            },
+            "name": "MyToolbar4",
+            "designerId": "b57d6544-0233-4680-b719-057b6e313321",
+            "cn": [
+                {
+                    "type": "Ext.button.Button",
+                    "reference": {
+                        "name": "items",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "layout|flex": null,
+                        "text": "新增"
+                    },
+                    "name": "MyButton7",
+                    "designerId": "4052eea8-16fe-4e1f-a915-3c8175d5519e",
+                    "cn": [
+                        {
+                            "type": "basiceventbinding",
+                            "reference": {
+                                "name": "listeners",
+                                "type": "array"
+                            },
+                            "codeClass": null,
+                            "userConfig": {
+                                "fn": "onButtonClick",
+                                "implHandler": [
+                                    "var window = Ext.create('Target.view.icrsubWindow');",
+                                    "",
+                                    "window.setConfig('title', '新增配送點');",
+                                    "",
+                                    "Ext.getCmp('cmpsubUpdateBtn').setVisible(false);",
+                                    "Ext.getCmp('cmpsubAddBtn').setVisible(true);",
+                                    "Ext.getCmp('cm_id_cmpsub').setValue(Ext.getCmp('cm_id_point').getValue());",
+                                    "",
+                                    "window.show();"
+                                ],
+                                "name": "click",
+                                "scope": "me"
+                            },
+                            "name": "onButtonClick",
+                            "designerId": "32eb5233-733a-443d-9128-3c24008754b2"
+                        }
+                    ]
+                },
+                {
+                    "type": "Ext.button.Button",
+                    "reference": {
+                        "name": "items",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "layout|flex": null,
+                        "text": "修改"
+                    },
+                    "name": "MyButton5",
+                    "designerId": "52ec1cc7-063e-4207-8538-d39ed273a858",
+                    "cn": [
+                        {
+                            "type": "basiceventbinding",
+                            "reference": {
+                                "name": "listeners",
+                                "type": "array"
+                            },
+                            "codeClass": null,
+                            "userConfig": {
+                                "fn": "onButtonClick1",
+                                "implHandler": [
+                                    "var selmodel = Ext.getCmp('cmpointpanel').getSelectionModel();",
+                                    "var count = selmodel.getCount();",
+                                    "",
+                                    "if(count !== 0){",
+                                    "    var seldata = selmodel.getSelection();",
+                                    "",
+                                    "    var window = Ext.create('Target.view.cmpsubWindow');",
+                                    "",
+                                    "    Ext.getCmp('cm_id_cmpsub').setValue(seldata[0].data.cm_id);",
+                                    "    Ext.getCmp('cmp_id_cmpsub').setValue(seldata[0].data.cmp_id);",
+                                    "",
+                                    "    window.setConfig('title', '修改配送點');",
+                                    "",
+                                    "    Ext.getCmp('CmpSubForm').getForm().setValues(seldata[0].data);",
+                                    "",
+                                    "    Ext.getCmp('cmpsubUpdateBtn').setVisible(true);",
+                                    "    Ext.getCmp('cmpsubAddBtn').setVisible(false);",
+                                    "",
+                                    "    window.show();",
+                                    "}else{",
+                                    "    Ext.Msg.alert('訊息', '請選擇一個配送點修改');",
+                                    "}"
+                                ],
+                                "name": "click",
+                                "scope": "me"
+                            },
+                            "name": "onButtonClick1",
+                            "designerId": "5a8d8be9-ad91-41b7-b5f2-3a3ca96f073f"
+                        }
+                    ]
+                },
+                {
+                    "type": "Ext.button.Button",
+                    "reference": {
+                        "name": "items",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "layout|flex": null,
+                        "text": "刪除"
+                    },
+                    "name": "MyButton9",
+                    "designerId": "dc503efc-e5f8-45cc-8a9c-cc3c46f8a218",
+                    "cn": [
+                        {
+                            "type": "basiceventbinding",
+                            "reference": {
+                                "name": "listeners",
+                                "type": "array"
+                            },
+                            "codeClass": null,
+                            "userConfig": {
+                                "fn": "onButtonClick2",
+                                "implHandler": [
+                                    "var selmodel = Ext.getCmp('cmpointpanel').getSelectionModel();",
+                                    "var count = selmodel.getCount();",
+                                    "if(count !== 0){",
+                                    "    Ext.MessageBox.confirm('Confirm', 'Are you sure to delete the data?', function(btn){",
+                                    "        if (btn == 'yes') {",
+                                    "            var seldata = selmodel.getSelection();",
+                                    "            var cmpId = seldata[0].data.cmp_id;",
+                                    "            var cmId = seldata[0].data.cm_id;",
+                                    "",
+                                    "            Ext.Ajax.request({",
+                                    "                method: 'DELETE',",
+                                    "                url:'http://dev.finpo.com.tw/degi-api/target-local/public/b/company_member_point/'+cmpId,",
+                                    "",
+                                    "                success: function(response, options){",
+                                    "                    Ext.Ajax.request({",
+                                    "",
+                                    "                        url: 'http://dev.finpo.com.tw/degi-api/target-local/public/b/company_member_point?cm_id='+cmId,",
+                                    "                        success: function(response, opts){",
+                                    "",
+                                    "                            var obj = Ext.JSON.decode(response.responseText);",
+                                    "                            var store = Ext.getCmp('cmpointpanel').getStore();",
+                                    "",
+                                    "                            if(obj.rows){",
+                                    "                                store.removeAll();",
+                                    "                                var cmp = Ext.JSON.decode(obj.rows);",
+                                    "                                //console.log(cmp);",
+                                    "",
+                                    "                                for( var i=0; i<(cmp.length); i++){",
+                                    "                                    store.add({",
+                                    "                                        cm_id: cmp[i].cm_id,",
+                                    "                                        cmp_address: cmp[i].cmp_address,",
+                                    "                                        cmp_id: cmp[i].cmp_id,",
+                                    "                                        cmp_name: cmp[i].cmp_name,",
+                                    "                                        cmp_shipping_fee: cmp[i].cmp_shipping_fee",
+                                    "",
+                                    "                                    });",
+                                    "                                }",
+                                    "                            }else{",
+                                    "                                store.removeAll();",
+                                    "                            }",
+                                    "                        },",
+                                    "                        failure: function(response, opts){",
+                                    "                            console.log('server-side failure with status code ' + response.status);",
+                                    "                        }",
+                                    "",
+                                    "                    });",
+                                    "",
+                                    "                    Ext.Msg.alert('訊息','公司會員配送點刪除成功');",
+                                    "                }",
+                                    "            });",
+                                    "        }",
+                                    "    });",
+                                    "}else{",
+                                    "    Ext.Msg.alert('訊息', '請選擇一個公司會員配送點刪除');",
+                                    "}",
+                                    ""
+                                ],
+                                "name": "click",
+                                "scope": "me"
+                            },
+                            "name": "onButtonClick2",
+                            "designerId": "e28ff1b7-64a6-41b0-90ff-1aea5b9f61b3"
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "type": "Ext.form.field.Hidden",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "fieldLabel": null,
+                "id": "ic_id_rel",
+                "layout|flex": 1,
+                "name": "ic_id_rel"
+            },
+            "name": "MyHiddenField3",
+            "designerId": "d6ae8232-aa12-46e3-a37e-31a6288bacd6"
+        }
+    ]
+}

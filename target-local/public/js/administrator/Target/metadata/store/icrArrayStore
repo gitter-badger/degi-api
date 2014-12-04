@@ -1,0 +1,83 @@
+{
+    "type": "arraystore",
+    "reference": {
+        "name": "items",
+        "type": "array"
+    },
+    "codeClass": null,
+    "userConfig": {
+        "autoLoad": true,
+        "autoSync": true,
+        "designer|userClassName": "icrArrayStore",
+        "storeId": "icrArrayStore"
+    },
+    "name": "CMPointArrayStore2",
+    "designerId": "a12fec21-6e63-4e69-ae89-55bc4ae4da8e",
+    "cn": [
+        {
+            "type": "Ext.data.field.Field",
+            "reference": {
+                "name": "fields",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "name": "icr_id"
+            },
+            "name": "MyField49",
+            "designerId": "bf14b9c0-573d-4593-9ab5-58e2ff9f3975"
+        },
+        {
+            "type": "Ext.data.field.Field",
+            "reference": {
+                "name": "fields",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "name": "im_id"
+            },
+            "name": "MyField50",
+            "designerId": "afc01cbe-a874-433c-8569-fda4b294e596"
+        },
+        {
+            "type": "Ext.data.field.Field",
+            "reference": {
+                "name": "fields",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "name": "ic_id"
+            },
+            "name": "MyField24",
+            "designerId": "7c14b638-f95b-408f-ab6d-5abe40a28c1c"
+        },
+        {
+            "type": "Ext.data.field.Field",
+            "reference": {
+                "name": "fields",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "name": "icr_seq"
+            },
+            "name": "MyField25",
+            "designerId": "7131673a-9f51-43d4-aede-7dd5e97b8897"
+        },
+        {
+            "type": "Ext.data.field.Field",
+            "reference": {
+                "name": "fields",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "name": "im_name"
+            },
+            "name": "MyField57",
+            "designerId": "b57e5514-4546-4300-9ef0-6a4d604172e4"
+        }
+    ]
+}

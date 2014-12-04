@@ -35,7 +35,8 @@
             "GroupOrderArrayStore",
             "CMPointArrayStore",
             "BulkItemArrayStore",
-            "BPSubOrderArrayStore"
+            "BPSubOrderArrayStore",
+            "icrArrayStore"
         ],
         "views": [
             "MyViewport",
@@ -78,7 +79,9 @@
             "bulkitemsubWindow",
             "BulkItemWindow",
             "BPOrderGridPanel",
-            "BPOrderWindow"
+            "BPOrderWindow",
+            "icrWindow",
+            "cmpsubWindow1"
         ]
     },
     "name": "Application",
