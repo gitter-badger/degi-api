@@ -20,7 +20,11 @@ class BPOrder{
 	}
 
     public function get($id){
-        return array('success'=>true , 'data'=> $this->db->select(array('bpom_id'=>$id))->current());
+    	$select = $this->db->getSql()->select();
+    	$select->where('bpom_id='.$id);
+    	$select->join('company_member_point','company_member_point.cmp_id = bulk_purchase_order_main.cmp_id',array('cmp_name','cmp_address'));
+    	
+    	return array('success'=>true , 'data'=>  $this->db->selectWith($select)->toArray());
     }
     
     public function selectAll($query){

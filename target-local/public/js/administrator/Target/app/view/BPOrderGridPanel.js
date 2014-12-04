@@ -192,18 +192,18 @@ Ext.define('Target.view.BPOrderGridPanel', {
                     //console.log(seldata[0].data.om_id);
 
                     var obj = Ext.JSON.decode(response.responseText);
-                    console.log(obj.data);
+                   // console.log(obj.data[0].bpom_content_json);
 
                     var form = Ext.getCmp('bporderForm').getForm();
-                    form.setValues(obj.data);
+                    form.setValues(obj.data[0]);
 
                     var store = Ext.getCmp('bpsuborderpanel').getStore();
 
-                    if(obj.data.bpom_content_json){
+                    if(obj.data[0].bpom_content_json){
                         store.removeAll();
-                        var suborder_detail = Ext.JSON.decode(obj.data.bpom_content_json);
+                        var suborder_detail = Ext.JSON.decode(obj.data[0].bpom_content_json);
 
-                        console.log(suborder_detail.length);
+                       // console.log(suborder_detail.length);
 
                         for( var i=0; i<(suborder_detail.length); i++){
                             store.add({
@@ -247,7 +247,7 @@ Ext.define('Target.view.BPOrderGridPanel', {
 
                     Ext.Ajax.request({
                         params: {
-                            om_status: 1
+                            bpom_status: 1
                         },
                         url: 'http://dev.finpo.com.tw/degi-api/target-local/public/b/bporder/'+seldata[0].data.bpom_id,
                         method: 'PUT',
@@ -282,7 +282,7 @@ Ext.define('Target.view.BPOrderGridPanel', {
 
                     Ext.Ajax.request({
                         params: {
-                            om_status: 2
+                            bpom_status: 2
                         },
                         url: 'http://dev.finpo.com.tw/degi-api/target-local/public/b/bporder/'+seldata[0].data.om_id,
                         method: 'PUT',
@@ -318,7 +318,7 @@ Ext.define('Target.view.BPOrderGridPanel', {
 
                     Ext.Ajax.request({
                         params: {
-                            om_status: 3
+                            bpom_status: 3
                         },
                         url: 'http://dev.finpo.com.tw/degi-api/target-local/public/b/bporder/'+seldata[0].data.om_id,
                         method: 'PUT',
