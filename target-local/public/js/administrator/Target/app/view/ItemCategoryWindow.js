@@ -203,7 +203,9 @@ Ext.define('Target.view.ItemCategoryWindow', {
                     Ext.Msg.alert('訊息','商品分類修改成功');
                 },
                 failure:function(form,action){
+
                    data = Ext.decode(action.response.responseText);
+                   console.log(data);
                     if (data.success === false && data.msg){
                         Ext.Msg.alert('Error', data.msg);
                     }
