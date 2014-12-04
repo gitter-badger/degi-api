@@ -94,7 +94,7 @@ Ext.application({
         'BPOrderGridPanel',
         'BPOrderWindow'
     ],
-    name: 'Target',s
+    name: 'Target',
 
 
     launch: function() {
