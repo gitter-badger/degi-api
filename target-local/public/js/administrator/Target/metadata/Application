@@ -81,7 +81,7 @@
             "BPOrderGridPanel",
             "BPOrderWindow",
             "icrWindow",
-            "cmpsubWindow1"
+            "icrsubWindow"
         ]
     },
     "name": "Application",

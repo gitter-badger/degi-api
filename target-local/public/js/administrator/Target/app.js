@@ -94,7 +94,7 @@ Ext.application({
         'BPOrderGridPanel',
         'BPOrderWindow',
         'icrWindow',
-        'cmpsubWindow1'
+        'icrsubWindow'
     ],
     name: 'Target',
 

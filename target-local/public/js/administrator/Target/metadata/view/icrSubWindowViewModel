@@ -1,0 +1,62 @@
+{
+    "type": "Ext.app.ViewModel",
+    "reference": {
+        "name": "items",
+        "type": "array"
+    },
+    "codeClass": null,
+    "userConfig": {
+        "designer|userAlias": "icrsubwindow",
+        "designer|userClassName": "icrSubWindowViewModel"
+    },
+    "name": "CmpSubWindowViewModel1",
+    "designerId": "e2259ddd-18c6-4c76-82ac-4724cf0bb118",
+    "cn": [
+        {
+            "type": "jsonstore",
+            "reference": {
+                "name": "stores",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "autoLoad": true,
+                "autoSync": true,
+                "model": "ItemMainModel",
+                "name": "ItemMainStore"
+            },
+            "name": "MyJsonStore2",
+            "designerId": "30b583ee-da72-46f6-abd7-b6536b4abf1b",
+            "cn": [
+                {
+                    "type": "Ext.data.proxy.Ajax",
+                    "reference": {
+                        "name": "proxy",
+                        "type": "object"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "url": "http://dev.finpo.com.tw/degi-api/target-local/public/b/item_main"
+                    },
+                    "name": "MyAjaxProxy",
+                    "designerId": "cf55546b-6ce0-4edd-a7fd-258f716d19b0",
+                    "cn": [
+                        {
+                            "type": "Ext.data.reader.Json",
+                            "reference": {
+                                "name": "reader",
+                                "type": "object"
+                            },
+                            "codeClass": null,
+                            "userConfig": {
+                                "rootProperty": "rows"
+                            },
+                            "name": "MyJsonReader",
+                            "designerId": "ee38d3ca-20e1-4af2-9ba6-39b94868dca0"
+                        }
+                    ]
+                }
+            ]
+        }
+    ]
+}

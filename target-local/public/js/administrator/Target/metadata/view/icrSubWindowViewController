@@ -6,8 +6,8 @@
     },
     "codeClass": null,
     "userConfig": {
-        "designer|userAlias": "cmpsubwindow1",
-        "designer|userClassName": "CmpSubWindowViewController1"
+        "designer|userAlias": "icrsubwindow",
+        "designer|userClassName": "icrSubWindowViewController"
     },
     "name": "CmpSubWindowViewController1",
     "designerId": "2ef1c49e-85ea-4db8-a7bf-14a99138c68e"

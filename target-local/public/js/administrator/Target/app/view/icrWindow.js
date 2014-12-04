@@ -31,9 +31,9 @@ Ext.define('Target.view.icrWindow', {
     viewModel: {
         type: 'icrwindow'
     },
-    height: 543,
+    height: 491,
     id: 'icrWindow',
-    width: 738,
+    width: 466,
     modal: true,
     defaultListenerScope: true,
 
@@ -76,7 +76,7 @@ Ext.define('Target.view.icrWindow', {
                                     xtype: 'gridcolumn',
                                     dataIndex: 'icr_seq',
                                     text: '排序',
-                                    flex: 1
+                                    flex: 0.5
                                 }
                             ],
                             selModel: {
@@ -128,76 +128,75 @@ Ext.define('Target.view.icrWindow', {
     onButtonClick: function(button, e, eOpts) {
         var window = Ext.create('Target.view.icrsubWindow');
 
-        window.setConfig('title', '新增配送點');
+        window.setConfig('title', '新加入關聯商品');
 
-        Ext.getCmp('cmpsubUpdateBtn').setVisible(false);
-        Ext.getCmp('cmpsubAddBtn').setVisible(true);
-        Ext.getCmp('cm_id_cmpsub').setValue(Ext.getCmp('cm_id_point').getValue());
+        Ext.getCmp('icrsubUpdateBtn').setVisible(false);
+        Ext.getCmp('icrsubAddBtn').setVisible(true);
+        Ext.getCmp('ic_id_relsub').setValue(Ext.getCmp('ic_id_rel').getValue());
 
         window.show();
     },
 
     onButtonClick1: function(button, e, eOpts) {
-        var selmodel = Ext.getCmp('cmpointpanel').getSelectionModel();
+        var selmodel = Ext.getCmp('icrpanel').getSelectionModel();
         var count = selmodel.getCount();
 
         if(count !== 0){
             var seldata = selmodel.getSelection();
 
-            var window = Ext.create('Target.view.cmpsubWindow');
+            var window = Ext.create('Target.view.icrsubWindow');
 
-            Ext.getCmp('cm_id_cmpsub').setValue(seldata[0].data.cm_id);
-            Ext.getCmp('cmp_id_cmpsub').setValue(seldata[0].data.cmp_id);
+            Ext.getCmp('ic_id_relsub').setValue(seldata[0].data.ic_id);
+            Ext.getCmp('icr_id_rel').setValue(seldata[0].data.icr_id);
 
-            window.setConfig('title', '修改配送點');
+            window.setConfig('title', '修改關聯商品');
 
-            Ext.getCmp('CmpSubForm').getForm().setValues(seldata[0].data);
+            Ext.getCmp('icrSubForm').getForm().setValues(seldata[0].data);
 
-            Ext.getCmp('cmpsubUpdateBtn').setVisible(true);
-            Ext.getCmp('cmpsubAddBtn').setVisible(false);
+            Ext.getCmp('icrsubUpdateBtn').setVisible(true);
+            Ext.getCmp('icrsubAddBtn').setVisible(false);
 
             window.show();
         }else{
-            Ext.Msg.alert('訊息', '請選擇一個配送點修改');
+            Ext.Msg.alert('訊息', '請選擇一個關聯商品修改');
         }
     },
 
     onButtonClick2: function(button, e, eOpts) {
-        var selmodel = Ext.getCmp('cmpointpanel').getSelectionModel();
+        var selmodel = Ext.getCmp('icrpanel').getSelectionModel();
         var count = selmodel.getCount();
         if(count !== 0){
             Ext.MessageBox.confirm('Confirm', 'Are you sure to delete the data?', function(btn){
                 if (btn == 'yes') {
                     var seldata = selmodel.getSelection();
-                    var cmpId = seldata[0].data.cmp_id;
-                    var cmId = seldata[0].data.cm_id;
+                    var icrId = seldata[0].data.icr_id;
+                    var icId = seldata[0].data.ic_id;
 
                     Ext.Ajax.request({
                         method: 'DELETE',
-                        url:'http://dev.finpo.com.tw/degi-api/target-local/public/b/company_member_point/'+cmpId,
+                        url:'http://dev.finpo.com.tw/degi-api/target-local/public/b/item_category_relate/'+icrId,
 
                         success: function(response, options){
                             Ext.Ajax.request({
 
-                                url: 'http://dev.finpo.com.tw/degi-api/target-local/public/b/company_member_point?cm_id='+cmId,
+                                url: 'http://dev.finpo.com.tw/degi-api/target-local/public/b/item_category_relate?ic_id='+icId,
                                 success: function(response, opts){
 
                                     var obj = Ext.JSON.decode(response.responseText);
-                                    var store = Ext.getCmp('cmpointpanel').getStore();
+                                    var store = Ext.getCmp('icrpanel').getStore();
 
                                     if(obj.rows){
                                         store.removeAll();
                                         var cmp = Ext.JSON.decode(obj.rows);
-                                        //console.log(cmp);
+                                        console.log(cmp);
 
                                         for( var i=0; i<(cmp.length); i++){
                                             store.add({
-                                                cm_id: cmp[i].cm_id,
-                                                cmp_address: cmp[i].cmp_address,
-                                                cmp_id: cmp[i].cmp_id,
-                                                cmp_name: cmp[i].cmp_name,
-                                                cmp_shipping_fee: cmp[i].cmp_shipping_fee
-
+                                                ic_id: cmp[i].ic_id,
+                                                im_id: cmp[i].im_id,
+                                                im_name: cmp[i].im_name,
+                                                icr_id: cmp[i].icr_id,
+                                                icr_seq: cmp[i].icr_seq,
                                             });
                                         }
                                     }else{
@@ -210,13 +209,13 @@ Ext.define('Target.view.icrWindow', {
 
                             });
 
-                            Ext.Msg.alert('訊息','公司會員配送點刪除成功');
+                            Ext.Msg.alert('訊息','關聯商品刪除成功');
                         }
                     });
                 }
             });
         }else{
-            Ext.Msg.alert('訊息', '請選擇一個公司會員配送點刪除');
+            Ext.Msg.alert('訊息', '請選擇一個關聯商品刪除');
         }
 
     }
