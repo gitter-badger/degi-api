@@ -40,13 +40,15 @@ Ext.application({
         'IndexSlideModel',
         'CompanyMemberModel',
         'BulkItemModel',
-        'BulkItemTmpModel'
+        'BulkItemTmpModel',
+        'BPOrderModel'
     ],
     stores: [
         'SubOrderArrayStore',
         'GroupOrderArrayStore',
         'CMPointArrayStore',
-        'BulkItemArrayStore'
+        'BulkItemArrayStore',
+        'BPSubOrderArrayStore'
     ],
     views: [
         'MyViewport',
@@ -87,7 +89,9 @@ Ext.application({
         'cmpsubWindow',
         'BulkItemTmpWindow',
         'bulkitemsubWindow',
-        'BulkItemWindow'
+        'BulkItemWindow',
+        'BPOrderGridPanel',
+        'BPOrderWindow'
     ],
     name: 'Target',
 

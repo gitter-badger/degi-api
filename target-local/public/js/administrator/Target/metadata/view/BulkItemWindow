@@ -172,6 +172,9 @@
                                         "type": "object"
                                     },
                                     "codeClass": null,
+                                    "userConfig": {
+                                        "mode": "SINGLE"
+                                    },
                                     "name": "MyCheckboxSelectionModel2",
                                     "designerId": "bcab710a-b498-443c-a45d-cbc98a65c615"
                                 }

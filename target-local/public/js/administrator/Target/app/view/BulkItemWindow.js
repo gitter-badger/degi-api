@@ -104,7 +104,8 @@ Ext.define('Target.view.BulkItemWindow', {
                                 }
                             ],
                             selModel: {
-                                selType: 'checkboxmodel'
+                                selType: 'checkboxmodel',
+                                mode: 'SINGLE'
                             }
                         }
                     ]

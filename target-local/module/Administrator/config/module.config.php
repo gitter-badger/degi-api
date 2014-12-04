@@ -100,6 +100,15 @@ return array(
             				),
             		),
             ),
+            'bporder_b' => array(
+            		'type' => 'Segment',
+            		'options' => array(
+            				'route'    => '/b/bporder[/:id]',
+            				'defaults' => array(
+            						'controller' => 'Administrator\Controller\BPOrder'
+            				),
+            		),
+            ),
             'item_category_b' => array(
             		'type' => 'Segment',
             		'options' => array(
@@ -218,6 +227,7 @@ return array(
             'Administrator\Controller\CompanyMember' => 'Administrator\Controller\CompanyMemberController',
             'Administrator\Controller\CompanyMemberPoint' => 'Administrator\Controller\CompanyMemberPointController',
             'Administrator\Controller\Order' => 'Administrator\Controller\OrderController',      
+            'Administrator\Controller\BPOrder' => 'Administrator\Controller\BPOrderController',
             'Administrator\Controller\ItemCategory' => 'Administrator\Controller\ItemCategoryController',
             'Administrator\Controller\ItemCategoryRelate' => 'Administrator\Controller\ItemCategoryRelateController',
             'Administrator\Controller\ItemMain' => 'Administrator\Controller\ItemMainController',

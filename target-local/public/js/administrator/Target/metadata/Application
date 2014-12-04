@@ -26,14 +26,16 @@
             "IndexSlideModel",
             "CompanyMemberModel",
             "BulkItemModel",
-            "BulkItemTmpModel"
+            "BulkItemTmpModel",
+            "BPOrderModel"
         ],
         "name": "Target",
         "stores": [
             "SubOrderArrayStore",
             "GroupOrderArrayStore",
             "CMPointArrayStore",
-            "BulkItemArrayStore"
+            "BulkItemArrayStore",
+            "BPSubOrderArrayStore"
         ],
         "views": [
             "MyViewport",
@@ -74,7 +76,9 @@
             "cmpsubWindow",
             "BulkItemTmpWindow",
             "bulkitemsubWindow",
-            "BulkItemWindow"
+            "BulkItemWindow",
+            "BPOrderGridPanel",
+            "BPOrderWindow"
         ]
     },
     "name": "Application",
