@@ -29,7 +29,7 @@ Ext.define('Target.view.ItemWindow', {
     viewModel: {
         type: 'itemwindow'
     },
-    height: 400,
+    height: 313,
     id: 'itemwindow',
     width: 528,
     title: 'My Window',
@@ -46,6 +46,7 @@ Ext.define('Target.view.ItemWindow', {
                     xtype: 'textfield',
                     anchor: '100%',
                     fieldLabel: '名稱',
+                    name: 'im_name',
                     allowBlank: false
                 },
                 {
@@ -53,12 +54,14 @@ Ext.define('Target.view.ItemWindow', {
                     anchor: '100%',
                     height: 100,
                     fieldLabel: '描述',
+                    name: 'im_description',
                     allowBlank: false
                 },
                 {
                     xtype: 'textfield',
                     anchor: '100%',
                     fieldLabel: '規格',
+                    name: 'im_spec',
                     allowBlank: false
                 },
                 {
@@ -107,6 +110,7 @@ Ext.define('Target.view.ItemWindow', {
                 {
                     xtype: 'button',
                     id: 'iAddBtn',
+                    width: 509,
                     text: '新增',
                     listeners: {
                         click: 'onIAddBtnClick'
@@ -115,6 +119,7 @@ Ext.define('Target.view.ItemWindow', {
                 {
                     xtype: 'button',
                     id: 'iUpdateBtn',
+                    width: 509,
                     text: '修改',
                     listeners: {
                         click: 'onIUpdateBtnClick'

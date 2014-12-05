@@ -8,7 +8,7 @@
     "userConfig": {
         "designer|userAlias": "itemwindow",
         "designer|userClassName": "ItemWindow",
-        "height": 400,
+        "height": 313,
         "id": "itemwindow",
         "title": "My Window",
         "width": 528
@@ -43,7 +43,8 @@
                     "userConfig": {
                         "allowBlank": false,
                         "fieldLabel": "名稱",
-                        "layout|anchor": "100%"
+                        "layout|anchor": "100%",
+                        "name": "im_name"
                     },
                     "name": "MyTextField",
                     "designerId": "061e601b-1aa0-401f-a7e9-aafa4e67bcfd"
@@ -59,7 +60,8 @@
                         "allowBlank": false,
                         "fieldLabel": "描述",
                         "height": 100,
-                        "layout|anchor": "100%"
+                        "layout|anchor": "100%",
+                        "name": "im_description"
                     },
                     "name": "MyTextField1",
                     "designerId": "803e6356-9e01-4177-8118-4776fe301899"
@@ -74,7 +76,8 @@
                     "userConfig": {
                         "allowBlank": false,
                         "fieldLabel": "規格",
-                        "layout|anchor": "100%"
+                        "layout|anchor": "100%",
+                        "name": "im_spec"
                     },
                     "name": "MyTextField2",
                     "designerId": "3292f821-63b8-417b-aeeb-adb3d37e0f61"
@@ -155,7 +158,8 @@
                     "userConfig": {
                         "id": "iAddBtn",
                         "layout|flex": null,
-                        "text": "新增"
+                        "text": "新增",
+                        "width": 509
                     },
                     "name": "MyButton8",
                     "designerId": "212e9078-4f17-41e7-95a6-e58f0d7a1347",
@@ -215,7 +219,8 @@
                     "userConfig": {
                         "id": "iUpdateBtn",
                         "layout|flex": null,
-                        "text": "修改"
+                        "text": "修改",
+                        "width": 509
                     },
                     "name": "MyButton13",
                     "designerId": "6e57d1b0-3c9e-4ed6-a5bf-d002236a9118",
