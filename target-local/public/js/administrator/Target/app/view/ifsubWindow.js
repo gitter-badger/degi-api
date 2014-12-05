@@ -31,7 +31,7 @@ Ext.define('Target.view.ifsubWindow', {
     viewModel: {
         type: 'ifsubwindow'
     },
-    height: 220,
+    height: 241,
     id: 'ifsubWindow',
     width: 431,
     modal: true,
@@ -86,8 +86,9 @@ Ext.define('Target.view.ifsubWindow', {
                 },
                 {
                     xtype: 'combobox',
-                    anchor: '100%',
+                    anchor: '90%',
                     fieldLabel: '狀態',
+                    labelAlign: 'right',
                     name: 'if_status',
                     allowBlank: false,
                     editable: false,

@@ -8,7 +8,7 @@
     "userConfig": {
         "designer|userAlias": "ifsubwindow",
         "designer|userClassName": "ifsubWindow",
-        "height": 220,
+        "height": 241,
         "id": "ifsubWindow",
         "modal": true,
         "title": null,
@@ -134,7 +134,8 @@
                         "displayField": "if_status_name",
                         "editable": false,
                         "fieldLabel": "狀態",
-                        "layout|anchor": "100%",
+                        "labelAlign": "right",
+                        "layout|anchor": "90%",
                         "name": "if_status",
                         "store": [
                             "{ItemStatusStore}"

@@ -14,9 +14,7 @@ class ItemFlavorController extends AbstractRestfulController
     	$response = $this->getResponse();
     	$response->setStatusCode(200);
     	
-    	if( ! InputCheck::checkRequire(array('im_id', 'if_name','if_cover','if_unit_price','if_seq','if_status'),$data) ){
-    		return new JsonModel(array('success'=>false ,'msg'=>'遺漏參數'));
-    	}
+    	
     	
     	$db = new ItemFlavor();    	
     	return new JsonModel($db->insert($data));
