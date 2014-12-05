@@ -147,7 +147,7 @@ Ext.define('Target.view.ifWindow', {
                 },
                 {
                     xtype: 'button',
-                    text: '刪除',
+                    text: '下架',
                     listeners: {
                         click: 'onButtonClick2'
                     }
@@ -181,6 +181,10 @@ Ext.define('Target.view.ifWindow', {
             Ext.getCmp('if_id').setValue(seldata[0].data.if_id);
 
             window.setConfig('title', '修改口味');
+
+            Ext.getCmp('if_cover').allowBlank = true;
+            Ext.getCmp('if_cover').emptyText = seldata[0].data.if_cover;
+            Ext.getCmp('if_cover').applyEmptyText();
 
             Ext.getCmp('ifSubForm').getForm().setValues(seldata[0].data);
 

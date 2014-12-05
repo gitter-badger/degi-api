@@ -317,6 +317,10 @@
                                     "    Ext.getCmp('if_id').setValue(seldata[0].data.if_id);",
                                     "",
                                     "    window.setConfig('title', '修改口味');",
+                                    "    ",
+                                    "    Ext.getCmp('if_cover').allowBlank = true;",
+                                    "    Ext.getCmp('if_cover').emptyText = seldata[0].data.if_cover;",
+                                    "    Ext.getCmp('if_cover').applyEmptyText();",
                                     "",
                                     "    Ext.getCmp('ifSubForm').getForm().setValues(seldata[0].data);",
                                     "",
@@ -345,7 +349,7 @@
                     "codeClass": null,
                     "userConfig": {
                         "layout|flex": null,
-                        "text": "刪除"
+                        "text": "下架"
                     },
                     "name": "MyButton9",
                     "designerId": "9453ac0b-aabf-4f90-8765-f1a5ffb353cf",
