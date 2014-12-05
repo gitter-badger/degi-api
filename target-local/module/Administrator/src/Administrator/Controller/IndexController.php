@@ -11,12 +11,16 @@ namespace Administrator\Controller;
 
 use Zend\Mvc\Controller\AbstractActionController;
 use Zend\View\Model\ViewModel;
+use Administrator\Model\SystemVariable;
 
 class IndexController extends AbstractActionController
 {
     public function indexAction()
     {
-        $viewmodel = new ViewModel();
-        return $viewmodel;
+    	$viewmodel = new ViewModel();
+    	$this->layout('layout/layout');
+    	$sv = new SystemVariable();
+    	$this->layout()->title = $sv->get_value_by_key('site_title');
+    	return $viewmodel;
     }
 }

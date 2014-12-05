@@ -21,5 +21,9 @@ class SystemVariable {
     public function selectAll(){
         return array('success'=>true , 'data'=>$this->db->select()->toArray() );        
     }
+    public function get_value_by_key($sv_key){
+    	$sv = $this->db->select(array('sv_key'=>$sv_key))->toArray();
+    	return $sv[0]['sv_value'];
+    }
 }
 ?>

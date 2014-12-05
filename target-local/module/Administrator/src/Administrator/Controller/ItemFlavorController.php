@@ -3,7 +3,6 @@ namespace Administrator\Controller;
 
 use Zend\Mvc\Controller\AbstractRestfulController;
 use Zend\View\Model\JsonModel ;
-use Administrator\Model\Tool\InputCheck ;
 use Administrator\Model\ItemFlavor;
 
 class ItemFlavorController extends AbstractRestfulController
