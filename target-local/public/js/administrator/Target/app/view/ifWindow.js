@@ -55,14 +55,14 @@ Ext.define('Target.view.ifWindow', {
                     xtype: 'container',
                     flex: 1,
                     autoScroll: true,
-                    layout: {
-                        type: 'vbox',
-                        align: 'stretch'
-                    },
+                    height: 350,
+                    layout: 'anchor',
                     items: [
                         {
                             xtype: 'gridpanel',
+                            height: 407,
                             id: 'ifpanel',
+                            manageHeight: false,
                             rowLines: false,
                             store: 'ifArrayStore',
                             columns: [

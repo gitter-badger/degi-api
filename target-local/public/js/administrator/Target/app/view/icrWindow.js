@@ -62,6 +62,7 @@ Ext.define('Target.view.icrWindow', {
                     items: [
                         {
                             xtype: 'gridpanel',
+                            height: 400,
                             id: 'icrpanel',
                             rowLines: false,
                             store: 'icrArrayStore',

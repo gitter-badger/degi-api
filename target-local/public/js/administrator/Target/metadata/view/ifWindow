@@ -49,8 +49,8 @@
                     "codeClass": null,
                     "userConfig": {
                         "autoScroll": true,
-                        "container|align": "stretch",
-                        "layout": "vbox",
+                        "height": 350,
+                        "layout": "anchor",
                         "layout|flex": 1,
                         "width": null
                     },
@@ -65,7 +65,9 @@
                             },
                             "codeClass": null,
                             "userConfig": {
+                                "height": 407,
                                 "id": "ifpanel",
+                                "manageHeight": false,
                                 "rowLines": false,
                                 "store": "ifArrayStore",
                                 "title": null

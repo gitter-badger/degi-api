@@ -65,6 +65,7 @@
                             },
                             "codeClass": null,
                             "userConfig": {
+                                "height": 400,
                                 "id": "icrpanel",
                                 "rowLines": false,
                                 "store": "icrArrayStore",
