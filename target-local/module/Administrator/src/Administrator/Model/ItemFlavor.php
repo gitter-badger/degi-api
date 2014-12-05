@@ -143,8 +143,8 @@ class ItemFlavor {
     	try {
     		$select = $this->db->getSql()->select();
     		$select->join('item_main','item_main.im_id = item_flavor.im_id',array('im_name'));
-    		$select->where->equalTo('im_id',$query['im_id']);
-    		$select->order('item_flavor.if_seq ASC');
+    		$select->where->equalTo('item_flavor.im_id',$query['im_id']);
+    		$select->order('item_flavor.item_flavor.if_seq ASC');
     		$cmp = $this->db->selectWith($select)->toArray();
     		$result['success'] = true;
     		$result['rows'] = Json_encode($cmp);

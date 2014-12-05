@@ -13,9 +13,7 @@ class ItemFlavorController extends AbstractRestfulController
     public function create($data){
     	$response = $this->getResponse();
     	$response->setStatusCode(200);
-    	
-    	
-    	
+
     	$db = new ItemFlavor();    	
     	return new JsonModel($db->insert($data));
     }
