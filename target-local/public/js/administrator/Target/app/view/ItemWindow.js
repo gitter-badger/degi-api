@@ -20,6 +20,7 @@ Ext.define('Target.view.ItemWindow', {
     requires: [
         'Target.view.ItemWindowViewModel',
         'Ext.form.Panel',
+        'Ext.form.field.Number',
         'Ext.form.field.ComboBox',
         'Ext.toolbar.Toolbar',
         'Ext.button.Button',
@@ -29,7 +30,7 @@ Ext.define('Target.view.ItemWindow', {
     viewModel: {
         type: 'itemwindow'
     },
-    height: 313,
+    height: 351,
     id: 'itemwindow',
     width: 528,
     title: 'My Window',
@@ -62,6 +63,13 @@ Ext.define('Target.view.ItemWindow', {
                     anchor: '100%',
                     fieldLabel: '規格',
                     name: 'im_spec',
+                    allowBlank: false
+                },
+                {
+                    xtype: 'numberfield',
+                    anchor: '100%',
+                    fieldLabel: '滿箱數',
+                    name: 'im_box_number',
                     allowBlank: false
                 },
                 {
