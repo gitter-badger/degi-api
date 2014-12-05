@@ -170,11 +170,12 @@ Ext.define('Target.view.ItemWindow', {
         var form = Ext.getCmp('iForm').getForm();
 
         if(form.isValid()){
+           var Id = Ext.getCmp('im_id').getValue();
            form.submit({
                method: 'PUT',
                waitTitle:'訊息',
                waitMsg:'修改資料中',
-               url:'http://dev.finpo.com.tw/degi-api/target-local/public/b/item_main',
+               url:'http://dev.finpo.com.tw/degi-api/target-local/public/b/item_main/'+Id,
 
                success:function(form,action){
 
