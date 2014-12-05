@@ -15,6 +15,54 @@
 
 Ext.define('Target.view.ItemWindowViewModel', {
     extend: 'Ext.app.ViewModel',
-    alias: 'viewmodel.itemwindow'
+    alias: 'viewmodel.itemwindow',
+
+    requires: [
+        'Ext.data.Store',
+        'Ext.data.field.Field'
+    ],
+
+    stores: {
+        ItemStatusStore: {
+            data: [
+                {
+                    im_status: '1',
+                    im_status_name: '上架'
+                },
+                {
+                    im_status: '2',
+                    im_status_name: '下架'
+                }
+            ],
+            fields: [
+                {
+                    name: 'im_status'
+                },
+                {
+                    name: 'im_status_name'
+                }
+            ]
+        },
+        ItemDeliveryStore: {
+            data: [
+                {
+                    im_delivery_method: '1',
+                    im_delivery_name: '低溫運送'
+                },
+                {
+                    im_delivery_method: '2',
+                    im_delivery_name: '常溫運送'
+                }
+            ],
+            fields: [
+                {
+                    name: 'im_delivery_method'
+                },
+                {
+                    name: 'im_delivery_name'
+                }
+            ]
+        }
+    }
 
 });

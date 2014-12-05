@@ -9,5 +9,115 @@
         "designer|userAlias": "itemwindow",
         "designer|userClassName": "ItemWindowViewModel"
     },
-    "designerId": "a56eb95e-dab1-4b83-9979-204f6a5ba894"
+    "designerId": "a56eb95e-dab1-4b83-9979-204f6a5ba894",
+    "cn": [
+        {
+            "type": "Ext.data.Store",
+            "reference": {
+                "name": "stores",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "data": [
+                    "[",
+                    "    {",
+                    "        \"im_status\": \"1\",",
+                    "        \"im_status_name\": \"上架\"",
+                    "    },",
+                    "    {",
+                    "        \"im_status\": \"2\",",
+                    "        \"im_status_name\": \"下架\"",
+                    "    }",
+                    "]"
+                ],
+                "designer|displayName": "",
+                "name": "ItemStatusStore"
+            },
+            "name": "MyStore1",
+            "designerId": "d3d34100-5efd-4df2-964d-1b5347ec08ee",
+            "cn": [
+                {
+                    "type": "Ext.data.field.Field",
+                    "reference": {
+                        "name": "fields",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "name": "im_status"
+                    },
+                    "name": "MyField39",
+                    "designerId": "06f54438-ff4e-4ef0-87c2-a0442c42a4f7"
+                },
+                {
+                    "type": "Ext.data.field.Field",
+                    "reference": {
+                        "name": "fields",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "name": "im_status_name"
+                    },
+                    "name": "MyField40",
+                    "designerId": "929d38b4-e490-4e98-b032-37c3ad479d4b"
+                }
+            ]
+        },
+        {
+            "type": "Ext.data.Store",
+            "reference": {
+                "name": "stores",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "data": [
+                    "[",
+                    "    {",
+                    "        \"im_delivery_method\": \"1\",",
+                    "        \"im_delivery_name\": \"低溫運送\"",
+                    "    },",
+                    "    {",
+                    "        \"im_delivery_method\": \"2\",",
+                    "        \"im_delivery_name\": \"常溫運送\"",
+                    "    }",
+                    "]"
+                ],
+                "designer|displayName": "",
+                "name": "ItemDeliveryStore"
+            },
+            "name": "MyStore2",
+            "designerId": "7eb4d143-032d-49f4-8d6c-b507ebba69ea",
+            "cn": [
+                {
+                    "type": "Ext.data.field.Field",
+                    "reference": {
+                        "name": "fields",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "name": "im_delivery_method"
+                    },
+                    "name": "MyField39",
+                    "designerId": "0ed4f3e6-6f83-422b-a4f0-0ef7afd9f4e1"
+                },
+                {
+                    "type": "Ext.data.field.Field",
+                    "reference": {
+                        "name": "fields",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "name": "im_delivery_name"
+                    },
+                    "name": "MyField40",
+                    "designerId": "410d824a-c59f-4798-a10e-ba439ab330ce"
+                }
+            ]
+        }
+    ]
 }

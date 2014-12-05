@@ -20,10 +20,10 @@ Ext.define('Target.view.ItemWindow', {
     requires: [
         'Target.view.ItemWindowViewModel',
         'Ext.form.Panel',
-        'Ext.form.field.Text',
-        'Ext.form.field.Checkbox',
+        'Ext.form.field.ComboBox',
         'Ext.toolbar.Toolbar',
-        'Ext.button.Button'
+        'Ext.button.Button',
+        'Ext.form.field.Hidden'
     ],
 
     viewModel: {
@@ -31,43 +31,68 @@ Ext.define('Target.view.ItemWindow', {
     },
     height: 400,
     id: 'itemwindow',
-    width: 600,
+    width: 528,
     title: 'My Window',
+    defaultListenerScope: true,
 
     items: [
         {
             xtype: 'form',
+            id: 'iForm',
             bodyPadding: 10,
             title: '',
             items: [
                 {
                     xtype: 'textfield',
                     anchor: '100%',
-                    fieldLabel: '名稱'
+                    fieldLabel: '名稱',
+                    allowBlank: false
                 },
                 {
                     xtype: 'textfield',
                     anchor: '100%',
                     height: 100,
-                    fieldLabel: '描述'
+                    fieldLabel: '描述',
+                    allowBlank: false
                 },
                 {
                     xtype: 'textfield',
                     anchor: '100%',
-                    fieldLabel: '規格'
+                    fieldLabel: '規格',
+                    allowBlank: false
                 },
                 {
-                    xtype: 'textfield',
+                    xtype: 'combobox',
                     anchor: '100%',
-                    fieldLabel: '配送方式'
+                    fieldLabel: '配送方式',
+                    name: 'im_delivery_method',
+                    allowBlank: false,
+                    editable: false,
+                    displayField: 'im_delivery_name',
+                    valueField: 'im_delivery_method',
+                    bind: {
+                        store: '{ItemDeliveryStore}'
+                    }
                 },
                 {
-                    xtype: 'checkboxfield',
+                    xtype: 'combobox',
                     anchor: '100%',
-                    fieldLabel: '上架',
-                    boxLabel: ''
+                    fieldLabel: '狀態',
+                    name: 'im_status',
+                    allowBlank: false,
+                    editable: false,
+                    displayField: 'im_status_name',
+                    valueField: 'im_status',
+                    bind: {
+                        store: '{ItemStatusStore}'
+                    }
                 }
             ]
+        },
+        {
+            xtype: 'hiddenfield',
+            id: 'im_id',
+            name: 'im_id'
         }
     ],
     dockedItems: [
@@ -81,14 +106,81 @@ Ext.define('Target.view.ItemWindow', {
             items: [
                 {
                     xtype: 'button',
-                    text: '新增'
+                    id: 'iAddBtn',
+                    text: '新增',
+                    listeners: {
+                        click: 'onIAddBtnClick'
+                    }
                 },
                 {
                     xtype: 'button',
-                    text: '修改'
+                    id: 'iUpdateBtn',
+                    text: '修改',
+                    listeners: {
+                        click: 'onIUpdateBtnClick'
+                    }
                 }
             ]
         }
-    ]
+    ],
+
+    onIAddBtnClick: function(button, e, eOpts) {
+        var form = Ext.getCmp('iForm').getForm();
+
+        if(form.isValid()){
+            form.submit({
+                waitTitle:'訊息',
+                waitMsg:'新增資料中',
+                url:'http://dev.finpo.com.tw/degi-api/target-local/public/b/item_main',
+
+                success:function(form,action){
+
+                    var store  = Ext.getCmp('itemgridpanel').getViewModel().getStore('ItemStore');
+                    store.proxy.url='http://dev.finpo.com.tw/degi-api/target-local/public/b/item_main';
+                    store.load();
+                    var window = Ext.getCmp('itemwindow');
+                    window.close();
+                    Ext.Msg.alert('訊息','商品新增成功');
+
+                },
+                failure:function(form,action){
+                    data = Ext.decode(action.response.responseText);
+                    if (data.success === false && data.msg){
+                        Ext.Msg.alert('Error', data.msg);
+                    }
+                }
+            });
+        }
+    },
+
+    onIUpdateBtnClick: function(button, e, eOpts) {
+        var form = Ext.getCmp('iForm').getForm();
+
+        if(form.isValid()){
+           form.submit({
+               method: 'PUT',
+               waitTitle:'訊息',
+               waitMsg:'修改資料中',
+               url:'http://dev.finpo.com.tw/degi-api/target-local/public/b/item_main',
+
+               success:function(form,action){
+
+                   var store  = Ext.getCmp('itemgridpanel').getViewModel().getStore('ItemStore');
+                   store.proxy.url='http://dev.finpo.com.tw/degi-api/target-local/public/b/item_main';
+                   store.load();
+                   var window = Ext.getCmp('itemwindow');
+                   window.close();
+                   Ext.Msg.alert('訊息','商品修改成功');
+
+               },
+               failure:function(form,action){
+                   data = Ext.decode(action.response.responseText);
+                   if (data.success === false && data.msg){
+                       Ext.Msg.alert('Error', data.msg);
+                   }
+               }
+           });
+        }
+    }
 
 });

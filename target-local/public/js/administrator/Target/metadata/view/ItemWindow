@@ -11,7 +11,7 @@
         "height": 400,
         "id": "itemwindow",
         "title": "My Window",
-        "width": 600
+        "width": 528
     },
     "name": "MyWindow",
     "designerId": "6e4d56d9-7105-4828-b068-1412147aa26a",
@@ -27,6 +27,7 @@
             "codeClass": null,
             "userConfig": {
                 "bodyPadding": 10,
+                "id": "iForm",
                 "title": ""
             },
             "name": "MyForm1",
@@ -40,6 +41,7 @@
                     },
                     "codeClass": null,
                     "userConfig": {
+                        "allowBlank": false,
                         "fieldLabel": "名稱",
                         "layout|anchor": "100%"
                     },
@@ -54,6 +56,7 @@
                     },
                     "codeClass": null,
                     "userConfig": {
+                        "allowBlank": false,
                         "fieldLabel": "描述",
                         "height": 100,
                         "layout|anchor": "100%"
@@ -69,6 +72,7 @@
                     },
                     "codeClass": null,
                     "userConfig": {
+                        "allowBlank": false,
                         "fieldLabel": "規格",
                         "layout|anchor": "100%"
                     },
@@ -76,33 +80,54 @@
                     "designerId": "3292f821-63b8-417b-aeeb-adb3d37e0f61"
                 },
                 {
-                    "type": "Ext.form.field.Text",
+                    "type": "Ext.form.field.ComboBox",
                     "reference": {
                         "name": "items",
                         "type": "array"
                     },
                     "codeClass": null,
                     "userConfig": {
+                        "allowBlank": false,
+                        "displayField": "im_delivery_name",
+                        "editable": false,
                         "fieldLabel": "配送方式",
-                        "layout|anchor": "100%"
+                        "layout|anchor": "100%",
+                        "name": "im_delivery_method",
+                        "store": [
+                            "{ItemDeliveryStore}"
+                        ],
+                        "valueField": "im_delivery_method"
                     },
-                    "name": "MyTextField3",
+                    "name": "MyComboBox1",
+                    "configAlternates": {
+                        "store": "binding"
+                    },
                     "designerId": "f31a86d8-6fda-41c3-b75b-52cca86f5ac7"
                 },
                 {
-                    "type": "Ext.form.field.Checkbox",
+                    "type": "Ext.form.field.ComboBox",
                     "reference": {
                         "name": "items",
                         "type": "array"
                     },
                     "codeClass": null,
                     "userConfig": {
-                        "boxLabel": "",
-                        "fieldLabel": "上架",
-                        "layout|anchor": "100%"
+                        "allowBlank": false,
+                        "displayField": "im_status_name",
+                        "editable": false,
+                        "fieldLabel": "狀態",
+                        "layout|anchor": "100%",
+                        "name": "im_status",
+                        "store": [
+                            "{ItemStatusStore}"
+                        ],
+                        "valueField": "im_status"
                     },
-                    "name": "MyCheckbox3",
-                    "designerId": "e096b228-5591-4703-b830-e8bf2a23b0da"
+                    "name": "MyComboBox3",
+                    "configAlternates": {
+                        "store": "binding"
+                    },
+                    "designerId": "fce5f6f8-2576-47b3-9a4a-64f717fdb972"
                 }
             ]
         },
@@ -128,11 +153,57 @@
                     },
                     "codeClass": null,
                     "userConfig": {
+                        "id": "iAddBtn",
                         "layout|flex": null,
                         "text": "新增"
                     },
                     "name": "MyButton8",
-                    "designerId": "212e9078-4f17-41e7-95a6-e58f0d7a1347"
+                    "designerId": "212e9078-4f17-41e7-95a6-e58f0d7a1347",
+                    "cn": [
+                        {
+                            "type": "basiceventbinding",
+                            "reference": {
+                                "name": "listeners",
+                                "type": "array"
+                            },
+                            "codeClass": null,
+                            "userConfig": {
+                                "fn": "onIAddBtnClick",
+                                "implHandler": [
+                                    "var form = Ext.getCmp('iForm').getForm();",
+                                    "",
+                                    "if(form.isValid()){",
+                                    "    form.submit({",
+                                    "        waitTitle:'訊息',",
+                                    "        waitMsg:'新增資料中',",
+                                    "        url:'http://dev.finpo.com.tw/degi-api/target-local/public/b/item_main',",
+                                    "",
+                                    "        success:function(form,action){",
+                                    "",
+                                    "            var store  = Ext.getCmp('itemgridpanel').getViewModel().getStore('ItemStore');",
+                                    "            store.proxy.url='http://dev.finpo.com.tw/degi-api/target-local/public/b/item_main';",
+                                    "            store.load();",
+                                    "            var window = Ext.getCmp('itemwindow');",
+                                    "            window.close();",
+                                    "            Ext.Msg.alert('訊息','商品新增成功');",
+                                    "",
+                                    "        },",
+                                    "        failure:function(form,action){",
+                                    "            data = Ext.decode(action.response.responseText);",
+                                    "            if (data.success === false && data.msg){",
+                                    "                Ext.Msg.alert('Error', data.msg);",
+                                    "            }",
+                                    "        }",
+                                    "    });",
+                                    "}"
+                                ],
+                                "name": "click",
+                                "scope": "me"
+                            },
+                            "name": "onIAddBtnClick",
+                            "designerId": "0cfe2149-9e0b-43a8-8a1f-6bd60b85dddd"
+                        }
+                    ]
                 },
                 {
                     "type": "Ext.button.Button",
@@ -142,13 +213,75 @@
                     },
                     "codeClass": null,
                     "userConfig": {
+                        "id": "iUpdateBtn",
                         "layout|flex": null,
                         "text": "修改"
                     },
                     "name": "MyButton13",
-                    "designerId": "6e57d1b0-3c9e-4ed6-a5bf-d002236a9118"
+                    "designerId": "6e57d1b0-3c9e-4ed6-a5bf-d002236a9118",
+                    "cn": [
+                        {
+                            "type": "basiceventbinding",
+                            "reference": {
+                                "name": "listeners",
+                                "type": "array"
+                            },
+                            "codeClass": null,
+                            "userConfig": {
+                                "fn": "onIUpdateBtnClick",
+                                "implHandler": [
+                                    "var form = Ext.getCmp('iForm').getForm();",
+                                    "",
+                                    "if(form.isValid()){",
+                                    "   form.submit({",
+                                    "       method: 'PUT',",
+                                    "       waitTitle:'訊息',",
+                                    "       waitMsg:'修改資料中',",
+                                    "       url:'http://dev.finpo.com.tw/degi-api/target-local/public/b/item_main',",
+                                    "",
+                                    "       success:function(form,action){",
+                                    "",
+                                    "           var store  = Ext.getCmp('itemgridpanel').getViewModel().getStore('ItemStore');",
+                                    "           store.proxy.url='http://dev.finpo.com.tw/degi-api/target-local/public/b/item_main';",
+                                    "           store.load();",
+                                    "           var window = Ext.getCmp('itemwindow');",
+                                    "           window.close();",
+                                    "           Ext.Msg.alert('訊息','商品修改成功');",
+                                    "",
+                                    "       },",
+                                    "       failure:function(form,action){",
+                                    "           data = Ext.decode(action.response.responseText);",
+                                    "           if (data.success === false && data.msg){",
+                                    "               Ext.Msg.alert('Error', data.msg);",
+                                    "           }",
+                                    "       }",
+                                    "   });",
+                                    "}"
+                                ],
+                                "name": "click",
+                                "scope": "me"
+                            },
+                            "name": "onIUpdateBtnClick",
+                            "designerId": "5590f19f-d676-4ef1-840f-0e2c93d18350"
+                        }
+                    ]
                 }
             ]
+        },
+        {
+            "type": "Ext.form.field.Hidden",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "fieldLabel": null,
+                "id": "im_id",
+                "name": "im_id"
+            },
+            "name": "MyHiddenField2",
+            "designerId": "c73b0f88-b9fb-48e9-908e-c94450f31476"
         }
     ]
 }

@@ -31,8 +31,8 @@ Ext.define('Target.view.ItemGridPanel', {
     viewModel: {
         type: 'itemgridpanel'
     },
+    defaultListenerScope: true,
     id: 'itemgridpanel',
-    title: 'My Grid Panel',
 
     bind: {
         store: '{ItemStore}'
@@ -50,22 +50,34 @@ Ext.define('Target.view.ItemGridPanel', {
                         items: [
                             {
                                 xtype: 'menuitem',
-                                text: '新增'
+                                text: '新增',
+                                listeners: {
+                                    click: 'onMenuitemClick'
+                                }
                             },
                             {
                                 xtype: 'menuitem',
-                                text: '修改'
+                                text: '修改',
+                                listeners: {
+                                    click: 'onMenuitemClick1'
+                                }
                             },
                             {
                                 xtype: 'menuitem',
-                                text: '停用'
+                                text: '停用',
+                                listeners: {
+                                    click: 'onMenuitemClick2'
+                                }
                             }
                         ]
                     }
                 },
                 {
                     xtype: 'button',
-                    text: '口味管理'
+                    text: '口味管理',
+                    listeners: {
+                        click: 'onButtonClick'
+                    }
                 }
             ]
         }
@@ -79,20 +91,27 @@ Ext.define('Target.view.ItemGridPanel', {
         },
         {
             xtype: 'gridcolumn',
-            dataIndex: 'im_description',
-            text: '描述',
-            flex: 1
-        },
-        {
-            xtype: 'gridcolumn',
             dataIndex: 'im_spec',
             text: '規格',
             flex: 1
         },
         {
             xtype: 'gridcolumn',
+            renderer: function(value, metaData, record, rowIndex, colIndex, store, view) {
+                if( value == 1 ){
+                    return '宅配';
+                }else{
+                    return '常溫';
+                }
+            },
             dataIndex: 'im_delivery_method',
             text: '配送方式',
+            flex: 1
+        },
+        {
+            xtype: 'gridcolumn',
+            dataIndex: 'im_box_number',
+            text: '滿箱數',
             flex: 1
         },
         {
@@ -119,6 +138,73 @@ Ext.define('Target.view.ItemGridPanel', {
     ],
     selModel: {
         selType: 'checkboxmodel'
+    },
+
+    onMenuitemClick: function(item, e, eOpts) {
+        var window = Ext.create('Target.view.ItemWindow');
+
+        window.setConfig('title', '新增商品');
+
+        Ext.getCmp('iUpdateBtn').setVisible(false);
+        Ext.getCmp('iAddBtn').setVisible(true);
+
+        window.show();
+    },
+
+    onMenuitemClick1: function(item, e, eOpts) {
+        var selmodel = Ext.getCmp('itemgridpanel').getSelectionModel();
+        var count = selmodel.getCount();
+
+        if(count !== 0){
+            var seldata = selmodel.getSelection();
+
+            var window = Ext.create('Target.view.ItemWindow');
+
+            Ext.getCmp('im_id').setValue(seldata[0].data.im_id);
+
+            window.setConfig('title', '修改商品資料');
+
+            Ext.getCmp('iForm').getForm().setValues(seldata[0].data);
+
+            Ext.getCmp('iAddBtn').setVisible(false);
+            Ext.getCmp('iUpdateBtn').setVisible(true);
+
+            window.show();
+        }else{
+            Ext.Msg.alert('訊息', '請選擇一個商品修改');
+        }
+    },
+
+    onMenuitemClick2: function(item, e, eOpts) {
+        var selmodel = Ext.getCmp('itemgridpanel').getSelectionModel();
+        var count = selmodel.getCount();
+        if(count !== 0){
+            Ext.MessageBox.confirm('Confirm', 'Are you sure to delete the data?', function(btn){
+                if (btn == 'yes') {
+                    var seldata = selmodel.getSelection();
+                    var imId = seldata[0].data.im_id;
+
+                    Ext.Ajax.request({
+                        method: 'DELETE',
+                        url:'http://dev.finpo.com.tw/degi-api/target-local/public/b/item_main/'+imId,
+
+                        success: function(response, options){
+                            var store  = Ext.getCmp('itemgridpanel').getViewModel().getStore('ItemStore');
+                            store.proxy.url='http://dev.finpo.com.tw/degi-api/target-local/public/b/item_main';
+                            store.load();
+
+                            Ext.Msg.alert('訊息','商品停用成功');
+                        }
+                    });
+                }
+            });
+        }else{
+            Ext.Msg.alert('訊息', '請選擇一個商品刪除');
+        }
+    },
+
+    onButtonClick: function(button, e, eOpts) {
+
     }
 
 });

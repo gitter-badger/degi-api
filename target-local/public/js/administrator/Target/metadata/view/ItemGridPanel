@@ -6,6 +6,7 @@
     },
     "codeClass": null,
     "userConfig": {
+        "defaultListenerScope": true,
         "designer|userAlias": "itemgridpanel",
         "designer|userClassName": "ItemGridPanel",
         "height": null,
@@ -13,7 +14,7 @@
         "store": [
             "{ItemStore}"
         ],
-        "title": "My Grid Panel",
+        "title": null,
         "width": null
     },
     "name": "MyGridPanel",
@@ -72,7 +73,34 @@
                                         "text": "新增"
                                     },
                                     "name": "MyMenuItem3",
-                                    "designerId": "2b166a92-41f2-47ee-aea8-5874b15fd398"
+                                    "designerId": "2b166a92-41f2-47ee-aea8-5874b15fd398",
+                                    "cn": [
+                                        {
+                                            "type": "basiceventbinding",
+                                            "reference": {
+                                                "name": "listeners",
+                                                "type": "array"
+                                            },
+                                            "codeClass": null,
+                                            "userConfig": {
+                                                "fn": "onMenuitemClick",
+                                                "implHandler": [
+                                                    "var window = Ext.create('Target.view.ItemWindow');",
+                                                    "",
+                                                    "window.setConfig('title', '新增商品');",
+                                                    "",
+                                                    "Ext.getCmp('iUpdateBtn').setVisible(false);",
+                                                    "Ext.getCmp('iAddBtn').setVisible(true);",
+                                                    "",
+                                                    "window.show();"
+                                                ],
+                                                "name": "click",
+                                                "scope": "me"
+                                            },
+                                            "name": "onMenuitemClick",
+                                            "designerId": "5e62209c-a165-4176-b7ee-bb73b180f22b"
+                                        }
+                                    ]
                                 },
                                 {
                                     "type": "Ext.menu.Item",
@@ -85,7 +113,47 @@
                                         "text": "修改"
                                     },
                                     "name": "MyMenuItem4",
-                                    "designerId": "9223e104-95e9-4901-9767-98ee48872ad8"
+                                    "designerId": "9223e104-95e9-4901-9767-98ee48872ad8",
+                                    "cn": [
+                                        {
+                                            "type": "basiceventbinding",
+                                            "reference": {
+                                                "name": "listeners",
+                                                "type": "array"
+                                            },
+                                            "codeClass": null,
+                                            "userConfig": {
+                                                "fn": "onMenuitemClick1",
+                                                "implHandler": [
+                                                    "var selmodel = Ext.getCmp('itemgridpanel').getSelectionModel();",
+                                                    "var count = selmodel.getCount();",
+                                                    "",
+                                                    "if(count !== 0){",
+                                                    "    var seldata = selmodel.getSelection();",
+                                                    "",
+                                                    "    var window = Ext.create('Target.view.ItemWindow');",
+                                                    "",
+                                                    "    Ext.getCmp('im_id').setValue(seldata[0].data.im_id);",
+                                                    "",
+                                                    "    window.setConfig('title', '修改商品資料');",
+                                                    "",
+                                                    "    Ext.getCmp('iForm').getForm().setValues(seldata[0].data);",
+                                                    "",
+                                                    "    Ext.getCmp('iAddBtn').setVisible(false);",
+                                                    "    Ext.getCmp('iUpdateBtn').setVisible(true);",
+                                                    "",
+                                                    "    window.show();",
+                                                    "}else{",
+                                                    "    Ext.Msg.alert('訊息', '請選擇一個商品修改');",
+                                                    "}"
+                                                ],
+                                                "name": "click",
+                                                "scope": "me"
+                                            },
+                                            "name": "onMenuitemClick1",
+                                            "designerId": "a1259cb1-f8e8-45ba-b8a4-4b184df6d23d"
+                                        }
+                                    ]
                                 },
                                 {
                                     "type": "Ext.menu.Item",
@@ -98,7 +166,51 @@
                                         "text": "停用"
                                     },
                                     "name": "MyMenuItem5",
-                                    "designerId": "478a938f-2260-42fd-aa68-61fc6618da1c"
+                                    "designerId": "478a938f-2260-42fd-aa68-61fc6618da1c",
+                                    "cn": [
+                                        {
+                                            "type": "basiceventbinding",
+                                            "reference": {
+                                                "name": "listeners",
+                                                "type": "array"
+                                            },
+                                            "codeClass": null,
+                                            "userConfig": {
+                                                "fn": "onMenuitemClick2",
+                                                "implHandler": [
+                                                    "var selmodel = Ext.getCmp('itemgridpanel').getSelectionModel();",
+                                                    "var count = selmodel.getCount();",
+                                                    "if(count !== 0){",
+                                                    "    Ext.MessageBox.confirm('Confirm', 'Are you sure to delete the data?', function(btn){",
+                                                    "        if (btn == 'yes') {",
+                                                    "            var seldata = selmodel.getSelection();",
+                                                    "            var imId = seldata[0].data.im_id;",
+                                                    "",
+                                                    "            Ext.Ajax.request({",
+                                                    "                method: 'DELETE',",
+                                                    "                url:'http://dev.finpo.com.tw/degi-api/target-local/public/b/item_main/'+imId,",
+                                                    "",
+                                                    "                success: function(response, options){",
+                                                    "                    var store  = Ext.getCmp('itemgridpanel').getViewModel().getStore('ItemStore');",
+                                                    "                    store.proxy.url='http://dev.finpo.com.tw/degi-api/target-local/public/b/item_main';",
+                                                    "                    store.load();",
+                                                    "",
+                                                    "                    Ext.Msg.alert('訊息','商品停用成功');",
+                                                    "                }",
+                                                    "            });",
+                                                    "        }",
+                                                    "    });",
+                                                    "}else{",
+                                                    "    Ext.Msg.alert('訊息', '請選擇一個商品刪除');",
+                                                    "}"
+                                                ],
+                                                "name": "click",
+                                                "scope": "me"
+                                            },
+                                            "name": "onMenuitemClick2",
+                                            "designerId": "8e854cce-2069-45dc-9a62-deabd8bfde65"
+                                        }
+                                    ]
                                 }
                             ]
                         }
@@ -116,7 +228,24 @@
                         "text": "口味管理"
                     },
                     "name": "MyButton12",
-                    "designerId": "ef8c5bb1-49fe-48b4-a402-6f6aca2b3001"
+                    "designerId": "ef8c5bb1-49fe-48b4-a402-6f6aca2b3001",
+                    "cn": [
+                        {
+                            "type": "basiceventbinding",
+                            "reference": {
+                                "name": "listeners",
+                                "type": "array"
+                            },
+                            "codeClass": null,
+                            "userConfig": {
+                                "fn": "onButtonClick",
+                                "name": "click",
+                                "scope": "me"
+                            },
+                            "name": "onButtonClick",
+                            "designerId": "25b7f811-80d0-4fcf-a219-99d34c399510"
+                        }
+                    ]
                 }
             ]
         },
@@ -153,21 +282,6 @@
             },
             "codeClass": null,
             "userConfig": {
-                "dataIndex": "im_description",
-                "flex": 1,
-                "text": "描述"
-            },
-            "name": "MyColumn15",
-            "designerId": "71c832a1-85cd-4fa9-894b-a6722f854c87"
-        },
-        {
-            "type": "Ext.grid.column.Column",
-            "reference": {
-                "name": "columns",
-                "type": "array"
-            },
-            "codeClass": null,
-            "userConfig": {
                 "dataIndex": "im_spec",
                 "flex": 1,
                 "text": "規格"
@@ -188,7 +302,53 @@
                 "text": "配送方式"
             },
             "name": "MyColumn17",
-            "designerId": "8efe970a-ed4a-4b1e-aeea-be5bb28b2a09"
+            "designerId": "8efe970a-ed4a-4b1e-aeea-be5bb28b2a09",
+            "cn": [
+                {
+                    "type": "fixedfunction",
+                    "reference": {
+                        "name": "items",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "designer|params": [
+                            "value",
+                            "metaData",
+                            "record",
+                            "rowIndex",
+                            "colIndex",
+                            "store",
+                            "view"
+                        ],
+                        "fn": "renderer",
+                        "implHandler": [
+                            "if( value == 1 ){",
+                            "    return '宅配';",
+                            "}else{",
+                            "    return '常溫';",
+                            "}"
+                        ]
+                    },
+                    "name": "renderer",
+                    "designerId": "1377872f-4869-434d-81a4-01c2a31022b0"
+                }
+            ]
+        },
+        {
+            "type": "Ext.grid.column.Column",
+            "reference": {
+                "name": "columns",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "dataIndex": "im_box_number",
+                "flex": 1,
+                "text": "滿箱數"
+            },
+            "name": "MyColumn",
+            "designerId": "b417f2b2-b878-41a7-b493-188f5f606de1"
         },
         {
             "type": "Ext.grid.column.Column",

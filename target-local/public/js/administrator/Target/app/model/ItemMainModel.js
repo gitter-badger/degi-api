@@ -44,6 +44,9 @@ Ext.define('Target.model.ItemMainModel', {
         },
         {
             name: 'im_modified'
+        },
+        {
+            name: 'im_box_number'
         }
     ]
 });

@@ -114,6 +114,19 @@
             },
             "name": "MyField23",
             "designerId": "b2730838-ae15-4834-8cc1-1818230e151d"
+        },
+        {
+            "type": "Ext.data.field.Field",
+            "reference": {
+                "name": "fields",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "name": "im_box_number"
+            },
+            "name": "MyField1",
+            "designerId": "23874f5f-75bb-493b-abae-04abcb8583c2"
         }
     ]
 }

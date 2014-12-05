@@ -67,7 +67,7 @@ class ItemCategory {
             }
             
             $data['ic_created'] = date('Y-m-d H:i:s');
-            $data['ic_status'] = 1;
+          //  $data['ic_status'] = 1;
             
             $this->db->insert($data);           
             $data['ic_id'] = $this->db->getLastInsertValue(); 
