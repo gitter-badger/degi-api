@@ -235,7 +235,7 @@ Ext.define('Target.view.ItemGridPanel', {
                     if(obj.rows){
                         store.removeAll();
                         var cmp = Ext.JSON.decode(obj.rows);
-                        console.log(cmp);
+                       // console.log(cmp);
 
                         for( var i=0; i<(cmp.length); i++){
                             store.add({
