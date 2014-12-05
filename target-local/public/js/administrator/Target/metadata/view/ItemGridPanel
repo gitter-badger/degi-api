@@ -485,10 +485,15 @@
             "userConfig": {
                 "displayInfo": true,
                 "dock": "bottom",
-                "store": "{ItemStore}",
+                "store": [
+                    "{ItemStore}"
+                ],
                 "width": 360
             },
             "name": "MyPagingToolbar1",
+            "configAlternates": {
+                "store": "binding"
+            },
             "designerId": "1da783bd-1754-42b1-be5d-2816dd3d0240"
         }
     ]

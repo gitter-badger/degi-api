@@ -86,7 +86,9 @@ Ext.define('Target.view.ItemGridPanel', {
             dock: 'bottom',
             width: 360,
             displayInfo: true,
-            store: '{ItemStore}'
+            bind: {
+                store: '{ItemStore}'
+            }
         }
     ],
     columns: [
