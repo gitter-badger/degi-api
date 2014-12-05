@@ -211,7 +211,56 @@ Ext.define('Target.view.ItemGridPanel', {
     },
 
     onButtonClick: function(button, e, eOpts) {
+        var selmodel = Ext.getCmp('itemgridpanel').getSelectionModel();
+        var count = selmodel.getCount();
+        var seldata = selmodel.getSelection();
 
+        if(count !== 0 ){
+
+            var window = Ext.create('Target.view.ifWindow');
+
+            window.setConfig('title', seldata[0].data.im_name+' 口味管理');
+
+
+            Ext.Ajax.request({
+
+                url: 'http://dev.finpo.com.tw/degi-api/target-local/public/b/item_flavor?im_id='+seldata[0].data.im_id,
+                success: function(response, opts){
+
+                    var obj = Ext.JSON.decode(response.responseText);
+                    var store = Ext.getCmp('ifpanel').getStore();
+
+                    if(obj.rows){
+                        store.removeAll();
+                        var cmp = Ext.JSON.decode(obj.rows);
+                        console.log(cmp);
+
+                        for( var i=0; i<(cmp.length); i++){
+                            store.add({
+                                if_id: cmp[i].if_id,
+                                im_id: cmp[i].im_id,
+                                im_name: cmp[i].im_name,
+                                if_name: cmp[i].if_name,
+                                if_cover: cmp[i].if_cover,
+                                if_unit_price: cmp[i].if_unit_price,
+                                if_seq: cmp[i].if_seq,
+                                if_status: cmp[i].if_status
+                            });
+                        }
+                    }else{
+                        store.removeAll();
+                    }
+                },
+                failure: function(response, opts){
+                    console.log('server-side failure with status code ' + response.status);
+                }
+
+            });
+            Ext.getCmp('im_id_if').setValue(seldata[0].data.im_id);
+            window.show();
+        }else{
+            Ext.Msg.alert('訊息', '請選擇一筆商品管理口味');
+        }
     }
 
 });
