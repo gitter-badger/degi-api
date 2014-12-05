@@ -20,7 +20,8 @@ Ext.Loader.setConfig({
 
 
 Ext.application({
-    models: [
+    appFolder: 'js/administrator/Target/app',    
+       models: [
         'AdminModel',
         'MemberModel',
         'ProductModel',
@@ -100,7 +101,6 @@ Ext.application({
         'ifsubWindow'
     ],
     name: 'Target',
-
 
 
     launch: function() {
