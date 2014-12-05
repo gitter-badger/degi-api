@@ -20,7 +20,6 @@ Ext.Loader.setConfig({
 
 
 Ext.application({
-    appFolder: 'js/administrator/Target/app',    
     models: [
         'AdminModel',
         'MemberModel',
@@ -50,7 +49,8 @@ Ext.application({
         'CMPointArrayStore',
         'BulkItemArrayStore',
         'BPSubOrderArrayStore',
-        'icrArrayStore'
+        'icrArrayStore',
+        'ifArrayStore'
     ],
     views: [
         'MyViewport',
@@ -95,7 +95,9 @@ Ext.application({
         'BPOrderGridPanel',
         'BPOrderWindow',
         'icrWindow',
-        'icrsubWindow'
+        'icrsubWindow',
+        'ifWindow',
+        'ifsubWindow'
     ],
     name: 'Target',
 
