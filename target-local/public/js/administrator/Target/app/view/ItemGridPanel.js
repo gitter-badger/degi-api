@@ -19,13 +19,13 @@ Ext.define('Target.view.ItemGridPanel', {
 
     requires: [
         'Target.view.ItemGridPanelViewModel',
-        'Ext.toolbar.Toolbar',
         'Ext.button.Button',
         'Ext.menu.Menu',
         'Ext.menu.Item',
         'Ext.grid.View',
         'Ext.grid.column.Column',
-        'Ext.selection.CheckboxModel'
+        'Ext.selection.CheckboxModel',
+        'Ext.toolbar.Paging'
     ],
 
     viewModel: {
@@ -80,6 +80,13 @@ Ext.define('Target.view.ItemGridPanel', {
                     }
                 }
             ]
+        },
+        {
+            xtype: 'pagingtoolbar',
+            dock: 'bottom',
+            width: 360,
+            displayInfo: true,
+            store: '{ItemStore}'
         }
     ],
     columns: [

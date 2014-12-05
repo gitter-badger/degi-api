@@ -1,0 +1,449 @@
+{
+    "type": "Ext.window.Window",
+    "reference": {
+        "name": "items",
+        "type": "array"
+    },
+    "codeClass": null,
+    "userConfig": {
+        "container|align": "stretch",
+        "designer|userAlias": "ifwindow",
+        "designer|userClassName": "ifWindow",
+        "height": 491,
+        "id": "ifWindow",
+        "layout": "vbox",
+        "modal": true,
+        "title": null,
+        "width": 630
+    },
+    "name": "icrWindow1",
+    "designerId": "d48c4b06-a9a6-496f-b2f2-d27ab78a54f1",
+    "viewControllerInstanceId": "8cb14136-a57c-450f-9ec7-f9e17e57550d",
+    "viewModelInstanceId": "d8504633-423a-4f17-af05-719260e62da0",
+    "cn": [
+        {
+            "type": "Ext.form.FieldContainer",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "container|align": "stretch",
+                "container|padding": null,
+                "fieldLabel": null,
+                "height": null,
+                "layout": "vbox",
+                "layout|flex": 1,
+                "width": 644
+            },
+            "name": "MyFieldContainer1",
+            "designerId": "70b86037-5e5c-45f4-a8a4-b3648102960a",
+            "cn": [
+                {
+                    "type": "Ext.container.Container",
+                    "reference": {
+                        "name": "items",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "autoScroll": true,
+                        "container|align": "stretch",
+                        "layout": "vbox",
+                        "layout|flex": 1,
+                        "width": null
+                    },
+                    "name": "MyContainer3",
+                    "designerId": "2111e691-8a92-4834-825f-25efb5ed697e",
+                    "cn": [
+                        {
+                            "type": "Ext.grid.Panel",
+                            "reference": {
+                                "name": "items",
+                                "type": "array"
+                            },
+                            "codeClass": null,
+                            "userConfig": {
+                                "id": "ifpanel",
+                                "rowLines": false,
+                                "store": "ifArrayStore",
+                                "title": null
+                            },
+                            "name": "MyGridPanel",
+                            "designerId": "b8d0a02e-0f2d-4dca-87bc-6540189bce5c",
+                            "cn": [
+                                {
+                                    "type": "Ext.grid.column.Column",
+                                    "reference": {
+                                        "name": "columns",
+                                        "type": "array"
+                                    },
+                                    "codeClass": null,
+                                    "userConfig": {
+                                        "dataIndex": "if_name",
+                                        "flex": 1,
+                                        "text": "口味名稱"
+                                    },
+                                    "name": "MyColumn19",
+                                    "designerId": "759cc6bc-f0aa-47f6-86b6-a7a0270de7b7"
+                                },
+                                {
+                                    "type": "Ext.grid.column.Column",
+                                    "reference": {
+                                        "name": "columns",
+                                        "type": "array"
+                                    },
+                                    "codeClass": null,
+                                    "userConfig": {
+                                        "dataIndex": "if_cover",
+                                        "flex": 1,
+                                        "text": "圖片"
+                                    },
+                                    "name": "MyColumn1",
+                                    "designerId": "ed066696-87f0-4f2a-b821-2ff1c7aedd18",
+                                    "cn": [
+                                        {
+                                            "type": "fixedfunction",
+                                            "reference": {
+                                                "name": "items",
+                                                "type": "array"
+                                            },
+                                            "codeClass": null,
+                                            "userConfig": {
+                                                "designer|params": [
+                                                    "value",
+                                                    "metaData",
+                                                    "record",
+                                                    "rowIndex",
+                                                    "colIndex",
+                                                    "store",
+                                                    "view"
+                                                ],
+                                                "fn": "renderer",
+                                                "implHandler": [
+                                                    "return (value !=='')?\"<img src='images/item_flavor_cover/\"+value+\"' width='60px' />\":'沒有任何圖片';",
+                                                    ""
+                                                ]
+                                            },
+                                            "name": "renderer",
+                                            "designerId": "428af0fe-b443-4c1e-b789-444f5c68efed"
+                                        }
+                                    ]
+                                },
+                                {
+                                    "type": "Ext.grid.column.Column",
+                                    "reference": {
+                                        "name": "columns",
+                                        "type": "array"
+                                    },
+                                    "codeClass": null,
+                                    "userConfig": {
+                                        "dataIndex": "if_unit_price",
+                                        "flex": 0.5,
+                                        "text": "單價"
+                                    },
+                                    "name": "MyColumn4",
+                                    "designerId": "a447a9a5-99e3-4666-85bb-7b15154a6f80"
+                                },
+                                {
+                                    "type": "Ext.grid.column.Column",
+                                    "reference": {
+                                        "name": "columns",
+                                        "type": "array"
+                                    },
+                                    "codeClass": null,
+                                    "userConfig": {
+                                        "dataIndex": "if_seq",
+                                        "flex": 0.5,
+                                        "text": "排序"
+                                    },
+                                    "name": "MyColumn28",
+                                    "designerId": "d7e5b8b1-0b14-477e-90a6-11a405d778db"
+                                },
+                                {
+                                    "type": "Ext.grid.column.Column",
+                                    "reference": {
+                                        "name": "columns",
+                                        "type": "array"
+                                    },
+                                    "codeClass": null,
+                                    "userConfig": {
+                                        "dataIndex": "if_status",
+                                        "flex": 0.5,
+                                        "text": "狀態"
+                                    },
+                                    "name": "MyColumn9",
+                                    "designerId": "85ca1b7f-cc5e-4711-9962-2a0d7f78a773",
+                                    "cn": [
+                                        {
+                                            "type": "fixedfunction",
+                                            "reference": {
+                                                "name": "items",
+                                                "type": "array"
+                                            },
+                                            "codeClass": null,
+                                            "userConfig": {
+                                                "designer|params": [
+                                                    "value",
+                                                    "metaData",
+                                                    "record",
+                                                    "rowIndex",
+                                                    "colIndex",
+                                                    "store",
+                                                    "view"
+                                                ],
+                                                "fn": "renderer",
+                                                "implHandler": [
+                                                    "if( value == 1 ){",
+                                                    "    return '上架';",
+                                                    "}else if ( value == 2 ){",
+                                                    "    return '下架';",
+                                                    "}else{",
+                                                    "    return '未定義';",
+                                                    "}"
+                                                ]
+                                            },
+                                            "name": "renderer",
+                                            "designerId": "3ac100a2-8c72-42b2-9b9e-8df1dbe4b7ea"
+                                        }
+                                    ]
+                                },
+                                {
+                                    "type": "Ext.selection.CheckboxModel",
+                                    "reference": {
+                                        "name": "selModel",
+                                        "type": "object"
+                                    },
+                                    "codeClass": null,
+                                    "name": "MyCheckboxSelectionModel2",
+                                    "designerId": "f6a24741-e6be-4501-a190-1f8c8a7f6daa"
+                                }
+                            ]
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "type": "Ext.toolbar.Toolbar",
+            "reference": {
+                "name": "dockedItems",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "dock": "top",
+                "layout|flex": 1
+            },
+            "name": "MyToolbar4",
+            "designerId": "07c51ce9-7d09-4a9a-af05-32ce33818b65",
+            "cn": [
+                {
+                    "type": "Ext.button.Button",
+                    "reference": {
+                        "name": "items",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "layout|flex": null,
+                        "text": "新增"
+                    },
+                    "name": "MyButton7",
+                    "designerId": "cd223f2d-e070-488e-a775-34ca2ef2566f",
+                    "cn": [
+                        {
+                            "type": "basiceventbinding",
+                            "reference": {
+                                "name": "listeners",
+                                "type": "array"
+                            },
+                            "codeClass": null,
+                            "userConfig": {
+                                "fn": "onButtonClick",
+                                "implHandler": [
+                                    "var window = Ext.create('Target.view.ifsubWindow');",
+                                    "",
+                                    "window.setConfig('title', '加入新口味');",
+                                    "",
+                                    "Ext.getCmp('ifsubUpdateBtn').setVisible(false);",
+                                    "Ext.getCmp('ifsubAddBtn').setVisible(true);",
+                                    "Ext.getCmp('im_id_ifsub').setValue(Ext.getCmp('im_id_if').getValue());",
+                                    "",
+                                    "window.show();"
+                                ],
+                                "name": "click",
+                                "scope": "me"
+                            },
+                            "name": "onButtonClick",
+                            "designerId": "b6b2fd47-8a2a-49ca-8850-768f7fe9601d"
+                        }
+                    ]
+                },
+                {
+                    "type": "Ext.button.Button",
+                    "reference": {
+                        "name": "items",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "layout|flex": null,
+                        "text": "修改"
+                    },
+                    "name": "MyButton5",
+                    "designerId": "bd7b7f53-b237-44f0-9593-6950928d4d84",
+                    "cn": [
+                        {
+                            "type": "basiceventbinding",
+                            "reference": {
+                                "name": "listeners",
+                                "type": "array"
+                            },
+                            "codeClass": null,
+                            "userConfig": {
+                                "fn": "onButtonClick1",
+                                "implHandler": [
+                                    "var selmodel = Ext.getCmp('ifpanel').getSelectionModel();",
+                                    "var count = selmodel.getCount();",
+                                    "",
+                                    "if(count !== 0){",
+                                    "    var seldata = selmodel.getSelection();",
+                                    "",
+                                    "    var window = Ext.create('Target.view.ifsubWindow');",
+                                    "",
+                                    "    Ext.getCmp('im_id_ifsub').setValue(seldata[0].data.im_id);",
+                                    "    Ext.getCmp('if_id').setValue(seldata[0].data.if_id);",
+                                    "",
+                                    "    window.setConfig('title', '修改口味');",
+                                    "",
+                                    "    Ext.getCmp('ifSubForm').getForm().setValues(seldata[0].data);",
+                                    "",
+                                    "    Ext.getCmp('ifsubUpdateBtn').setVisible(true);",
+                                    "    Ext.getCmp('ifsubAddBtn').setVisible(false);",
+                                    "",
+                                    "    window.show();",
+                                    "}else{",
+                                    "    Ext.Msg.alert('訊息', '請選擇一個口味修改');",
+                                    "}"
+                                ],
+                                "name": "click",
+                                "scope": "me"
+                            },
+                            "name": "onButtonClick1",
+                            "designerId": "2b25b1de-034d-4dfe-b47d-2d6790ef84ab"
+                        }
+                    ]
+                },
+                {
+                    "type": "Ext.button.Button",
+                    "reference": {
+                        "name": "items",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "layout|flex": null,
+                        "text": "刪除"
+                    },
+                    "name": "MyButton9",
+                    "designerId": "9453ac0b-aabf-4f90-8765-f1a5ffb353cf",
+                    "cn": [
+                        {
+                            "type": "basiceventbinding",
+                            "reference": {
+                                "name": "listeners",
+                                "type": "array"
+                            },
+                            "codeClass": null,
+                            "userConfig": {
+                                "fn": "onButtonClick2",
+                                "implHandler": [
+                                    "var selmodel = Ext.getCmp('ifpanel').getSelectionModel();",
+                                    "var count = selmodel.getCount();",
+                                    "if(count !== 0){",
+                                    "    Ext.MessageBox.confirm('Confirm', 'Are you sure to delete the data?', function(btn){",
+                                    "        if (btn == 'yes') {",
+                                    "            var seldata = selmodel.getSelection();",
+                                    "            var ifId = seldata[0].data.if_id;",
+                                    "            var imId = seldata[0].data.im_id;",
+                                    "",
+                                    "            Ext.Ajax.request({",
+                                    "                method: 'DELETE',",
+                                    "                url:'http://dev.finpo.com.tw/degi-api/target-local/public/b/item_flavor/'+ifId,",
+                                    "",
+                                    "                success: function(response, options){",
+                                    "                    Ext.Ajax.request({",
+                                    "",
+                                    "                        url: 'http://dev.finpo.com.tw/degi-api/target-local/public/b/item_flavor?im_id='+imId,",
+                                    "                        success: function(response, opts){",
+                                    "",
+                                    "                            var obj = Ext.JSON.decode(response.responseText);",
+                                    "                            var store = Ext.getCmp('ifpanel').getStore();",
+                                    "",
+                                    "                            if(obj.rows){",
+                                    "                                store.removeAll();",
+                                    "                                var cmp = Ext.JSON.decode(obj.rows);",
+                                    "                                console.log(cmp);",
+                                    "",
+                                    "                                for( var i=0; i<(cmp.length); i++){",
+                                    "                                    store.add({",
+                                    "                                        if_id: cmp[i].if_id,",
+                                    "                                        im_id: cmp[i].im_id,",
+                                    "                                        im_name: cmp[i].im_name,",
+                                    "                                        if_name: cmp[i].if_name,",
+                                    "                                        if_cover: cmp[i].if_cover,",
+                                    "                                        if_unit_price: cmp[i].if_unit_price,",
+                                    "                                        if_seq: cmp[i].if_seq,",
+                                    "                                        if_status: cmp[i].if_status",
+                                    "                                    });",
+                                    "                                }",
+                                    "                            }else{",
+                                    "                                store.removeAll();",
+                                    "                            }",
+                                    "                        },",
+                                    "                        failure: function(response, opts){",
+                                    "                            console.log('server-side failure with status code ' + response.status);",
+                                    "                        }",
+                                    "",
+                                    "                    });",
+                                    "",
+                                    "                    Ext.Msg.alert('訊息','口味刪除成功');",
+                                    "                }",
+                                    "            });",
+                                    "        }",
+                                    "    });",
+                                    "}else{",
+                                    "    Ext.Msg.alert('訊息', '請選擇一個口味刪除');",
+                                    "}",
+                                    ""
+                                ],
+                                "name": "click",
+                                "scope": "me"
+                            },
+                            "name": "onButtonClick2",
+                            "designerId": "a7027e3d-d14c-4e2b-8bae-94dd6d7902e3"
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "type": "Ext.form.field.Hidden",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "fieldLabel": null,
+                "id": "im_id_if",
+                "layout|flex": 1,
+                "name": "im_id_if"
+            },
+            "name": "MyHiddenField3",
+            "designerId": "4e9e0ce9-39be-4a59-aa8d-c81e4a09399c"
+        }
+    ]
+}

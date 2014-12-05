@@ -1,0 +1,70 @@
+{
+    "type": "Ext.app.ViewModel",
+    "reference": {
+        "name": "items",
+        "type": "array"
+    },
+    "codeClass": null,
+    "userConfig": {
+        "designer|userAlias": "ifsubwindow",
+        "designer|userClassName": "ifSubWindowViewModel"
+    },
+    "name": "icrSubWindowViewModel1",
+    "designerId": "96f08d21-255e-4549-bd61-76d68df53d21",
+    "cn": [
+        {
+            "type": "Ext.data.Store",
+            "reference": {
+                "name": "stores",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "data": [
+                    "[",
+                    "    {",
+                    "        \"if_status\": \"1\",",
+                    "        \"if_status_name\": \"上架\"",
+                    "    },",
+                    "    {",
+                    "        \"if_status\": \"2\",",
+                    "        \"if_status_name\": \"下架\"",
+                    "    }",
+                    "]"
+                ],
+                "designer|displayName": "",
+                "name": "ItemStatusStore"
+            },
+            "name": "MyStore3",
+            "designerId": "baec5901-a3b6-4ab5-a904-9829c0e900fd",
+            "cn": [
+                {
+                    "type": "Ext.data.field.Field",
+                    "reference": {
+                        "name": "fields",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "name": "if_status"
+                    },
+                    "name": "MyField39",
+                    "designerId": "4641107c-bc9f-4009-9362-a1cbddc578ff"
+                },
+                {
+                    "type": "Ext.data.field.Field",
+                    "reference": {
+                        "name": "fields",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "name": "if_status_name"
+                    },
+                    "name": "MyField40",
+                    "designerId": "aeb40a5d-ee05-4c73-a227-4f0aeb994749"
+                }
+            ]
+        }
+    ]
+}

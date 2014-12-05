@@ -1,0 +1,14 @@
+{
+    "type": "Ext.app.ViewController",
+    "reference": {
+        "name": "items",
+        "type": "array"
+    },
+    "codeClass": null,
+    "userConfig": {
+        "designer|userAlias": "ifsubwindow",
+        "designer|userClassName": "ifSubWindowViewController"
+    },
+    "name": "icrSubWindowViewController1",
+    "designerId": "6ec6c307-9ed4-4b86-9ae4-896c9abc67b3"
+}

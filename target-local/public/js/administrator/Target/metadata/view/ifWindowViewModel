@@ -1,0 +1,14 @@
+{
+    "type": "Ext.app.ViewModel",
+    "reference": {
+        "name": "items",
+        "type": "array"
+    },
+    "codeClass": null,
+    "userConfig": {
+        "designer|userAlias": "ifwindow",
+        "designer|userClassName": "ifWindowViewModel"
+    },
+    "name": "icrWindowViewModel1",
+    "designerId": "d8504633-423a-4f17-af05-719260e62da0"
+}

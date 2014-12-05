@@ -49,7 +49,8 @@ Ext.application({
         'CMPointArrayStore',
         'BulkItemArrayStore',
         'BPSubOrderArrayStore',
-        'icrArrayStore'
+        'icrArrayStore',
+        'ifArrayStore'
     ],
     views: [
         'MyViewport',
@@ -94,7 +95,9 @@ Ext.application({
         'BPOrderGridPanel',
         'BPOrderWindow',
         'icrWindow',
-        'icrsubWindow'
+        'icrsubWindow',
+        'ifWindow',
+        'ifsubWindow'
     ],
     name: 'Target',
 
