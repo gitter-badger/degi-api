@@ -86,6 +86,7 @@ class News {
     public function selectAll($query){
         try {
             $select = $this->db->getSql()->select();
+            $select->order('nm_id DESC');
             $paginator = new Paginator(new DbSelect($select, $this->db->adapter));
             
             $paginator->setItemCountPerPage($query['limit'])->setCurrentPageNumber($query['page']);
