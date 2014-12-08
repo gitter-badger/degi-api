@@ -29,6 +29,7 @@ class CompanyMemberPoint{
    			$result['cm_consumption_amount_current'] = $result_of_bulk[0]['total'];
    			
    			$select = $this->db->getSql()->select();
+   			$select->where('cm_id='.$id);
         	$select->columns(array('cmp_id','cm_id','cmp_name','cmp_address','cmp_shipping_fee'));
         	$result_row = $this->db->selectWith($select)->toArray();   			
    			$result['cm_point'] = $result_row;
