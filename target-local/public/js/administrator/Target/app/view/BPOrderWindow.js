@@ -123,8 +123,10 @@ Ext.define('Target.view.BPOrderWindow', {
                                             return '未處理';
                                         }else if ( value == 2 ){
                                             return '處理中';
-                                        }else{
+                                        }else if ( value == 3 ){
                                             return '已出貨';
+                                        }else{
+                                            return '已取消';
                                         }
                                     },
                                     fieldLabel: '狀態',

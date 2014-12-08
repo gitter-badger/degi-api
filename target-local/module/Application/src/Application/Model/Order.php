@@ -300,6 +300,7 @@ class Order{
 				}
 			}
 			$data['om_content_json'] = json_encode($data['om_content_json']);
+			
 			//step4 create order 			
 			if($data['step']==4){
 				$data_order = $data;

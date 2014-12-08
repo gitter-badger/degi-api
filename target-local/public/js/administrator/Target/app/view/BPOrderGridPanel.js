@@ -101,8 +101,10 @@ Ext.define('Target.view.BPOrderGridPanel', {
                     return '未處理';
                 }else if ( value == 2 ){
                     return '處理中';
-                }else{
+                }else if ( value == 3 ){
                     return '已出貨';
+                }else{
+                    return '已取消';
                 }
             },
             dataIndex: 'bpom_status',
@@ -157,6 +159,13 @@ Ext.define('Target.view.BPOrderGridPanel', {
                                 text: '已出貨',
                                 listeners: {
                                     click: 'onMenuitemClick1111'
+                                }
+                            },
+                            {
+                                xtype: 'menuitem',
+                                text: '取消訂單',
+                                listeners: {
+                                    click: 'onMenuitemClick11111'
                                 }
                             }
                         ]
@@ -362,6 +371,41 @@ Ext.define('Target.view.BPOrderGridPanel', {
             });
         }else{
             Ext.Msg.alert('訊息','請選擇ㄧ筆訂單改成已出貨');
+        }
+    },
+
+    onMenuitemClick11111: function(item, e, eOpts) {
+         /* 出貨狀態 標示為已取消*/
+        var selmodel = Ext.getCmp('bpordergridpanel').getSelectionModel();
+        var seldata = selmodel.getSelection();
+        var count = selmodel.getCount();
+
+        if(count !== 0){
+            Ext.Msg.confirm('訊息','確定取消此訂單？',function(buttonId){
+                if(buttonId == 'yes'){
+                    var selmodel = Ext.getCmp('bpordergridpanel').getSelectionModel();
+                    var seldata = selmodel.getSelection();
+
+                    Ext.Ajax.request({
+                        params: {
+                            bpom_status: 4
+                        },
+                        url: 'http://dev.finpo.com.tw/degi-api/target-local/public/b/bporder/'+seldata[0].data.bpom_id,
+                        method: 'PUT',
+                        success: function(response, option){
+                            var store = Ext.getCmp('bpordergridpanel').getViewModel().getStore('BPOrderStore');
+                            store.proxy.url='http://dev.finpo.com.tw/degi-api/target-local/public/b/bporder';
+                            store.load();
+                            Ext.Msg.alert('訊息','取消此訂單 更新成功');
+                        },
+                        failure: function(response, option){
+                            Ext.Msg.alert('訊息','取消此訂單 更新錯誤');
+                        }
+                    });
+                }
+            });
+        }else{
+            Ext.Msg.alert('訊息','請選擇ㄧ筆訂單取消');
         }
     },
 

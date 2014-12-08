@@ -4,6 +4,8 @@ namespace Application\Model;
 use Application\Model\Table\BulkOrderMainTable;
 use Zend\Db\Sql\Expression;
 use Application\Model\Table\BulkItemTable;
+use Administrator\Model\Table\CompanyMemberTable;
+use Administrator\Model\CompanyMember;
 
 class BulkOrder{
 	
@@ -13,7 +15,7 @@ class BulkOrder{
 	}
 	public function get($bpom_order_number,$query){//query{access_token}
 		try {
-			$member = new CompanyMember();
+			$member = new \Application\Model\CompanyMember();
 			if( !$member->InternalCheckLogin($query['access_token']) ){
 				return array('success'=>false , 'msg'=> '未通過登入認證，請重新登入!' );
 			}
@@ -36,7 +38,7 @@ class BulkOrder{
 			$query_y = $query['year'];
 			$query_m = $query['month'];
 			
-			$member = new CompanyMember();
+			$member = new \Application\Model\CompanyMember();
 			if( !$member->InternalCheckLogin($query['access_token']) ){
 				return array('success'=>false , 'msg'=> '未通過登入認證，請重新登入!' );
 			}
@@ -61,6 +63,16 @@ class BulkOrder{
 				array_push($result_row, $output);
 			}
 			$result['success'] = true;
+			
+			$select = $this->db->getSql()->select();
+			$select->columns(array('total'=>new Expression("SUM(`bpom_total`)")));
+			$select->where('cm_id='.$cm_id);
+			$select->where('YEAR(bpom_created)='.$query_y);
+			$select->where('MONTH(bpom_created)='.$query_m);
+			$select->where('bpom_status!=4');
+			$result_of_bulk = $this->db->selectWith($select)->toArray();
+			$result['cm_consumption_amount_current'] = $result_of_bulk[0]['total'];
+			
 			$result['rows'] = $result_row;
 			return $result;
 		}catch (\Exception $e){
@@ -70,7 +82,7 @@ class BulkOrder{
 	public function insert($data){
 		
 		try {		
-			$member = new CompanyMember();
+			$member = new \Application\Model\CompanyMember();
 			if( !$member->InternalCheckLogin($data['access_token']) ){
 				return array('success'=>false , 'msg'=> '未通過登入認證，請重新登入!' );
 			}
@@ -103,6 +115,19 @@ class BulkOrder{
 			$data['bpom_status'] = 1; 
 			$this->db->insert($data);				
 			$data['bpom_id'] = $this->db->getLastInsertValue() ;
+			
+			/* 公司訂單加入時就改公司消費總金額 */
+            $cm_id = $data['cm_id'];
+			$bpom_total = $data['bpom_total'];
+
+			$cm_db = new CompanyMemberTable();
+			$cm_consumption_amount = $cm_db->select(array('cm_id'=>$cm_id))->current()->cm_consumption_amount;
+
+			$cm_func = new CompanyMember();
+			$cmp_data = array();
+			$cmp_data['cm_consumption_amount'] = (int)$cm_consumption_amount + $bpom_total;
+			$cm_func->update($cmp_data, $cm_id);
+			
 			$data['bpom_content_json'] = json_decode($data['bpom_content_json']);
 				
 			return array('success'=>true , 'data'=> $data);

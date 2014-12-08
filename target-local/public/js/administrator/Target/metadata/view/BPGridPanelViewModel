@@ -70,7 +70,8 @@
                     "[",
                     "{'bpom_status':1, 'text':'未處理'},",
                     "{'bpom_status':2, 'text':'處理中'},",
-                    "{'bpom_status':3, 'text':'已出貨'}",
+                    "{'bpom_status':3, 'text':'已出貨'},",
+                    "{'bpom_status':4, 'text':'已取消'}",
                     "]"
                 ],
                 "name": "BPOMStatusStore"

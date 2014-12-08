@@ -51,6 +51,10 @@ Ext.define('Target.view.BPGridPanelViewModel', {
                 {
                     bpom_status: 3,
                     text: '已出貨'
+                },
+                {
+                    bpom_status: 4,
+                    text: '已取消'
                 }
             ],
             fields: [

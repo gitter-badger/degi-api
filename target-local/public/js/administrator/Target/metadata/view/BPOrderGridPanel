@@ -207,8 +207,10 @@
                             "    return '未處理';",
                             "}else if ( value == 2 ){",
                             "    return '處理中';",
-                            "}else{",
+                            "}else if ( value == 3 ){",
                             "    return '已出貨';",
+                            "}else{",
+                            "    return '已取消';",
                             "}"
                         ]
                     },
@@ -561,6 +563,70 @@
                                             },
                                             "name": "onMenuitemClick1111",
                                             "designerId": "77c15972-c961-446f-beda-de2bbc2f1fc9"
+                                        }
+                                    ]
+                                },
+                                {
+                                    "type": "Ext.menu.Item",
+                                    "reference": {
+                                        "name": "items",
+                                        "type": "array"
+                                    },
+                                    "codeClass": null,
+                                    "userConfig": {
+                                        "text": "取消訂單"
+                                    },
+                                    "name": "MyMenuItem",
+                                    "designerId": "bc678b6b-a792-42f7-bb31-553df18e5fe4",
+                                    "cn": [
+                                        {
+                                            "type": "basiceventbinding",
+                                            "reference": {
+                                                "name": "listeners",
+                                                "type": "array"
+                                            },
+                                            "codeClass": null,
+                                            "userConfig": {
+                                                "fn": "onMenuitemClick11111",
+                                                "implHandler": [
+                                                    " /* 出貨狀態 標示為已取消*/",
+                                                    "var selmodel = Ext.getCmp('bpordergridpanel').getSelectionModel();",
+                                                    "var seldata = selmodel.getSelection();",
+                                                    "var count = selmodel.getCount();",
+                                                    "",
+                                                    "if(count !== 0){",
+                                                    "    Ext.Msg.confirm('訊息','確定取消此訂單？',function(buttonId){",
+                                                    "        if(buttonId == 'yes'){",
+                                                    "            var selmodel = Ext.getCmp('bpordergridpanel').getSelectionModel();",
+                                                    "            var seldata = selmodel.getSelection();",
+                                                    "",
+                                                    "            Ext.Ajax.request({",
+                                                    "                params: {",
+                                                    "                    bpom_status: 4",
+                                                    "                },",
+                                                    "                url: 'http://dev.finpo.com.tw/degi-api/target-local/public/b/bporder/'+seldata[0].data.bpom_id,",
+                                                    "                method: 'PUT',",
+                                                    "                success: function(response, option){",
+                                                    "                    var store = Ext.getCmp('bpordergridpanel').getViewModel().getStore('BPOrderStore');",
+                                                    "                    store.proxy.url='http://dev.finpo.com.tw/degi-api/target-local/public/b/bporder';",
+                                                    "                    store.load();",
+                                                    "                    Ext.Msg.alert('訊息','取消此訂單 更新成功');",
+                                                    "                },",
+                                                    "                failure: function(response, option){",
+                                                    "                    Ext.Msg.alert('訊息','取消此訂單 更新錯誤');",
+                                                    "                }",
+                                                    "            });",
+                                                    "        }",
+                                                    "    });",
+                                                    "}else{",
+                                                    "    Ext.Msg.alert('訊息','請選擇ㄧ筆訂單取消');",
+                                                    "}"
+                                                ],
+                                                "name": "click",
+                                                "scope": "me"
+                                            },
+                                            "name": "onMenuitemClick11111",
+                                            "designerId": "30beb845-c330-4f2e-8610-a5f59f1838e8"
                                         }
                                     ]
                                 }
