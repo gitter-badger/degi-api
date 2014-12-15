@@ -29,7 +29,7 @@ class Current{
 			{
 				$data_om['om_payment_status'] = 1;// 修改訂單 om_payment_status = 1 
 				$cash_token = sha1(md5((string)$xml->ORDERINFO->STOREID.(string)$xml->ORDERINFO->ORDERNUMBER));
-				$returl = 'http://'.$link_root.'/#/cart_step4?om_id='.$om_id.'&cash_token='.$cash_token;
+				$returl = 'http://'.$link_root.'/#/cart_step4/'.$om_id.'/'.$cash_token;
 			}else
 			{
 				$data_om['om_status'] = 4;// 修改訂單 om_status = 4 
