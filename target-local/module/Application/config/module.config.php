@@ -167,6 +167,15 @@ return array(
             				),
             		),
             ),
+            'current_f' => array(
+            		'type' => 'Segment',
+            		'options' => array(
+            				'route'    => '/f/current[/:id]',
+            				'defaults' => array(
+            						'controller' => 'Application\Controller\Current'
+            				),
+            		),
+            ),
             'bulk_item_f' => array(
             		'type' => 'Segment',
             		'options' => array(
@@ -250,11 +259,15 @@ return array(
             'Application\Controller\CompanyMemberPoint' => 'Application\Controller\CompanyMemberPointController',
             'Application\Controller\CompanyMemberAuth' => 'Application\Controller\CompanyMemberAuthController',
             'Application\Controller\SystemVariable' => 'Application\Controller\SystemVariableController',
-            'Application\Controller\Order' => 'Application\Controller\OrderController'
+            'Application\Controller\Order' => 'Application\Controller\OrderController',
+            'Application\Controller\Current' => 'Application\Controller\CurrentController',
+            'Application\Controller\Current1' => 'Application\Controller\Current1Controller',
+            'Application\Controller\Current2' => 'Application\Controller\Current2Controller',
+            'Application\Controller\Current3' => 'Application\Controller\Current3Controller'           		
          ),
     ),
     'view_manager' => array(
-        'strategies' => array('ViewJsonStrategy'),
+        'strategies' => array('ViewJsonStrategy','ViewFeedStrategy'),
         'display_not_found_reason' => true,
         'display_exceptions'       => true,
         'doctype'                  => 'HTML5',

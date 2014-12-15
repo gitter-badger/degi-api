@@ -5,6 +5,7 @@ use Application\Model\Table\ItemFlavorTable;
 use Application\Model\Table\MemberPointTable;
 use Application\Model\Table\ItemMainTable;
 use Zend\Db\Sql\Expression;
+use Zend\Debug\Debug;
 
 class Order{
 	public $db = null ;
@@ -63,7 +64,10 @@ class Order{
 			return array('success'=>false , 'msg'=> $e->getMessage() );
 		}
 	}
-	public function get($om_id,$query){//id:om_id,query{access_token}
+	public function get($om_id,$query){//id:om_id,query{access_token, cash_token}
+		$storeID = '010260071';
+		$cash_token = sha1(md5((string)$storeID.(string)$om_id));
+		// $query['cash_token']
 		if( !empty($query['access_token'])){
 			$access_token = $query['access_token'];
 			$member = new Member();
@@ -94,9 +98,13 @@ class Order{
 				if($result_row[0]['mm_id']!='0'){
 					return array('success'=>false , 'msg'=> '不具此訂單權限' );
 				}else{
-					$result['success'] = true ;
-					$result['rows'] = $result_row;
-					return $result;
+					if( !empty($query['cash_token']) && $query['cash_token']==$cash_token ){
+						$result['success'] = true ;
+						$result['rows'] = $result_row;
+						return $result;
+					}else{
+						return array('success'=>false , 'msg'=> '不具此訂單權限' );
+					}					
 				}
 			}catch (\Exception $e){
 				return array('success'=>false , 'msg'=> $e->getMessage() );
@@ -246,11 +254,11 @@ class Order{
 			}
 			$data['om_full_box'] += (int)((int)$freight_fee_unfull_tmp / (int)$sv_less_one_box_base_calculation_price);
 			$freight_fee_unfull_tmp = (int)$freight_fee_unfull_tmp % (int)$sv_less_one_box_base_calculation_price;
-			if($freight_fee_unfull_tmp>=50 && $freight_fee_unfull_tmp<=1750){
+			if($freight_fee_unfull_tmp>=$sv_less_one_box_base_calculation_lower_price && $freight_fee_unfull_tmp<=$sv_less_one_box_base_calculation_upper_price){
 				$data['om_unfull_box'] = 1;
 				$data['om_freight_fee'] = $freight_fee_delivery_method == 1 ? $sv_hypothermia_shipping_fee : $sv_room_temperature_shipping_fee; 
 			}
-			if($freight_fee_unfull_tmp>1750){
+			if( $freight_fee_unfull_tmp > $sv_less_one_box_base_calculation_upper_price ){
 				$data['om_full_box'] ++;
 			}
 			$data['om_subtotal_add_fee'] = $data['om_subtotal']+$data['om_freight_fee'];
@@ -290,7 +298,7 @@ class Order{
 							$record_want_use_point -= $value['mrp_used_check'];
 							$value['mrp_used_check'] = 0;
 						}
-						$member_point_db->update($value , array('mrp_id'=>$value['mrp_id']));						
+						//$member_point_db->update($value , array('mrp_id'=>$value['mrp_id']));						
 						if($record_want_use_point == 0) break;
 					}
  					$data['om_total'] -= $data['om_use_point'];	
@@ -302,7 +310,7 @@ class Order{
 			$data['om_content_json'] = json_encode($data['om_content_json']);
 			
 			//step4 create order 			
-			if($data['step']==4){
+			if($data['step']==4 ){
 				$data_order = $data;
 				unset($data_order['step']);
 				unset($data_order['om_subtotal_add_fee']);
@@ -334,6 +342,30 @@ class Order{
 				//create member reward point for new order 
 				if(!empty($data['mm_id'])){
 					$member_point_db = new MemberPointTable();
+					$select = $member_point_db->getSql()->select();
+					$select->where('mm_id='.$data['mm_id']);
+					$select->where->greaterThanOrEqualTo("mrp_reward_deadline", date('Y-m-d'));
+					$select->order('mrp_created ASC');
+					$select->columns(array('mrp_id','mrp_used_check'));
+					$member_last_order = $member_point_db->selectWith($select)->toArray();
+					$member_last_amount = 0;
+					foreach( $member_last_order as $value){
+						$member_last_amount += $value['mrp_used_check'];
+					}
+					if(!empty($data['om_want_use_point'])){
+						$record_want_use_point = $data['om_want_use_point'] > $member_last_amount ? $member_last_amount : $data['om_want_use_point'];
+						foreach( $member_last_order as $value){
+							if( $value['mrp_used_check'] >= $record_want_use_point ){
+								$value['mrp_used_check'] -= $record_want_use_point ;
+								$record_want_use_point = 0;
+							}else{
+								$record_want_use_point -= $value['mrp_used_check'];
+								$value['mrp_used_check'] = 0;
+							}
+							$member_point_db->update($value , array('mrp_id'=>$value['mrp_id']));
+							if($record_want_use_point == 0) break;
+						}
+					}
 					$data_mpr = array();
 					$data_mpr['mm_id'] = $data['mm_id'];
 					$data_mpr['om_id'] = $data['om_id'];
@@ -352,6 +384,22 @@ class Order{
 					$member_point_db->insert($data_mpr);
 					$data['mrp_id'] = $member_point_db->getLastInsertValue() ;
 				}
+				$storeID = '010260071';
+				$cash_token = sha1(md5((string)$storeID.(string)$data['om_id']));
+				$data['cash_token'] = $cash_token;
+				if( $data_order['om_payment_method'] == 1){
+					$cavalue =  md5($storeID.$data['om_id'].$data['om_total'].'8de7af1d18d4f50f82e8d39d3f1820a1');
+					$strRqXML = '<?xml version=\'1.0\' encoding=\'UTF-8\'?><MERCHANTXML><CAVALUE>'.$cavalue.'</CAVALUE><ORDERINFO><STOREID>'.$storeID.'</STOREID><ORDERNUMBER>'.$data['om_id'].'</ORDERNUMBER><AMOUNT>'.$data['om_total'].'</AMOUNT></ORDERINFO></MERCHANTXML>';
+					$data['strRqXML'] = $strRqXML;	
+					$data['bank_url'] = 'https://sslpayment.uwccb.com.tw/EPOSService/Payment/OrderInitial.aspx';
+				}
+// 				post strRqXML to bank
+// 				$ch = curl_init();
+// 				$post_data = array('strRqXML' => $strRqXML);
+// 				curl_setopt($ch, CURLOPT_URL, 'https://sslpayment.uwccb.com.tw/EPOSService/Payment/OrderInitial.aspx');
+// 				curl_setopt($ch, CURLOPT_POST, 1);
+// 				curl_setopt($ch, CURLOPT_POSTFIELDS, $post_data);
+// 				curl_exec($ch);				
 			}
 			return array('success'=>true , 'data'=> $data);
 		}catch (\Exception $e){
