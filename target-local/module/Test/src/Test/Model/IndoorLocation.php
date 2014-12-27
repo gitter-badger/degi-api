@@ -1,7 +1,5 @@
 <?php
 namespace Test\Model;
-
-
 use Test\Model\Table\IndoorLocationTable;
 class IndoorLocation{
 	public $db = null ;
@@ -49,6 +47,7 @@ class IndoorLocation{
 				$startTime = $indoor_location_rawdata[0]['il_created'];
 				$endTime = $indoor_location_rawdata[0]['il_created'];
 				
+				
    	 			foreach ( $indoor_location_rawdata as $index => $value ){
    	 				if( $tmp_serial != $value['il_serial'] || $index == sizeof($indoor_location_rawdata)-1){
    	 					$start = strtotime($startTime);
@@ -79,17 +78,46 @@ class IndoorLocation{
    	 				$tmp_location = $value['il_location'];
    	 				$tmp_serial = $value['il_serial'];
    	 			}
+   	 			$flag = 0;
+   	 			while ( $flag <= count($work_rest)-1 ){ 
+   	 				if( $flag == count($work_rest)-1){
+   	 					if((strtotime(date('Y-m-d H:i:s')) - strtotime($work_rest[$flag]['end']) > 300)){
+	   	 					$object = array();
+	   	 					$object['location'] = 'Outdoor';
+	   	 					$object['start'] = $work_rest[$flag]['end'];
+	   	 					$object['end'] = date('Y-m-d H:i:s');
+	   	 					$start = strtotime($object['start']);
+	   	 					$end = strtotime($object['end']);
+	   	 					$timeDiff = $end - $start;
+	   	 					$object['timeDiff'] = floor($timeDiff / 60);
+	   	 					array_push($work_rest, $object);
+   	 					}
+   	 				}else{
+	   	 				if(   strtotime($work_rest[$flag+1]['start']) - strtotime($work_rest[$flag]['end']) > 300 ){
+	   	 					$object = array();
+	   	 					$object['location'] = 'Outdoor';
+	   	 					$object['start'] = $work_rest[$flag]['end'];
+	   	 					$object['end'] = $work_rest[$flag+1]['start'];
+	   	 					$start = strtotime($object['start']);
+	   	 					$end = strtotime($object['end']);
+	   	 					$timeDiff = $end - $start;
+	   	 					$object['timeDiff'] = floor($timeDiff / 60);
+	   	 					$offset = $flag+1;
+	   	 					if($offset == 0){
+								array_unshift($work_rest, $object);
+	   	 					}else{
+		   	 					$a1 = array_slice($work_rest, 0, $offset);
+		   	 					$a2 = array_slice($work_rest, $offset);
+		   	 					array_push($a1, $object);
+		   	 					$work_rest = array_merge($a1, $a2);
+	   	 					}
+	   	 					$flag++;
+	   	 				}
+   	 				}
+   	 				$flag++;
+   	 			}
    	 			$result['success'] = true ;
    	 			$result['now'] = $work_rest[sizeof($work_rest)-1];
-   	 			if( $result['now']['location'] =='Outdoor' ){
-   	 				$tmp = $result['now'];
-   	 				$tmp['end'] = date('Y-m-d H:i:s');
-   	 				$start = strtotime($tmp['start']);
-   	 				$end = strtotime($tmp['end']);
-   	 				$timeDiff = $end - $start;
-   	 				$tmp['timeDiff'] = floor($timeDiff / 60);
-   	 				$result['now'] = $tmp;
-   	 			}
    	 			$result['work_rest'] = $work_rest;			
    	 			return $result;
    	 		}		
