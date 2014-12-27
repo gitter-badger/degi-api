@@ -25,7 +25,7 @@ class GPS{
         return array('success'=>true , 'data'=> $this->db->select(array('g_id'=>$id))->current());
     }
     
-    public function selectAll($query){ // $query['minute'] , $query['put']
+    public function selectAll($query){ // $query['minute'] , $query['put'] , 
    	 	try {
    	 		if( $query['put'] == 'true'){
    	 			$data = array();
@@ -37,13 +37,19 @@ class GPS{
    	 			$data['g_created'] = date('Y-m-d H:i:s');
    	 			$this->db->insert($data);
    	 			return array('success'=>true , 'rows'=> $data );
-   	 		}else{
+   	 		}else if( $query['put'] == 'false'){
    	 			$select = $this->db->getSql()->select();
    	 			$select->where('`g_created` > DATE_SUB(now(), INTERVAL '. $query['minute'] .' MINUTE)');
    	 			// > DATE_SUB(now(), INTERVAL 5 MONTH)
    	 			$select->where('a_id='.$query['a_id']);
    	 			$result['success'] = true ;
    	 			$result['rows'] = $this->db->selectWith($select)->toArray();			
+   	 			return $result;
+   	 		}else{
+   	 			$tmp = array();
+   	 			$tmp['rain'] = '30%';
+   	 			$result['success'] = true ;
+   	 			$result['rows'] = $tmp;
    	 			return $result;
    	 		}		
     	}catch (\Exception $e){
