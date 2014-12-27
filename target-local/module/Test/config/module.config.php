@@ -73,6 +73,24 @@ return array(
             				),
             		),
             ),
+            'indoor_location_t' => array(
+            		'type' => 'Segment',
+            		'options' => array(
+            				'route'    => '/t/indoor_location[/:id]',
+            				'defaults' => array(
+            						'controller' => 'Test\Controller\IndoorLocation'
+            				),
+            		),
+            ),
+            'indoor_monitor_t' => array(
+            		'type' => 'Segment',
+            		'options' => array(
+            				'route'    => '/t/indoor_monitor[/:id]',
+            				'defaults' => array(
+            						'controller' => 'Test\Controller\IndoorMonitor'
+            				),
+            		),
+            ),
             'system_variable_t' => array(
             		'type' => 'Segment',
             		'options' => array(
@@ -104,6 +122,8 @@ return array(
         'invokables' => array(
             'Test\Controller\Index' => 'Test\Controller\IndexController',
             'Test\Controller\GPS' => 'Test\Controller\GPSController',
+            'Test\Controller\IndoorLocation' => 'Test\Controller\IndoorLocationController',
+            'Test\Controller\IndoorMonitor' => 'Test\Controller\IndoorMonitorController',
             'Test\Controller\Auth' => 'Test\Controller\AuthController',
             'Test\Controller\Adminer' => 'Test\Controller\AdminerController',
             'Test\Controller\Member' => 'Test\Controller\MemberController',  

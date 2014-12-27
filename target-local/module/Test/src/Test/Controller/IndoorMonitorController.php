@@ -3,9 +3,9 @@ namespace Test\Controller;
 
 use Zend\Mvc\Controller\AbstractRestfulController;
 use Zend\View\Model\JsonModel ;
-use Test\Model\IndoorLocation;
+use Test\Model\IndoorMonitor;
 
-class IndoorLocationController extends AbstractRestfulController
+class IndoorMonitorController extends AbstractRestfulController
 {
     //resource 
     //get
@@ -13,7 +13,7 @@ class IndoorLocationController extends AbstractRestfulController
         $response = $this->getResponse();
         $response->setStatusCode(200);
 
-        $db = new IndoorLocation();
+        $db = new IndoorMonitor();
         return new JsonModel($db->selectAll($this->params()->fromQuery()));        
     }  
     //entity
@@ -22,7 +22,7 @@ class IndoorLocationController extends AbstractRestfulController
         $response = $this->getResponse();
         $response->setStatusCode(200);
         
-        $db = new IndoorLocation();
+        $db = new IndoorMonitor();
 
         return new JsonModel($db->get($id));
     }  
@@ -31,7 +31,7 @@ class IndoorLocationController extends AbstractRestfulController
     	$response = $this->getResponse();
     	$response->setStatusCode(200);
     
-    	$db = new IndoorLocation();
+    	$db = new IndoorMonitor();
 
         return new JsonModel($db->update($data,$id));
     }
@@ -40,7 +40,7 @@ class IndoorLocationController extends AbstractRestfulController
         $response = $this->getResponse();
         $response->setStatusCode(200);
         
-        $db = new IndoorLocation();
+        $db = new IndoorMonitor();
 
         return new JsonModel($db->delete($id));
     } 

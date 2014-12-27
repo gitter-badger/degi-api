@@ -36,10 +36,10 @@ class GPS{
    	 			$data['g_status'] = $query['status'];
    	 			$data['g_created'] = date('Y-m-d H:i:s');
    	 			$this->db->insert($data);
-   	 			return array('success'=>true , 'rowsa'=> $data );
+   	 			return array('success'=>true , 'rows'=> $data );
    	 		}else{
    	 			$select = $this->db->getSql()->select();
-   	 			$select->where('`g_created` < DATE_SUB(now(), INTERVAL '. $query['minute'] .' MINUTE)');
+   	 			$select->where('`g_created` > DATE_SUB(now(), INTERVAL '. $query['minute'] .' MINUTE)');
    	 			// > DATE_SUB(now(), INTERVAL 5 MONTH)
    	 			$select->where('a_id='.$query['a_id']);
    	 			$result['success'] = true ;

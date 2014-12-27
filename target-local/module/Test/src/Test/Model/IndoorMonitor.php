@@ -1,12 +1,10 @@
 <?php
 namespace Test\Model;
-
-
-use Test\Model\Table\IndoorLocationTable;
-class IndoorLocation{
+use Test\Model\Table\IndoorMonitorTable;
+class IndoorMonitor{
 	public $db = null ;
 	public function __construct(){
-		$this->db = new IndoorLocationTable();
+		$this->db = new IndoorMonitorTable();
 	}
 	public function update($data , $id){
 		try {
@@ -29,11 +27,14 @@ class IndoorLocation{
    	 	try {
    	 		if( $query['put'] == 'true'){
    	 			$data = array();
-				//`a_id`, `il_location`, `il_serial`, `il_created`   	 			
+				//`il_location`, `il_serial`, `im_temperature`, `im_humidity`, `im_gas`, `im_created`   	 			
 				$data['a_id'] = $query['a_id'];
    	 			$data['il_location'] = $query['location'];
    	 			$data['il_serial'] = $query['serial'];
-   	 			$data['il_created'] = date('Y-m-d H:i:s');
+   	 			if( !empty($query['temperature'])){ $data['im_temperature'] = $query['temperature']; }
+   	 			if( !empty($query['humidity'])){ $data['im_humidity'] = $query['humidity']; }
+   	 			if( !empty($query['gas'])){ $data['im_gas'] = $query['gas']; }
+   	 			$data['im_created'] = date('Y-m-d H:i:s');
    	 			$this->db->insert($data);
    	 			return array('success'=>true , 'rows'=> $data );
    	 		}else{
