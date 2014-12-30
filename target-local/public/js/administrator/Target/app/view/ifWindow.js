@@ -93,21 +93,6 @@ Ext.define('Target.view.ifWindow', {
                                     dataIndex: 'if_seq',
                                     text: '排序',
                                     flex: 0.5
-                                },
-                                {
-                                    xtype: 'gridcolumn',
-                                    renderer: function(value, metaData, record, rowIndex, colIndex, store, view) {
-                                        if( value == 1 ){
-                                            return '上架';
-                                        }else if ( value == 2 ){
-                                            return '下架';
-                                        }else{
-                                            return '未定義';
-                                        }
-                                    },
-                                    dataIndex: 'if_status',
-                                    text: '狀態',
-                                    flex: 0.5
                                 }
                             ],
                             selModel: {
@@ -147,7 +132,7 @@ Ext.define('Target.view.ifWindow', {
                 },
                 {
                     xtype: 'button',
-                    text: '下架',
+                    text: '刪除',
                     listeners: {
                         click: 'onButtonClick2'
                     }

@@ -136,7 +136,7 @@ class ItemFlavor {
         }
     }
     public function delete($id){
-    	$this->db->update(array('if_status'=>2,'if_seq'=>0),array('if_id'=>$id));
+    	$this->db->delete('if_id =' . (int) $id);
     	return array('success'=>true);
     }
     public function selectAll($query){

@@ -164,54 +164,6 @@
                                     "designerId": "d7e5b8b1-0b14-477e-90a6-11a405d778db"
                                 },
                                 {
-                                    "type": "Ext.grid.column.Column",
-                                    "reference": {
-                                        "name": "columns",
-                                        "type": "array"
-                                    },
-                                    "codeClass": null,
-                                    "userConfig": {
-                                        "dataIndex": "if_status",
-                                        "flex": 0.5,
-                                        "text": "狀態"
-                                    },
-                                    "name": "MyColumn9",
-                                    "designerId": "85ca1b7f-cc5e-4711-9962-2a0d7f78a773",
-                                    "cn": [
-                                        {
-                                            "type": "fixedfunction",
-                                            "reference": {
-                                                "name": "items",
-                                                "type": "array"
-                                            },
-                                            "codeClass": null,
-                                            "userConfig": {
-                                                "designer|params": [
-                                                    "value",
-                                                    "metaData",
-                                                    "record",
-                                                    "rowIndex",
-                                                    "colIndex",
-                                                    "store",
-                                                    "view"
-                                                ],
-                                                "fn": "renderer",
-                                                "implHandler": [
-                                                    "if( value == 1 ){",
-                                                    "    return '上架';",
-                                                    "}else if ( value == 2 ){",
-                                                    "    return '下架';",
-                                                    "}else{",
-                                                    "    return '未定義';",
-                                                    "}"
-                                                ]
-                                            },
-                                            "name": "renderer",
-                                            "designerId": "3ac100a2-8c72-42b2-9b9e-8df1dbe4b7ea"
-                                        }
-                                    ]
-                                },
-                                {
                                     "type": "Ext.selection.CheckboxModel",
                                     "reference": {
                                         "name": "selModel",
@@ -351,7 +303,7 @@
                     "codeClass": null,
                     "userConfig": {
                         "layout|flex": null,
-                        "text": "下架"
+                        "text": "刪除"
                     },
                     "name": "MyButton9",
                     "designerId": "9453ac0b-aabf-4f90-8765-f1a5ffb353cf",
