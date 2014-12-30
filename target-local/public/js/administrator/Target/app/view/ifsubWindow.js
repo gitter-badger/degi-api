@@ -23,7 +23,6 @@ Ext.define('Target.view.ifsubWindow', {
         'Ext.form.field.Hidden',
         'Ext.form.field.File',
         'Ext.form.field.Number',
-        'Ext.form.field.ComboBox',
         'Ext.toolbar.Toolbar',
         'Ext.button.Button'
     ],
@@ -31,7 +30,7 @@ Ext.define('Target.view.ifsubWindow', {
     viewModel: {
         type: 'ifsubwindow'
     },
-    height: 241,
+    height: 220,
     id: 'ifsubWindow',
     width: 431,
     modal: true,
@@ -83,20 +82,6 @@ Ext.define('Target.view.ifsubWindow', {
                     name: 'if_seq',
                     allowBlank: false,
                     minValue: 1
-                },
-                {
-                    xtype: 'combobox',
-                    anchor: '90%',
-                    fieldLabel: '狀態',
-                    labelAlign: 'right',
-                    name: 'if_status',
-                    allowBlank: false,
-                    editable: false,
-                    displayField: 'if_status_name',
-                    valueField: 'if_status',
-                    bind: {
-                        store: '{ItemStatusStore}'
-                    }
                 },
                 {
                     xtype: 'hiddenfield',

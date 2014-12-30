@@ -396,9 +396,6 @@
                             "id": "4f17b0d9-e7c2-46e9-b7f2-7a6c5806ba29"
                         },
                         {
-                            "id": "513b1bb4-5774-409c-98bf-fa0fc5b7d054"
-                        },
-                        {
                             "id": "fa3c744f-79a2-46dd-a30f-38eef2b88185"
                         }
                     ]
@@ -4087,11 +4084,12 @@
             "ebd78a0c-5b7d-4c66-b270-8aa8386af189",
             "a7c3d234-01d6-4fc4-b60b-dc7f90d417cd",
             "f17f105d-aed9-45d4-9da0-cb57affe30b2",
-            "d48c4b06-a9a6-496f-b2f2-d27ab78a54f1"
+            "d48c4b06-a9a6-496f-b2f2-d27ab78a54f1",
+            "92f91da0-2ca0-4bb6-97a4-7e9874622c29"
         ]
     },
     "canvasState": {
-        "topInstance": "d48c4b06-a9a6-496f-b2f2-d27ab78a54f1"
+        "topInstance": "92f91da0-2ca0-4bb6-97a4-7e9874622c29"
     },
     "inspectorState": {
         "topInstance": null,

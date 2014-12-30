@@ -8,7 +8,7 @@
     "userConfig": {
         "designer|userAlias": "ifsubwindow",
         "designer|userClassName": "ifsubWindow",
-        "height": 241,
+        "height": 220,
         "id": "ifsubWindow",
         "modal": true,
         "title": null,
@@ -121,32 +121,6 @@
                     },
                     "name": "MyNumberField1",
                     "designerId": "4f17b0d9-e7c2-46e9-b7f2-7a6c5806ba29"
-                },
-                {
-                    "type": "Ext.form.field.ComboBox",
-                    "reference": {
-                        "name": "items",
-                        "type": "array"
-                    },
-                    "codeClass": null,
-                    "userConfig": {
-                        "allowBlank": false,
-                        "displayField": "if_status_name",
-                        "editable": false,
-                        "fieldLabel": "狀態",
-                        "labelAlign": "right",
-                        "layout|anchor": "90%",
-                        "name": "if_status",
-                        "store": [
-                            "{ItemStatusStore}"
-                        ],
-                        "valueField": "if_status"
-                    },
-                    "name": "MyComboBox4",
-                    "configAlternates": {
-                        "store": "binding"
-                    },
-                    "designerId": "513b1bb4-5774-409c-98bf-fa0fc5b7d054"
                 },
                 {
                     "type": "Ext.form.field.Hidden",
