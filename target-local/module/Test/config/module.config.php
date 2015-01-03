@@ -100,6 +100,15 @@ return array(
             				),
             		),
             ),
+            'work_rest_t' => array(
+            		'type' => 'Segment',
+            		'options' => array(
+            				'route'    => '/t/work_rest[/:id]',
+            				'defaults' => array(
+            						'controller' => 'Test\Controller\WorkRest'
+            				),
+            		),
+            ),
             
         ),
     ),
@@ -127,7 +136,8 @@ return array(
             'Test\Controller\Auth' => 'Test\Controller\AuthController',
             'Test\Controller\Adminer' => 'Test\Controller\AdminerController',
             'Test\Controller\Member' => 'Test\Controller\MemberController',  
-            'Test\Controller\SystemVariable' => 'Test\Controller\SystemVariableController'
+            'Test\Controller\SystemVariable' => 'Test\Controller\SystemVariableController',
+            'Test\Controller\WorkRest' => 'Test\Controller\WorkRestController'
          ),
     ),
     'view_manager' => array(
