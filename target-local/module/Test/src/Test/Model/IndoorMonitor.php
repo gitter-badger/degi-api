@@ -38,60 +38,44 @@ class IndoorMonitor{
    	 			$this->db->insert($data);
    	 			return array('success'=>true , 'rows'=> $data );
    	 		}else{
+   	 			
+   	 			if(empty( $query['monitor'])){
+   	 				$select = $this->db->getSql()->select();
+   	 				$select->where('il_location="Bathroom"');
+   	 				$select->where('a_id='.$query['a_id']);
+   	 				$select->order('im_created DESC');
+   	 				$select->limit(1);
+   	 				$result['success'] = true;
+   	 				$result['rows']['temperature'] = $this->db->selectWith($select)->toArray()[0]['im_temperature'];
+   	 				$result['rows']['humidity'] = $this->db->selectWith($select)->toArray()[0]['im_humidity'];
+   	 				$select = $this->db->getSql()->select();
+   	 				$select->where('il_location="Kitchen"');
+   	 				$select->where('a_id='.$query['a_id']);
+   	 				$select->order('im_created DESC');
+   	 				$select->limit(1);
+   	 				$result['rows']['gas'] = $this->db->selectWith($select)->toArray()[0]['im_gas'];
+   	 				 
+   	 				return $result;
+   	 			}
    	 			$select = $this->db->getSql()->select();
-   	 			$select->where('`il_created` > DATE_SUB(now(), INTERVAL 24 HOUR)');
-   	 			// > DATE_SUB(now(), INTERVAL 5 MONTH)
+   	 			$select->where('`im_created`  >  DATE_SUB(now(), INTERVAL 24 HOUR)');
    	 			$select->where('a_id='.$query['a_id']);
-   	 			$work_rest = array();
-   	 			$indoor_location_rawdata = $this->db->selectWith($select)->toArray();
-				$tmp_location = $indoor_location_rawdata[0]['il_location'];
-				$tmp_serial = $indoor_location_rawdata[0]['il_serial'];
-				
-				$startTime = $indoor_location_rawdata[0]['il_created'];
-				$endTime = $indoor_location_rawdata[0]['il_created'];
-				
-   	 			foreach ( $indoor_location_rawdata as $index => $value ){
-   	 				if( $tmp_serial != $value['il_serial'] || $index == sizeof($indoor_location_rawdata)-1){
-   	 					$start = strtotime($startTime);
-   	 					$end = strtotime($endTime);
-   	 					$timeDiff = $end - $start;
-   	 					$input = array();
-   	 					$input['location'] = $tmp_location;
-   	 					$input['serial'] = $tmp_serial;
-   	 					$input['start'] = $startTime;
-   	 					$input['end'] = $endTime;
-   	 					$input['timeDiff'] = floor($timeDiff / 60);
-   	 					array_push($work_rest, $input);
-   	 					$startTime = $value['il_created'];	
-   	 					if( $index == sizeof($indoor_location_rawdata)-1 && $tmp_serial != $value['il_serial']){
-   	 						$start = strtotime($startTime);
-   	 						$end = strtotime($startTime);
-   	 						$timeDiff = $end - $start;
-   	 						$input = array();
-   	 						$input['location'] = $value['il_location'];
-   	 						$input['serial'] = $value['il_serial'];
-   	 						$input['start'] = $startTime;
-   	 						$input['end'] = $startTime;
-   	 						$input['timeDiff'] = floor($timeDiff / 60);
-   	 						array_push($work_rest, $input);
-   	 					} 
-   	 				}
-   	 				$endTime = $value['il_created'];
-   	 				$tmp_location = $value['il_location'];
-   	 				$tmp_serial = $value['il_serial'];
+   	 			
+   	 			if( $query['monitor'] == 'temperature' ){ 
+   	 				$select->where('il_location="Bathroom"');
+   	 				$select->columns(array('period'=>'im_created','temperature'=>'im_temperature'));
    	 			}
+   	 			if( $query['monitor'] == 'humidity'){
+   	 				$select->where('il_location="Bathroom"');
+   	 				$select->columns(array('period'=>'im_created','humidity'=>'im_humidity'));
+   	 			}
+   	 			if( $query['monitor'] == 'gas' ){ 
+   	 				$select->where('il_location="Kitchen"'); 
+   	 				$select->columns(array('period'=>'im_created','gas'=>'im_gas'));
+   	 			}
+
    	 			$result['success'] = true ;
-   	 			$result['now'] = $work_rest[sizeof($work_rest)-1];
-   	 			if( $result['now']['location'] =='Outdoor' ){
-   	 				$tmp = $result['now'];
-   	 				$tmp['end'] = date('Y-m-d H:i:s');
-   	 				$start = strtotime($tmp['start']);
-   	 				$end = strtotime($tmp['end']);
-   	 				$timeDiff = $end - $start;
-   	 				$tmp['timeDiff'] = floor($timeDiff / 60);
-   	 				$result['now'] = $tmp;
-   	 			}
-   	 			$result['work_rest'] = $work_rest;			
+   	 			$result['rows'] = $this->db->selectWith($select)->toArray();					
    	 			return $result;
    	 		}		
     	}catch (\Exception $e){

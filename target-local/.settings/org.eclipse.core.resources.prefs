@@ -24,3 +24,5 @@ encoding//module/Application/src/Application/Model/Order.php=UTF-8
 encoding//module/Application/src/Application/Model/PopularItem.php=UTF-8
 encoding//module/Application/src/Application/Model/SystemVariable.php=UTF-8
 encoding//module/Application/view/layout/layout.phtml=UTF-8
+encoding//module/Test/src/Test/Model/Alarm.php=UTF-8
+encoding//module/Test/src/Test/Model/WorkRest.php=UTF-8

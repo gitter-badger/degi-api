@@ -46,6 +46,15 @@ return array(
             				),
             		),
             ),
+            'alarm_t' => array(
+            		'type' => 'Segment',
+            		'options' => array(
+            				'route'    => '/t/alarm[/:id]',
+            				'defaults' => array(
+            						'controller' => 'Test\Controller\Alarm'
+            				),
+            		),
+            ),
             'adminer_t' => array(
             		'type' => 'Segment',
             		'options' => array(
@@ -134,6 +143,7 @@ return array(
             'Test\Controller\IndoorLocation' => 'Test\Controller\IndoorLocationController',
             'Test\Controller\IndoorMonitor' => 'Test\Controller\IndoorMonitorController',
             'Test\Controller\Auth' => 'Test\Controller\AuthController',
+            'Test\Controller\Alarm' => 'Test\Controller\AlarmController',
             'Test\Controller\Adminer' => 'Test\Controller\AdminerController',
             'Test\Controller\Member' => 'Test\Controller\MemberController',  
             'Test\Controller\SystemVariable' => 'Test\Controller\SystemVariableController',

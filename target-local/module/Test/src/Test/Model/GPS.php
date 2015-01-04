@@ -42,6 +42,7 @@ class GPS{
    	 			$select->where('`g_created` > DATE_SUB(now(), INTERVAL '. $query['minute'] .' MINUTE)');
    	 			// > DATE_SUB(now(), INTERVAL 5 MONTH)
    	 			$select->where('a_id='.$query['a_id']);
+   	 			$select->order('g_created DESC');
    	 			$result['success'] = true ;
    	 			$result['rows'] = $this->db->selectWith($select)->toArray();			
    	 			return $result;
