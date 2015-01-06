@@ -34,8 +34,7 @@ class GPS{
    	 			$data['g_Lat'] = $query['Lat'];
    	 			$data['g_Lng'] = $query['Lng'];
    	 			$data['g_status'] = $query['status'];
-   	 			date_default_timezone_set('Asia/Taipei');
-   	 			$data['g_created'] = date('Y-m-d H:i:s');
+   	 			$data['g_created'] = date('Y-m-d H:i:s',(time()+8*3600));
    	 			$this->db->insert($data);
    	 			return array('success'=>true , 'rows'=> $data );
    	 		}else if( $query['put'] == 'false'){
