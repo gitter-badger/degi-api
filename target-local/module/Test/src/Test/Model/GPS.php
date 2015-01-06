@@ -34,7 +34,7 @@ class GPS{
    	 			$data['g_Lat'] = $query['Lat'];
    	 			$data['g_Lng'] = $query['Lng'];
    	 			$data['g_status'] = $query['status'];
-   	 			$data['g_created'] = date('Y-m-d H:i:s',(time()+42357));
+   	 			$data['g_created'] = date('Y-m-d H:i:s',(time()+42237));
    	 			$this->db->insert($data);
    	 			return array('success'=>true , 'rows'=> $data );
    	 		}else if( $query['put'] == 'false'){
