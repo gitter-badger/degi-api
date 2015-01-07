@@ -169,7 +169,7 @@ class IndoorLocation{
    	 			$this->db->insert($data);
    	 			return array('success'=>true , 'rows'=> $data );
    	 		}else{
-   	 			$work_rest = $this->WorkRestRowData($query['a_id'], 24, null);
+   	 			$work_rest = $this->WorkRestRowData($query['a_id'], 30, null);
    	 			$result['success'] = true ;
    	 			$result['now'] = $work_rest[sizeof($work_rest)-1];
    	 			$result['work_rest'] = $work_rest;			

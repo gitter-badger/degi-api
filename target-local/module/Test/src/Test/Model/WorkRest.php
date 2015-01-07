@@ -5,6 +5,7 @@ use Test\Model\Table\WorkRestTable;
 use Test\Model\Table\TimeRecordTable;
 use Test\Model\Table\AccelerationTable;
 use Test\Model\Table\IndoorMonitorTable;
+use Zend\Debug\Debug;
 
 class WorkRest {
 	public $db = null ;
@@ -231,7 +232,8 @@ class WorkRest {
    	 			}catch (\Exception $e){
    	 				return array('success'=>false , 'msg'=> $e->getMessage() );
    	 			}
-   	 		}else{
+   	 		}
+   	 		if($query['put'] == 'false'){
    	 			try {
    	 				$this->CreateWorkRest($query);
 	   	 			$select = $this->db->getSql()->select();
@@ -250,6 +252,50 @@ class WorkRest {
    	 				$result['rows'] = $this->db->selectWith($select)->toArray();
    	 				return $result;
    	 			}
+   	 		}
+   	 		if( $query['put'] == 'calculate'){
+//    	 			$query['Day1']  
+//    	 			$query['Day2']
+//    	 			$query['time'] 
+   	 			//2015-01-01
+   	 			//2015-01-02
+   	 			//9
+   	 			//時間點，時間長度，地點，做的活動 
+   	 			// ["wr_title_no_location"] => string(8) "watch tv" //outdoor
+  				//  ["wr_location"] => string(10) "Livingroom"
+  				// 室外 2 室內不同房間 1 活動不一樣 2 一樣 0
+   	 			$select = $this->db->getSql()->select();
+   	 			$select->where('`wr_start` < "'.$query['Day1'].' '.$query['time'].'" AND `wr_end`> "'.$query['Day1'].' '.$query['time'].'"');
+   	 			$select->where('a_id='.$query['a_id']);
+   	 			//Debug::dump($this->db->selectWith($select)->toArray()[0]);
+   	 			$dat1_array = $this->db->selectWith($select)->toArray()[0];
+   	 			$select = $this->db->getSql()->select();
+   	 			$select->where('`wr_start` < "'.$query['Day2'].' '.$query['time'].'" AND `wr_end`> "'.$query['Day2'].' '.$query['time'].'"');
+   	 			$select->where('a_id='.$query['a_id']);
+   	 			
+   	 			$dat2_array = $this->db->selectWith($select)->toArray()[0];
+   	 			//Debug::dump($dat2_array['wr_title']);
+
+   	 			$score = 0;
+   	 			
+   	 			if( $dat1_array['wr_title_no_location'] != $dat2_array['wr_title_no_location'] ){
+   	 				$score += 2;
+   	 			}
+   	 			if( $dat1_array['wr_location'] != $dat2_array['wr_location'] && $dat1_array['wr_title_no_location'] != 'outdoor' && $dat2_array['wr_title_no_location'] != 'outdoor'){
+   	 				$score += 1;
+   	 			}
+   	 			
+   	 			if( $dat1_array['wr_title_no_location'] != 'outdoor' && $dat2_array['wr_title_no_location'] == 'outdoor'){
+   	 				$score += 1;
+   	 			}
+   	 			if( $dat1_array['wr_title_no_location'] == 'outdoor' && $dat2_array['wr_title_no_location'] != 'outdoor'){
+   	 				$score += 1;
+   	 			}
+   	 			$tmp = array();
+   	 			$tmp[0] = $score;
+   	 			$result['success'] = true ;
+   	 			$result['rows'] = $score;
+   	 			return $result;   	 			
    	 		}
     }
 }
