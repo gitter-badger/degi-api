@@ -37,7 +37,7 @@ class WorkRest {
    	 	$data['wr_start'] = $query['start'];
    	 	$data['wr_end'] = $query['end'];
    	 	$data['wr_time_diff'] = $query['time_diff'];
-   	 	$data['wr_created'] = date('Y-m-d H:i:s');
+   	 	$data['wr_created'] = date('Y-m-d H:i:s',(time()+42237));
    	 	$this->db->insert($data);
    	 	return $data;
     }
@@ -48,12 +48,12 @@ class WorkRest {
     	$work_rest = array();
     	
     	$select = $tr_db->getSql()->select();
-    	$select->where('`tr_end` < now()');
+    	$select->where('`tr_end` < now()+INTERVAL 42237 SECOND');
     	$select->order('tr_created DESC');    	
     	$select->where('a_id='.$query['a_id']);
 		$select->limit(1);   
 		$start_time = "2015-01-01 00:00:00";
-		$end_time = date('Y-m-d H:i:s');
+		$end_time = date('Y-m-d H:i:s',(time()+42237));
 		if(count($tr_db->selectWith($select)->toArray()) != 0){
 			$start_time = $tr_db->selectWith($select)->toArray()[0]['tr_end'];
 		}
@@ -63,7 +63,7 @@ class WorkRest {
 		$time_record_data['a_id'] = $query['a_id'];
 		$time_record_data['tr_start'] = $start_time;
 		$time_record_data['tr_end'] = $end_time;
-		$time_record_data['tr_created'] = date('Y-m-d H:i:s');
+		$time_record_data['tr_created'] = date('Y-m-d H:i:s',(time()+42237));
 		$id = $tr_db->insert($time_record_data);
 		if (! (boolean) $id) {
 			return false;
@@ -77,25 +77,36 @@ class WorkRest {
     			if($work_rest[$i]['location'] == 'Bedroom'){
     				//  睡覺 bedroom 10分鐘 加速度 此段時間內 std<1
     				if( $work_rest[$i]['timeDiff'] > 10){
-	    				$accelerate_db = new AccelerationTable();
-	    				//SELECT std(`ac_acceleration_z`) FROM acceleration WHERE 
-	    				//`ac_created`> '2014-12-27 04:57:07' AND `ac_created` < '2014-12-27 05:31:52'
-	    				$select = $accelerate_db->getSql()->select();
-	    				$select->where('`ac_created` < \''.$work_rest[$i]['end'].'\' AND `ac_created` > \''.$work_rest[$i]['start'].'\'');
-	    				$select->where('a_id='.$query['a_id']);
-	    				$select->columns(array('std'=> new  \Zend\Db\Sql\Expression('std(ac_acceleration_z)')));    				
-	    				if( $accelerate_db->selectWith($select)->toArray()[0]['std'] != null && $accelerate_db->selectWith($select)->toArray()[0]['std'] < 1){
-	    					$data = array();
-	    					$data['a_id'] = $query['a_id'];
-	    					$data['title'] = 'sleep @ bedroom('.$work_rest[$i]['serial'].')';
-	    					$data['title_no_location'] = 'sleep';
-	    					$data['location'] = $work_rest[$i]['location'];
-	    					$data['start'] = $work_rest[$i]['start'];
-	    					$data['end'] = $work_rest[$i]['end'];
-	    					$data['time_diff'] = $work_rest[$i]['timeDiff'];
-	    					$this->insert($data);
-	    					$flag = 0;
-	    				}
+    					$data = array();
+    					$data['a_id'] = $query['a_id'];
+    					$data['title'] = 'sleep @ bedroom('.$work_rest[$i]['serial'].')';
+    					$data['title_no_location'] = 'sleep';
+    					$data['location'] = $work_rest[$i]['location'];
+    					$data['start'] = $work_rest[$i]['start'];
+    					$data['end'] = $work_rest[$i]['end'];
+    					$data['time_diff'] = $work_rest[$i]['timeDiff'];
+    					$this->insert($data);
+    					$flag = 0;
+    					
+// 	    				$accelerate_db = new AccelerationTable();
+// 	    				//SELECT std(`ac_acceleration_z`) FROM acceleration WHERE 
+// 	    				//`ac_created`> '2014-12-27 04:57:07' AND `ac_created` < '2014-12-27 05:31:52'
+// 	    				$select = $accelerate_db->getSql()->select();
+// 	    				$select->where('`ac_created` < \''.$work_rest[$i]['end'].'\' AND `ac_created` > \''.$work_rest[$i]['start'].'\'');
+// 	    				$select->where('a_id='.$query['a_id']);
+// 	    				$select->columns(array('std'=> new  \Zend\Db\Sql\Expression('std(ac_acceleration_z)')));    				
+// 	    				if( $accelerate_db->selectWith($select)->toArray()[0]['std'] != null && $accelerate_db->selectWith($select)->toArray()[0]['std'] < 1){
+// 	    					$data = array();
+// 	    					$data['a_id'] = $query['a_id'];
+// 	    					$data['title'] = 'sleep @ bedroom('.$work_rest[$i]['serial'].')';
+// 	    					$data['title_no_location'] = 'sleep';
+// 	    					$data['location'] = $work_rest[$i]['location'];
+// 	    					$data['start'] = $work_rest[$i]['start'];
+// 	    					$data['end'] = $work_rest[$i]['end'];
+// 	    					$data['time_diff'] = $work_rest[$i]['timeDiff'];
+// 	    					$this->insert($data);
+// 	    					$flag = 0;
+// 	    				}
     				}
     			}else if( $work_rest[$i]['location'] == 'Bathroom'){
     				// 洗澡 bathroom 3分鐘 濕度 90%以上
@@ -136,25 +147,36 @@ class WorkRest {
     			}else if( $work_rest[$i]['location'] == 'Livingroom'){
     				// living room 15分鐘 加速度不動 
     				if( $work_rest[$i]['timeDiff'] > 15){
-    					$accelerate_db = new AccelerationTable();
-    					//SELECT std(`ac_acceleration_z`) FROM acceleration WHERE
-    					//`ac_created`> '2014-12-27 04:57:07' AND `ac_created` < '2014-12-27 05:31:52'
-    					$select = $accelerate_db->getSql()->select();
-    					$select->where('`ac_created` < \''.$work_rest[$i]['end'].'\' AND `ac_created` > \''.$work_rest[$i]['start'].'\'');
-    					$select->where('a_id='.$query['a_id']);
-    					$select->columns(array('std'=> new  \Zend\Db\Sql\Expression('std(ac_acceleration_z)')));
-    					if( $accelerate_db->selectWith($select)->toArray()[0]['std'] != null && $accelerate_db->selectWith($select)->toArray()[0]['std'] < 1){
-    						$data = array();
-    						$data['a_id'] = $query['a_id'];
-    						$data['title'] = 'watch tv @ livingroom('.$work_rest[$i]['serial'].')';
-    						$data['title_no_location'] = 'watch tv';
-    						$data['location'] = $work_rest[$i]['location'];
-    						$data['start'] = $work_rest[$i]['start'];
-    						$data['end'] = $work_rest[$i]['end'];
-    						$data['time_diff'] = $work_rest[$i]['timeDiff'];
-    						$this->insert($data);
-    						$flag = 0;
-    					}
+    					$data = array();
+    					$data['a_id'] = $query['a_id'];
+    					$data['title'] = 'watch tv @ livingroom('.$work_rest[$i]['serial'].')';
+    					$data['title_no_location'] = 'watch tv';
+    					$data['location'] = $work_rest[$i]['location'];
+    					$data['start'] = $work_rest[$i]['start'];
+    					$data['end'] = $work_rest[$i]['end'];
+    					$data['time_diff'] = $work_rest[$i]['timeDiff'];
+    					$this->insert($data);
+    					$flag = 0;
+    					
+//     					$accelerate_db = new AccelerationTable();
+//     					//SELECT std(`ac_acceleration_z`) FROM acceleration WHERE
+//     					//`ac_created`> '2014-12-27 04:57:07' AND `ac_created` < '2014-12-27 05:31:52'
+//     					$select = $accelerate_db->getSql()->select();
+//     					$select->where('`ac_created` < \''.$work_rest[$i]['end'].'\' AND `ac_created` > \''.$work_rest[$i]['start'].'\'');
+//     					$select->where('a_id='.$query['a_id']);
+//     					$select->columns(array('std'=> new  \Zend\Db\Sql\Expression('std(ac_acceleration_z)')));
+//     					if( $accelerate_db->selectWith($select)->toArray()[0]['std'] != null && $accelerate_db->selectWith($select)->toArray()[0]['std'] < 1){
+//     						$data = array();
+//     						$data['a_id'] = $query['a_id'];
+//     						$data['title'] = 'watch tv @ livingroom('.$work_rest[$i]['serial'].')';
+//     						$data['title_no_location'] = 'watch tv';
+//     						$data['location'] = $work_rest[$i]['location'];
+//     						$data['start'] = $work_rest[$i]['start'];
+//     						$data['end'] = $work_rest[$i]['end'];
+//     						$data['time_diff'] = $work_rest[$i]['timeDiff'];
+//     						$this->insert($data);
+//     						$flag = 0;
+//     					}
     				}
     			}else if( $work_rest[$i]['location'] == 'Diningroom'){
     				// dining room 5分鐘 
@@ -213,7 +235,7 @@ class WorkRest {
    	 			try {
    	 				$this->CreateWorkRest($query);
 	   	 			$select = $this->db->getSql()->select();
-	   	 			$select->where('`wr_created` > DATE_SUB(now(), INTERVAL 12 MONTH)');
+	   	 			$select->where('`wr_created` > DATE_SUB(now()+INTERVAL 42237 SECOND, INTERVAL 24 MONTH)');
 	   	 			$select->where('a_id='.$query['a_id']);
 	   	 			$select->columns(array('title'=>'wr_title','start'=>'wr_start','end'=>'wr_end'));
 	   	 			$result['success'] = true ;
@@ -221,7 +243,7 @@ class WorkRest {
    	 				return $result;
    	 			}catch (\Exception $e){
    	 				$select = $this->db->getSql()->select();
-   	 				$select->where('`wr_created` > DATE_SUB(now(), INTERVAL 12 MONTH)');
+   	 				$select->where('`wr_created` > DATE_SUB(now()+INTERVAL 42237 SECOND, INTERVAL 24 MONTH)');
    	 				$select->where('a_id='.$query['a_id']);
    	 				$select->columns(array('title'=>'wr_title','start'=>'wr_start','end'=>'wr_end'));
    	 				$result['success'] = true ;

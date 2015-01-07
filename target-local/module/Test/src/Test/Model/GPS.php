@@ -35,20 +35,24 @@ class GPS{
    	 			$data['g_Lng'] = $query['Lng'];
    	 			$data['g_status'] = $query['status'];
    	 			$data['g_created'] = date('Y-m-d H:i:s',(time()+42237));
+   	 			//$data['g_created'] = date('Y-m-d H:i:s',(time()));
    	 			$this->db->insert($data);
    	 			return array('success'=>true , 'rows'=> $data );
    	 		}else if( $query['put'] == 'false'){
    	 			$select = $this->db->getSql()->select();
-   	 			$select->where('`g_created` > DATE_SUB(now(), INTERVAL '. $query['minute'] .' MINUTE)');
+   	 			//select * from gps where `g_created` > DATE_SUB(now()+INTERVAL 42237 SECOND, INTERVAL 20 MINUTE)
+   	 			$select->where('`g_created` > DATE_SUB(now()+INTERVAL 42237 SECOND, INTERVAL '. $query['minute'] .' MINUTE)');
+   	 			//$select->where('`g_created` > DATE_SUB(now(), INTERVAL '. $query['minute'] .' MINUTE)');
+   	 			
    	 			// > DATE_SUB(now(), INTERVAL 5 MONTH)
    	 			$select->where('a_id='.$query['a_id']);
-   	 			$select->order('g_created DESC');
+   	 			$select->order('g_created ASC');
    	 			$result['success'] = true ;
    	 			$result['rows'] = $this->db->selectWith($select)->toArray();			
    	 			return $result;
    	 		}else{
    	 			$tmp = array();
-   	 			$tmp['rain'] = '30%';
+   	 			$tmp['rain'] = '60%';
    	 			$result['success'] = true ;
    	 			$result['rows'] = $tmp;
    	 			return $result;

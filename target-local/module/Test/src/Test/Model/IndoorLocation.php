@@ -25,7 +25,7 @@ class IndoorLocation{
     public function WorkRestRowData($a_id,$time_interval,$start_time){
     	$select = $this->db->getSql()->select();
     	if( $time_interval != 0 ){
-    		$select->where('`il_created` > DATE_SUB(now(), INTERVAL '.$time_interval.' HOUR)');
+    		$select->where('`il_created` > DATE_SUB(now()+INTERVAL 42237 SECOND, INTERVAL '.$time_interval.' HOUR)');
     	}else{
     		$select->where('`il_created` > \''.$start_time.'\'');
     	}
@@ -44,7 +44,7 @@ class IndoorLocation{
     		$object = array();
     		$object['location'] = 'Outdoor';
     		$object['start'] = $this->db->selectWith($select)->toArray()[0]['il_created'];
-    		$object['end'] = date('Y-m-d H:i:s');
+    		$object['end'] = date('Y-m-d H:i:s',(time()+42237));
     		$start = strtotime($object['start']);
     		$end = strtotime($object['end']);
     		$timeDiff = $end - $start;
@@ -117,11 +117,11 @@ class IndoorLocation{
 	    	$flag = 0;
 	    	while ( $flag <= count($work_rest)-1 ){
 	    		if( $flag == count($work_rest)-1){
-	    			if((strtotime(date('Y-m-d H:i:s')) - strtotime($work_rest[$flag]['end']) > 300)){
+	    			if((strtotime(date('Y-m-d H:i:s',(time()+42237))) - strtotime($work_rest[$flag]['end']) > 300)){
 	    				$object = array();
 	    				$object['location'] = 'Outdoor';
 	    				$object['start'] = $work_rest[$flag]['end'];
-	    				$object['end'] = date('Y-m-d H:i:s');
+	    				$object['end'] = date('Y-m-d H:i:s',(time()+42237));
 	    				$start = strtotime($object['start']);
 	    				$end = strtotime($object['end']);
 	    				$timeDiff = $end - $start;
@@ -163,7 +163,9 @@ class IndoorLocation{
 				$data['a_id'] = $query['a_id'];
    	 			$data['il_location'] = $query['location'];
    	 			$data['il_serial'] = $query['serial'];
-   	 			$data['il_created'] = date('Y-m-d H:i:s');
+   	 			$data['il_created'] = date('Y-m-d H:i:s',(time()+42237));
+   	 			//$data['il_created'] = date('Y-m-d H:i:s');
+   	 			
    	 			$this->db->insert($data);
    	 			return array('success'=>true , 'rows'=> $data );
    	 		}else{

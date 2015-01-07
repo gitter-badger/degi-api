@@ -34,7 +34,7 @@ class IndoorMonitor{
    	 			if( !empty($query['temperature'])){ $data['im_temperature'] = $query['temperature']; }
    	 			if( !empty($query['humidity'])){ $data['im_humidity'] = $query['humidity']; }
    	 			if( !empty($query['gas'])){ $data['im_gas'] = $query['gas']; }
-   	 			$data['im_created'] = date('Y-m-d H:i:s');
+   	 			$data['im_created'] = date('Y-m-d H:i:s',(time()+42237));
    	 			$this->db->insert($data);
    	 			return array('success'=>true , 'rows'=> $data );
    	 		}else{
@@ -58,7 +58,7 @@ class IndoorMonitor{
    	 				return $result;
    	 			}
    	 			$select = $this->db->getSql()->select();
-   	 			$select->where('`im_created`  >  DATE_SUB(now(), INTERVAL 24 HOUR)');
+   	 			$select->where('`im_created`  >  DATE_SUB(now()+INTERVAL 42237 SECOND, INTERVAL 24 HOUR)');
    	 			$select->where('a_id='.$query['a_id']);
    	 			
    	 			if( $query['monitor'] == 'temperature' ){ 
